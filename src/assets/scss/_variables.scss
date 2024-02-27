@@ -1,3 +1,12 @@
 :root{
-    
+
+    --right-panel-width: 320px;
+    --right-panel-backgroundColor: #FAFAFA;
+    --page-header-width: 230px;
+    --left-panel-width:110px;
+}
+.page-header:root{
+    .home-page{
+        --page-header-width: 119px;
+    }
 }

@@ -1,0 +1,12 @@
+.sub-menu-list{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    .menu-item{
+        border: 1px solid;
+        padding: 17px;
+        border-radius: 20px;
+        width: 90px;
+        text-align: center;
+    }
+}

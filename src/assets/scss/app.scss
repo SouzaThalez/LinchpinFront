@@ -1,5 +1,22 @@
 // Core variables
 @import "variables";
+@import "pageContent";
+
+html,
+body{
+    
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    ul{
+        list-style: none;
+        padding-inline-start: 0;
+    }
+    .mat-typography h2{
+        margin: 0;
+    }
+}
 
 // Libraries
 //@import "bootstrap";
