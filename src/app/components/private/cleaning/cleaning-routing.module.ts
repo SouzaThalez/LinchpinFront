@@ -12,20 +12,24 @@ const routes: Routes = [
     component: CleaningComponent,
     children:[
       {
-        path:'habilidade',
+        path:'Habilidade',
         component:LowFidelityComponent
       },
       {
-        path:'habilidade/:index',
+        path:'Habilidade/:index',
         component:LowFidelityDetailsComponent
       },
       {
-        path:'media-fidelidade',
+        path:'m-Fidelidade',
         component:MediumFidelityComponent
       },
       {
-        path:'alta-fidelidade',
+        path:'a-Fidelidade',
         component:HighFidelityComponent
+      },
+      {
+        path:'**',
+        redirectTo:'Habilidade'
       }
     ] 
   }

@@ -1,0 +1,27 @@
+<div class="ocorrance">
+    <div class="p-header-sub-menu">
+        <app-tab-menu
+            aName="Treinamentos (THS)"
+            bName="Disciplinas">
+        </app-tab-menu>
+    </div>
+    <div class="ocorrance-content">
+       
+        <div class="cards-list">
+            <div class="card" 
+                 *ngFor="let element of cardType index as i" 
+                 routerLink="/private/cleaning/Habilidade/{{i}}">
+                <div class="card-head">
+                    <div class="card-description">
+                        <span class="card-title">{{element.name}}</span>
+                        <span class="card-value">{{element.value}}</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Aulas: {{element.quantity}}</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

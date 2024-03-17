@@ -1,7 +1,17 @@
 <div class="tab-menu-container">
     <div class="menu-list">
-        <div class="menu-item" [innerHTML]="aName"></div>
-        <div class="menu-item" [innerHTML]="bName"></div>
-        <div class="menu-item" [innerHTML]="cName"></div>
+        <div class="menu-item" 
+             [innerHTML]="aName"
+             routerLink="/private/{{type}}/{{aName}}"
+             routerLinkActive="active">
+        </div>
+        <div class="menu-item"
+             [innerHTML]="bName"
+             routerLinkActive="active">
+        </div>
+        <div class="menu-item" 
+             [innerHTML]="cName"
+             routerLinkActive="active">
+        </div>
     </div>
 </div>

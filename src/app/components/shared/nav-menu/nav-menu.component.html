@@ -2,19 +2,19 @@
 <div class="sub-menu-container">
     <div class="sub-menu-list">
         <div class="menu-item"  
-             routerLink="/private/cleaning/habilidade"
+             routerLink="/private/{{type}}/{{alink}}"
              routerLinkActive="active">
             <img src="assets/icons/grid_icon_black.png" alt="">
             <span [innerHTML]="alink"></span>
         </div>
         <div class="menu-item"
-             routerLink="/private/cleaning/media-fidelidade"
+             routerLink="/private/{{type}}/{{blink}}"
              routerLinkActive="active">
              <img src="assets/icons/grid_icon_black.png" alt="">
              <span [innerHTML]="blink"></span>
         </div>
         <div class="menu-item"
-             routerLink="/private/cleaning/alta-fidelidade"
+             routerLink="/private/{{type}}/{{clink}}"
              routerLinkActive="active">
              <img src="assets/icons/grid_icon_black.png" alt="">
              <span [innerHTML]="clink"></span>

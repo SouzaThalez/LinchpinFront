@@ -2,25 +2,18 @@
     <div class="page-header">
         <div class="p-header-title">
             <span class="page-title">Ocorrências</span>
-            <span class="page-description">Registre o processo de limpeza do simulador</span>
+            <span class="page-description">Registre uma itercorrencia com o simulador</span>
         </div>
         <div class="p-header-menu">
             <app-nav-menu
                 alink="Habilidade"
-                blink="M.Fidelidade"
-                clink="A.Fidelidade">  
+                blink="m-Fidelidade"
+                clink="a-Fidelidade"
+                type="ocorrences">  
             </app-nav-menu>
-        </div>
-        <div class="p-header-sub-menu">
-            <!-- 
-            <app-tab-menu
-                aName="Habilidade"
-                bName="M.Fidelidade"
-                cName="A.Fidelidade">
-            </app-tab-menu>-->
         </div>
     </div>
     <div class="page-content">
-        page content
+        <router-outlet></router-outlet>
     </div>
 </div>
