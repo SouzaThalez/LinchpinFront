@@ -1,24 +1,59 @@
 <div class="panel-container">
-    <div class="panel-icons-list">
-        <span class="panel-icon" routerLink="home" matTooltip="Home">
-                <span id="home-icon" class="material-symbols-outlined icon-img" routerLinkActive="active">window</span>
-        </span>
-        <span class="panel-icon" routerLink="cleaning">
-            <img  class="icon-img" id="clean-icon" src="assets/icons/clean_icon.png" alt="" routerLinkActive="active">
-        </span>
-        <span class="panel-icon" routerLink="ocorrences">
-            <img class="icon-img" src="assets/icons/ocorrence_icon.png" alt="" routerLinkActive="active">
-        </span>
-        <span class="panel-icon">
-            <img src="assets/icons/concerts_icon.png" alt="">
-        </span>
-        <span class="panel-icon">
-            <img src="assets/icons/following_icon.png" alt="">
-        </span>
+    <div class="header-list">
+        <div class="header-item-message">
+            <span>Bem vindo!</span>
+        </div>
+        <div class="header-item">
+            <div class="user-img"></div>
+            <div class="user-content">
+                <div class="user-name">Thales Carvalho</div>
+                <div class="role">Colaborador</div>
+            </div>
+        </div>
+        <div class="header-item">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">person</span>                
+                <span class="item-text">Perfil</span>
+            </div>
+            <div class="horizontal-line"></div>
+        </div>
     </div>
-    <div class="last-icon">
-        <span>
-            <img src="assets/icons/config_icon.png" alt="">
+    <div class="panel-icons-list">
+        <span class="panel-item" routerLink="home" matTooltip="Home">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">monitoring</span>
+                <span class="item-text">Inicial</span>
+            </div>
+        </span>
+        <span class="panel-item" routerLink="cleaning/habilidade">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">mop</span>
+                <span class="item-text">Limpeza</span>
+            </div>
+        </span>
+        <span class="panel-item" routerLink="ocorrences">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">edit_note</span>
+                <span class="item-text">Ocorrências</span>
+            </div>
+        </span>
+        <span class="panel-item">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">engineering</span>
+                <span class="item-text">Concertos</span>
+            </div>
+        </span>
+        <span class="panel-item">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">quick_reference_all</span>
+                <span class="item-text">Relatórios</span>
+            </div>
+        </span>
+        <span class="panel-item">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">settings</span>
+                <span class="item-text">Definições</span>
+            </div>
         </span>
     </div>
 </div>

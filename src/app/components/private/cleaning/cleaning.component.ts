@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-cleaning',
   templateUrl: './cleaning.component.html',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CleaningComponent implements OnInit {
 
+  
+
   constructor() { }
+
 
   ngOnInit(): void {
   }
+
+  onclick(){
+    console.log('ded')
+  }
+
+
+
 
 }

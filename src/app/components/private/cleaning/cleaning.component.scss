@@ -1,0 +1,45 @@
+.page-content{
+    .cards-list{
+        margin-top: 30px;
+        //display: flex;
+        gap: 23px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 304px);
+        .card{
+            background-color: #DBD7D7;
+            width: 291px;
+            border-radius: 7px;
+            height: 174px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            .card-head{
+                display: flex;
+                gap: 10px;
+                margin-left: 20px;
+                margin-top: 20px;
+                .card-img{
+                    background-color: #F7F7F7;
+                    height: 87px;
+                    width: 95px;
+                }
+                .card-description{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .card-divider{
+                border: 3px solid #FAFAFA;
+            }
+            .card-footer{
+                //background-color: rebeccapurple;
+                text-align: center;
+            }
+            &:hover{
+                box-shadow: 4px 1px 4px #cbbfbf;
+            }
+        }
+    }
+    
+}

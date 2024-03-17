@@ -3,9 +3,39 @@
         height: 119px;
     }
     .page-content{
+        height: calc(100% - 119px);
+        .recent-reports{
+            font-size: 25px;
+        }
         .graphic-container{
             height: 300px;
             border: 1px solid #DBD7D7;
+        }
+        .report-container{
+            margin-top: 20px;
+            border-bottom: 1px solid #D9D9D9;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: 0.5s;
+            cursor: pointer;
+            .report-head{
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                .report-description{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            &:hover{
+                background-color: #f3f3f3;
+            }
+        }
+        .reports{
+            margin-top: 50px;
         }
     }
 }

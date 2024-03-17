@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OcorrencesComponent } from './ocorrences.component';
 import { OcorrencesRoutingModule } from './ocorrences-routing.module';
-import { TabMenuComponent } from '../../shared/tab-menu/tab-menu.component';
-import { NavMenuComponent } from '../../shared/nav-menu/nav-menu.component';
+import { NavMenuModule } from '../../shared/nav-menu/nav-menu.module';
+import { TabMenuModule } from '../../shared/tab-menu/tab-menu.module';
 
 @NgModule({
   declarations: [
     OcorrencesComponent,
-    TabMenuComponent,
-    NavMenuComponent
   ],
   imports: [
     CommonModule,
-    OcorrencesRoutingModule
+    OcorrencesRoutingModule,
+    NavMenuModule,
+    TabMenuModule
+    
   ]
 })
 export class OcorrencesModule { }

@@ -1,0 +1,25 @@
+
+<div class="add-header-icon">
+    <img src="assets/icons/add-icon.png" alt="">
+</div>
+<div class="cards-list">
+    <div class="card" 
+         *ngFor="let element of simTypes index as i" 
+         routerLink="/private/cleaning/habilidade/{{i}}">
+
+        <div class="card-head">
+            <div class="card-img">
+                <img [src]="element.image" alt="">
+            </div>
+            <div class="card-description">
+                <span class="card-title">{{element.name}}</span>
+                <span>Quantidade: {{element.quantity}}</span>
+            </div>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-footer">
+            <span>Laboratório de Simulação</span>
+        </div>
+        
+    </div>
+</div>

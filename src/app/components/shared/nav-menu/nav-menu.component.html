@@ -1,8 +1,23 @@
+
 <div class="sub-menu-container">
     <div class="sub-menu-list">
-        <div class="menu-item" [innerHTML]="alink"></div>
-        <div class="menu-item" [innerHTML]="blink"></div>
-        <div class="menu-item" [innerHTML]="clink"></div>
+        <div class="menu-item"  
+             routerLink="/private/cleaning/habilidade"
+             routerLinkActive="active">
+            <img src="assets/icons/grid_icon_black.png" alt="">
+            <span [innerHTML]="alink"></span>
+        </div>
+        <div class="menu-item"
+             routerLink="/private/cleaning/media-fidelidade"
+             routerLinkActive="active">
+             <img src="assets/icons/grid_icon_black.png" alt="">
+             <span [innerHTML]="blink"></span>
+        </div>
+        <div class="menu-item"
+             routerLink="/private/cleaning/alta-fidelidade"
+             routerLinkActive="active">
+             <img src="assets/icons/grid_icon_black.png" alt="">
+             <span [innerHTML]="clink"></span>
+        </div>
     </div>
 </div>
-
