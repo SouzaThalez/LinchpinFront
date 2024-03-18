@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MediumOcorranceComponent } from './medium-ocorrance.component';
+import { SimulationComponent } from './simulation.component';
 
-describe('MediumOcorranceComponent', () => {
-  let component: MediumOcorranceComponent;
-  let fixture: ComponentFixture<MediumOcorranceComponent>;
+describe('SimulationComponent', () => {
+  let component: SimulationComponent;
+  let fixture: ComponentFixture<SimulationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MediumOcorranceComponent]
+      declarations: [SimulationComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(MediumOcorranceComponent);
+    fixture = TestBed.createComponent(SimulationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

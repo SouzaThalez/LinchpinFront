@@ -5,15 +5,25 @@ import { OcorrencesRoutingModule } from './ocorrences-routing.module';
 import { NavMenuModule } from '../../shared/nav-menu/nav-menu.module';
 import { TabMenuModule } from '../../shared/tab-menu/tab-menu.module';
 import { LowOcorranceComponent } from './low-ocorrance/low-ocorrance.component';
-import { MediumOcorranceComponent } from './medium-ocorrance/medium-ocorrance.component';
-import { HighOcorranceComponent } from './high-ocorrance/high-ocorrance.component';
+import { TrainingsComponent } from './low-ocorrance/trainings/trainings.component';
+import { DisciplinesComponent } from './low-ocorrance/disciplines/disciplines.component';
+import { SimulationComponent } from './simulation/simulation.component';
+import { ManitanceComponent } from './simulation/manitance/manitance.component';
+import { ScenarioComponent } from './simulation/scenario/scenario.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CoursersAhaComponent } from './courses/coursers-aha/coursers-aha.component';
 
 @NgModule({
   declarations: [
     OcorrencesComponent,
     LowOcorranceComponent,
-    MediumOcorranceComponent,
-    HighOcorranceComponent,
+    TrainingsComponent,
+    DisciplinesComponent,
+    SimulationComponent,
+    ManitanceComponent,
+    ScenarioComponent,
+    CoursesComponent,
+    CoursersAhaComponent
   ],
   imports: [
     CommonModule,

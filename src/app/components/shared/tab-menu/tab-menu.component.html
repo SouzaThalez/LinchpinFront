@@ -2,15 +2,12 @@
     <div class="menu-list">
         <div class="menu-item" 
              [innerHTML]="aName"
-             routerLink="/private/{{type}}/{{aName}}"
+             routerLink="/private/ocorrences/{{routerName}}/{{aName}}"
              routerLinkActive="active">
         </div>
         <div class="menu-item"
              [innerHTML]="bName"
-             routerLinkActive="active">
-        </div>
-        <div class="menu-item" 
-             [innerHTML]="cName"
+             routerLink="/private/ocorrences/{{routerName}}/{{bName}}"
              routerLinkActive="active">
         </div>
     </div>

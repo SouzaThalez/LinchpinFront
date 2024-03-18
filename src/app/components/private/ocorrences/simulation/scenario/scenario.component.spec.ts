@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HighOcorranceComponent } from './high-ocorrance.component';
+import { ScenarioComponent } from './scenario.component';
 
-describe('HighOcorranceComponent', () => {
-  let component: HighOcorranceComponent;
-  let fixture: ComponentFixture<HighOcorranceComponent>;
+describe('ScenarioComponent', () => {
+  let component: ScenarioComponent;
+  let fixture: ComponentFixture<ScenarioComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HighOcorranceComponent]
+      declarations: [ScenarioComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HighOcorranceComponent);
+    fixture = TestBed.createComponent(ScenarioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

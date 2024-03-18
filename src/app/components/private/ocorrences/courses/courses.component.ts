@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-low-ocorrance',
-  templateUrl: './low-ocorrance.component.html',
-  styleUrl: './low-ocorrance.component.scss'
+  selector: 'app-courses',
+  templateUrl: './courses.component.html',
+  styleUrl: './courses.component.scss'
 })
-
-export class LowOcorranceComponent implements OnInit{
-
+export class CoursesComponent implements OnInit{
   routerName = '';
 
   constructor(private router:ActivatedRoute){}
@@ -18,5 +16,4 @@ export class LowOcorranceComponent implements OnInit{
     //console.log(this.router.snapshot.url[0].path)
     
   }
-
 }
