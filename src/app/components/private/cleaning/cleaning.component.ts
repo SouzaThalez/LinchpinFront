@@ -16,11 +16,6 @@ export class CleaningComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onclick(){
-    console.log('ded')
-  }
-
-
 
 
 }

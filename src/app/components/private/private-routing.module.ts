@@ -21,6 +21,15 @@ const routes: Routes = [
         loadChildren: () =>
           import('./ocorrences/ocorrences.module').then((m) => m.OcorrencesModule),
       },
+      {
+        path: 'concerts',
+        loadChildren: () =>
+          import('./concerts/concerts.module').then((m) => m.ConcertsModule),
+      },
+      {
+        path:'**',
+        redirectTo:'home'
+      }
     ],
   },
 ];

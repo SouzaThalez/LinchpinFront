@@ -1,7 +1,6 @@
 .page-content{
     .cards-list{
         margin-top: 30px;
-        //display: flex;
         gap: 23px;
         display: grid;
         grid-template-columns: repeat(auto-fit, 304px);
@@ -40,6 +39,5 @@
                 box-shadow: 4px 1px 4px #cbbfbf;
             }
         }
-    }
-    
+    }   
 }
