@@ -9,6 +9,7 @@ export class TabMenuComponent implements OnInit {
   
 @Input() aName = '';
 @Input() bName = '';
+@Input() cName = '';
 @Input() type = '';
 @Input() routerName = '';
 
