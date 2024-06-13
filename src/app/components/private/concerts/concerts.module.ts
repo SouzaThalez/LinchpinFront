@@ -16,7 +16,7 @@ import { LowHabilityDetailsComponent } from './low-hability/low-hability-details
     LowHabilityComponent,
     MediumHabilityComponent,
     HighHabilityComponent,
-    LowHabilityDetailsComponent
+    LowHabilityDetailsComponent,
   ],
   imports: [
     CommonModule,
