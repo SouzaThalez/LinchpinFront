@@ -27,6 +27,11 @@ const routes: Routes = [
           import('./concerts/concerts.module').then((m) => m.ConcertsModule),
       },
       {
+        path: 'reports',
+        loadChildren: () =>
+          import('./reports/reports.module').then((m) => m.ReportsModule),
+      },
+      {
         path:'**',
         redirectTo:'home'
       }

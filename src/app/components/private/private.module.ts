@@ -11,7 +11,7 @@ import { PrivateRoutingModule } from './private-routing.module';
     PrivateComponent,
     HomeComponent,
     LeftPanelComponent,
-    RightPanelComponent,
+    RightPanelComponent
   ],
   imports: [
     CommonModule,
