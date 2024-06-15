@@ -10,7 +10,7 @@ export class NavMenuComponent implements OnInit {
   @Input() alink = '';
   @Input() blink = '';
   @Input() clink = '';
-  @Input() type = '';
+  @Input() pageType = '';
 
   constructor() { }
 

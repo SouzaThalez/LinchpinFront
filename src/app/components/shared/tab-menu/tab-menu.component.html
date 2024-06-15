@@ -1,19 +1,20 @@
 <div class="tab-menu-container">
     <div class="menu-list">
         <div class="menu-item" 
-             [innerHTML]="aName"
-             routerLink="/private/ocorrences/{{routerName}}/{{aName}}"
+             [innerHTML]="aTabLink"
+             routerLink="/private/{{pageTypeName}}/{{type}}/{{aTabLink}}"
              routerLinkActive="active">
         </div>
         <div class="menu-item"
-             [innerHTML]="bName"
-             routerLink="/private/ocorrences/{{routerName}}/{{bName}}"
+             [innerHTML]="bTabLink"
+             routerLink="/private/{{pageTypeName}}/{{type}}/{{bTabLink}}"
              routerLinkActive="active">
         </div>
         <div class="menu-item"
-             [innerHTML]="cName"
-             routerLink="/private/ocorrences/{{routerName}}/{{bName}}"
+             [innerHTML]="cTabLink"
+             routerLink="/private/{{pageTypeName}}/{{type}}/{{cTabLink}}"
              routerLinkActive="active">
         </div>
     </div>
 </div>
+  

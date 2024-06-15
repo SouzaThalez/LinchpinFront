@@ -12,6 +12,8 @@ export class CoursesComponent implements OnInit{
   constructor(private router:ActivatedRoute){}
 
   ngOnInit(): void {
+    //course
+    debugger
     this.routerName = this.router.snapshot.url[0].path;
     //console.log(this.router.snapshot.url[0].path)
     

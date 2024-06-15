@@ -1,1 +1,13 @@
-<p>simulation works!</p>
+<div class="ocorrance">
+    <div class="p-header-sub-menu">
+        <app-tab-menu
+            aTabLink="relatorio-cenarios"
+            bTabLink="relatorio-limpeza"
+            cTabLink="relatorio-manutencao"
+            [type]="routerName">
+        </app-tab-menu>
+    </div>
+    <div class="ocorrance-content">
+       <router-outlet></router-outlet>
+    </div>
+</div>

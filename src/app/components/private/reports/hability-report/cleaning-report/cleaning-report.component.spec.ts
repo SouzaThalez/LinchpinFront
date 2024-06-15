@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HabilityComponent } from './hability.component';
+import { CleaningReportComponent } from './cleaning-report.component';
 
-describe('HabilityComponent', () => {
-  let component: HabilityComponent;
-  let fixture: ComponentFixture<HabilityComponent>;
+describe('CleaningReportComponent', () => {
+  let component: CleaningReportComponent;
+  let fixture: ComponentFixture<CleaningReportComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HabilityComponent]
+      declarations: [CleaningReportComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HabilityComponent);
+    fixture = TestBed.createComponent(CleaningReportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -20,11 +20,11 @@ const routes: Routes = [
         component:LowFidelityDetailsComponent
       },
       {
-        path:'m-Fidelidade',
+        path:'media-Fidelidade',
         component:MediumFidelityComponent
       },
       {
-        path:'a-Fidelidade',
+        path:'alta-Fidelidade',
         component:HighFidelityComponent
       },
       {

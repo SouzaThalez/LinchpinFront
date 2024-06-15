@@ -11,7 +11,7 @@ export class LowFidelityComponent implements OnInit{
   simTypes = simulatorTypes;
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
 }
