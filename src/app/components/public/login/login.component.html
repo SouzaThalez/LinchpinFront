@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="login-page">
+    <div class="page-container">
+        <div class="columns left-column">
+            <div class="image-container">
+                <img src="assets/images/login/login-image.png" alt="">
+            </div>
+        </div>
+        <div class="columns right-column">
+            <div class="login-container">
+                <div class="login-title">
+                    <img src="assets/images/login/login-title.png" alt="">
+                </div>
+                <div class="fields-container">
+                    <mat-form-field class="mat-form-field" appearance="outline">
+                        <mat-label>Seu nome</mat-label>
+                        <input matInput #loginName maxlength="20" placeholder="Ex. carlos.souza">
+                      </mat-form-field>
+                      <mat-form-field class="mat-form-field" appearance="outline">
+                        <mat-label>Senha</mat-label>
+                        <input matInput #password (keyup.enter)="getLoginInfo(loginName.value,password.value)" type="password"  maxlength="13" placeholder="">
+                        <mat-hint align="end">{{password.value.length}} / 13</mat-hint>
+                      </mat-form-field>
+                      <button mat-raised-button class="login-btn" (click)="getLoginInfo(loginName.value,password.value)">Entrar</button>
+                      <span class="login-message">{{loginMessage}}</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

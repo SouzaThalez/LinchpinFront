@@ -1,0 +1,32 @@
+{
+    "Users": [
+        {
+          "id": 1,
+          "role": "moderador",
+          "login": "thales.carvalho",
+          "password": "thales.123",
+          "name": "Thales"
+        },
+        {
+          "id": 2,
+          "login": "taline.pereira",
+          "password": "taline.123",
+          "name": "Taline",
+          "role": "tecnico"
+        },
+        {
+          "id": 3,
+          "name": "Mariana",
+          "password": "mariana.123",
+          "role": "admin",
+          "login": "mariana.araujo"
+        },
+        {
+          "name": "Isabela",
+          "password": "isabela.123",
+          "role": "deposito",
+          "logi": "isabela.souza",
+          "id": 4
+        }
+      ]
+}
