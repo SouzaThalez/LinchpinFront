@@ -1,0 +1,28 @@
+.print-title{
+    text-align: center;
+}
+.print-text{
+    text-align: center;
+}
+.print-btns{
+    justify-content: center;
+    gap: 10px;
+}
+.print-btn{
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0dcaf0;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.yes-btn{
+    background-color: #18718d;
+    color: white;
+}
+.no-btn{
+    background-color: #c95c5c;
+    color: white;
+}

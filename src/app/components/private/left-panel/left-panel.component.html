@@ -6,12 +6,12 @@
         <div class="header-item">
             <div class="user-img"></div>
             <div class="user-content">
-                <div class="user-name">Thales Carvalho</div>
+                <div class="user-name"><b>Thales Carvalho</b></div>
                 <div class="role">Colaborador</div>
             </div>
         </div>
         <div class="header-item">
-            <div class="item-container" routerLinkActive="active">
+            <div class="item-container" routerLink="profile" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">person</span>                
                 <span class="item-text">Perfil</span>
             </div>
@@ -19,41 +19,57 @@
         </div>
     </div>
     <div class="panel-icons-list">
+
         <span class="panel-item" routerLink="home" matTooltip="Home">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">monitoring</span>
                 <span class="item-text">Inicial</span>
             </div>
         </span>
+
         <span class="panel-item" routerLink="cleaning">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">mop</span>
                 <span class="item-text">Limpeza</span>
             </div>
         </span>
+
         <span class="panel-item" routerLink="ocorrences">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">edit_note</span>
                 <span class="item-text">Ocorrências</span>
             </div>
         </span>
+
         <span class="panel-item" routerLink="concerts">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">engineering</span>
                 <span class="item-text">Concertos</span>
             </div>
         </span>
+
         <span class="panel-item" routerLink="reports">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">quick_reference_all</span>
                 <span class="item-text">Relatórios</span>
             </div>
         </span>
+
         <span class="panel-item">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">settings</span>
                 <span class="item-text">Definições</span>
             </div>
         </span>
+
+        <span class="panel-item" (click)="openlogOutDialog()">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined">
+                    logout
+                </span>
+               <span>Sair</span>
+            </div>
+        </span>
+    
     </div>
 </div>

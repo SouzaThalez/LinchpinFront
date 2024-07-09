@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class LoginComponent implements OnInit{
   
   loginMessage = '';
-  users: User[] = []
+  users: User[] = [];
 
   constructor(
     private router: Router,
@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit{
   }
 
   
-
   getLoginInfo(userName: string, userPassword: string){
+   
     let userFound = this.users.find((element: any)=> element.login == userName);
     if(userFound == null){
       this.loginMessage = 'Nome do usuário Icorreto!!';
@@ -50,22 +50,8 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  // openNewsDialog(foundUser:any){
-  //   if(foundUser.newsDialog){
-  //     // news dialog checked , so dont open again!
-  //   }else{
-  //     //news dialog false, so open it !
-  //     this.matDialog.open(NewsDialogComponent,{
-  //       disableClose: true,
-  //       width:'500px'
-  
-  //     })
-  //   }
-  // }
 
-
-
-  getUsersFromJson(){
+  private getUsersFromJson(){
     this.httpClient.get('http://localhost:3000/Users')
     .subscribe({
       //if request is true
