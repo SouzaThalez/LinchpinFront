@@ -8,6 +8,10 @@ import { PrivateRoutingModule } from './private-routing.module';
 import { LogOutDialogComponent } from './left-panel/log-out-dialog/log-out-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProfileComponent } from './profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,12 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     CommonModule,
     PrivateRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
   ]
 })
 export class PrivateModule { }
