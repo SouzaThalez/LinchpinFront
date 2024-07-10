@@ -12,6 +12,7 @@ import { ManitanceComponent } from './simulation/manitance/manitance.component';
 import { ScenarioComponent } from './simulation/scenario/scenario.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursersAhaComponent } from './courses/coursers-aha/coursers-aha.component';
+import { TrainingLessonCardsComponent } from './low-ocorrance/trainings/training-lesson-cards/training-lesson-cards.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CoursersAhaComponent } from './courses/coursers-aha/coursers-aha.compon
     ManitanceComponent,
     ScenarioComponent,
     CoursesComponent,
-    CoursersAhaComponent
+    CoursersAhaComponent,
+    TrainingLessonCardsComponent
   ],
   imports: [
     CommonModule,

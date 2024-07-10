@@ -1,16 +1,16 @@
 <div class="cards-list">
-    <div class="card" 
-         *ngFor="let element of cardType index as i" 
-         routerLink="/private/ocorrences/Habilidade/treinamentos/{{i}}">
-        <div class="card-head">
-            <div class="card-description">
-                <span class="card-title">{{element.name}}</span>
-                <span class="card-value">{{element.value}}</span>
+    <div class="card" *ngFor="let element of cardType; let i = index"
+                       [routerLink]="'/private/ocorrences/Habilidade/treinamentos/' + (i + 1)">
+            <div class="card-head">
+                <div class="card-description">
+                    <span class="card-title">{{ element.name }}</span>
+                    <span class="card-value">{{ element.value }}</span>
+                </div>
             </div>
-        </div>
-        <div class="card-footer">
-            <span>Aulas: {{element.quantity}}</span>
-        </div>
-        
+            <div class="card-footer">
+                <span>Aulas: {{ element.quantity }}</span>
+            </div>
+       
     </div>
+    
 </div>

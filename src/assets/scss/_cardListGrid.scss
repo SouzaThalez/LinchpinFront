@@ -15,6 +15,7 @@
         flex-direction: column;
         justify-content: space-between;
         cursor: pointer;
+        
         .card-head{
             display: flex;
             justify-content: center;
@@ -40,15 +41,18 @@
                 }
             }
         }
+
         .card-divider{
             border: 3px solid #FAFAFA;
             margin-left: 10px;
             margin-right: 10px;
         }
+
         .card-footer{
             text-align: center;
             margin-bottom: 10px;
         }
+
         &:hover{
            background-color: #bbdbe9;
         }

@@ -46,6 +46,7 @@ export const ocorranceData ={
             quantity:'20'
         }
     ],
+
     disciplineTypes:[
         {
             name:'Treinamento Habilidade',
@@ -63,6 +64,7 @@ export const ocorranceData ={
             quantity:'2'
         }
     ],
+
     manitanceTypes:[
         {
             name:'Manutenção',
@@ -80,6 +82,7 @@ export const ocorranceData ={
             quantity:'2'
         }
     ],
+
     scenarioTypes:[
         {
             name:'Registro',
@@ -97,6 +100,7 @@ export const ocorranceData ={
             quantity:'2'
         }
     ],
+    
     coursersType:[
         {
             name:'Registro',
