@@ -1,0 +1,21 @@
+.breadcrumb-nav{
+    margin-top: 25px;
+    li{
+        a{
+            text-decoration: none;
+            font-size: 15px;
+            
+        }        
+    }   
+}
+
+.breadcrumb {
+    li:first-child {
+        a {
+            color: var(--hover-panel-left-color);
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
