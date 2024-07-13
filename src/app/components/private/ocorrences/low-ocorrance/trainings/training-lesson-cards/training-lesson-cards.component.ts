@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { trainingLessonsData } from '../../../../../../data/trainingLessonsData';
+import { ocorranceData } from '../../../../../../data/ocorranceData';
 
 @Component({
   selector: 'app-training-lesson-cards',
@@ -10,7 +11,9 @@ import { trainingLessonsData } from '../../../../../../data/trainingLessonsData'
 export class TrainingLessonCardsComponent implements OnInit{
 
   routeIndex:any;
-  trainingData = trainingLessonsData
+  trainingData = ocorranceData.trainingTypes;
+  training:any;
+
   constructor(
     private activeRoute:ActivatedRoute,
   ){}
@@ -19,10 +22,10 @@ export class TrainingLessonCardsComponent implements OnInit{
 
    this.activeRoute.params.subscribe(value =>{
       this.routeIndex = value['index'];
-      console.log(this.routeIndex)
+      this.training = this.trainingData[this.routeIndex];
+      console.log(this.training)
    })
 
-   console.log(this.trainingData)
 
   }
 

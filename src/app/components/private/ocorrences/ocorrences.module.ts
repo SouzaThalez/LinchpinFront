@@ -13,6 +13,7 @@ import { ScenarioComponent } from './simulation/scenario/scenario.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursersAhaComponent } from './courses/coursers-aha/coursers-aha.component';
 import { TrainingLessonCardsComponent } from './low-ocorrance/trainings/training-lesson-cards/training-lesson-cards.component';
+import { DisciplineLessonCardsComponent } from './low-ocorrance/disciplines/discipline-lesson-cards/discipline-lesson-cards.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TrainingLessonCardsComponent } from './low-ocorrance/trainings/training
     ScenarioComponent,
     CoursesComponent,
     CoursersAhaComponent,
-    TrainingLessonCardsComponent
+    TrainingLessonCardsComponent,
+    DisciplineLessonCardsComponent
   ],
   imports: [
     CommonModule,

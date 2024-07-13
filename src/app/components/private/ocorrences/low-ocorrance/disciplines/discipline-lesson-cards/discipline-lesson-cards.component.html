@@ -1,12 +1,12 @@
 <div class="page">
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a routerLink="../../treinamentos"> Treinamentos </a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a>treinamento {{training.value}}</a></li>
+            <li class="breadcrumb-item"><a routerLink="../../disciplinas"> Disciplinas </a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a>disciplina {{discipline?.value}}</a></li>
         </ol>
     </nav>
     <div class="details-list">
-        <div class="card-container" *ngFor="let lesson of training?.lessons">
+        <div class="card-container" *ngFor="let lesson of discipline?.lessons">
             <div class="card-head">
                 <div class="card-image"></div>
                 <div class="card-description">

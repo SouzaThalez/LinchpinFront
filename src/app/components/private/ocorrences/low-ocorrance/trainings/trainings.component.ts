@@ -12,7 +12,7 @@ export class TrainingsComponent implements OnInit{
   cardType = ocorranceData.trainingTypes;
 
   ngOnInit(): void {
-    
+   
   }
 
 }
