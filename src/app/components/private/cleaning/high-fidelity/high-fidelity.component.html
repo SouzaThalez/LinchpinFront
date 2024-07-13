@@ -2,43 +2,19 @@
 <div class="page">
 
     <div class="details-list">
-        <div class="card-container">
+        <div class="card-container" *ngFor="let simulator of highSimulators">
             <div class="card-head">
-                <div class="card-image"></div>
+                <div class="card-image">
+                    <img [src]="simulator.image" alt="">
+                </div>
                 <div class="card-description">
-                    <span>Title</span>
-                    <span>card description</span>
-                    <span>Quantity</span>
+                    <span>{{simulator.name}}</span>
+                    <span>{{simulator.description}}</span>
+                    <span>Quantidade: 1</span>
                 </div>
             </div>
             <div class="register-container">
-                <span class="register-btn">btn span</span>
-            </div>
-        </div>
-        <div class="card-container">
-            <div class="card-head">
-                <div class="card-image"></div>
-                <div class="card-description">
-                    <span>Title</span>
-                    <span>card description</span>
-                    <span>Quantity</span>
-                </div>
-            </div>
-            <div class="register-container">
-                <span class="register-btn">btn span</span>
-            </div>
-        </div>
-        <div class="card-container">
-            <div class="card-head">
-                <div class="card-image"></div>
-                <div class="card-description">
-                    <span>Title</span>
-                    <span>card description</span>
-                    <span>Quantity</span>
-                </div>
-            </div>
-            <div class="register-container">
-                <span class="register-btn">btn span</span>
+                <span class="register-btn">saber mais...</span>
             </div>
         </div>
     </div>

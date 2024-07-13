@@ -7,6 +7,8 @@ import { LowFidelityComponent } from './low-fidelity/low-fidelity.component';
 import { MediumFidelityComponent } from './medium-fidelity/medium-fidelity.component';
 import { HighFidelityComponent } from './high-fidelity/high-fidelity.component';
 import { LowFidelityDetailsComponent } from './low-fidelity/low-fidelity-details/low-fidelity-details.component';
+import { MediumCleaningDialogComponent } from './medium-fidelity/medium-cleaning-dialog/medium-cleaning-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -16,11 +18,13 @@ import { LowFidelityDetailsComponent } from './low-fidelity/low-fidelity-details
     MediumFidelityComponent,
     HighFidelityComponent,
     LowFidelityDetailsComponent,
+    MediumCleaningDialogComponent,
   ],
   imports: [
     CommonModule,
     CleaningRoutingModule,
-    NavMenuModule
+    NavMenuModule,
+    MatDialogModule
 
   ]
 })

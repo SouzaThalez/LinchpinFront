@@ -1,0 +1,101 @@
+<div class="modal-header">
+    <div class="first-header">
+        <span mat-dialog-title>Limpeza do - Simulador</span>
+
+        <span class="material-symbols-outlined cross">
+          <a mat-dialog-close>close</a>
+        </span>
+    </div>
+    <div class="second-header">
+        <span class="modal-description">
+            <p>
+                A limpeza do simulador é um importante processo que vai garantir a durabilidade e a conservação da peça.
+                Para além disso, aumenta o ciclo de vida do simulador, contribuindo para sua saúde.
+            </p>
+        </span>
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+<!--     
+            <div class="manitance-header">
+                <h3 class="manitance-title">{{data.modalName}}</h3>
+                <img [src]="data.simulator.image" alt="">
+            </div>
+        
+            <h2 class="categ-title">Categoria da Limpeza</h2>
+            <div class="dialog-subHeader">
+                <div class="sub-item">
+                    <mat-radio-group formControlName="manitanceType">
+                        <mat-radio-button value="primária">Primária</mat-radio-button>
+                        <mat-radio-button value="secundária">Secundária</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="sub-item">
+                    <mat-form-field appearance="outline" class="medium-date-picker">
+                        <mat-label>Data..</mat-label>
+                        <input formControlName="date" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <button class="question-btn-circle"  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <span class="material-symbols-outlined question-mark">contact_support</span>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <div class="menu-content">
+                    <div class="menu-header">
+                        <h3>Manutenção Primária</h3>
+                        <span class="material-symbols-outlined">clean_hands</span>
+                    </div>
+                    <span class="menu-description">
+                        Antes de montar um cenário de Simulação
+                        Verificar se o simulador está limpo e entalcado,
+                        Verificar se existe algum dano (manchas,amassos,rasgo),
+                        Verificar se existem peças faltando,
+                        Fazer a montagem do simulador e testar os mecanismos que serão utilizados na aula
+                    </span>
+                    <div class="menu-header">
+                        <h3>Manutenção Secundária</h3>
+                        <span class="material-symbols-outlined">clean_hands</span>
+                    </div>
+                    <span class="menu-description">
+                        Após o término da ultima simulação
+                        Verificar se o simualdor está sujo,manchado,danificado ou com vazamentos,
+                        Limpeza do simulador com compressa umedecida e sabão neutro,
+                        Entalcar o simulador como um todo, tendo foco princial as partes que são mais utilizadas,
+                        Esvazias drenos e liquidos do simulador, verficar se falta alguma peça ou acessório,
+                        Deixa-lo em condições de uso para a próxima aula 
+                    </span>
+                </div>
+            </mat-menu>
+            <div class="dialog-body">
+                <h2>Achados durante a Limpeza</h2>
+                <mat-checkbox
+                    class="manitance-checkbox"
+                    (change)="checkBox($event.checked)"> 
+                        Nenhum
+                </mat-checkbox>
+            </div>
+        
+            <div class="text-area-container" *ngIf="checked else showTextArea">
+                <p class="text-msg"[innerHtml]="textMsg"></p>
+            </div>
+            <div class="text-area-container">
+                <ng-template #showTextArea>
+                    <mat-form-field class="manitance-text-area" appearance="outline">
+                        <mat-label>Durante a Limpeza deste simulador...</mat-label>
+                        <textarea formControlName="textArea" matInput ></textarea>
+                    </mat-form-field>
+                </ng-template>
+            </div> -->
+          
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="modal-btn">Confirmar</button>
+</mat-dialog-actions>
