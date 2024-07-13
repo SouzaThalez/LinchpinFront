@@ -5,7 +5,7 @@
     .menu-item{
         padding: 17px;
         border-radius: 20px;
-        width: 143px;
+        width: 185px;
         text-align: center;
         cursor: pointer;
         display: flex;
@@ -15,7 +15,7 @@
         gap: 5px;
         background-color: #FAFAFA;
         &:hover, &.active{
-            background-color: #bbdbe9;
+            background-color: var(--hover-panel-left-color);
             color: gray;
         }
     }
