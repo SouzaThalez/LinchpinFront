@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit{
 
   
   getLoginInfo(userName: string, userPassword: string){
-  
+    
     let userFound = this.users.find((element: any)=> element.login == userName);
     if(userFound == null){
       this.loginMessage = 'Nome do usuário Icorreto!!';

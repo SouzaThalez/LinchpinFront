@@ -1,8 +1,10 @@
-.ocorrance{
+.page{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    ///background-color: #bbdbe9;
-    overflow-y: scroll;
-    //padding-bottom: 30px;
+    
+    .content{
+        height: 100%;
+        overflow-y: auto;
+    }
 }

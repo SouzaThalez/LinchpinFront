@@ -1,15 +1,19 @@
-<div class="cards-list">
-    <div class="card" 
-         *ngFor="let element of disciplines index as i" 
-         routerLink="/private/ocorrences/Habilidade/disciplinas/{{i}}">
-        <div class="card-head">
-            <div class="card-description">
-                <span class="card-title">{{element.name}}</span>
-                <span class="card-value">{{element.value}}</span>
+<div class="page">
+    
+    <div class="cards-list">
+        <div class="card" 
+             *ngFor="let element of disciplines index as i" 
+             routerLink="/private/ocorrences/Habilidade/disciplinas/{{i}}">
+            <div class="card-head">
+                <div class="card-description">
+                    <span class="card-title">{{element.name}}</span>
+                    <span class="card-value">{{element.value}}</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span>Aulas: {{element.quantity}}</span>
             </div>
         </div>
-        <div class="card-footer">
-            <span>Aulas: {{element.quantity}}</span>
-        </div>
     </div>
+    
 </div>

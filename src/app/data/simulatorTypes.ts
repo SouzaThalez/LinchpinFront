@@ -18,5 +18,24 @@ export const simulatorTypes = [
         name:'Pelves para exame',
         quantity: 10,
         image:'assets/images/logo/lowSimulators/pelves/promptPelv.png'
-    }
+    },
+
+
+
+
+    // {
+    //     name:'Pelves para exame',
+    //     quantity: 10,
+    //     image:'assets/images/logo/lowSimulators/pelves/promptPelv.png'
+    // },
+    // {
+    //     name:'Pelves para exame',
+    //     quantity: 10,
+    //     image:'assets/images/logo/lowSimulators/pelves/promptPelv.png'
+    // },
+    // {
+    //     name:'Pelves para exame',
+    //     quantity: 10,
+    //     image:'assets/images/logo/lowSimulators/pelves/promptPelv.png'
+    // }
 ]
