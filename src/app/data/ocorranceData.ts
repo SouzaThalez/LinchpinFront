@@ -738,7 +738,12 @@ export const ocorranceData ={
                   name: 'Guia - Queimaduras',
                   description: 'Lesson description',
                   updateDate: '10/10/2024'
-                }
+                },
+                {
+                  name: 'Outras - Não padronizada',
+                  description: 'Lesson description',
+                  updateDate: '10/10/2024'
+                },
             ]
         },
         {
@@ -763,13 +768,13 @@ export const ocorranceData ={
             value:'Deont',
             quantity:'2',
             lessons:[
-                {
-                    name: 'Fisioterapia',
+                  {
+                    name: 'Deontologia',
                     description: 'Lesson description',
                     updateDate: '10/10/2024'
                   },
                   {
-                    name: 'Deontologia',
+                    name: 'Outras - Não padronizada',
                     description: 'Lesson description',
                     updateDate: '10/10/2024'
                   },

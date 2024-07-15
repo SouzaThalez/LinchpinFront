@@ -14,6 +14,14 @@ import { CoursesComponent } from './courses/courses.component';
 import { CoursersAhaComponent } from './courses/coursers-aha/coursers-aha.component';
 import { TrainingLessonCardsComponent } from './low-ocorrance/trainings/training-lesson-cards/training-lesson-cards.component';
 import { DisciplineLessonCardsComponent } from './low-ocorrance/disciplines/discipline-lesson-cards/discipline-lesson-cards.component';
+import { OcorranceDialogComponent } from './low-ocorrance/ocorrance-dialog/ocorrance-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -27,13 +35,21 @@ import { DisciplineLessonCardsComponent } from './low-ocorrance/disciplines/disc
     CoursesComponent,
     CoursersAhaComponent,
     TrainingLessonCardsComponent,
-    DisciplineLessonCardsComponent
+    DisciplineLessonCardsComponent,
+    OcorranceDialogComponent
   ],
   imports: [
     CommonModule,
     OcorrencesRoutingModule,
     NavMenuModule,
-    TabMenuModule
+    TabMenuModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSelectModule,
     
   ]
 })

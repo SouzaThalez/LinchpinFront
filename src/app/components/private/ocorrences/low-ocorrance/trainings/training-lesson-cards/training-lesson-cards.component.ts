@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { trainingLessonsData } from '../../../../../../data/trainingLessonsData';
 import { ocorranceData } from '../../../../../../data/ocorranceData';
+import { MatDialog } from '@angular/material/dialog';
+import { OcorranceDialogComponent } from '../../ocorrance-dialog/ocorrance-dialog.component';
 
 @Component({
   selector: 'app-training-lesson-cards',
@@ -16,6 +18,7 @@ export class TrainingLessonCardsComponent implements OnInit{
 
   constructor(
     private activeRoute:ActivatedRoute,
+    private matDialog: MatDialog,
   ){}
 
   ngOnInit(): void {
@@ -28,5 +31,23 @@ export class TrainingLessonCardsComponent implements OnInit{
 
 
   }
+
+
+
+  openOcorranceDialog(){
+
+    let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
+      disableClose: true,
+      width:'650px'
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
+
+
 
 }
