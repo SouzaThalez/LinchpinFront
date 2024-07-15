@@ -14,6 +14,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HighCleaningDialogComponent } from './high-fidelity/high-cleaning-dialog/high-cleaning-dialog.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HighFidelityComponent,
     LowFidelityDetailsComponent,
     MediumCleaningDialogComponent,
+    HighCleaningDialogComponent,
   ],
   imports: [
     CommonModule,

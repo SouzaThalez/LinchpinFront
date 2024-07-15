@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { simulators } from '../../../../data/simulators';
+import { MatDialog } from '@angular/material/dialog';
+import { HighCleaningDialogComponent } from './high-cleaning-dialog/high-cleaning-dialog.component';
 
 @Component({
   selector: 'app-high-fidelity',
@@ -9,9 +11,30 @@ import { simulators } from '../../../../data/simulators';
 export class HighFidelityComponent implements OnInit{
 
   highSimulators = simulators.highFidelity;
-  constructor(){}
+  
+  constructor(
+    private matDialog: MatDialog,
+  ){}
+
   ngOnInit(): void {
     
   }
+
+  openHighCleaningDialog(){
+
+    let dialogRef = this.matDialog.open(HighCleaningDialogComponent,{
+      disableClose: true,
+      width:'650px'
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
+
+
+
 
 }

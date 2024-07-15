@@ -1,28 +1,28 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {provideNativeDateAdapter} from '@angular/material/core';
+import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-medium-cleaning-dialog',
-  templateUrl: './medium-cleaning-dialog.component.html',
-  styleUrl: './medium-cleaning-dialog.component.scss',
+  selector: 'app-high-cleaning-dialog',
+  templateUrl: './high-cleaning-dialog.component.html',
+  styleUrl: './high-cleaning-dialog.component.scss',
   providers: [provideNativeDateAdapter()],
 })
-export class MediumCleaningDialogComponent implements OnInit{
+export class HighCleaningDialogComponent implements OnInit{
 
   checked = false;
-  textMsg = 'mensagwem'
+  textMsg = 'mensagwem';
 
   constructor(
-    public dialogRef: MatDialogRef<MediumCleaningDialogComponent>,
+    public dialogRef: MatDialogRef<HighCleaningDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ){}
-
+  
   ngOnInit(): void {
+    
+  } 
 
-   
-  }
-
+  
   onClose(value: string): void {
     this.dialogRef.close(value);
   }
@@ -31,5 +31,7 @@ export class MediumCleaningDialogComponent implements OnInit{
   checkBox(value: any){
 
   }
+
+
 
 }
