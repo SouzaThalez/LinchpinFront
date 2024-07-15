@@ -1,0 +1,107 @@
+<div class="modal-header">
+    <div class="header-container">
+
+        <div class="simulator-image">
+            <img src="assets/images/Simulators/MediumFidelity/ressuciAnne.jpg" alt="">
+            <span>SimMan 3G</span>
+        </div>
+        <div class="header-description">
+            <span>
+                A <b>limpeza </b>do simulador é um importante processo que vai garantir a durabilidade e a conservação da peça.
+                Para além disso, aumenta o ciclo de vida do simulador, contribuindo para sua saúde.
+            </span>
+        </div>
+        
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+
+    
+    <div class="dialog-body">
+
+        <div class="dialog-container">
+            <h2>Simulador</h2>
+            <h2>Registro</h2>
+        </div>
+        
+        <div class="dialog-container">
+
+            <mat-form-field class="sim-field" appearance="outline">
+                <mat-label>Simulador</mat-label>
+                <mat-select>
+                    <mat-option  value="1">Punção arterial</mat-option>
+                    <mat-option  value="1">Punção Venosa</mat-option>
+                </mat-select>
+                <!-- <mat-select formControlName="simulator">
+                    <mat-option (click)="getSimulator(element)" *ngFor="let element of data.simulators" [value]="element.name">{{element.name}}</mat-option>
+                </mat-select> -->
+            </mat-form-field>
+
+            <mat-form-field class="code-field-form" appearance="outline">
+                <mat-label>Codigo do simulador</mat-label>
+                <mat-select >
+                    <mat-option value="1">12DMEO</mat-option>
+                    <mat-option value="1">12DMEO</mat-option>
+                    <mat-option value="1">12DMEO</mat-option>
+                </mat-select>
+                <!-- <mat-select formControlName="code">
+                    <mat-option *ngFor="let element of simulatorCodes" [value]="element.code">{{element.code}}</mat-option>
+                </mat-select> -->
+            </mat-form-field>
+        </div>
+
+        <div class="dialog-container">  
+            <h2 class="categ-title">Categoria da Limpeza</h2>
+            <h2 class="categ-title">Data da limpeza</h2>
+        </div>
+
+        <div class="dialog-container">
+            <div class="sub-item">
+                <mat-radio-group>
+                    <mat-radio-button value="primária">Primária</mat-radio-button>
+                    <mat-radio-button value="secundária">Secundária</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="sub-item">
+                <mat-form-field appearance="outline" class="medium-date-picker">
+                    <mat-label>Escolha uma data...</mat-label>
+                    <input  matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="dialog-container">
+            <h2>Achados durante a Limpeza</h2>
+            <mat-checkbox
+            class="manitance-checkbox"
+            (change)="checkBox($event.checked)"> 
+                Nenhum
+        </mat-checkbox>
+        </div>
+    
+        <div class="text-area-container" *ngIf="checked else showTextArea">
+            <p class="text-msg"[innerHtml]="textMsg"></p>
+        </div>
+    
+        <div class="text-area">
+            <ng-template #showTextArea>
+                <mat-form-field class="text-area-form" appearance="outline">
+                    <mat-label>Durante a Limpeza deste simulador...</mat-label>
+                    <textarea formControlName="textArea" matInput ></textarea>
+                </mat-form-field>
+            </ng-template>
+        </div>
+    
+    </div>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+ 
+    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn confirm-btn">Confirmar</button>
+    
+</mat-dialog-actions>

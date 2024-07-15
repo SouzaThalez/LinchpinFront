@@ -15,6 +15,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HighCleaningDialogComponent } from './high-fidelity/high-cleaning-dialog/high-cleaning-dialog.component';
+import { LowFidelityCleaningDialogComponent } from './low-fidelity/low-fidelity-cleaning-dialog/low-fidelity-cleaning-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { HighCleaningDialogComponent } from './high-fidelity/high-cleaning-dialo
     LowFidelityDetailsComponent,
     MediumCleaningDialogComponent,
     HighCleaningDialogComponent,
+    LowFidelityCleaningDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,8 @@ import { HighCleaningDialogComponent } from './high-fidelity/high-cleaning-dialo
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSelectModule,
 
   ]
 })
