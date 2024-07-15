@@ -9,6 +9,11 @@ import { HighFidelityComponent } from './high-fidelity/high-fidelity.component';
 import { LowFidelityDetailsComponent } from './low-fidelity/low-fidelity-details/low-fidelity-details.component';
 import { MediumCleaningDialogComponent } from './medium-fidelity/medium-cleaning-dialog/medium-cleaning-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -24,7 +29,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     CommonModule,
     CleaningRoutingModule,
     NavMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule
 
   ]
 })

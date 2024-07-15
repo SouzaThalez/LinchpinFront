@@ -1,22 +1,72 @@
 <div class="modal-header">
-    <div class="first-header">
-        <span mat-dialog-title>Limpeza do - Simulador</span>
+    <div class="header-container">
 
-        <span class="material-symbols-outlined cross">
-          <a mat-dialog-close>close</a>
-        </span>
-    </div>
-    <div class="second-header">
-        <span class="modal-description">
-            <p>
-                A limpeza do simulador é um importante processo que vai garantir a durabilidade e a conservação da peça.
+        <div class="simulator-image">
+            <img src="assets/images/Simulators/MediumFidelity/ressuciAnne.jpg" alt="">
+            <span>Ressusci Anne</span>
+        </div>
+        <div class="header-description">
+            <span>
+                A <b>limpeza </b>do simulador é um importante processo que vai garantir a durabilidade e a conservação da peça.
                 Para além disso, aumenta o ciclo de vida do simulador, contribuindo para sua saúde.
-            </p>
-        </span>
+            </span>
+        </div>
+        
     </div>
 </div>
 
 <mat-dialog-content class="mat-typography" >
+    <div class="dialog-body">
+
+        <div class="dialog-container">  
+            <h2 class="categ-title">Categoria da Limpeza</h2>
+            <h2 class="categ-title">Data da limpeza</h2>
+        </div>
+
+        <div class="dialog-container">
+            <div class="sub-item">
+                <mat-radio-group>
+                    <mat-radio-button value="primária">Primária</mat-radio-button>
+                    <mat-radio-button value="secundária">Secundária</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="sub-item">
+                <mat-form-field appearance="outline" class="medium-date-picker">
+                    <mat-label>Escolha uma data...</mat-label>
+                    <input  matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="dialog-container">
+            <h2>Achados durante a Limpeza</h2>
+            <mat-checkbox
+            class="manitance-checkbox"
+            (change)="checkBox($event.checked)"> 
+                Nenhum
+        </mat-checkbox>
+        </div>
+    
+        <div class="text-area-container" *ngIf="checked else showTextArea">
+            <p class="text-msg"[innerHtml]="textMsg"></p>
+        </div>
+    
+        <div class="text-area">
+            <ng-template #showTextArea>
+                <mat-form-field class="text-area-form" appearance="outline">
+                    <mat-label>Durante a Limpeza deste simulador...</mat-label>
+                    <textarea formControlName="textArea" matInput ></textarea>
+                </mat-form-field>
+            </ng-template>
+        </div>
+    
+    </div>
+    
+
+
+
 <!--     
             <div class="manitance-header">
                 <h3 class="manitance-title">{{data.modalName}}</h3>
@@ -97,5 +147,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions class="dialog-actions">
+    <button class="modal-btn" mat-dialog-close>Cancelar</button>
     <button class="modal-btn">Confirmar</button>
 </mat-dialog-actions>
