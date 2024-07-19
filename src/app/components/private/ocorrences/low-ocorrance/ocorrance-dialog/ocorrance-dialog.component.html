@@ -17,76 +17,76 @@
 
 <mat-dialog-content class="mat-typography" >
 
-    
     <div class="dialog-body">
 
-        <!-- <div class="dialog-container">  
-            <h2 class="categ-title">Categoria da Limpeza</h2>
-            <h2 class="categ-title">Data da limpeza</h2>
-        </div> -->
+  
+      <mat-form-field appearance="outline" class="medium-date-picker">
+            <mat-label>Data da aula</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-        <div class="dialog-container">
-            <!-- <div class="sub-item">
-                <mat-radio-group>
-                    <mat-radio-button value="primária">Primária</mat-radio-button>
-                    <mat-radio-button value="secundária">Secundária</mat-radio-button>
-                </mat-radio-group>
-            </div> -->
+      <div class="dialog-field">
+          <h2>Houve ocorrência de aula?</h2>
+          <mat-checkbox class="manitance-checkbox" (change)="checkBox($event.checked)">Nenhuma</mat-checkbox>
+      </div>
+       
+      <div class="text-area-container" *ngIf="checked else showTextArea">
+        <p class="text-msg"[innerHtml]="textMsg"></p>
+      </div>
+
+    
+      <ng-template #showTextArea>
+              <mat-form-field class="text-area-form" appearance="outline">
+                  <mat-label>Durante a aula ...</mat-label>
+                  <textarea formControlName="textArea" matInput ></textarea>
+              </mat-form-field>
+      </ng-template>
+   
+
+      <div class="dialog-field">
+        <h2>Houve ocorrência de simulador?</h2>
+        <mat-checkbox class="manitance-checkbox" (change)="checkBox($event.checked)">Nenhum</mat-checkbox>
+      </div>
+
+      <div class="dialog-field-code">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Simulador</mat-label>
+          <mat-select formControlName="simulator">
+              <mat-option (click)="getSimulator(simulator)"
+                          *ngFor="let simulator of mediumSimulators"
+                          [value]="simulator.name">
+                          {{simulator.name}}
+              </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+         <div class="simulator-code">
+          <mat-form-field class="code-field" appearance="outline">
+            <mat-label>Código</mat-label>
+            <mat-select formControlName="code">
+                <mat-option #matoption *ngFor="let element of simulatorCodes; let i= index"
+                            (click)="getCode(element)"
+                             [value]="element.code"
+                             [disabled]="element.disabled">
+                             {{element.code}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+         </div>
          
-            <div class="sub-item">
-                <h2 class="categ-title">Data da aula</h2>
-                <mat-form-field appearance="outline" class="medium-date-picker">
-                    <mat-label>Escolha uma data...</mat-label>
-                    <input  matInput [matDatepicker]="picker">
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </div>
-        </div>
-           <!--Lesson ocorrance-->
-        <div class="dialog-container">
-            <h2>Houve ocorrência de aula?</h2>
-            <mat-checkbox
-            class="manitance-checkbox"
-            (change)="checkBox($event.checked)"> 
-                Nenhuma
-        </mat-checkbox>
-        </div>
-    
-        <div class="text-area-container" *ngIf="checked else showTextArea">
-            <p class="text-msg"[innerHtml]="textMsg"></p>
-        </div>
-    
-        <div class="text-area">
-            <ng-template #showTextArea>
-                <mat-form-field class="text-area-form" appearance="outline">
-                    <mat-label>Durante a aula ...</mat-label>
-                    <textarea formControlName="textArea" matInput ></textarea>
-                </mat-form-field>
-            </ng-template>
-        </div>
-        <!--Simulator ocorrance-->
-        <div class="dialog-container">
-            <h2>Houve ocorrência de simulador?</h2>
-            <mat-checkbox
-            class="manitance-checkbox"
-            (change)="checkBox($event.checked)"> 
-                Nenhuma
-        </mat-checkbox>
-        </div>
-        <div class="text-area-container" *ngIf="checked else showTextArea">
-            <p class="text-msg"[innerHtml]="textMsg"></p>
-        </div>
-    
-        <div class="text-area">
-            <ng-template #showTextArea>
-                <mat-form-field class="text-area-form" appearance="outline">
-                    <mat-label>Durante a aula o simulador...</mat-label>
-                    <textarea formControlName="textArea" matInput ></textarea>
-                </mat-form-field>
-            </ng-template>
-        </div>
+      </div>
 
+      <ng-template *ngIf="!simulatorCodes">
+        <h2>Descreva</h2>
+        <mat-form-field class="manitance-text-area" appearance="outline">
+          <mat-label>Durante a aula o Simulador...</mat-label>
+          <textarea   matInput ></textarea>
+      </mat-form-field>
+      </ng-template>
+           
     </div>
 
 

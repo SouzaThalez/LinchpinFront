@@ -30,6 +30,33 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    .steper-container{
+        display: flex;
+        .manitance-checkbox{
+           
+        }
+        .steper-field{
+            .manitance-text-area{
+                width: 100%;
+                height: 250px;
+            }
+       
+        }
+       
+        
+    }
+
+    .dialog-field{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .dialog-field-code{
+        display: flex;
+        gap: 33px;
+    }
 }
 
 .dialog-container{
@@ -41,10 +68,11 @@
 
 .mat-typography{
 
-    .text-area{
-        .text-area-form{
-            width: 100%;
-            height: 150px;
+    .text-area-form{
+        width: 100%;
+        height: 188px;
+        textarea{
+            height: 140px;
         }
     }
     .code-field-form{
