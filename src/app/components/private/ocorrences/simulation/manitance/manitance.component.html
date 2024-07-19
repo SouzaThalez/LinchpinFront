@@ -1,8 +1,10 @@
 <div class="page">
     
     <div class="cards-list">
+
         <div class="card" 
-             *ngFor="let element of manitance">
+             *ngFor="let element of manitance index as i"
+             routerLink="/private/ocorrences/Simulacao/registros-manutencoes/{{i}}">
             <div class="card-head">
                 <div class="card-description">
                     <span class="card-title">{{element.name}}</span>
@@ -13,6 +15,7 @@
                 <span>Aulas: {{element.quantity}}</span>
             </div>
         </div>
+
     </div>
 
 </div>

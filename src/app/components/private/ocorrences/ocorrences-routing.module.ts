@@ -11,6 +11,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CoursersAhaComponent } from './courses/coursers-aha/coursers-aha.component';
 import { TrainingLessonCardsComponent } from './low-ocorrance/trainings/training-lesson-cards/training-lesson-cards.component';
 import { DisciplineLessonCardsComponent } from './low-ocorrance/disciplines/discipline-lesson-cards/discipline-lesson-cards.component';
+import { ManitanceSimulatorCardsComponent } from './simulation/manitance/manitance-simulator-cards/manitance-simulator-cards.component';
 
 const routes: Routes = [
   { 
@@ -44,16 +45,16 @@ const routes: Routes = [
         ]
       },
       {
-        path:'Simulação',
+        path:'Simulacao',
         component:SimulationComponent,
         children:[
           {
-            path:'registros-manutenções',
+            path:'registros-manutencoes',
             component:ManitanceComponent
           },
           {
-            path:'registros-manutenções/:index',
-            component:ManitanceComponent
+            path:'registros-manutencoes/:index',
+            component:ManitanceSimulatorCardsComponent
           },
           {
             path:'registros-cenários',
@@ -61,7 +62,7 @@ const routes: Routes = [
           },
           {
             path:'**',
-            redirectTo:'registros-manutenções'
+            redirectTo:'registros-manutencoes'
           },
         ]
       },
