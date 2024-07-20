@@ -26,7 +26,7 @@ export class TrainingLessonCardsComponent implements OnInit{
    this.activeRoute.params.subscribe(value =>{
       this.routeIndex = value['index'];
       this.training = this.trainingData[this.routeIndex];
-      console.log(this.training)
+      
    })
 
 
@@ -34,11 +34,14 @@ export class TrainingLessonCardsComponent implements OnInit{
 
 
 
-  openOcorranceDialog(){
+  openOcorranceDialog(lesson: any){
 
     let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
       disableClose: true,
-      width:'650px'
+      width:'650px',
+      data:{
+        lesson:lesson
+      }
     })
 
     dialogRef.afterClosed().subscribe(result=>{

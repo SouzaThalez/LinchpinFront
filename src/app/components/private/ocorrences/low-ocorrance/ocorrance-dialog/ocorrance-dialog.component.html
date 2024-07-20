@@ -2,13 +2,23 @@
     <div class="header-container">
 
         <div class="simulator-image">
-            <img src="assets/images/Simulators/MediumFidelity/ressuciAnne.jpg" alt="">
-            <span>SimMan 3G</span>
+
+            <div *ngIf="selectedSimulator else showImage">
+              <img [src]="selectedSimulator.image" alt="">
+              <span>{{selectedSimulator.name}}</span>
+            </div>
+
+            <ng-template #showImage>
+              <img src="assets/images/default-image.jpg" alt="">
+            </ng-template>
+            
+          
         </div>
+        
         <div class="header-description">
             <span>
-                A <b>ocorrência </b>do simulador é um importante processo que vai garantir a durabilidade e a conservação da peça.
-                Para além disso, aumenta o ciclo de vida do simulador, contribuindo para sua saúde.
+                Registre uma ocorrência para a aula de: <b>{{data.lesson.name}}</b>. Este é um importante processo que vai contribuir para melhor didática e dinamica
+                da aula montada.
             </span>
         </div>
         
@@ -17,7 +27,7 @@
 
 <mat-dialog-content class="mat-typography" >
 
-    <div class="dialog-body">
+    <div class="dialog-body" [formGroup]="form">
 
   
       <mat-form-field appearance="outline" class="medium-date-picker">
@@ -32,69 +42,78 @@
           <mat-checkbox class="manitance-checkbox" (change)="checkBox($event.checked)">Nenhuma</mat-checkbox>
       </div>
        
-      <div class="text-area-container" *ngIf="checked else showTextArea">
-        <p class="text-msg"[innerHtml]="textMsg"></p>
+      <div class="text-area-container" *ngIf="checked else showLessonTextArea">
+        <p class="text-msg"[innerHtml]="defaultMessage"></p>
       </div>
 
     
-      <ng-template #showTextArea>
+      <ng-template #showLessonTextArea>
               <mat-form-field class="text-area-form" appearance="outline">
                   <mat-label>Durante a aula ...</mat-label>
-                  <textarea formControlName="textArea" matInput ></textarea>
+                  <textarea formControlName="ocorrance" matInput ></textarea>
               </mat-form-field>
       </ng-template>
    
 
       <div class="dialog-field">
         <h2>Houve ocorrência de simulador?</h2>
-        <mat-checkbox class="manitance-checkbox" (change)="checkBox($event.checked)">Nenhum</mat-checkbox>
+        <mat-checkbox class="manitance-checkbox" (change)="checkSimBox($event.checked)">Nenhum</mat-checkbox>
+      </div>
+       
+      <div class="text-area-container" *ngIf="isValid else showSimulatorInfo">
+        <p class="text-msg"[innerHtml]="defaultSimulatorMessage"></p>
       </div>
 
-      <div class="dialog-field-code">
+      <ng-template #showSimulatorInfo>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Simulador</mat-label>
-          <mat-select formControlName="simulator">
-              <mat-option (click)="getSimulator(simulator)"
-                          *ngFor="let simulator of mediumSimulators"
-                          [value]="simulator.name">
-                          {{simulator.name}}
-              </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <div class="dialog-field-code">
 
-         <div class="simulator-code">
-          <mat-form-field class="code-field" appearance="outline">
-            <mat-label>Código</mat-label>
-            <mat-select formControlName="code">
-                <mat-option #matoption *ngFor="let element of simulatorCodes; let i= index"
-                            (click)="getCode(element)"
-                             [value]="element.code"
-                             [disabled]="element.disabled">
-                             {{element.code}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-         </div>
-         
-      </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Simulador</mat-label>
+              <mat-select formControlName="simulator">
+                  <mat-option (click)="getSimulator(simulator)"
+                              *ngFor="let simulator of mediumSimulators"
+                              [value]="simulator.name">
+                              {{simulator.name}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+    
+            <div class="simulator-code" *ngIf="form.get('simulator')?.value">
+                <mat-form-field class="code-field" appearance="outline">
+                  <mat-label>Código</mat-label>
+                  <mat-select formControlName="code">
+                      <mat-option #matoption *ngFor="let element of simulatorCodes; let i= index"
+                                  (click)="getCode(element)"
+                                  [value]="element.code"
+                                  [disabled]="element.disabled">
+                                  {{element.code}}
+                      </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+    
+          </div>
+    
+          <div class="simulator-report" *ngIf="form.get('code')?.value">
+            <h2>Descreva</h2>
+            <mat-form-field class="text-area-form" appearance="outline">
+              <mat-label>Durante a aula o Simulador...</mat-label>
+              <textarea   matInput ></textarea>
+            </mat-form-field>
+          </div>
 
-      <ng-template *ngIf="!simulatorCodes">
-        <h2>Descreva</h2>
-        <mat-form-field class="manitance-text-area" appearance="outline">
-          <mat-label>Durante a aula o Simulador...</mat-label>
-          <textarea   matInput ></textarea>
-      </mat-form-field>
       </ng-template>
+
+      
            
     </div>
-
 
 </mat-dialog-content>
 
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn">Confirmar</button>
+    <button class="default-btn confirm-btn" (click)="submitForm()">Confirmar</button>
     
 </mat-dialog-actions>
