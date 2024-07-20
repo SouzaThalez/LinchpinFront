@@ -2,7 +2,8 @@
 
     <div class="cards-list">
         <div class="card" 
-             *ngFor="let element of scenarios">
+             *ngFor="let element of scenarios index as i "
+              routerLink="/private/ocorrences/Simulacao/registros-cenarios/{{i}}">
             <div class="card-head">
                 <div class="card-description">
                     <span class="card-title">{{element.name}}</span>

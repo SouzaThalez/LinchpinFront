@@ -12,6 +12,7 @@ import { CoursersAhaComponent } from './courses/coursers-aha/coursers-aha.compon
 import { TrainingLessonCardsComponent } from './low-ocorrance/trainings/training-lesson-cards/training-lesson-cards.component';
 import { DisciplineLessonCardsComponent } from './low-ocorrance/disciplines/discipline-lesson-cards/discipline-lesson-cards.component';
 import { ManitanceSimulatorCardsComponent } from './simulation/manitance/manitance-simulator-cards/manitance-simulator-cards.component';
+import { ScenarioRegisterCardsComponent } from './simulation/scenario/scenario-register-cards/scenario-register-cards.component';
 
 const routes: Routes = [
   { 
@@ -57,8 +58,12 @@ const routes: Routes = [
             component:ManitanceSimulatorCardsComponent
           },
           {
-            path:'registros-cenários',
+            path:'registros-cenarios',
             component:ScenarioComponent
+          },
+          {
+            path:'registros-cenarios/:index',
+            component:ScenarioRegisterCardsComponent
           },
           {
             path:'**',

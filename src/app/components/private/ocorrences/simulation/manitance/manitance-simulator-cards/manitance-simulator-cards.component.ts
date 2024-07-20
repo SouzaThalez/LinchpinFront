@@ -16,6 +16,7 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
   routeIndex:any;
   simulators = simulators.highFidelity;
   training:any;
+  manitanceName: string;
 
   constructor(
     private activeRoute:ActivatedRoute,
@@ -23,11 +24,22 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    console.log(this.simulators)
+  
    this.activeRoute.params.subscribe(value =>{
       this.routeIndex = value['index'];
-      // this.training = this.trainingData[this.routeIndex];
-      
+      switch (this.routeIndex) {
+        case '0':
+          this.manitanceName =  'Primária';
+          break;
+        case '1':
+          this.manitanceName =  'Secundária';
+            break;
+        case '2':
+          this.manitanceName =  'Geral';
+              break;
+        default:
+          break;
+      }
    })
 
 

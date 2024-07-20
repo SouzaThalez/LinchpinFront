@@ -6,7 +6,7 @@
         </ol>
     </nav>
     <div class="details-list">
-        <div class="card-container" *ngFor="let lesson of discipline?.lessons">
+        <div class="card-container" *ngFor="let lesson of discipline?.lessons" (click)="openOcorranceDialog(lesson)">
             <div class="card-head">
                 <div class="card-image"></div>
                 <div class="card-description">

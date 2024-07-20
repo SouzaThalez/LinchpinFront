@@ -24,6 +24,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ManitanceSimulatorCardsComponent } from './simulation/manitance/manitance-simulator-cards/manitance-simulator-cards.component';
+import { ScenarioRegisterCardsComponent } from './simulation/scenario/scenario-register-cards/scenario-register-cards.component';
 
 
 
@@ -40,7 +42,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoursersAhaComponent,
     TrainingLessonCardsComponent,
     DisciplineLessonCardsComponent,
-    OcorranceDialogComponent
+    OcorranceDialogComponent,
+    ManitanceSimulatorCardsComponent,
+    ScenarioRegisterCardsComponent
   ],
   imports: [
     CommonModule,
