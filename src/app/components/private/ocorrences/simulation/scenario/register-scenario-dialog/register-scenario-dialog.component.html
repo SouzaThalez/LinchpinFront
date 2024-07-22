@@ -1,0 +1,208 @@
+<div class="modal-header">
+    <div class="header-container">
+
+        <!-- <div class="simulator-image">
+
+            <div *ngIf="data.simulator else showImage">
+              <img [src]="data?.simulator?.image" alt="">
+              <span>{{data?.simulator?.name}}</span>
+            </div>
+
+            <ng-template #showImage>
+              <img src="assets/images/default-image.jpg" alt="">
+            </ng-template>
+            
+          
+        </div> -->
+        
+        <div class="header-description">
+            <span>
+                Registre uma manutenção <b>{{data.manitance}}</b>. Este é um importante processo que vai contribuir para melhor didática e dinamica
+                da aula montada.
+            </span>
+        </div>
+        
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography">
+
+ 
+    <div class="dialog-body" [formGroup]="simulatorForm">
+
+        <div class="dialog-header">
+            <div class="item-form">
+                <h2>Data da Simulação</h2>
+                <mat-form-field appearance="outline" class="date-picker">
+                    <mat-label>Escolha data</mat-label>
+                    <input formControlName="date"  matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker ></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="Time">
+                <h2>Horário de Inicio</h2>
+                <mat-form-field appearance="outline">
+                    <mat-label>Inserir horario</mat-label>
+                    <input
+                        formControlName="time"
+                        placeholder="00:00"
+                        mask="00:00"
+                        matInput
+                    />
+                </mat-form-field>
+            </div>
+        </div>
+       
+        <!-- <div class="discipline">
+            <div class="form-discipline">
+                <h2>Disciplina</h2>
+                <mat-form-field appearance="outline">
+                    <mat-label>Escolha</mat-label>
+                    <mat-select formControlName="disciplineRegister">
+                        <mat-option *ngFor="let element of disciplines"
+                                  [value]="element">
+                                  {{element}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="dialog-ocorrance">
+                <h2>Houve alguma intercorrência ou mal funcionamento de Equipamento?</h2>
+                <div class="check-boxes">
+                    <mat-checkbox
+                        class="manitance-checkbox"
+                        (change)="simulatorCheckBox($event.checked)"> 
+                        Selecionar Todos
+                    </mat-checkbox>
+                </div>
+                <div class="content">
+                    <div class="forms-inputs">
+                        <h3>Simulador de Alta Fidelide</h3>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Resposta</mat-label>
+                            <mat-select formControlName="simulatorRegister">
+                                <mat-option *ngFor="let element of formInputs"
+                                          [value]="element">
+                                          {{element}}
+                                </mat-option>
+                              </mat-select>
+                        </mat-form-field>
+        
+                        <h3>Monitor Multiparamétrico</h3>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Resposta</mat-label>
+                            <mat-select formControlName="monitorRegister">
+                                <mat-option *ngFor="let element of formInputs"
+                                          [value]="element">
+                                          {{element}}
+                                </mat-option>
+                              </mat-select>
+                        </mat-form-field>
+    
+                        <h3>Carrinho de Parada</h3>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Resposta</mat-label>
+                            <mat-select formControlName="medicationCarRegister">
+                                <mat-option *ngFor="let element of formInputs"
+                                          [value]="element">
+                                          {{element}}
+                                </mat-option>
+                              </mat-select>
+                        </mat-form-field>
+                        
+                        <h3>Fonte de Energia Elétrica</h3>
+                        <mat-form-field appearance="outline">
+                              <mat-label>Resposta</mat-label>
+                              <mat-select formControlName="energyPanelRegister">
+                                <mat-option *ngFor="let element of formInputs"
+                                          [value]="element">
+                                          {{element}}
+                                </mat-option>
+                              </mat-select>
+                        </mat-form-field>
+                    </div>
+               
+                    <div class="forms-inputs">
+                        <h3>Fonte de Ar Comprimido</h3>
+                        <mat-form-field appearance="outline">
+                                <mat-label>Resposta</mat-label>
+                                <mat-select formControlName="airFlowRegister">
+                                  <mat-option *ngFor="let element of formInputs"
+                                            [value]="element">
+                                            {{element}}
+                                  </mat-option>
+                                </mat-select>
+                        </mat-form-field>
+        
+                        <h3>Rede de Dados</h3>
+                        <mat-form-field appearance="outline">
+                                <mat-label>Resposta</mat-label>
+                                <mat-select formControlName="internetCableRegister">
+                                    <mat-option *ngFor="let element of formInputs"
+                                              [value]="element">
+                                              {{element}}
+                                    </mat-option>
+                                  </mat-select>
+                        </mat-form-field>
+    
+                        <h3>Sistema de Audio e Video</h3>
+                        <mat-form-field appearance="outline">
+                                <mat-label>Resposta</mat-label>
+                                <mat-select formControlName="audioAndMediaRegister">
+                                    <mat-option *ngFor="let element of formInputs"
+                                              [value]="element">
+                                              {{element}}
+                                    </mat-option>
+                                  </mat-select>
+                        </mat-form-field>
+                        <h3>Outro Recurso</h3>
+                        <mat-form-field appearance="outline">
+                                <mat-label>Resposta</mat-label>
+                                <mat-select formControlName="otherRegister">
+                                    <mat-option *ngFor="let element of formInputs"
+                                              [value]="element">
+                                              {{element}}
+                                    </mat-option>
+                                  </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+        </div>
+
+        <div class="dialog-footer">
+            <div class="footer-header">
+                <h2>Descrição das Falhas</h2>
+                <mat-checkbox
+                    class="manitance-checkbox"
+                    (change)="textAreaCheckBox($event.checked)"> 
+                    Nenhuma
+                </mat-checkbox>
+            </div>
+
+            <div *ngIf="simulatorForm.value.showTextArea else show">
+                <span>Nenhuma descrição de falha durante a execução de cenário!</span>
+            </div>
+
+            <ng-template #show>
+                <div class="form" formGroupName="description">
+                    <mat-form-field [hidden]="lessonTextArea" class="simulation-text-area" appearance="outline">
+                        <mat-label>Detalhe as falhas registradas...</mat-label>
+                        <textarea formControlName="descriptionInfo" matInput ></textarea>
+                    </mat-form-field>
+                </div>
+            </ng-template>
+           
+        </div> -->
+   
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+ 
+    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn confirm-btn" >Confirmar</button>
+    
+</mat-dialog-actions>

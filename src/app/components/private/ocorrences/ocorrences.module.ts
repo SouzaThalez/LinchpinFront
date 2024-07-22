@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManitanceSimulatorCardsComponent } from './simulation/manitance/manitance-simulator-cards/manitance-simulator-cards.component';
 import { ScenarioRegisterCardsComponent } from './simulation/scenario/scenario-register-cards/scenario-register-cards.component';
 import { RegisterManitanceDialogComponent } from './simulation/manitance/register-manitance-dialog/register-manitance-dialog.component';
+import { RegisterScenarioDialogComponent } from './simulation/scenario/register-scenario-dialog/register-scenario-dialog.component';
 
 
 
@@ -46,7 +47,8 @@ import { RegisterManitanceDialogComponent } from './simulation/manitance/registe
     OcorranceDialogComponent,
     ManitanceSimulatorCardsComponent,
     ScenarioRegisterCardsComponent,
-    RegisterManitanceDialogComponent
+    RegisterManitanceDialogComponent,
+    RegisterScenarioDialogComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { simulators } from '../../../../../../data/simulators';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { RegisterScenarioDialogComponent } from '../register-scenario-dialog/register-scenario-dialog.component';
 
 @Component({
   selector: 'app-scenario-register-cards',
@@ -41,5 +42,30 @@ export class ScenarioRegisterCardsComponent implements OnInit{
 
 
   }
+
+
+
+
+  openRegisterScenarioDialog(element: any){
+
+      let dialogRef = this.matDialog.open(RegisterScenarioDialogComponent,{
+        disableClose: true,
+        width:'650px',
+        data:{
+          simulator: element,
+          // manitance: this.manitanceName
+        }
+      })
+    
+      dialogRef.afterClosed().subscribe(result=>{
+          if(result){
+            
+          }
+      })
+
+  }
+
+
+
 
 }
