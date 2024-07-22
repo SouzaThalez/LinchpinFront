@@ -29,30 +29,28 @@
 }
 
 .dialog-body{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 
+    .allCheckbox-section{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .checkbox-section{
+        display: flex;
+        flex-direction: column;
+    }
+    
     .dialog-field{
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-    
-    .dialog-field-code{
-        display: flex;
-        gap: 33px;
-    }
-}
 
-.dialog-container{
-    display:  flex;
-    align-items: center;
-    justify-content: space-between;
-   
-}
-
-.mat-typography{
+    }
+    .manitance-title{
+        font-size: 38px;
+        color: #18718d;
+        align-items: baseline;
+    }
 
     .text-area-form{
         width: 100%;
@@ -61,13 +59,9 @@
             height: 140px;
         }
     }
-    .code-field-form{
-        width: 248px;
-    }
 }
 
 .dialog-actions{
     justify-content: flex-end;
     gap: 10px;
 }
-

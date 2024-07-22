@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ocorranceData } from '../../../../../../data/ocorranceData';
 import { simulators } from '../../../../../../data/simulators';
+import { RegisterManitanceDialogComponent } from '../register-manitance-dialog/register-manitance-dialog.component';
 
 @Component({
   selector: 'app-manitance-simulator-cards',
@@ -46,20 +47,28 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
   }
 
 
+  openRegisterManitanceDialog(element: any){
 
-  // openOcorranceDialog(){
 
-  //   let dialogRef = this.matDialog.open(,{
-  //     disableClose: true,
-  //     width:'650px'
-  //   })
+    let dialogRef = this.matDialog.open(RegisterManitanceDialogComponent,{
+        disableClose: true,
+        width:'650px',
+        data:{
+          simulator: element,
+          manitance: this.manitanceName
+        }
+    })
+    
+    dialogRef.afterClosed().subscribe(result=>{
+          if(result){
+            
+          }
+    })
 
-  //   dialogRef.afterClosed().subscribe(result=>{
-  //     if(result){
-        
-  //     }
-  //   })
-  // }
+
+  }
+
+
 
 
 }

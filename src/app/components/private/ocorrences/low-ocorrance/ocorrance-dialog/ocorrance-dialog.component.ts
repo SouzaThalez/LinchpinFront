@@ -79,7 +79,7 @@ export class OcorranceDialogComponent implements OnInit{
 
 
   submitForm(){
-    debugger
+ 
     if(this.form.invalid){
 
     }

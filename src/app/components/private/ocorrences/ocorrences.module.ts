@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManitanceSimulatorCardsComponent } from './simulation/manitance/manitance-simulator-cards/manitance-simulator-cards.component';
 import { ScenarioRegisterCardsComponent } from './simulation/scenario/scenario-register-cards/scenario-register-cards.component';
+import { RegisterManitanceDialogComponent } from './simulation/manitance/register-manitance-dialog/register-manitance-dialog.component';
 
 
 
@@ -44,7 +45,8 @@ import { ScenarioRegisterCardsComponent } from './simulation/scenario/scenario-r
     DisciplineLessonCardsComponent,
     OcorranceDialogComponent,
     ManitanceSimulatorCardsComponent,
-    ScenarioRegisterCardsComponent
+    ScenarioRegisterCardsComponent,
+    RegisterManitanceDialogComponent
   ],
   imports: [
     CommonModule,

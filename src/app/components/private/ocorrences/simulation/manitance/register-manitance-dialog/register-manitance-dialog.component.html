@@ -1,0 +1,90 @@
+<div class="modal-header">
+    <div class="header-container">
+
+        <div class="simulator-image">
+
+            <div *ngIf="data.simulator else showImage">
+              <img [src]="data?.simulator?.image" alt="">
+              <span>{{data?.simulator?.name}}</span>
+            </div>
+
+            <ng-template #showImage>
+              <img src="assets/images/default-image.jpg" alt="">
+            </ng-template>
+            
+          
+        </div>
+        
+        <div class="header-description">
+            <span>
+                Registre uma manutenção <b>{{data.manitance}}</b>. Este é um importante processo que vai contribuir para melhor didática e dinamica
+                da aula montada.
+            </span>
+        </div>
+        
+    </div>
+</div>
+<mat-dialog-content class="mat-typography" >
+
+    <div class="dialog-body" [formGroup]="form">
+
+        <h2>Data da manutenção</h2>
+        
+        <div class="dialog-field manitance-title">
+
+            <mat-form-field appearance="outline" class="manitance-date-form">
+                <mat-label>Escolha uma data</mat-label>
+                <input formControlName="date" matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <span>{{data.manitance}}</span>
+        </div>
+         <div class="manitance-section">
+            <h2>O que foi realizado* ?</h2>
+            <section class="allCheckbox-section">
+                <mat-checkbox class="checkbox-manitance" (change)="onChangeAllChecked($event.checked)">Todos</mat-checkbox>
+            </section>
+        </div>
+     
+        <section class="checkbox-section">
+            <mat-checkbox 
+                class="checkbox-manitance"
+                *ngFor="let element of allcCheckBoxData.prevCheckboxes"
+                 [checked]="element.value"
+                 (click)="getCheckedElement(element)">
+                {{element.label}}
+            </mat-checkbox>
+        </section>
+   
+        <div class="dialog-field">
+            <h2>Achados durante a Manutenção</h2>
+            <section class="example-section">
+                <mat-checkbox 
+                        class="checkbox-manitance"
+                        formControlName="noDescription">
+                        Nenhum
+                </mat-checkbox>
+            </section>
+        </div>
+   
+        <div *ngIf="form.value.noDescription else show">
+                <span>Nenhum achado durante a manutenção deste simulador </span>
+        </div>
+
+        <ng-template #show>
+                <mat-form-field appearance="outline" class="text-area-form">
+                    <mat-label>Descrição </mat-label>
+                    <textarea formControlName="mediumOcorrance" matInput></textarea>
+                </mat-form-field>
+        </ng-template>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+ 
+    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn confirm-btn" >Confirmar</button>
+    
+</mat-dialog-actions>
