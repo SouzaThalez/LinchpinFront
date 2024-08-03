@@ -38,8 +38,10 @@
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <span>{{data.manitance}}</span>
+
+            <span>{{data?.manitance}}</span>
         </div>
+
          <div class="manitance-section">
             <h2>O que foi realizado* ?</h2>
             <section class="allCheckbox-section">

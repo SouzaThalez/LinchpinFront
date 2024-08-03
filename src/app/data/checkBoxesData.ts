@@ -1,3 +1,4 @@
+import { preScenarioCheckboxesType } from "../components/enums/preScenarioCheckboxes";
 import { prevCheckboxesType } from "../components/enums/preveCheckboxes";
 import { secundCheckboxesType } from "../components/enums/secundCheckboxes";
 
@@ -71,5 +72,66 @@ export const checkBoxesData={
                 value: false
             }
         
+    ],
+
+    preScenarioCheckboxes:[
+
+        {
+            label: preScenarioCheckboxesType.option1,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option2,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option3,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option4,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option5,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option6,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option7,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option8,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option9,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option10,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option11,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option12,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option13,
+            value: false
+        },
+        {
+            label: preScenarioCheckboxesType.option14,
+            value: false
+        },
+
     ]
 }

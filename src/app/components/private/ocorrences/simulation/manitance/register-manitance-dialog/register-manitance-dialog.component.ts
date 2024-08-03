@@ -14,6 +14,7 @@ import { Simulator } from '../../../../../../models/simulator';
 export class RegisterManitanceDialogComponent implements OnInit{
 
   allcCheckBoxData = checkBoxesData;
+
   form: FormGroup;
   checkedBoxes:any[]=[];
 

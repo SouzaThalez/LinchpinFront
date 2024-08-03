@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import moment from 'moment';
+import { checkBoxesData } from '../../../../../../data/checkBoxesData';
+import { Simulator } from '../../../../../../models/simulator';
 
 @Component({
   selector: 'app-register-scenario-dialog',
@@ -16,12 +18,22 @@ export class RegisterScenarioDialogComponent implements OnInit{
   simulatorText = 'Nenhuma descrição de falha durante a execução de cenário';
   user = { name:'',role:''};
   simulatorForm: FormGroup;
-
+  allcCheckBoxData = checkBoxesData;
+  hasDescription = false;
+  checkedBoxes:any[]=[];
+  selectedItem: {
+    label: string,
+    value:number
+  };
+  
 
   constructor(
     // private snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<RegisterScenarioDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      simulator: Simulator,
+      registerType: string
+    },
     public fb: FormBuilder,
   ){}
   ngOnInit(): void {
@@ -59,53 +71,53 @@ export class RegisterScenarioDialogComponent implements OnInit{
       })
     }
   }
-  textAreaCheckBox(value:any){
+
+
+  // textAreaCheckBox(value:any){
     
-    if(value){
-      this.simulatorForm.patchValue(
-            {
-              description:{hasDescription:!value, descriptionInfo:this.simulatorText},
-              showTextArea:true
-            }
-        );
-    }else{
-      this.simulatorForm.patchValue(
-            {
-              description:{hasDescription:!value, descriptionInfo:''},
-              showTextArea:false
-            }
-        );
-    }
+  //   if(value){
+  //     this.simulatorForm.patchValue(
+  //           {
+  //             description:{hasDescription:!value, descriptionInfo:this.simulatorText},
+  //             showTextArea:true
+  //           }
+  //       );
+  //   }else{
+  //     this.simulatorForm.patchValue(
+  //           {
+  //             description:{hasDescription:!value, descriptionInfo:''},
+  //             showTextArea:false
+  //           }
+  //       );
+  //   }
+  // }
+
+  getCheckedElement(element:any){
+    element.value = !element.value;
+    this.checkedBoxes = this.allcCheckBoxData.prevCheckboxes.filter((element:any) => element.value == true);
+    // this.preventiveForm.patchValue({procedures:this.checkedBoxes});
   }
   
-  private simFormCreation(): FormGroup{
-
-    const simulatoForm = this.fb.group({
-      date: [null,Validators.required],
-      time: [null,Validators.required],
-      description: this.fb.group({
-        hasDescription:[true],
-        descriptionInfo:[null,Validators.required]
-      }), 
-      disciplineRegister:[null, Validators.required],
-      simulatorName:[],
-      simulatorCode:[],
-      simulatorImage:[],
-      simulatorRegister:[null, Validators.required],
-      monitorRegister: [null, Validators.required],
-      medicationCarRegister: [null, Validators.required],
-      energyPanelRegister: [null, Validators.required],
-      airFlowRegister: [null, Validators.required],
-      internetCableRegister: [null, Validators.required],
-      otherRegister: [null, Validators.required],
-      audioAndMediaRegister:[null, Validators.required],
-      showTextArea: [false],
-      simulatorType:['Alta'],
-      user: []
-    })
-
-    return simulatoForm;
+  onChangeAllChecked(isChecked:any){
+    if(isChecked){
+      this.allcCheckBoxData.preScenarioCheckboxes.forEach((element:any)=> element.value = true);
+      // this.preventiveForm.patchValue({procedures:this.allcCheckBoxData.prevCheckboxes});
+    }else{
+      this.allcCheckBoxData.preScenarioCheckboxes.forEach((element:any)=> element.value = false);
+      // this.preventiveForm.patchValue({procedures:[]});
+    }
+    
   }
+  
+  onChangeOcorrance(isChecked:boolean){
+      this.hasDescription = isChecked;
+      
+    // if(isChecked){
+    //   this.simulatorForm.patchValue({
+    //     noDescription: isChecked,
+    //   })
+    // }
+  } 
 
   getSimulator(){
 
@@ -130,6 +142,30 @@ export class RegisterScenarioDialogComponent implements OnInit{
       // });
     }
   }
+  getSelectedItem(){
+   
+    this.selectedItem =  this.simulatorForm.get('selectedItem').value;
+
+
+  }
+ 
+  private simFormCreation(): FormGroup{
+
+    const simulatoForm = this.fb.group({
+      date: [null,Validators.required],
+      time: [null,Validators.required],
+      noDescription: [false],
+      selectedItem:[],
+      description:[null,Validators.required],
+      showTextArea: [false],
+      simulatorType:['Alta'],
+      user: []
+    })
+
+    return simulatoForm;
+  }
+
+
 
 
 }

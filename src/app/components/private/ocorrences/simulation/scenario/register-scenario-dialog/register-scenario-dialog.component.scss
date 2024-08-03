@@ -1,0 +1,70 @@
+
+.modal-header{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .header-container{
+        display: flex;
+        align-items: center;
+        border: 3px solid #d7d7d7;
+
+        .simulator-image{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 5px;
+            img{
+                width: 130px;
+                height: 93px;
+                border-radius: 7px;
+            }
+        }
+
+        .header-description{
+            padding: 10px;
+            display: flex;
+            text-align: justify;
+        }
+    }
+}
+
+.dialog-body{
+    .dialog-header{
+        .item-content{
+            font-size: 38px;
+            color: #18718d;
+            align-items: baseline;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.manitance-section{
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+}
+.checkbox-section{
+    .checkbox-item{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.mat-typography{
+
+    .text-area-form{
+        width: 100%;
+        height: 188px;
+        textarea{
+            height: 140px;
+        }
+    }
+}
+
+.dialog-actions{
+    justify-content: flex-end;
+    gap: 10px;
+}

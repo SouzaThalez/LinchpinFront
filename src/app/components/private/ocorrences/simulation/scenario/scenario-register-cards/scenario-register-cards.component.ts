@@ -53,7 +53,7 @@ export class ScenarioRegisterCardsComponent implements OnInit{
         width:'650px',
         data:{
           simulator: element,
-          // manitance: this.manitanceName
+          registerType: this.registerName
         }
       })
     
