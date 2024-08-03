@@ -28,6 +28,8 @@ import { ManitanceSimulatorCardsComponent } from './simulation/manitance/manitan
 import { ScenarioRegisterCardsComponent } from './simulation/scenario/scenario-register-cards/scenario-register-cards.component';
 import { RegisterManitanceDialogComponent } from './simulation/manitance/register-manitance-dialog/register-manitance-dialog.component';
 import { RegisterScenarioDialogComponent } from './simulation/scenario/register-scenario-dialog/register-scenario-dialog.component';
+import { RegisterPreScenarioDialogComponent } from './simulation/scenario/register-pre-scenario-dialog/register-pre-scenario-dialog.component';
+
 
 
 
@@ -48,7 +50,8 @@ import { RegisterScenarioDialogComponent } from './simulation/scenario/register-
     ManitanceSimulatorCardsComponent,
     ScenarioRegisterCardsComponent,
     RegisterManitanceDialogComponent,
-    RegisterScenarioDialogComponent
+    RegisterScenarioDialogComponent,
+    RegisterPreScenarioDialogComponent
   ],
   imports: [
     CommonModule,
@@ -65,6 +68,7 @@ import { RegisterScenarioDialogComponent } from './simulation/scenario/register-
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+   
   ]
 })
 export class OcorrencesModule { }

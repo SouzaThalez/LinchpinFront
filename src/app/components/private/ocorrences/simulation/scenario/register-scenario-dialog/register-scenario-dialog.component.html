@@ -28,7 +28,6 @@
 
 <mat-dialog-content class="mat-typography">
 
- 
     <div class="dialog-body" [formGroup]="simulatorForm">
 
         <div class="dialog-header">
@@ -44,7 +43,7 @@
                     <span>{{data?.registerType}}</span>
                 </div>
             </div>
-            <div class="Time">
+            <div class="dialog-item">
                 <h2>Horário de Inicio</h2>
                 <mat-form-field appearance="outline">
                     <mat-label>Inserir horario</mat-label>
@@ -54,68 +53,16 @@
                         mask="00:00"
                         matInput
                     />
+                    <mat-error *ngIf="simulatorForm.get('time').hasError('invalidTime')">
+                        Please enter a valid time in HH:MM format.
+                      </mat-error>
                 </mat-form-field>
             </div>
         </div>
-
-        <div class="manitance-section">
-            <h2>O que foi realizado* ?</h2>
-            <section class="allCheckbox-section">
-                <mat-checkbox class="checkbox-manitance" (change)="onChangeAllChecked($event.checked)">Todos</mat-checkbox>
-            </section>
-        </div>
-     
-        <section class="checkbox-section">
-            <mat-checkbox 
-                class="checkbox-item"
-                *ngFor="let element of allcCheckBoxData.preScenarioCheckboxes; let i =  index"
-                [checked]="element.value"
-                (click)="getCheckedElement(element)">
-                <b>{{i +1}} </b>- {{element.label}}
-            </mat-checkbox>
-        </section>
-
-        <div class="manitance-section">
-            <h2>Houve alguma intercorrência nesses itens* ?</h2>
-            <section class="allCheckbox-section">
-                <mat-checkbox class="checkbox-manitance" (change)="onChangeOcorrance($event.checked)">Nenhuma</mat-checkbox>
-            </section>
-        </div>
-          
-
-        <div *ngIf="hasDescription else showDescription">
-            <span>Nenhuma descrição de intercorrência!</span>
-        </div>
-
-        <ng-template #showDescription>
-
-            <mat-form-field appearance="outline">
-                    <mat-label>Escolha</mat-label>
-                    <mat-select formControlName="selectedItem">
-                        <mat-option *ngFor="let element of allcCheckBoxData.preScenarioCheckboxes; let i = index"
-                                  [value]="element"
-                                  (click)="getSelectedItem()">
-                                  {{i + 1}}
-                        </mat-option>
-                      </mat-select>
-             </mat-form-field>
-             <p>{{selectedItem?.label}}</p>
-            <div class="form" *ngIf="simulatorForm.get('selectedItem')?.value">
-                <mat-form-field  class="text-area-form" appearance="outline">
-                    <mat-label>Descrição da intercorrência...</mat-label>
-                    <textarea formControlName="description" matInput ></textarea>
-                </mat-form-field>
-            </div>
-
-        </ng-template>
-
         
-
-
-        <!-- <div class="discipline">
-            <div class="form-discipline">
-                <h2>Disciplina</h2>
-                <mat-form-field appearance="outline">
+        <div class="dialog-item">
+            <h2>Disciplina</h2>
+            <mat-form-field appearance="outline">
                     <mat-label>Escolha</mat-label>
                     <mat-select formControlName="disciplineRegister">
                         <mat-option *ngFor="let element of disciplines"
@@ -123,10 +70,10 @@
                                   {{element}}
                         </mat-option>
                       </mat-select>
-                </mat-form-field>
-            </div>
+            </mat-form-field>
         </div>
-
+      
+  <!-- 
         <div class="dialog-ocorrance">
                 <h2>Houve alguma intercorrência ou mal funcionamento de Equipamento?</h2>
                 <div class="check-boxes">

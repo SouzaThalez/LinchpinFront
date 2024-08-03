@@ -1,0 +1,120 @@
+<div class="modal-header">
+    <div class="header-container">
+        <div class="simulator-image">
+
+            <div *ngIf="data.simulator else showImage">
+              <img [src]="data?.simulator?.image" alt="">
+              <span>{{data?.simulator?.name}}</span>
+            </div>
+
+            <ng-template #showImage>
+              <img src="assets/images/default-image.jpg" alt="">
+            </ng-template>
+            
+          
+        </div>
+        
+        
+        <div class="header-description">
+            <span>
+                Notifique um registro <b>{{data.registerType}}</b>. Este é um importante processo que vai contribuir para melhor didática e dinamica
+                da aula montada.
+            </span>
+        </div>
+        
+    </div>
+</div>
+
+
+<mat-dialog-content class="mat-typography">
+
+ 
+    <div class="dialog-body" [formGroup]="simulatorForm">
+
+        <div class="dialog-header">
+            <div class="item-form">
+                <h2>Data da Simulação</h2>
+                <div class="item-content">
+                    <mat-form-field appearance="outline" class="date-picker">
+                        <mat-label>Escolha data</mat-label>
+                        <input formControlName="date"  matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker ></mat-datepicker>
+                    </mat-form-field>
+                    <span>{{data?.registerType}}</span>
+                </div>
+            </div>
+            <div class="Time">
+                <h2>Horário de Inicio</h2>
+                <mat-form-field appearance="outline">
+                    <mat-label>Inserir horario</mat-label>
+                    <input
+                        formControlName="time"
+                        placeholder="00:00"
+                        mask="00:00"
+                        matInput
+                    />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="manitance-section">
+            <h2>O que foi realizado* ?</h2>
+            <section class="allCheckbox-section">
+                <mat-checkbox class="checkbox-manitance" (change)="onChangeAllChecked($event.checked)">Todos</mat-checkbox>
+            </section>
+        </div>
+     
+        <section class="checkbox-section">
+            <mat-checkbox 
+                class="checkbox-item"
+                *ngFor="let element of allcCheckBoxData.preScenarioCheckboxes; let i =  index"
+                [checked]="element.value"
+                (click)="getCheckedElement(element)">
+                <b>{{i +1}} </b>- {{element.label}}
+            </mat-checkbox>
+        </section>
+
+        <div class="manitance-section">
+            <h2>Houve alguma intercorrência nesses itens* ?</h2>
+            <section class="allCheckbox-section">
+                <mat-checkbox class="checkbox-manitance" (change)="onChangeOcorrance($event.checked)">Nenhuma</mat-checkbox>
+            </section>
+        </div>
+          
+
+        <div *ngIf="hasDescription else showDescription">
+            <span>Nenhuma descrição de intercorrência!</span>
+        </div>
+
+        <ng-template #showDescription>
+
+            <mat-form-field appearance="outline">
+                    <mat-label>Escolha</mat-label>
+                    <mat-select formControlName="selectedItem">
+                        <mat-option *ngFor="let element of allcCheckBoxData.preScenarioCheckboxes; let i = index"
+                                  [value]="element"
+                                  (click)="getSelectedItem()">
+                                  {{i + 1}}
+                        </mat-option>
+                      </mat-select>
+             </mat-form-field>
+             <p>{{selectedItem?.label}}</p>
+            <div class="form" *ngIf="simulatorForm.get('selectedItem')?.value">
+                <mat-form-field  class="text-area-form" appearance="outline">
+                    <mat-label>Descrição da intercorrência...</mat-label>
+                    <textarea formControlName="description" matInput ></textarea>
+                </mat-form-field>
+            </div>
+
+        </ng-template> 
+   
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+ 
+    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn confirm-btn" >Confirmar</button>
+    
+</mat-dialog-actions>

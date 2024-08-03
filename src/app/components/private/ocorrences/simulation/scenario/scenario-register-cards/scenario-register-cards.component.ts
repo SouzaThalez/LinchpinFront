@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { simulators } from '../../../../../../data/simulators';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { RegisterPreScenarioDialogComponent } from '../register-pre-scenario-dialog/register-pre-scenario-dialog.component';
 import { RegisterScenarioDialogComponent } from '../register-scenario-dialog/register-scenario-dialog.component';
 
 @Component({
@@ -46,9 +47,30 @@ export class ScenarioRegisterCardsComponent implements OnInit{
 
 
 
-  openRegisterScenarioDialog(element: any){
+  openRegisterDialogs(element: any){
+    
+      if(this.registerName == 'Corrida'){
 
-      let dialogRef = this.matDialog.open(RegisterScenarioDialogComponent,{
+        let dialogRef = this.matDialog.open(RegisterScenarioDialogComponent,{
+          disableClose: true,
+          width:'650px',
+          data:{
+            simulator: element,
+            registerType: this.registerName
+          }
+        })
+      
+        dialogRef.afterClosed().subscribe(result=>{
+            if(result){
+              
+            }
+        })
+
+        return
+      }
+
+
+      let dialogRef = this.matDialog.open(RegisterPreScenarioDialogComponent,{
         disableClose: true,
         width:'650px',
         data:{

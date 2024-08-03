@@ -1,28 +1,25 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import moment from 'moment';
-import { checkBoxesData } from '../../../../../../data/checkBoxesData';
 import { Simulator } from '../../../../../../models/simulator';
+import { checkBoxesData } from '../../../../../../data/checkBoxesData';
+import moment from 'moment';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
-  selector: 'app-register-scenario-dialog',
-  templateUrl: './register-scenario-dialog.component.html',
-  styleUrl: './register-scenario-dialog.component.scss',
+  selector: 'app-register-pre-scenario-dialog',
+  templateUrl: './register-pre-scenario-dialog.component.html',
+  styleUrl: './register-pre-scenario-dialog.component.scss',
   providers: [provideNativeDateAdapter()],
 })
-export class RegisterScenarioDialogComponent implements OnInit{
+export class RegisterPreScenarioDialogComponent implements OnInit{
 
   noFailText = 'Nenhuma Falha';
   simulatorText = 'Nenhuma descrição de falha durante a execução de cenário';
-  formInputs:string[]=['Nenhuma Falha','Falha registrada'];
-  disciplines:string[]=['Clinica Médica','Obstetricia','Int.Cirurgia','Int.Urgência','Int.Pediatria','Fisiologia','Enfermagem','Fisioterapia','Outras'];
   user = { name:'',role:''};
   simulatorForm: FormGroup;
   allcCheckBoxData = checkBoxesData;
   hasDescription = false;
-  lessonTextArea=false;
   checkedBoxes:any[]=[];
   selectedItem: {
     label: string,
@@ -32,7 +29,7 @@ export class RegisterScenarioDialogComponent implements OnInit{
 
   constructor(
     // private snackBar: MatSnackBar,
-    public dialogRef: MatDialogRef<RegisterScenarioDialogComponent>,
+    public dialogRef: MatDialogRef<RegisterPreScenarioDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {
       simulator: Simulator,
       registerType: string
@@ -76,24 +73,7 @@ export class RegisterScenarioDialogComponent implements OnInit{
     }
   }
 
-  textAreaCheckBox(value:any){
-    
-    if(value){
-      this.simulatorForm.patchValue(
-            {
-              description:{hasDescription:!value, descriptionInfo:this.simulatorText},
-              showTextArea:true
-            }
-        );
-    }else{
-      this.simulatorForm.patchValue(
-            {
-              description:{hasDescription:!value, descriptionInfo:''},
-              showTextArea:false
-            }
-        );
-    }
-  }
+
 
   getCheckedElement(element:any){
     element.value = !element.value;
@@ -145,24 +125,14 @@ export class RegisterScenarioDialogComponent implements OnInit{
       // });
     }
   }
-
+  
   getSelectedItem(){
    
     this.selectedItem =  this.simulatorForm.get('selectedItem').value;
 
 
   }
-  
-  timeValidator(control: AbstractControl): ValidationErrors | null {
-    const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/; // Matches HH:MM
-    if (control.value && !timePattern.test(control.value)) {
-      return { invalidTime: true };
-    }
-    return null;
-  }
-
-
-
+ 
   private simFormCreation(): FormGroup{
 
     const simulatoForm = this.fb.group({
@@ -179,9 +149,6 @@ export class RegisterScenarioDialogComponent implements OnInit{
     return simulatoForm;
   }
 
-
-
+ 
 
 }
-
-
