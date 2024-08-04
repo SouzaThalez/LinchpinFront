@@ -10,6 +10,8 @@ import { LessonReportComponent } from './hability-report/lesson-report/lesson-re
 import { MaintenanceSimulationReportComponent } from './simulation/maintenance-simulation-report/maintenance-simulation-report.component';
 import { CleaningSimulationReportComponent } from './simulation/cleaning-simulation-report/cleaning-simulation-report.component';
 import { ScenarioSimulationReportComponent } from './simulation/scenario-simulation-report/scenario-simulation-report.component';
+import { CleaningReportComponent } from './hability-report/cleaning-report/cleaning-report.component';
+import { MaintenanceReportComponent } from './hability-report/maintenance-report/maintenance-report.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +19,8 @@ import { ScenarioSimulationReportComponent } from './simulation/scenario-simulat
         SimulationComponent,
         HabilityReportComponent,
         LessonReportComponent,
+        CleaningReportComponent,
+        MaintenanceReportComponent,
         MaintenanceSimulationReportComponent,
         CleaningSimulationReportComponent,
         ScenarioSimulationReportComponent
