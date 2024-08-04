@@ -55,7 +55,7 @@
                     />
                     <mat-error *ngIf="simulatorForm.get('time').hasError('invalidTime')">
                         Please enter a valid time in HH:MM format.
-                      </mat-error>
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -64,26 +64,27 @@
             <h2>Disciplina</h2>
             <mat-form-field appearance="outline">
                     <mat-label>Escolha</mat-label>
-                    <mat-select formControlName="disciplineRegister">
+                    <mat-select formControlName="discipline">
                         <mat-option *ngFor="let element of disciplines"
                                   [value]="element">
-                                  {{element}}
+                                  {{element.label}}
                         </mat-option>
                       </mat-select>
             </mat-form-field>
         </div>
       
-  <!-- 
-        <div class="dialog-ocorrance">
-                <h2>Houve alguma intercorrência ou mal funcionamento de Equipamento?</h2>
-                <div class="check-boxes">
+
+        <div class="dialog-selections">
+            <h2>Houve alguma intercorrência ou mal funcionamento de Equipamento?</h2>
+            <div class="check-boxes">
                     <mat-checkbox
                         class="manitance-checkbox"
                         (change)="simulatorCheckBox($event.checked)"> 
                         Selecionar Todos
                     </mat-checkbox>
-                </div>
-                <div class="content">
+            </div>
+
+            <div class="content">
                     <div class="forms-inputs">
                         <h3>Simulador de Alta Fidelide</h3>
                         <mat-form-field appearance="outline">
@@ -174,11 +175,11 @@
                                   </mat-select>
                         </mat-form-field>
                     </div>
-                </div>
+            </div>
         </div>
-
+ 
         <div class="dialog-footer">
-            <div class="footer-header">
+            <div class="dialog-section">
                 <h2>Descrição das Falhas</h2>
                 <mat-checkbox
                     class="manitance-checkbox"
@@ -193,14 +194,14 @@
 
             <ng-template #show>
                 <div class="form" formGroupName="description">
-                    <mat-form-field [hidden]="lessonTextArea" class="simulation-text-area" appearance="outline">
+                    <mat-form-field [hidden]="lessonTextArea" class="text-area-form" appearance="outline">
                         <mat-label>Detalhe as falhas registradas...</mat-label>
                         <textarea formControlName="descriptionInfo" matInput ></textarea>
                     </mat-form-field>
                 </div>
             </ng-template>
            
-        </div> -->
+        </div>
    
     </div>
 </mat-dialog-content>

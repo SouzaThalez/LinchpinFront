@@ -29,6 +29,7 @@ import { ScenarioRegisterCardsComponent } from './simulation/scenario/scenario-r
 import { RegisterManitanceDialogComponent } from './simulation/manitance/register-manitance-dialog/register-manitance-dialog.component';
 import { RegisterScenarioDialogComponent } from './simulation/scenario/register-scenario-dialog/register-scenario-dialog.component';
 import { RegisterPreScenarioDialogComponent } from './simulation/scenario/register-pre-scenario-dialog/register-pre-scenario-dialog.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 
 
@@ -68,7 +69,9 @@ import { RegisterPreScenarioDialogComponent } from './simulation/scenario/regist
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-   
-  ]
+    NgxMaskDirective, 
+    NgxMaskPipe
+  ],
+  providers: [provideNgxMask()]
 })
 export class OcorrencesModule { }

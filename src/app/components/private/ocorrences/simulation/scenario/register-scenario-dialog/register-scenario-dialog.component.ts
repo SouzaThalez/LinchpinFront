@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import moment from 'moment';
 import { checkBoxesData } from '../../../../../../data/checkBoxesData';
 import { Simulator } from '../../../../../../models/simulator';
+import { disciplines } from '../../../../../../data/disciplines';
 
 @Component({
   selector: 'app-register-scenario-dialog',
@@ -17,10 +18,11 @@ export class RegisterScenarioDialogComponent implements OnInit{
   noFailText = 'Nenhuma Falha';
   simulatorText = 'Nenhuma descrição de falha durante a execução de cenário';
   formInputs:string[]=['Nenhuma Falha','Falha registrada'];
-  disciplines:string[]=['Clinica Médica','Obstetricia','Int.Cirurgia','Int.Urgência','Int.Pediatria','Fisiologia','Enfermagem','Fisioterapia','Outras'];
+  disciplines = disciplines;
+  allcCheckBoxData = checkBoxesData;
   user = { name:'',role:''};
   simulatorForm: FormGroup;
-  allcCheckBoxData = checkBoxesData;
+  
   hasDescription = false;
   lessonTextArea=false;
   checkedBoxes:any[]=[];
@@ -172,6 +174,20 @@ export class RegisterScenarioDialogComponent implements OnInit{
       selectedItem:[],
       description:[null,Validators.required],
       showTextArea: [false],
+      
+      discipline:[null, Validators.required],
+      simulatorName:[],
+      simulatorCode:[],
+      simulatorImage:[],
+      simulatorRegister:[null, Validators.required],
+      monitorRegister: [null, Validators.required],
+      medicationCarRegister: [null, Validators.required],
+      energyPanelRegister: [null, Validators.required],
+      airFlowRegister: [null, Validators.required],
+      internetCableRegister: [null, Validators.required],
+      otherRegister: [null, Validators.required],
+      audioAndMediaRegister:[null, Validators.required],
+      
       simulatorType:['Alta'],
       user: []
     })
