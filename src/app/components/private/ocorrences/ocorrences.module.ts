@@ -30,6 +30,7 @@ import { RegisterManitanceDialogComponent } from './simulation/manitance/registe
 import { RegisterScenarioDialogComponent } from './simulation/scenario/register-scenario-dialog/register-scenario-dialog.component';
 import { RegisterPreScenarioDialogComponent } from './simulation/scenario/register-pre-scenario-dialog/register-pre-scenario-dialog.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { CoursesDialogComponent } from './courses/courses-dialog/courses-dialog.component';
 
 
 
@@ -52,7 +53,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     ScenarioRegisterCardsComponent,
     RegisterManitanceDialogComponent,
     RegisterScenarioDialogComponent,
-    RegisterPreScenarioDialogComponent
+    RegisterPreScenarioDialogComponent,
+    CoursesDialogComponent
   ],
   imports: [
     CommonModule,

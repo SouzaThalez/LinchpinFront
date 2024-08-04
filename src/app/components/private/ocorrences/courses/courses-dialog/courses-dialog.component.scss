@@ -1,0 +1,73 @@
+.modal-header{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .header-container{
+        display: flex;
+        align-items: center;
+        border: 3px solid #d7d7d7;
+
+        .simulator-image{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 5px;
+            img{
+                width: 130px;
+                height: 93px;
+                border-radius: 7px;
+            }
+        }
+
+        .header-description{
+            padding: 10px;
+            display: flex;
+            text-align: justify;
+        }
+    }
+}
+
+.dialog-body{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .dialog-field{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .dialog-field-code{
+        display: flex;
+        gap: 33px;
+    }
+}
+
+.dialog-container{
+    display:  flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+
+.mat-typography{
+
+    .text-area-form{
+        width: 100%;
+        height: 188px;
+        textarea{
+            height: 140px;
+        }
+    }
+    .code-field-form{
+        width: 248px;
+    }
+}
+
+.dialog-actions{
+    justify-content: flex-end;
+    gap: 10px;
+}
+

@@ -1,11 +1,11 @@
-export const curses= [
+export const cursesData = [
     {
         name:'Suporte Básico de Vida',
         label:'BLS'
     },
     {
         name:'Salva Corações',
-        label:'Primeiros Socorros e RCP'
+        label:'RCP'
     },
     {
         name:'Suporte Avançado de Vida Cardiovascular',
