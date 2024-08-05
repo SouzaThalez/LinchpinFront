@@ -11,7 +11,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class LowFidelityCleaningDialogComponent implements OnInit{
 
   checked = false;
-  textMsg = 'mensagwem';
+  textMsg = 'Não houve achados durante a limpeza deste simulador';
 
   constructor(
     public dialogRef: MatDialogRef<LowFidelityCleaningDialogComponent>,
@@ -28,8 +28,9 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
   }
 
 
+  
   checkBox(value: any){
-
-  }
+    this.checked = value;
+  } 
 
 }
