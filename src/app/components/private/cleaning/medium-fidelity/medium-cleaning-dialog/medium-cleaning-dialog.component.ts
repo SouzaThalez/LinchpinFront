@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Simulator } from '../../../../../models/simulator';
 
 @Component({
   selector: 'app-medium-cleaning-dialog',
@@ -15,7 +16,9 @@ export class MediumCleaningDialogComponent implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<MediumCleaningDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      simulator: Simulator
+    },
   ){}
 
   ngOnInit(): void {

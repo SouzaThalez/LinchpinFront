@@ -1,4 +1,5 @@
 <div class="panel-container">
+
     <div class="header-list">
         <div class="header-item-message">
             <span>Bem vindo!</span>
@@ -18,6 +19,7 @@
             <div class="horizontal-line"></div>
         </div>
     </div>
+
     <div class="panel-icons-list">
 
         <span class="panel-item" routerLink="home" matTooltip="Home">
@@ -55,21 +57,21 @@
             </div>
         </span>
 
-        <span class="panel-item">
+        <div class="horizontal-line"></div>
+    </div>
+
+    <div class="footer-panel">
+        <div class="panel-item">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">settings</span>
-                <span class="item-text">Definições</span>
+                <span class="item-text">Gestão</span>
             </div>
-        </span>
-
+        </div>
         <span class="panel-item" (click)="openlogOutDialog()">
             <div class="item-container" routerLinkActive="active">
-                <span class="material-symbols-outlined">
-                    logout
-                </span>
-               <span>Sair</span>
+                <span class="material-symbols-outlined">logout</span>
+                <span class="item-text">Sair</span>
             </div>
         </span>
-    
     </div>
 </div>

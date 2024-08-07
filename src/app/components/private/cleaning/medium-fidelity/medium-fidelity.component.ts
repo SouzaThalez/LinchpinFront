@@ -20,11 +20,14 @@ export class MediumFidelityComponent implements OnInit{
     
   }
 
-  openMediumCleaningDialog(){
+  openMediumCleaningDialog(element: any){
 
     let dialogRef = this.matDialog.open(MediumCleaningDialogComponent,{
       disableClose: true,
-      width:'650px'
+      width:'650px',
+      data:{
+        simulator: element
+      }
     })
 
     dialogRef.afterClosed().subscribe(result=>{

@@ -3,17 +3,21 @@
 
     <div class="details-list">
         <div class="card-container" *ngFor="let simulator of highSimulators">
-            <div class="card-head">
-                <div class="card-image">
-                    <img [src]="simulator.image" alt="">
-                </div>
-                <div class="card-description">
-                    <span>{{simulator.name}}</span>
-                    <span>{{simulator.description}}</span>
-                    <span>Quantidade: 1</span>
+         
+            <div class="card-body" (click)="openHighCleaningDialog(simulator)">
+                <div class="card-head">
+                    <div class="card-image">
+                        <img [src]="simulator.image" alt="">
+                    </div>
+                    <div class="card-description">
+                        <span>{{simulator.name}}</span>
+                        <span>{{simulator.description}}</span>
+                        <span>Quantidade: 1</span>
+                    </div>
                 </div>
             </div>
-            <div class="register-container" (click)="openHighCleaningDialog()">
+
+            <div class="register-container" >
                 <span class="register-btn">saber mais...</span>
             </div>
         </div>

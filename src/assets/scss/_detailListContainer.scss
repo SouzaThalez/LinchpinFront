@@ -9,6 +9,7 @@
         align-items: center;
         margin-bottom:20px;
         cursor: pointer;
+
         .card-head{
             display: flex;
             align-items: center;
@@ -24,18 +25,24 @@
                 flex-direction: column;
             }
         }
+
         .register-container{
             padding: 20px;
             border-radius: 26px;
             width: 160px;
             display: flex;
             justify-content: center;
-            background-color: #D9D9D9;
+            background-color: #f3f3f3;
             margin-right: 20px;
-            .register-btn{
-               
+
+            &:hover{
+                background-color: #D9D9D9;
+                box-shadow: 1px 2px 4px -1px;
+                color: black;
+                
             }
         }
+
         &:hover{
             background-color: #bbdbe9;
          }

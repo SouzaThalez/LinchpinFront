@@ -20,11 +20,14 @@ export class HighFidelityComponent implements OnInit{
     
   }
 
-  openHighCleaningDialog(){
+  openHighCleaningDialog(element: any){
 
     let dialogRef = this.matDialog.open(HighCleaningDialogComponent,{
       disableClose: true,
-      width:'650px'
+      width:'650px',
+      data:{
+        simulator: element
+      }
     })
 
     dialogRef.afterClosed().subscribe(result=>{

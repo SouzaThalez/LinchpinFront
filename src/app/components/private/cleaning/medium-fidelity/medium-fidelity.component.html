@@ -3,17 +3,19 @@
     <div class="details-list">
 
         <div class="card-container" *ngFor="let simulator of mediumSimulators">
-            <div class="card-head">
-                <div class="card-image">
-                    <img [src]="simulator.image" alt="">
-                </div>
-                <div class="card-description">
-                    <span>{{simulator.name}}</span>
-                    <span>{{simulator.description}}</span>
-                    <span>Quantidade: {{simulator.codes.length}}</span>
+            <div class="card-body" (click)="openMediumCleaningDialog(simulator)">
+                <div class="card-head">
+                    <div class="card-image">
+                        <img [src]="simulator.image" alt="">
+                    </div>
+                    <div class="card-description">
+                        <span>{{simulator.name}}</span>
+                        <span>{{simulator.description}}</span>
+                        <span>Quantidade: {{simulator.codes.length}}</span>
+                    </div>
                 </div>
             </div>
-            <div class="register-container" (click)="openMediumCleaningDialog()">
+            <div class="register-container">
                 <span class="register-btn">saber mais...</span>
             </div>
         </div>
