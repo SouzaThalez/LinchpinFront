@@ -17,6 +17,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HighCleaningDialogComponent } from './high-fidelity/high-cleaning-dialog/high-cleaning-dialog.component';
 import { LowFidelityCleaningDialogComponent } from './low-fidelity/low-fidelity-cleaning-dialog/low-fidelity-cleaning-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -41,7 +43,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatCheckboxModule,
     MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
 
-  ]
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' } // Set the date locale to Portuguese (Brazil)
+  ],
 })
 export class CleaningModule { }

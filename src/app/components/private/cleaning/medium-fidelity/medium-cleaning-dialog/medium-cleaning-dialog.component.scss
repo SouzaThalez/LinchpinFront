@@ -39,16 +39,17 @@
 }
 
 .mat-typography{
-    .text-area{
-        .text-area-form{
-            width: 100%;
-            height: 150px;
+    .textarea-form{
+        textarea{
+            height: 160px;
         }
     }
+
 }
 
 .dialog-actions{
     justify-content: flex-end;
     gap: 10px;
 }
+
 
