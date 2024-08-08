@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {provideNativeDateAdapter} from '@angular/material/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Simulator } from '../../../../../models/simulator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-medium-cleaning-dialog',
@@ -23,6 +24,7 @@ export class MediumCleaningDialogComponent implements OnInit{
       simulator: Simulator
     },
     public fb : FormBuilder,
+    private matDialog: MatDialog,
   ){}
 
   ngOnInit(): void {
@@ -49,8 +51,15 @@ export class MediumCleaningDialogComponent implements OnInit{
     
     if (this.form.valid) {
       console.log(this.form.value);
+      return
     }
+
+ 
+
   }
+
+
+
 
   private createForm(): FormGroup{
 
