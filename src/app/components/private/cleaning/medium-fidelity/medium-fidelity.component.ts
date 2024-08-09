@@ -21,7 +21,7 @@ export class MediumFidelityComponent implements OnInit{
   }
 
   openMediumCleaningDialog(element: any){
-
+    
     let dialogRef = this.matDialog.open(MediumCleaningDialogComponent,{
       disableClose: true,
       width:'650px',

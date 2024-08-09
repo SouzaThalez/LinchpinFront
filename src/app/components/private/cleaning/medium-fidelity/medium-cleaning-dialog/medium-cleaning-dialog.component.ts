@@ -4,6 +4,10 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Simulator } from '../../../../../models/simulator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
+import { HttpClient } from '@angular/common/http';
+import moment from 'moment';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
 
 
 @Component({
@@ -17,6 +21,7 @@ export class MediumCleaningDialogComponent implements OnInit{
   form: FormGroup;
   checked = false;
   textMsg = 'Não houve achados durante a limpeza deste simulador';
+  snackbarMessage = 'Registro salvo com sucesso!';
   simulatorCodes: Array<any> = [];
 
   constructor(
@@ -26,6 +31,8 @@ export class MediumCleaningDialogComponent implements OnInit{
     },
     public fb : FormBuilder,
     private matDialog: MatDialog,
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar
   ){}
 
   ngOnInit(): void {
@@ -34,10 +41,10 @@ export class MediumCleaningDialogComponent implements OnInit{
     this.simulatorCodes = this.data.simulator.codes;
   }
 
-  onClose(value: string): void {
+  onClose(value: any): void {
     this.dialogRef.close(value);
+    this.openSnackBar(this.snackbarMessage);
   }
-
 
   checkBox(value: any){
     this.checked = value;
@@ -51,14 +58,40 @@ export class MediumCleaningDialogComponent implements OnInit{
   onSubmit(): void {
     
     if (this.form.valid) {
-      console.log(this.form.value);
+
+      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
+      this.form.patchValue({date: momentDate});
+
+      const model = this.form.value;
+      this.postCleaningReports(model);
+      this.onClose(model);
       return
     }
-
     this.openAlertDialog();
 
   }
 
+
+  private openSnackBar(message: string): void {
+
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000 
+    });
+
+  }
+
+  private postCleaningReports(model:any){
+
+   this.httpClient.post('http://localhost:3000/CleaningReports',model)
+   .subscribe({
+       next: (sample: any)=>{
+         console.log('request to prepared class  ok!: ',sample);
+       },
+       error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+   })
+  }
 
   private openAlertDialog(){
 
@@ -75,7 +108,6 @@ export class MediumCleaningDialogComponent implements OnInit{
     })
   }
 
-
   private createForm(): FormGroup{
 
     const prevForm = this.fb.group({
@@ -91,6 +123,5 @@ export class MediumCleaningDialogComponent implements OnInit{
 
     return prevForm;
   }
-
 
 }

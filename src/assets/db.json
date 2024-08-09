@@ -1,32 +1,64 @@
 {
-    "Users": [
-        {
-          "id": 1,
-          "role": "moderador",
-          "login": "thales.carvalho",
-          "password": "thales.123",
-          "name": "Thales"
-        },
-        {
-          "id": 2,
-          "login": "taline.pereira",
-          "password": "taline.123",
-          "name": "Taline",
-          "role": "tecnico"
-        },
-        {
-          "id": 3,
-          "name": "Mariana",
-          "password": "mariana.123",
-          "role": "admin",
-          "login": "mariana.araujo"
-        },
-        {
-          "name": "Isabela",
-          "password": "isabela.123",
-          "role": "deposito",
-          "logi": "isabela.souza",
-          "id": 4
-        }
-      ]
+  "Users": [
+    {
+      "id": 1,
+      "role": "moderador",
+      "login": "thales.carvalho",
+      "password": "thales.123",
+      "name": "Thales"
+    },
+    {
+      "id": 2,
+      "login": "taline.pereira",
+      "password": "taline.123",
+      "name": "Taline",
+      "role": "tecnico"
+    },
+    {
+      "id": 3,
+      "name": "Mariana",
+      "password": "mariana.123",
+      "role": "admin",
+      "login": "mariana.araujo"
+    },
+    {
+      "name": "Isabela",
+      "password": "isabela.123",
+      "role": "deposito",
+      "logi": "isabela.souza",
+      "id": 4
+    }
+  ],
+  "CleaningReports": [
+    {
+      "date": "07-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE13",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "user": null,
+      "id": 1
+    },
+    {
+      "date": "08-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "user": null,
+      "id": 2
+    },
+    {
+      "date": "09-08-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "user": null,
+      "id": 3
+    }
+  ]
 }

@@ -20,6 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { SharedModule } from '../../shared/shared.module';
+import {HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -46,7 +48,10 @@ import { SharedModule } from '../../shared/shared.module';
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule 
+    SharedModule,
+    HttpClientModule,
+    MatSnackBarModule
+    
 
   ],
   providers: [
