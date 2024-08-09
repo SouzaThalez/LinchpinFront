@@ -3,6 +3,7 @@ import {provideNativeDateAdapter} from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Simulator } from '../../../../../models/simulator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
 
 
 @Component({
@@ -54,11 +55,25 @@ export class MediumCleaningDialogComponent implements OnInit{
       return
     }
 
- 
+    this.openAlertDialog();
 
   }
 
 
+  private openAlertDialog(){
+
+    let dialogRef = this.matDialog.open(AlertDialogComponent,{
+      disableClose: true,
+      width:'468px',
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
 
 
   private createForm(): FormGroup{
@@ -67,9 +82,10 @@ export class MediumCleaningDialogComponent implements OnInit{
 
       date: [null,Validators.required],
       cleaningCategory:[null,Validators.required],
+      simulatorCategory:['media'],
       simulatorName:[this.data.simulator.name],
       simulatorCode:[null,Validators.required],
-      findings:[],
+      findings:[null,Validators.required],
       user: [],
     })
 

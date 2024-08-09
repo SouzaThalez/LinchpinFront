@@ -34,8 +34,13 @@
 
 .dialog-container{
     display:  flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+
+    .dialog-text{
+        font-size: 28px;
+        color: var(--primary-color);
+    }
 }
 
 .mat-typography{

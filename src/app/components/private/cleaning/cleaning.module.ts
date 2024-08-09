@@ -19,6 +19,7 @@ import { LowFidelityCleaningDialogComponent } from './low-fidelity/low-fidelity-
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatCheckboxModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule 
 
   ],
   providers: [
