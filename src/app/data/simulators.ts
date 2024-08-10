@@ -1,12 +1,13 @@
 export const simulators ={
     lowFidelity:[
         {
-            className:'Punção procedimentos',
-            classImage:'assets/images/lowSimulators/Braços/venousProcedure.png',
-            simulator:[
+            simulatorClass:'Punção procedimentos',
+            classImage:'assets/images/Simulators/LowFidelity/venousProcedure.png',
+            simulators:[
               {
                 name: 'Punção Arterial',
-                image: 'assets/images/lowSimulators/Braços/arterialArm.jpg',
+                image: 'assets/images/Simulators/LowFidelity/arterialArm.jpg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'PUNA203',disabled: false},
                   {code:'PUNA958',disabled: false},
@@ -31,7 +32,8 @@ export const simulators ={
               },
               {
                 name: 'Punção Venosa',
-                image: 'assets/images/lowSimulators/Braços/venousArm.jpg',
+                image: 'assets/images/Simulators/LowFidelity/venousArm.jpg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'PUNV2245',disabled:false},
                   {code:'PUNV3301',disabled:false},
@@ -59,11 +61,12 @@ export const simulators ={
                   {code:'PUNV7787',disabled:false},
                   {code:'PUNV8810',disabled:false},
                 ],
-                buttonDisabled: false
+          
               },
               {
                 name: 'Punção Intraossea',
-                image: 'assets/images/lowSimulators/Braços/intraosseous.png',
+                image: 'assets/images/Simulators/LowFidelity/intraosseous.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'ITRA290',disabled:false},
                   {code:'ITRA821',disabled:false},
@@ -94,11 +97,12 @@ export const simulators ={
                   {code:'ITRA889',disabled:false},
                   {code:'ITRA431',disabled:false},
                 ],
-                buttonDisabled: false
+               
               },
               {
                 name: 'Punção Lombar',
-                image: 'assets/images/lowSimulators/Braços/lumbarPuncture.png',
+                image: 'assets/images/Simulators/LowFidelity/lumbarPuncture.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'PUMLOMB001',disabled:false},
                   {code:'PUMLOMB002',disabled:false},
@@ -117,18 +121,19 @@ export const simulators ={
                   {code:'PUMLOMB015',disabled:false},
                   {code:'PUMLOMB016',disabled:false},
                 ],
-                buttonDisabled: false
+                
               }
             ],
-            register: false
+           
         },
         {
-            className:'Torsos RCP',
-            classImage:'assets/images/lowSimulators/torsos/rcp/ressusciQcpr.png',
-            simulator:[
+            simulatorClass:'Torsos RCP',
+            classImage:'assets/images/Simulators/LowFidelity/ressusciQcpr.png',
+            simulators:[
               {
                 name: 'Little Anne',
-                image: 'assets/images/lowSimulators/torsos/rcp/little anne.png',
+                image: 'assets/images/Simulators/LowFidelity/little-anne.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'RCPANE001',disabled:false},
                   {code:'RCPANE002',disabled:false},
@@ -153,11 +158,12 @@ export const simulators ={
                   {code:'RCPANE021',disabled:false},
                   {code:'RCPANE022',disabled:false},
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Little junior',
-                image: 'assets/images/lowSimulators/torsos/rcp/juniorRCP.jpg',
+                image: 'assets/images/Simulators/LowFidelity/juniorRCP.jpg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'RCPJUNIO001',disabled:false},
                   {code:'RCPJUNIO002',disabled:false},
@@ -176,22 +182,24 @@ export const simulators ={
                   {code:'RCPJUNIO0015',disabled:false},
                   {code:'RCPJUNIO0016',disabled:false},
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Ressuci Anne',
-                image: 'assets/images/lowSimulators/torsos/rcp/ressusciQcpr.png',
+                image: 'assets/images/Simulators/LowFidelity/ressusciQcpr.png',
+                description:'simultaor description goes here...',
                 codes:[
                 {code:'RES121',disabled:false},
                 {code:'RES123',disabled:false},
                 {code:'RES124',disabled:false},
                 {code:'RES125',disabled:false}
-              ],
-                buttonDisabled: false
+                ],
+                
               },
               {
                 name: 'Choking Charlie',
-                image: 'assets/images/lowSimulators/torsos/rcp/chokingCharlie.jpg',
+                image: 'assets/images/Simulators/LowFidelity/chokingCharlie.jpg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'ENGA1302',disabled:false},
                   {code:'ENGA2457',disabled:false},
@@ -210,18 +218,19 @@ export const simulators ={
                   {code:'ENGA4891',disabled:false},
                   {code:'ENGA2746',disabled:false},
                 ],
-                buttonDisabled: false
+               
               }
             ],
-            register: false
+            
         },
         {
-            className:'Torços Cirurgicos',
-            classImage:'assets/images/lowSimulators/torsos/drainTorso.jpg',
-            simulator:[
+            simulatorClass:'Torços Cirurgicos',
+            classImage:'assets/images/Simulators/LowFidelity/drainTorso.jpg',
+            simulators:[
               {
                 name: 'Torso Drenagem toráxica',
-                image: 'assets/images/lowSimulators/torsos/drainTorso.jpg',
+                image: 'assets/images/Simulators/LowFidelity/drainTorso.jpg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'TR2305',disabled:false},
                   {code:'TR9903',disabled:false},
@@ -238,12 +247,13 @@ export const simulators ={
                   {code:'TR5421',disabled:false},
                   {code:'TR2874',disabled:false},
                   {code:'TR2305',disabled:false}, 
-                  ],
-                buttonDisabled: false
+                ],
+                
               },
               {
                 name: 'Torso paracentese',
-                image: 'assets/images/lowSimulators/torsos/paracenteseTorso.jpg',
+                image: 'assets/images/Simulators/LowFidelity/paracenteseTorso.jpg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'CEN1923',disabled:false},
                   {code:'CEN5487',disabled:false},
@@ -258,11 +268,12 @@ export const simulators ={
                   {code:'CEN6320',disabled:false},
                   {code:'CEN3324',disabled:false}
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Torso Central',
-                image: 'assets/images/lowSimulators/torsos/torco_central.png',
+                image: 'assets/images/Simulators/LowFidelity/torco_central.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'CENT001',disabled:false},
                   {code:'CENT002',disabled:false},
@@ -281,11 +292,12 @@ export const simulators ={
                   {code:'CENT015',disabled:false},
                   {code:'CENT016',disabled:false}
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Torso Abdome',
-                image: 'assets/images/lowSimulators/Examination/abdomen.png',
+                image: 'assets/images/Simulators/LowFidelity/abdomen.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'AB4612',disabled:false},
                   {code:'AB2301',disabled:false},
@@ -299,18 +311,19 @@ export const simulators ={
                   {code:'AB3548',disabled:false},
                   {code:'AB6870',disabled:false},
                 ],
-                buttonDisabled: false
+                
               }
             ],
-            register: false
+            
         },
         {
-            className:'Pelves para Exame',
-            classImage:'assets/images/lowSimulators/pelves/clinicalPelv.jpeg',
-            simulator:[
+            simulatorClass:'Pelves para Exame',
+            classImage:'assets/images/Simulators/LowFidelity/clinicalPelv.jpeg',
+            simulators:[
               {
                 name: 'Pelve Prompt',
-                image: 'assets/images/lowSimulators/pelves/promptPelv.png',
+                image: 'assets/images/Simulators/LowFidelity/promptPelv.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'PROMT001',disabled:false},
                   {code:'PROMT002',disabled:false},
@@ -343,11 +356,12 @@ export const simulators ={
                   {code:'PROMT029',disabled:false},
                   {code:'PROMT030',disabled:false},
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Pelve Clinica F',
-                image: 'assets/images/lowSimulators/pelves/clinicalPelv.jpeg',
+                image: 'assets/images/Simulators/LowFidelity/clinicalPelv.jpeg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'CF201',disabled:false},
                   {code:'CF202',disabled:false},
@@ -355,48 +369,52 @@ export const simulators ={
                   {code:'CF204',disabled:false},
                   {code:'CF205',disabled:false},
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Pelve Clinica M',
-                image: 'assets/images/lowSimulators/pelves/masculinePelve.jpg',
+                image: 'assets/images/Simulators/LowFidelity/masculinePelve.jpg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'CP501',disabled:false},
                   {code:'CP502',disabled:false},
                   {code:'CP503',disabled:false},
                   {code:'CP504',disabled:false}
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Pelve Sondagem F',
-                image: 'assets/images/lowSimulators/pelves/enemaPelve.png',
+                image: 'assets/images/Simulators/LowFidelity/enemaPelve.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'SF333',disabled:false},
                   {code:'SF334',disabled:false}
                 ],
-                buttonDisabled: false
+                
               },
               {
                 name: 'Pelve Sondagem M',
-                image: 'assets/images/lowSimulators/pelves/enemaPelve.png',
+                image: 'assets/images/Simulators/LowFidelity/enemaPelve.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'SP322',disabled:false},
                   {code:'SP323',disabled:false},
                   {code:'SP324',disabled:false}
                 ],
-                buttonDisabled: false
+                
               }
             ],
-            register: false
+            
         },
         {
-            className:'Mamas de Exame',
-            classImage:'assets/images/lowSimulators/Examination/breasthExamination.jpeg',
-            simulator:[
+            simulatorClass:'Mamas de Exame',
+            classImage:'assets/images/Simulators/LowFidelity/breasthExamination.jpeg',
+            simulators:[
               {
                 name: 'Mama Ordenha',
-                image: 'assets/images/lowSimulators/Examination/breasthMilk.png',
+                image: 'assets/images/Simulators/LowFidelity/breasthMilk.png',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'ORDE345',disabled:false},
                   {code:'ORDE502',disabled:false},
@@ -406,12 +424,13 @@ export const simulators ={
                   {code:'ORDE925',disabled:false},
                   {code:'ORDE104',disabled:false},
                   {code:'ORDE387',disabled:false},
-                  ],
-                buttonDisabled: false
+                ],
+               
               },
               {
                 name: 'Mama Exame',
-                image: 'assets/images/lowSimulators/Examination/breasthExamination.jpeg',
+                image: 'assets/images/Simulators/LowFidelity/breasthExamination.jpeg',
+                description:'simultaor description goes here...',
                 codes:[
                   {code:'MAM7854',disabled:false},
                   {code:'MAM1098',disabled:false},
@@ -427,18 +446,19 @@ export const simulators ={
                   {code:'MAM8276',disabled:false},
                   {code:'MAM5912',disabled:false},
                 ],
-                buttonDisabled: false
+                
               }
             ],
-            register: false
+            
         },
         {
-          className:'Cabeças',
-          classImage:'assets/images/lowSimulators/Heads/heads.png',
-          simulator:[
+          simulatorClass:'Cabeças',
+          classImage:'assets/images/Simulators/LowFidelity/heads.png',
+          simulators:[
             {
               name: 'Exame do olho',
-              image: 'assets/images/lowSimulators/Heads/head_eye.png',
+              image: 'assets/images/Simulators/LowFidelity/head_eye.png',
+              description:'simultaor description goes here...',
               codes:[
                 {code:'EXAMO510',disabled: false},
                 {code:'EXAMO726',disabled: false},
@@ -454,7 +474,8 @@ export const simulators ={
             },
             {
               name: 'Exame do Ouvido',
-              image: 'assets/images/lowSimulators/Heads/head_ear.png',
+              image: 'assets/images/Simulators/LowFidelity/head_ear.png',
+              description:'simultaor description goes here...',
               codes:[
                 {code:'EXAMO510',disabled: false},
                 {code:'EXAMO726',disabled: false},
@@ -467,11 +488,12 @@ export const simulators ={
                 {code:'EXAMO468',disabled: false},
                 {code:'EXAMO639',disabled: false},
               ],
-              buttonDisabled: false
+              
             },
             {
               name: 'IOT Adulto',
-              image: 'assets/images/lowSimulators/Heads/iot_adulto.png',
+              image: 'assets/images/Simulators/LowFidelity/iot_adulto.png',
+              description:'simultaor description goes here...',
               codes:[
                 {code:'IOTA2100',disabled:false},
                 {code:'IOTA3874',disabled:false},
@@ -497,11 +519,12 @@ export const simulators ={
                 {code:'IOTA8973',disabled:false},
                 {code:'IOTA1045',disabled:false},
               ],
-              buttonDisabled: false
+             
             },
             {
               name: 'IOT Pediatrico',
-              image: 'assets/images/lowSimulators/Heads/iot_pediatric.png',
+              image: 'assets/images/Simulators/LowFidelity/iot_pediatric.png',
+              description:'simultaor description goes here...',
               codes:[
                 {code:'IOTP2468',disabled:false},
                 {code:'IOTP3981',disabled:false},
@@ -523,11 +546,11 @@ export const simulators ={
                 {code:'IOTP6632',disabled:false},
                 {code:'IOTP6631',disabled:false},
               ],
-              buttonDisabled: false
+              
             },
             
           ],
-          register: false
+          
       },
        
         

@@ -1,43 +1,25 @@
 <div class="page">
-    <div class="details-list">
-        <div class="card-container">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="../../Habilidade"> Habilidades </a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a>{{routeName}}</a></li>
+        </ol>
+    </nav>
+    <div class="details-list" *ngIf="isLoading">
+        <div class="card-container" *ngFor="let simulator of lowSimulators">
             <div class="card-head">
-                <div class="card-image"></div>
+                <div class="card-image">
+                    <img [src]="simulator.image" alt="">
+                </div>
                 <div class="card-description">
-                    <span>Title</span>
-                    <span>card description</span>
-                    <span>Quantity</span>
+                    <span>{{simulator.name}}</span>
+                    <span>{{simulator.description}}</span>
+                    <span>Quantidade: {{simulator.codes.length}}</span>
                 </div>
             </div>
             <div class="register-container">
                 <span class="register-btn">btn span</span>
             </div>
-        </div>
-        <div class="card-container">
-            <div class="card-head">
-                <div class="card-image"></div>
-                <div class="card-description">
-                    <span>Title</span>
-                    <span>card description</span>
-                    <span>Quantity</span>
-                </div>
-            </div>
-            <div class="register-container">
-                <span class="register-btn">btn span</span>
-            </div>
-        </div>
-        <div class="card-container">
-            <div class="card-head">
-                <div class="card-image"></div>
-                <div class="card-description">
-                    <span>Title</span>
-                    <span>card description</span>
-                    <span>Quantity</span>
-                </div>
-            </div>
-            <div class="register-container" (click)="openLowCleaningDialog()">
-                <span class="register-btn">Saber mais...</span>
-            </div>
-        </div>
+        </div> 
     </div>
 </div>

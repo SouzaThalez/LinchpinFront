@@ -69,7 +69,6 @@ export class ScenarioRegisterCardsComponent implements OnInit{
         return
       }
 
-
       let dialogRef = this.matDialog.open(RegisterPreScenarioDialogComponent,{
         disableClose: true,
         width:'650px',

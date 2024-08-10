@@ -1,14 +1,7 @@
 
-.add-header-icon{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 22px;
-    img{
-        cursor: pointer;
-    }
-}
-
 .page{
-   
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    overflow: auto;
 }

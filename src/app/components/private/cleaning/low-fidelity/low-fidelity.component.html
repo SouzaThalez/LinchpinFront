@@ -10,15 +10,16 @@
 
     <div class="cards-list">
         <div class="card" 
-             *ngFor="let element of simTypes index as i" 
+             *ngFor="let element of simulatorClasses index as i" 
              routerLink="/private/cleaning/Habilidade/{{i}}">
             <div class="card-head">
                 <div class="card-img">
-                    <img [src]="element.image" alt="">
+                    <img [src]="element.classImage" alt="">
                 </div>
                 <div class="card-description">
-                    <span class="card-title">{{element.name}}</span>
-                    <span>Quantidade: {{element.quantity}}</span>
+                    <span class="card-title">{{element.simulatorClass}}</span>
+                    <span>Simuladores cadastrados</span>
+                    <span>{{element.simulators.length}}</span>
                 </div>
             </div>
             <div class="card-divider"></div>

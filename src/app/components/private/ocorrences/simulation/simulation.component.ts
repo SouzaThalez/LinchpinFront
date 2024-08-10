@@ -10,7 +10,7 @@ export class SimulationComponent implements OnInit{
   
   routerName = '';
 
-  constructor(private router:ActivatedRoute){}
+  constructor(private router: ActivatedRoute){}
 
   ngOnInit(): void {
     this.routerName = this.router.snapshot.url[0].path;

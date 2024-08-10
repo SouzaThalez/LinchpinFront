@@ -106,7 +106,7 @@ export class HighCleaningDialogComponent implements OnInit{
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
-   }
+  }
 
   private createForm(): FormGroup{
 
