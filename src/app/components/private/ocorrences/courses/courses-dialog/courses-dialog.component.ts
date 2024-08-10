@@ -1,10 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Lesson } from '../../../../../models/lesson';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { simulators } from '../../../../../data/simulators';
 import { Simulator } from '../../../../../models/simulator';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import moment from 'moment';
+import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
 
 @Component({
   selector: 'app-courses-dialog',
@@ -21,6 +25,7 @@ export class CoursesDialogComponent implements OnInit{
 
   defaultMessage = 'Não houve registro de ocorrência de aula';
   defaultSimulatorMessage = 'Não houve ocorrência de Simulador';
+  snackbarMessage = 'Registro salvo com sucesso!';
 
   selectedSimulator: Simulator;
 
@@ -39,17 +44,20 @@ export class CoursesDialogComponent implements OnInit{
       curse: any
     },
     private fb : FormBuilder,
+    private matDialog: MatDialog,
+    private snackBar: MatSnackBar
   ){}
   
   ngOnInit(): void {
-    
-    this.data.curse
+  
     this.form = this.createForm();
+
   } 
 
   
   onClose(value: string): void {
     this.dialogRef.close(value);
+    this.openSnackBar(this.snackbarMessage);
   }
 
 
@@ -57,8 +65,17 @@ export class CoursesDialogComponent implements OnInit{
     this.checked = value;
     this.form.patchValue({ocorrance: this.defaultMessage})
   }
+
   checkSimBox(value: any){
     this.isValid = value;
+    if(this.isValid){
+      this.form.patchValue({
+        simulatorOcorrance: this.defaultSimulatorMessage,
+        simulatorName:'Não informado',
+        simulatorCode:'Não informado'
+      })
+    }
+   
   }
 
 
@@ -72,43 +89,76 @@ export class CoursesDialogComponent implements OnInit{
     
   }
 
-
   getCode(code:any){
-    
+   
+    this.form.patchValue({
+      simulatorCode: code
+    })
   }
+
 
 
   submitForm(){
- 
-    if(this.form.invalid){
+   
+    if (this.form.valid) {
 
+      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
+      this.form.patchValue({date: momentDate});
+  
+      const model = this.form.value;
+      //send data to ocorrance Dialog
+      this.onClose(model);
+      
+      return
     }
+   
+    this.openAlertDialog();
+
+
+
   }
 
+  private openSnackBar(message: string): void {
 
-  private createForm(): FormGroup {
-  
-    const form = this.fb.group({
-      
-      name: [null, Validators.required],
-      simulator: [null, Validators.required],
-      code:[null, Validators.required],
-      ocorrance: [null, Validators.required],
-      date: [null, Validators.required],
-      user:[null],
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000 
     });
 
-    return form;
-
   }
 
+  private openAlertDialog(){
 
+    let dialogRef = this.matDialog.open(AlertDialogComponent,{
+      disableClose: true,
+      width:'468px',
+  
+    })
 
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
 
+  private createForm(): FormGroup{
 
+    const prevForm = this.fb.group({
 
+      date: [null,Validators.required],
+      name:[this.data.curse.name],
+      lessonOcorrance:[],
+      simulatorOcorrance:[null,Validators.required],
+      simulatorName:[null,Validators.required],
+      simulatorCode:[null,Validators.required],
+      lessonCategory: [this.data.curse.type],
+      lessonType:[this.data.curse.value],
+      user: [],
+    })
 
-
-
+    return prevForm;
+  }
 
 }

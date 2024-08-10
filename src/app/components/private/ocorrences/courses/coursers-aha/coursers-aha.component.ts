@@ -11,8 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CoursersAhaComponent implements OnInit{
 
-  coursers = ocorranceData.coursersType;
-  courses = cursesData;
+  courses = ocorranceData.courseTypes;
+  //  courses = cursesData;
 
   constructor(
     private matDialog: MatDialog,

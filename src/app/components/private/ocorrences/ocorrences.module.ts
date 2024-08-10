@@ -31,6 +31,7 @@ import { RegisterScenarioDialogComponent } from './simulation/scenario/register-
 import { RegisterPreScenarioDialogComponent } from './simulation/scenario/register-pre-scenario-dialog/register-pre-scenario-dialog.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CoursesDialogComponent } from './courses/courses-dialog/courses-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -72,7 +73,8 @@ import { CoursesDialogComponent } from './courses/courses-dialog/courses-dialog.
     FormsModule,
     ReactiveFormsModule,
     NgxMaskDirective, 
-    NgxMaskPipe
+    NgxMaskPipe,
+    HttpClientModule
   ],
   providers: [provideNgxMask()]
 })

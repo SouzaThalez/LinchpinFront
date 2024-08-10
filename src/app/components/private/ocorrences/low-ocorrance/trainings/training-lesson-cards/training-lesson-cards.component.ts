@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, model, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { trainingLessonsData } from '../../../../../../data/trainingLessonsData';
 import { ocorranceData } from '../../../../../../data/ocorranceData';
@@ -22,6 +22,7 @@ export class TrainingLessonCardsComponent implements OnInit{
   constructor(
     private activeRoute:ActivatedRoute,
     private matDialog: MatDialog,
+    private httpClient: HttpClient,
   ){}
 
   ngOnInit(): void {
@@ -47,15 +48,29 @@ export class TrainingLessonCardsComponent implements OnInit{
       }
     })
 
+    //training lesson
     dialogRef.afterClosed().subscribe(result=>{
+      
       if(result){
-        
+        this.postLessonReports(result);
       }
     })
 
     
   }
 
+
+
+  private postLessonReports(model:any){
+
+    this.httpClient.post('http://localhost:3000/LessonReports',model)
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('request to prepared class  ok!: ',sample);
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+   }
 
 
 }

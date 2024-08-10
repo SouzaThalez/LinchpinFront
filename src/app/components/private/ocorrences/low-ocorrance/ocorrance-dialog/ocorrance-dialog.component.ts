@@ -7,6 +7,8 @@ import { Lesson } from '../../../../../models/lesson';
 import { Simulator } from '../../../../../models/simulator';
 import moment from 'moment';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
 
 @Component({
   selector: 'app-ocorrance-dialog',
@@ -23,6 +25,7 @@ export class OcorranceDialogComponent implements OnInit{
 
   defaultLessonMessage = 'Não houve registro de ocorrência de aula';
   defaultSimulatorMessage = 'Não houve ocorrência de Simulador';
+  snackbarMessage = 'Registro salvo com sucesso!';
 
   selectedSimulator: Simulator;
 
@@ -43,6 +46,7 @@ export class OcorranceDialogComponent implements OnInit{
       lessonType: any
     },
     private fb : FormBuilder,
+    private snackBar: MatSnackBar
   ){}
   
   ngOnInit(): void {
@@ -52,6 +56,7 @@ export class OcorranceDialogComponent implements OnInit{
   
   onClose(value: string): void {
     this.dialogRef.close(value);
+    this.openSnackBar(this.snackbarMessage);
   }
 
 
@@ -93,6 +98,7 @@ export class OcorranceDialogComponent implements OnInit{
     })
   }
 
+  
 
   submitForm(){
    
@@ -102,18 +108,27 @@ export class OcorranceDialogComponent implements OnInit{
       this.form.patchValue({date: momentDate});
   
       const model = this.form.value;
+      //send data to ocorrance Dialog
       this.onClose(model);
       
       return
     }
-    console.log(this.form.value);
+   
     this.openAlertDialog();
 
 
 
   }
 
+  private openSnackBar(message: string): void {
 
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000 
+    });
+
+  }
 
   private openAlertDialog(){
 
@@ -130,7 +145,6 @@ export class OcorranceDialogComponent implements OnInit{
     })
   }
 
-
   private createForm(): FormGroup{
 
     const prevForm = this.fb.group({
@@ -141,7 +155,8 @@ export class OcorranceDialogComponent implements OnInit{
       simulatorOcorrance:[null,Validators.required],
       simulatorName:[null,Validators.required],
       simulatorCode:[null,Validators.required],
-      lessonType: [this.data.lessonType.name + ' ' + this.data.lessonType.value],
+      lessonCategory: [this.data.lessonType.name],
+      lessonType:[this.data.lessonType.value],
       user: [],
     })
 
