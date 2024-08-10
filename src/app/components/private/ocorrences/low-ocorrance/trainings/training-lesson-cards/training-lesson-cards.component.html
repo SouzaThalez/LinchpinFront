@@ -7,15 +7,17 @@
     </nav>
     <div class="details-list">
         <div class="card-container" *ngFor="let lesson of training?.lessons">
-            <div class="card-head">
-                <div class="card-image"></div>
-                <div class="card-description">
-                    <span>{{lesson.name}}</span>
-                    <span>{{lesson.description}}</span>
-                    <span>{{lesson.updateDate}}</span>
+            <div class="card-body" (click)="openOcorranceDialog(lesson)">
+                <div class="card-head">
+                    <div class="card-image"></div>
+                    <div class="card-description">
+                        <span>{{lesson.name}}</span>
+                        <span>{{lesson.description}}</span>
+                        <span>{{lesson.updateDate}}</span>
+                    </div>
                 </div>
             </div>
-            <div class="register-container"  (click)="openOcorranceDialog(lesson)">
+            <div class="register-container">
                 <span class="register-btn">Registro</span>
             </div>
         </div>

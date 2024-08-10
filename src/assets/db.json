@@ -59,6 +59,39 @@
       "findings": "Não houve achados durante a limpeza deste simulador",
       "user": null,
       "id": 3
+    },
+    {
+      "date": "08-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Punção Arterial",
+      "simulatorCode": "PUNA203",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "user": null,
+      "id": 4
+    },
+    {
+      "date": "07-08-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Punção Intraossea",
+      "simulatorCode": "ITRA265",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "user": null,
+      "id": 5
+    },
+    {
+      "date": "09-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Punção Lombar",
+      "simulatorCode": "PUMLOMB002",
+      "findings": "wedwedwed",
+      "user": null,
+      "id": 6
     }
+  ],
+  "LessonReport":[
+    
   ]
 }

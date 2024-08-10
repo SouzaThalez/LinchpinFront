@@ -35,11 +35,12 @@ export class LowFidelityDetailsComponent implements OnInit{
   }
 
 
-  openLowCleaningDialog(){
+  openLowCleaningDialog(element:any){
 
     let dialogRef = this.matDialog.open(LowFidelityCleaningDialogComponent,{
       disableClose: true,
-      width:'650px'
+      width:'650px',
+      data:{simulator:element}
     })
 
     dialogRef.afterClosed().subscribe(result=>{

@@ -67,6 +67,7 @@ export class MediumCleaningDialogComponent implements OnInit{
       this.onClose(model);
       return
     }
+    
     this.openAlertDialog();
 
   }

@@ -39,7 +39,8 @@ export class DisciplineLessonCardsComponent implements OnInit{
       disableClose: true,
       width:'650px',
       data:{
-        lesson:lesson
+        lesson:lesson,
+        lessonType: this.discipline
       }
     })
 

@@ -2,8 +2,8 @@
     <div class="header-container">
 
         <div class="simulator-image">
-            <img src="assets/images/Simulators/MediumFidelity/ressuciAnne.jpg" alt="">
-            <span>SimMan 3G</span>
+            <img [src]="data?.simulator?.image" alt="">
+            <span>{{data?.simulator?.name}}</span>
         </div>
         <div class="header-description">
             <span>
@@ -16,40 +16,8 @@
 </div>
 
 <mat-dialog-content class="mat-typography" >
-
     
-    <div class="dialog-body">
-
-        <div class="dialog-container">
-            <h2>Simulador</h2>
-            <h2>Registro</h2>
-        </div>
-        
-        <div class="dialog-container">
-
-            <mat-form-field class="sim-field" appearance="outline">
-                <mat-label>Simulador</mat-label>
-                <mat-select>
-                    <mat-option  value="1">Punção arterial</mat-option>
-                    <mat-option  value="1">Punção Venosa</mat-option>
-                </mat-select>
-                <!-- <mat-select formControlName="simulator">
-                    <mat-option (click)="getSimulator(element)" *ngFor="let element of data.simulators" [value]="element.name">{{element.name}}</mat-option>
-                </mat-select> -->
-            </mat-form-field>
-
-            <mat-form-field class="code-field-form" appearance="outline">
-                <mat-label>Codigo do simulador</mat-label>
-                <mat-select >
-                    <mat-option value="1">12DMEO</mat-option>
-                    <mat-option value="1">12DMEO</mat-option>
-                    <mat-option value="1">12DMEO</mat-option>
-                </mat-select>
-                <!-- <mat-select formControlName="code">
-                    <mat-option *ngFor="let element of simulatorCodes" [value]="element.code">{{element.code}}</mat-option>
-                </mat-select> -->
-            </mat-form-field>
-        </div>
+    <div class="dialog-body" [formGroup]="form">
 
         <div class="dialog-container">  
             <h2 class="categ-title">Categoria da Limpeza</h2>
@@ -57,19 +25,42 @@
         </div>
 
         <div class="dialog-container">
+     
             <div class="sub-item">
-                <mat-radio-group>
-                    <mat-radio-button value="primária">Primária</mat-radio-button>
-                    <mat-radio-button value="secundária">Secundária</mat-radio-button>
+                
+                <mat-radio-group formControlName="cleaningCategory">
+                    <mat-radio-button  value="primária">Primária</mat-radio-button>
+                    <span class="material-symbols-outlined">contact_support</span>
+                    <mat-radio-button  value="secundária">Secundária</mat-radio-button>
+                    <span class="material-symbols-outlined">contact_support</span>
                 </mat-radio-group>
+
             </div>
+
             <div class="sub-item">
                 <mat-form-field appearance="outline" class="medium-date-picker">
                     <mat-label>Escolha uma data...</mat-label>
-                    <input  matInput [matDatepicker]="picker">
+                    <input formControlName="date"  matInput [matDatepicker]="picker">
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
+            </div>
+        </div>
+
+        <div class="dialog-container">
+            <div class="simulator-code">
+                <mat-form-field class="code-field" appearance="outline">
+                  <mat-label>Código</mat-label>
+                  <mat-select formControlName="simulatorCode">
+                      <mat-option #matoption *ngFor="let element of simulatorCodes"
+                                  [value]="element.code">
+                                  {{element.code}}
+                      </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="dialog-text">
+                <span>Baixa Fidelidade</span>
             </div>
         </div>
         
@@ -79,7 +70,7 @@
             class="manitance-checkbox"
             (change)="checkBox($event.checked)"> 
                 Nenhum
-        </mat-checkbox>
+            </mat-checkbox>
         </div>
     
         <div class="text-area-container" *ngIf="checked else showTextArea">
@@ -88,20 +79,21 @@
     
         <div class="text-area">
             <ng-template #showTextArea>
-                <mat-form-field class="text-area-form" appearance="outline">
+                <mat-form-field class="textarea-form" appearance="outline">
                     <mat-label>Durante a Limpeza deste simulador...</mat-label>
-                    <textarea formControlName="textArea" matInput ></textarea>
+                    <textarea formControlName="findings" matInput ></textarea>
                 </mat-form-field>
             </ng-template>
         </div>
     
     </div>
-    
+          
+
 </mat-dialog-content>
 
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn">Confirmar</button>
+    <button class="default-btn confirm-btn" (click)="onSubmit()">Confirmar</button>
     
 </mat-dialog-actions>

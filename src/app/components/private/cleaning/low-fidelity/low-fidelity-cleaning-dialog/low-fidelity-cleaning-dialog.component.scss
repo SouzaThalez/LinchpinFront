@@ -36,20 +36,20 @@
     display:  flex;
     align-items: center;
     justify-content: space-between;
-   
+
+    .dialog-text{
+        font-size: 28px;
+        color: var(--primary-color);
+    }   
 }
 
 .mat-typography{
-
-    .text-area{
-        .text-area-form{
-            width: 100%;
-            height: 150px;
+    .textarea-form{
+        textarea{
+            height: 160px;
         }
     }
-    .code-field-form{
-        width: 248px;
-    }
+
 }
 
 .dialog-actions{

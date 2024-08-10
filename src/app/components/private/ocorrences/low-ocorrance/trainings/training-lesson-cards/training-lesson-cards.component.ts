@@ -4,6 +4,9 @@ import { trainingLessonsData } from '../../../../../../data/trainingLessonsData'
 import { ocorranceData } from '../../../../../../data/ocorranceData';
 import { MatDialog } from '@angular/material/dialog';
 import { OcorranceDialogComponent } from '../../ocorrance-dialog/ocorrance-dialog.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-training-lesson-cards',
@@ -25,6 +28,7 @@ export class TrainingLessonCardsComponent implements OnInit{
 
    this.activeRoute.params.subscribe(value =>{
       this.routeIndex = value['index'];
+    
       this.training = this.trainingData[this.routeIndex];
       
    })
@@ -32,15 +36,14 @@ export class TrainingLessonCardsComponent implements OnInit{
 
   }
 
-
-
   openOcorranceDialog(lesson: any){
 
     let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
-        lesson:lesson
+        lesson:lesson,
+        lessonType: this.training
       }
     })
 

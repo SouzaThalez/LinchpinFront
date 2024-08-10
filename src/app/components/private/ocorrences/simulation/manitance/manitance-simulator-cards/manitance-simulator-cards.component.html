@@ -10,17 +10,19 @@
     <div class="details-list">
 
         <div class="card-container" *ngFor="let simulator of simulators">
-                <div class="card-head">
-                    <div class="card-image">
-                        <img [src]="simulator.image" alt="">
-                    </div>
-                    <div class="card-description">
-                        <span>{{simulator.name}}</span>
-                        <span>{{simulator.description}}</span>
-                        <span>Quantidade: 1</span>
+                <div class="card-body" (click)="openRegisterManitanceDialog(simulator)">
+                    <div class="card-head">
+                        <div class="card-image">
+                            <img [src]="simulator.image" alt="">
+                        </div>
+                        <div class="card-description">
+                            <span>{{simulator.name}}</span>
+                            <span>{{simulator.description}}</span>
+                            <span>Quantidade: 1</span>
+                        </div>
                     </div>
                 </div>
-                <div class="register-container" (click)="openRegisterManitanceDialog(simulator)">
+                <div class="register-container">
                     <span class="register-btn">saber mais...</span>
                 </div>
         </div>
