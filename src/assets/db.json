@@ -115,6 +115,30 @@
       "lessonType": "Deont",
       "user": null,
       "id": 2
+    },
+    {
+      "date": "08-08-2024",
+      "name": "Salva Corações",
+      "lessonOcorrance": "frefrefre",
+      "simulatorOcorrance": "grtr",
+      "simulatorName": "MegaCode Kid",
+      "simulatorCode": "OSR-A5095-003",
+      "lessonCategory": "curso",
+      "lessonType": "RCP",
+      "user": null,
+      "id": 3
+    },
+    {
+      "date": "05-08-2024",
+      "name": "Suporte Avançado de Vida Cardiovascular",
+      "lessonOcorrance": "dewdewdew",
+      "simulatorOcorrance": "Não houve ocorrência de Simulador",
+      "simulatorName": "Não informado",
+      "simulatorCode": "Não informado",
+      "lessonCategory": "curso",
+      "lessonType": "ACLS",
+      "user": null,
+      "id": 4
     }
   ]
 }

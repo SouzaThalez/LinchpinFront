@@ -3,6 +3,7 @@ import { ocorranceData } from '../../../../../data/ocorranceData';
 import { cursesData } from '../../../../../data/cursesData';
 import { CoursesDialogComponent } from '../courses-dialog/courses-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-coursers-aha',
@@ -16,6 +17,7 @@ export class CoursersAhaComponent implements OnInit{
 
   constructor(
     private matDialog: MatDialog,
+    private httpClient: HttpClient,
   ){}
 
 
@@ -36,13 +38,22 @@ export class CoursersAhaComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        
+        this.postLessonReports(result);
       }
     })
 
 
   }
 
+  private postLessonReports(model:any){
 
+    this.httpClient.post('http://localhost:3000/LessonReports',model)
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('request to prepared class  ok!: ',sample);
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+   }
 
 }

@@ -81,19 +81,15 @@ export class CoursesDialogComponent implements OnInit{
 
 
   getSimulator(simulator: any) {
-   
     this.selectedSimulator = simulator;
-    this.simulatorCodes = simulator.codes;
-    this.form.patchValue({code:null})
-    console.log('Selected Simulator:', simulator);
-    
+    this.simulatorCodes = simulator.codes;  
   }
 
   getCode(code:any){
    
-    this.form.patchValue({
-      simulatorCode: code
-    })
+  //   this.form.patchValue({
+  //     simulatorCode: code
+  //   })
   }
 
 
