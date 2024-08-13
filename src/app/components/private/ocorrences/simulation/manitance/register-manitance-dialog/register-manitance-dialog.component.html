@@ -77,7 +77,7 @@
         <ng-template #show>
                 <mat-form-field appearance="outline" class="text-area-form">
                     <mat-label>Descrição </mat-label>
-                    <textarea formControlName="mediumOcorrance" matInput></textarea>
+                    <textarea formControlName="manitanceFindings" matInput></textarea>
                 </mat-form-field>
         </ng-template>
     </div>
@@ -87,6 +87,6 @@
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn" >Confirmar</button>
+    <button class="default-btn confirm-btn" (click)="onSubmit()">Confirmar</button>
     
 </mat-dialog-actions>

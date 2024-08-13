@@ -2,8 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { checkBoxesData } from '../../../../../../data/checkBoxesData';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Simulator } from '../../../../../../models/simulator';
+import moment from 'moment';
+import { AlertDialogComponent } from '../../../../../shared/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-register-manitance-dialog',
@@ -17,8 +19,7 @@ export class RegisterManitanceDialogComponent implements OnInit{
 
   form: FormGroup;
   checkedBoxes:any[]=[];
-
-  preventiveForm:any;
+  defaultMessage = 'Não houve registro de achados durante a manutenção';
   user = { name:'',role:''};
 
   constructor(
@@ -28,6 +29,7 @@ export class RegisterManitanceDialogComponent implements OnInit{
       manitance: string
     },
     public fb : FormBuilder,
+    private matDialog: MatDialog,
   ){}
 
   ngOnInit(): void {  
@@ -35,46 +37,80 @@ export class RegisterManitanceDialogComponent implements OnInit{
   }
 
 
+  onSubmit(){
+   debugger
+    if(this.form.value.noDescription){
+      this.form.patchValue({manitanceFindings:this.defaultMessage});
+    }  
+
+
+    if (this.form.valid) {
+
+      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
+      this.form.patchValue({date: momentDate});
+      const model = this.form.value;
+      console.log(model)
+      // this.postCleaningReports(model);
+      // this.onClose(model);
+      return
+    }
+
+
+    this.openAlertDialog();
+  }
 
   getCheckedElement(element:any){
     element.value = !element.value;
     this.checkedBoxes = this.allcCheckBoxData.prevCheckboxes.filter((element:any) => element.value == true);
-    this.preventiveForm.patchValue({procedures:this.checkedBoxes});
+    this.form.patchValue({manitanceRegister:this.checkedBoxes});
   }
 
 
   getsecondCheckedElement(element:any){
     element.value = !element.value;
     this.checkedBoxes = this.allcCheckBoxData.secundCheckboxes.filter((element:any) => element.value == true);
-    this.preventiveForm.patchValue({procedures:this.checkedBoxes});
+    this.form.patchValue({manitanceRegister:this.checkedBoxes});
   }
 
 
   onChangeAllChecked(isChecked:any){
+ 
     if(isChecked){
       this.allcCheckBoxData.prevCheckboxes.forEach((element:any)=> element.value = true);
-      this.preventiveForm.patchValue({procedures:this.allcCheckBoxData.prevCheckboxes});
+      this.form.patchValue({manitanceRegister:this.allcCheckBoxData.prevCheckboxes});
     }else{
       this.allcCheckBoxData.prevCheckboxes.forEach((element:any)=> element.value = false);
-      this.preventiveForm.patchValue({procedures:[]});
+      this.form.patchValue({manitanceRegister:[]});
     }
     
   }
 
+  private openAlertDialog(){
 
+    let dialogRef = this.matDialog.open(AlertDialogComponent,{
+      disableClose: true,
+      width:'468px',
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
 
   private createForm(): FormGroup{
 
     const prevForm = this.fb.group({
       date: [null,Validators.required],
-      mediumOcorrance: [null, Validators.required],
-      manitanceType:['preventiva'],
-      reportStatus: ['aberto'],
-      simulatorName: [],
-      code: [],
-      simulatorImage: [],
+      manitanceRegister: [null, Validators.required],
+      manitanceCategory:[this.data.manitance],
+      manitanceFindings: [null, Validators.required],
+      simulatorName: [this.data.simulator.name],  
+      code: [this.data.simulator.codes[0]],
+      simulatorImage: [this.data.simulator.image],
       noDescription: [false],
-      procedures:[[],Validators.required],
       user: this.user
     })
 
