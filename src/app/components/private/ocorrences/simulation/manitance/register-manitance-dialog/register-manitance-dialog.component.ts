@@ -38,7 +38,7 @@ export class RegisterManitanceDialogComponent implements OnInit{
 
 
   onSubmit(){
-   debugger
+   
     if(this.form.value.noDescription){
       this.form.patchValue({manitanceFindings:this.defaultMessage});
     }  

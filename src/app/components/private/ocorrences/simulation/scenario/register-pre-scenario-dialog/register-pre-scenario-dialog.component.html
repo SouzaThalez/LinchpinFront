@@ -29,7 +29,7 @@
 <mat-dialog-content class="mat-typography">
 
  
-    <div class="dialog-body" [formGroup]="simulatorForm">
+    <div class="dialog-body" [formGroup]="form">
 
         <div class="dialog-header">
             <div class="item-form">
@@ -78,12 +78,14 @@
         <div class="manitance-section">
             <h2>Houve alguma intercorrência nesses itens* ?</h2>
             <section class="allCheckbox-section">
-                <mat-checkbox class="checkbox-manitance" (change)="onChangeOcorrance($event.checked)">Nenhuma</mat-checkbox>
+                <mat-checkbox class="checkbox-manitance" 
+                formControlName="hasDescription">
+                Nenhuma</mat-checkbox>
             </section>
         </div>
           
 
-        <div *ngIf="hasDescription else showDescription">
+        <div *ngIf="form.value.hasDescription else showDescription">
             <span>Nenhuma descrição de intercorrência!</span>
         </div>
 
@@ -100,10 +102,10 @@
                       </mat-select>
              </mat-form-field>
              <p>{{selectedItem?.label}}</p>
-            <div class="form" *ngIf="simulatorForm.get('selectedItem')?.value">
+            <div class="form" *ngIf="form.get('selectedItem')?.value">
                 <mat-form-field  class="text-area-form" appearance="outline">
                     <mat-label>Descrição da intercorrência...</mat-label>
-                    <textarea formControlName="description" matInput ></textarea>
+                    <textarea formControlName="scenarioOcorrance" matInput ></textarea>
                 </mat-form-field>
             </div>
 
@@ -115,6 +117,6 @@
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn" >Confirmar</button>
+    <button class="default-btn confirm-btn" (click)="onSubmit()" >Confirmar</button>
     
 </mat-dialog-actions>

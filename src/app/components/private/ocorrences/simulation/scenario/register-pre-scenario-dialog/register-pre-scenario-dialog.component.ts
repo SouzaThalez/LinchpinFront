@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Simulator } from '../../../../../../models/simulator';
 import { checkBoxesData } from '../../../../../../data/checkBoxesData';
 import moment from 'moment';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { AlertDialogComponent } from '../../../../../shared/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-register-pre-scenario-dialog',
@@ -16,10 +17,13 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
 
   noFailText = 'Nenhuma Falha';
   simulatorText = 'Nenhuma descrição de falha durante a execução de cenário';
+  defaultMessage = `Não houve registro de intercorrências durante a ${this.data.registerType} de cenário`;
+
   user = { name:'',role:''};
-  simulatorForm: FormGroup;
+  form: FormGroup;
   allcCheckBoxData = checkBoxesData;
-  hasDescription = false;
+  // hasDescription = false;
+
   checkedBoxes:any[]=[];
   selectedItem: {
     label: string,
@@ -35,10 +39,11 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
       registerType: string
     },
     public fb: FormBuilder,
+    private matDialog: MatDialog,
   ){}
 
   ngOnInit(): void {
-    this.simulatorForm = this.simFormCreation();
+    this.form = this.simFormCreation();
   }
 
 
@@ -46,7 +51,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   simulatorCheckBox(value:any){
     if(value){
 
-      this.simulatorForm.patchValue(
+      this.form.patchValue(
         {
         simulatorRegister:this.noFailText,
         monitorRegister: this.noFailText,
@@ -59,7 +64,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
       })
       
     }else{  
-      this.simulatorForm.patchValue(
+      this.form.patchValue(
         {
         simulatorRegister:'',
         monitorRegister: '',
@@ -73,43 +78,57 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
     }
   }
 
+  
+  onSubmit(){
+   
+    
+    if(this.form.value.hasDescription){
+      this.form.patchValue({scenarioOcorrance:this.defaultMessage});
+    }  
+
+    console.log(this.form.value)
+
+    if (this.form.valid) {
+
+      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
+      this.form.patchValue({date: momentDate});
+      const model = this.form.value;
+      console.log(model)
+      // this.postCleaningReports(model);
+      // this.onClose(model);
+      return
+    }
+
+
+    this.openAlertDialog();
+  }
 
 
   getCheckedElement(element:any){
     element.value = !element.value;
-    this.checkedBoxes = this.allcCheckBoxData.prevCheckboxes.filter((element:any) => element.value == true);
-    // this.preventiveForm.patchValue({procedures:this.checkedBoxes});
+    this.checkedBoxes = this.allcCheckBoxData.preScenarioCheckboxes.filter((element:any) => element.value == true);
+    this.form.patchValue({scenarioRegister:this.checkedBoxes});
   }
   
   onChangeAllChecked(isChecked:any){
     if(isChecked){
       this.allcCheckBoxData.preScenarioCheckboxes.forEach((element:any)=> element.value = true);
-      // this.preventiveForm.patchValue({procedures:this.allcCheckBoxData.prevCheckboxes});
+      this.form.patchValue({scenarioRegister:this.allcCheckBoxData.preScenarioCheckboxes});
     }else{
       this.allcCheckBoxData.preScenarioCheckboxes.forEach((element:any)=> element.value = false);
-      // this.preventiveForm.patchValue({procedures:[]});
+      this.form.patchValue({scenarioRegister:[]});
     }
     
   }
   
-  onChangeOcorrance(isChecked:boolean){
-      this.hasDescription = isChecked;
-      
-    // if(isChecked){
-    //   this.simulatorForm.patchValue({
-    //     noDescription: isChecked,
-    //   })
-    // }
-  } 
-
   getSimulator(){
 
     // this.appService.validateForm(this.simulatorForm);
 
-    if(this.simulatorForm.valid){
-      let momentDate = moment(this.simulatorForm.value.date).format('DD-MM-YYYY');
-      this.simulatorForm.patchValue({date:momentDate});
-      this.dialogRef.close(this.simulatorForm.value);
+    if(this.form.valid){
+      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
+      this.form.patchValue({date:momentDate});
+      this.dialogRef.close(this.form.value);
       
       // this.snackBar.open('Acompanhamento registrado com sucesso!', 'Fechar',{
       //   horizontalPosition: this.horizontalPosition,
@@ -127,22 +146,40 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   }
   
   getSelectedItem(){
-   
-    this.selectedItem =  this.simulatorForm.get('selectedItem').value;
-
-
+    this.selectedItem =  this.form.get('selectedItem').value;
   }
- 
+  
+  private openAlertDialog(){
+
+    let dialogRef = this.matDialog.open(AlertDialogComponent,{
+      disableClose: true,
+      width:'468px',
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
+
+
   private simFormCreation(): FormGroup{
 
     const simulatoForm = this.fb.group({
       date: [null,Validators.required],
       time: [null,Validators.required],
-      noDescription: [false],
+      scenarioRegister:[null,Validators.required],
+      scenarioCategory:[this.data.registerType],
+      scenarioOcorrance:[null,Validators.required],
+      simulatorName:[this.data.simulator.name],
+      simulatorCode:[this.data.simulator.codes[0]],
+      hasDescription: [false],
       selectedItem:[],
-      description:[null,Validators.required],
+      // description:[null,Validators.required],
       showTextArea: [false],
-      simulatorType:['Alta'],
+      // simulatorType:['Alta'],
       user: []
     })
 
