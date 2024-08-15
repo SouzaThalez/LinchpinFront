@@ -16,7 +16,8 @@
         background-color: #FAFAFA;
         &:hover, &.active{
             background-color: var(--hover-panel-left-color);
-            color: gray;
+            color: #1c1717;
+            font-size: 15px;
         }
     }
 }

@@ -32,6 +32,7 @@ import { RegisterPreScenarioDialogComponent } from './simulation/scenario/regist
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CoursesDialogComponent } from './courses/courses-dialog/courses-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 
@@ -76,6 +77,9 @@ import { HttpClientModule } from '@angular/common/http';
     NgxMaskPipe,
     HttpClientModule
   ],
-  providers: [provideNgxMask()]
+  providers: [
+    provideNgxMask(),
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+  ]
 })
 export class OcorrencesModule { }

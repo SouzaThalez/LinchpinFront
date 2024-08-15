@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { simulatorTypes } from '../../../../data/simulatorTypes';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-low-hability',
@@ -10,9 +11,14 @@ export class LowHabilityComponent implements OnInit{
 
 
   simTypes = simulatorTypes;
-  constructor(){}
+  routerName = '';
+
+  constructor(private router:ActivatedRoute){}
+
   ngOnInit(): void {
-   
+    this.routerName = this.router.snapshot.url[0].path;
+    console.log(this.routerName)
+    
   }
 
 }

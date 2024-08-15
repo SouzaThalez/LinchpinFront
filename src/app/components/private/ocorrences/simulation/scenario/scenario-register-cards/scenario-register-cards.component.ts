@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterPreScenarioDialogComponent } from '../register-pre-scenario-dialog/register-pre-scenario-dialog.component';
 import { RegisterScenarioDialogComponent } from '../register-scenario-dialog/register-scenario-dialog.component';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../../data/snackBarData';
 
 @Component({
   selector: 'app-scenario-register-cards',
@@ -17,9 +20,14 @@ export class ScenarioRegisterCardsComponent implements OnInit{
   training:any;
   registerName: string;
 
+  snackbarMessage = 'Registro salvo com sucesso!';
+
   constructor(
     private activeRoute:ActivatedRoute,
     private matDialog: MatDialog,
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar
+
   ){}
 
   ngOnInit(): void {
@@ -62,7 +70,7 @@ export class ScenarioRegisterCardsComponent implements OnInit{
       
         dialogRef.afterClosed().subscribe(result=>{
             if(result){
-              
+              this.postScenarioReports(result);
             }
         })
 
@@ -80,13 +88,36 @@ export class ScenarioRegisterCardsComponent implements OnInit{
     
       dialogRef.afterClosed().subscribe(result=>{
           if(result){
-            
+            this.postScenarioReports(result);
           }
       })
 
   }
+  
 
 
+  
+  private openSnackBar(message: string): void {
+
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000 
+    });
+
+  }
+
+  private postScenarioReports(model:any){
+
+    this.httpClient.post('http://localhost:3000/ScenarioReports',model)
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('request to prepared class  ok!: ',sample);
+          this.openSnackBar(this.snackbarMessage);
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
 
 
 }

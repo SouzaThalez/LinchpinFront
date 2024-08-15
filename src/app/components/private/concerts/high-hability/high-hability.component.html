@@ -1,34 +1,13 @@
 <div class="page">
-
-    <div class="report-detail-container">
-        <div class="report-container" 
-             *ngFor="let element of [1,2,3,]">
-              <div class="report-content">
-                    <div class="report-body">
-                        <div class="report-image">
-                            <img src="assets/images/Simuladores/SIM3G.jpeg" alt="">
-                        </div>
-                        <div class="report-info">
-                            <span>Title: Simulador Ressusci Anne</span>
-                            <span>Status: Enviado para manutenção</span>
-                            <span>Acompanhamento:
-                                    Aqui vai a descrição do acompanhamento
-                            </span>
-                        </div>
-                    </div>
-              </div>
-              <div class="report-content">
-                <div class="report-content-header">
-                    <span class="report-code">Código: e3ghBH</span>
-                </div>
-                <div class="report-content-body">
-                    <span>This place is where the user description text of simulator mal-functions should be</span>
-                </div>
-                <div class="report-content-footer">
-                    <span>Saber mais...</span>
-                </div>
-              </div>
-        </div>
+    <div class="p-header-sub-menu">
+        <app-tab-menu
+            aTabLink="chamados-limpezas"
+            bTabLink="chamados-manutencao"
+            [type]="routerName">
+        </app-tab-menu>
     </div>
-    
+
+    <div class="content scroll-container">
+        <router-outlet></router-outlet>
+     </div>    
 </div>

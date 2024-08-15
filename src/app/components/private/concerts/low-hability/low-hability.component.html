@@ -1,5 +1,19 @@
 <div class="page">
-    <div class="cards-list">
+
+    <div class="p-header-sub-menu">
+        <app-tab-menu
+            aTabLink="chamados-limpezas"
+            bTabLink="chamados-aulas"
+            [type]="routerName">
+        </app-tab-menu>
+    </div>
+
+    <div class="content scroll-container">
+        <router-outlet></router-outlet>
+     </div>
+
+
+    <!-- <div class="cards-list">
         <div class="card" 
              *ngFor="let element of simTypes index as i" 
              routerLink="/private/concerts/Baixa-Fidelidade/{{i}}">
@@ -19,6 +33,6 @@
             </div>
             
         </div>
-    </div>
+    </div> -->
 </div>
 

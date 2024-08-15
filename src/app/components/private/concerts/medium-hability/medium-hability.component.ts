@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { simulatorTypes } from '../../../../data/simulatorTypes';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-medium-hability',
@@ -8,10 +9,12 @@ import { simulatorTypes } from '../../../../data/simulatorTypes';
 })
 export class MediumHabilityComponent implements OnInit{
 
+  routerName = '';
 
+  constructor(private router:ActivatedRoute){}
 
-  constructor(){}
   ngOnInit(): void {
+    this.routerName = this.router.snapshot.url[0].path;
    
   }
 

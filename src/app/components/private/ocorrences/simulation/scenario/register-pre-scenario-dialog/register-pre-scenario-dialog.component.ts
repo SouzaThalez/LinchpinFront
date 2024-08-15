@@ -25,7 +25,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   // hasDescription = false;
 
   checkedBoxes:any[]=[];
-  selectedItem: {
+  itemOcorrance: {
     label: string,
     value:number
   };
@@ -46,8 +46,34 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
     this.form = this.simFormCreation();
   }
 
+  onSubmit(){
+   
+    
+    if(this.form.value.hasDescription){
+      this.form.patchValue({scenarioOcorrance:this.defaultMessage , itemOcorrance:'Não informado'});
+    }  
 
-  
+
+    if (this.form.valid) {
+
+      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
+      this.form.patchValue({date: momentDate});
+
+      const model = this.form.value;
+      // this.postCleaningReports(model);
+        this.onClose(model);
+      return
+    }
+
+
+    this.openAlertDialog();
+  }
+
+  onClose(value: any): void {
+    this.dialogRef.close(value);
+    // this.openSnackBar(this.snackbarMessage);
+  }
+
   simulatorCheckBox(value:any){
     if(value){
 
@@ -79,31 +105,6 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   }
 
   
-  onSubmit(){
-   
-    
-    if(this.form.value.hasDescription){
-      this.form.patchValue({scenarioOcorrance:this.defaultMessage});
-    }  
-
-    console.log(this.form.value)
-
-    if (this.form.valid) {
-
-      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
-      this.form.patchValue({date: momentDate});
-      const model = this.form.value;
-      console.log(model)
-      // this.postCleaningReports(model);
-      // this.onClose(model);
-      return
-    }
-
-
-    this.openAlertDialog();
-  }
-
-
   getCheckedElement(element:any){
     element.value = !element.value;
     this.checkedBoxes = this.allcCheckBoxData.preScenarioCheckboxes.filter((element:any) => element.value == true);
@@ -128,7 +129,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
     if(this.form.valid){
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
       this.form.patchValue({date:momentDate});
-      this.dialogRef.close(this.form.value);
+      // this.dialogRef.close(this.form.value);
       
       // this.snackBar.open('Acompanhamento registrado com sucesso!', 'Fechar',{
       //   horizontalPosition: this.horizontalPosition,
@@ -146,7 +147,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   }
   
   getSelectedItem(){
-    this.selectedItem =  this.form.get('selectedItem').value;
+    this.itemOcorrance =  this.form.get('itemOcorrance').value;
   }
   
   private openAlertDialog(){
@@ -176,10 +177,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
       simulatorName:[this.data.simulator.name],
       simulatorCode:[this.data.simulator.codes[0]],
       hasDescription: [false],
-      selectedItem:[],
-      // description:[null,Validators.required],
-      showTextArea: [false],
-      // simulatorType:['Alta'],
+      itemOcorrance:[],
       user: []
     })
 

@@ -93,7 +93,7 @@
 
             <mat-form-field appearance="outline">
                     <mat-label>Escolha</mat-label>
-                    <mat-select formControlName="selectedItem">
+                    <mat-select formControlName="itemOcorrance">
                         <mat-option *ngFor="let element of allcCheckBoxData.preScenarioCheckboxes; let i = index"
                                   [value]="element"
                                   (click)="getSelectedItem()">
@@ -101,8 +101,8 @@
                         </mat-option>
                       </mat-select>
              </mat-form-field>
-             <p>{{selectedItem?.label}}</p>
-            <div class="form" *ngIf="form.get('selectedItem')?.value">
+             <p>{{itemOcorrance?.label}}</p>
+            <div class="form" *ngIf="form.get('itemOcorrance')?.value">
                 <mat-form-field  class="text-area-form" appearance="outline">
                     <mat-label>Descrição da intercorrência...</mat-label>
                     <textarea formControlName="scenarioOcorrance" matInput ></textarea>

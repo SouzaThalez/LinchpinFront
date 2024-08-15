@@ -1,11 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import moment from 'moment';
 import { checkBoxesData } from '../../../../../../data/checkBoxesData';
 import { Simulator } from '../../../../../../models/simulator';
 import { disciplines } from '../../../../../../data/disciplines';
+import { AlertDialogComponent } from '../../../../../shared/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-register-scenario-dialog',
@@ -16,8 +17,8 @@ import { disciplines } from '../../../../../../data/disciplines';
 export class RegisterScenarioDialogComponent implements OnInit{
 
   noFailText = 'Nenhuma Falha';
-  simulatorText = 'Nenhuma descrição de falha durante a execução de cenário';
   formInputs:string[]=['Nenhuma Falha','Falha registrada'];
+  defaultMessage = `Não houve registro de intercorrências ou falhas durante a ${this.data.registerType} de cenário`;
   disciplines = disciplines;
   allcCheckBoxData = checkBoxesData;
   user = { name:'',role:''};
@@ -40,13 +41,29 @@ export class RegisterScenarioDialogComponent implements OnInit{
       registerType: string
     },
     public fb: FormBuilder,
+    private matDialog: MatDialog,
   ){}
 
   ngOnInit(): void {
     this.simulatorForm = this.simFormCreation();
   }
 
+  onSubmit(){
+    
+    if (this.simulatorForm.valid) {
 
+      let momentDate = moment(this.simulatorForm.value.date).format('DD-MM-YYYY');
+      this.simulatorForm.patchValue({date: momentDate});
+
+      const model = this.simulatorForm.value;
+      this.onClose(model);
+      return
+    }
+
+    this.openAlertDialog();
+
+
+  }
   
   simulatorCheckBox(value:any){
     if(value){
@@ -78,19 +95,25 @@ export class RegisterScenarioDialogComponent implements OnInit{
     }
   }
 
+  
+  onClose(value: any): void {
+    this.dialogRef.close(value);
+  }
+
+
   textAreaCheckBox(value:any){
     
     if(value){
       this.simulatorForm.patchValue(
             {
-              description:{hasDescription:!value, descriptionInfo:this.simulatorText},
+              description:{descriptionInfo: this.defaultMessage},
               showTextArea:true
             }
         );
     }else{
       this.simulatorForm.patchValue(
             {
-              description:{hasDescription:!value, descriptionInfo:''},
+              description:{descriptionInfo:''},
               showTextArea:false
             }
         );
@@ -163,6 +186,20 @@ export class RegisterScenarioDialogComponent implements OnInit{
     return null;
   }
 
+  private openAlertDialog(){
+
+    let dialogRef = this.matDialog.open(AlertDialogComponent,{
+      disableClose: true,
+      width:'468px',
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
 
 
   private simFormCreation(): FormGroup{
@@ -171,14 +208,14 @@ export class RegisterScenarioDialogComponent implements OnInit{
       date: [null,Validators.required],
       time: [null,Validators.required],
       noDescription: [false],
-      selectedItem:[],
+    
       description:[null,Validators.required],
       showTextArea: [false],
       
       discipline:[null, Validators.required],
-      simulatorName:[],
-      simulatorCode:[],
-      simulatorImage:[],
+      simulatorName:[this.data.simulator.name],
+      simulatorCode:[this.data.simulator.codes[0]],
+      simulatorImage:[this.data.simulator.image],
       simulatorRegister:[null, Validators.required],
       monitorRegister: [null, Validators.required],
       medicationCarRegister: [null, Validators.required],
@@ -188,7 +225,7 @@ export class RegisterScenarioDialogComponent implements OnInit{
       otherRegister: [null, Validators.required],
       audioAndMediaRegister:[null, Validators.required],
       
-      simulatorType:['Alta'],
+      scenarioCategory:[this.data.registerType],
       user: []
     })
 
@@ -196,7 +233,7 @@ export class RegisterScenarioDialogComponent implements OnInit{
   }
 
 
-
+  
 
 }
 

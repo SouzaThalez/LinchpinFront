@@ -43,20 +43,22 @@ export class RegisterManitanceDialogComponent implements OnInit{
       this.form.patchValue({manitanceFindings:this.defaultMessage});
     }  
 
-
+   
     if (this.form.valid) {
 
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
       this.form.patchValue({date: momentDate});
+
       const model = this.form.value;
-      console.log(model)
-      // this.postCleaningReports(model);
-      // this.onClose(model);
+      this.onClose(model);
       return
     }
-
-
+    
     this.openAlertDialog();
+  }
+
+  onClose(value: any): void {
+    this.dialogRef.close(value);
   }
 
   getCheckedElement(element:any){

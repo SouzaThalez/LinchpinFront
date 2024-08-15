@@ -193,10 +193,10 @@
             </div>
 
             <ng-template #show>
-                <div class="form" formGroupName="description">
+                <div class="form">
                     <mat-form-field [hidden]="lessonTextArea" class="text-area-form" appearance="outline">
                         <mat-label>Detalhe as falhas registradas...</mat-label>
-                        <textarea formControlName="descriptionInfo" matInput ></textarea>
+                        <textarea formControlName="description" matInput ></textarea>
                     </mat-form-field>
                 </div>
             </ng-template>
@@ -209,6 +209,6 @@
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn" >Confirmar</button>
+    <button class="default-btn confirm-btn" (click)="onSubmit()">Confirmar</button>
     
 </mat-dialog-actions>

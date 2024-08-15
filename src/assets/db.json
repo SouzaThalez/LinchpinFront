@@ -89,6 +89,36 @@
       "findings": "wedwedwed",
       "user": null,
       "id": 6
+    },
+    {
+      "date": "08-08-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Mama Exame",
+      "simulatorCode": "MAM7854",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "user": null,
+      "id": 7
+    },
+    {
+      "date": "08-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "Nurse Anne",
+      "simulatorCode": "NUR8GH",
+      "findings": "Simulador com pele rasgada",
+      "user": null,
+      "id": 8
+    },
+    {
+      "date": "15-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "findings": "simulador com olhos roxos",
+      "user": null,
+      "id": 9
     }
   ],
   "LessonReports": [
@@ -139,6 +169,284 @@
       "lessonType": "ACLS",
       "user": null,
       "id": 4
+    },
+    {
+      "date": "05-08-2024",
+      "name": "Fisioterapia",
+      "lessonOcorrance": "ocorrencia de aula da fisioterapaia ",
+      "simulatorOcorrance": "ocorrencia de simulador ",
+      "simulatorName": "MegaCode Kelly",
+      "simulatorCode": "KE8PL2",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "Fisio",
+      "user": null,
+      "id": 5
+    }
+  ],
+  "manitanceReports": [
+    {
+      "date": "01-08-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        },
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        },
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Primária",
+      "manitanceFindings": "Não houve registro de achados durante a manutenção",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "code": "ALS982",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "noDescription": true,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 1
+    },
+    {
+      "date": "01-08-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Secundária",
+      "manitanceFindings": "grgeeger",
+      "simulatorName": "Sim Junior",
+      "code": "NIOR2123",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
+      "noDescription": false,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 2
+    },
+    {
+      "date": "07-08-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        },
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        },
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Geral",
+      "manitanceFindings": "wedwedew",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "code": "ALS982",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "noDescription": false,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 3
+    },
+    {
+      "date": "16-08-2024",
+      "manitanceRegister": [
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Geral",
+      "manitanceFindings": "Não houve registro de achados durante a manutenção",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "code": "ALS982",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "noDescription": true,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 4
+    }
+  ],
+  "ScenarioReports": [
+    {
+      "date": "01-08-2024",
+      "time": "2000",
+      "scenarioRegister": [
+        {
+          "label": "Notebook funcionando e configurado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Microfone de mesa funcionando",
+          "value": true
+        },
+        {
+          "label": "Servidor de camera funcionando",
+          "value": true
+        },
+        {
+          "label": "Cameras no debriefing inicializadas",
+          "value": true
+        },
+        {
+          "label": "Simulador ligado sem intercorrências",
+          "value": true
+        },
+        {
+          "label": "Monitor de paciente ligado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Carrinho de parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador mecânico instalado em sala",
+          "value": true
+        },
+        {
+          "label": "Bomba de infusão instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Escada para PCR instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Oxigênio em sala de simulação funcionando",
+          "value": true
+        },
+        {
+          "label": "Formulário do cenário separado em sala de controle",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário presente em notebook",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário estudado",
+          "value": true
+        }
+      ],
+      "scenarioCategory": "Pré-corrida",
+      "scenarioOcorrance": "Não houve registro de intercorrências durante a Pré-corrida de cenário",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "hasDescription": true,
+      "itemOcorrance": "Não informado",
+      "user": null,
+      "id": 1
+    },
+    {
+      "date": "02-08-2024",
+      "time": "3000",
+      "scenarioRegister": [
+        {
+          "label": "Programa de execução de cenário presente em notebook",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário estudado",
+          "value": true
+        }
+      ],
+      "scenarioCategory": "Pós-corrida",
+      "scenarioOcorrance": "frferferfre",
+      "simulatorName": "Sim Junior",
+      "simulatorCode": "NIOR2123",
+      "hasDescription": false,
+      "itemOcorrance": {
+        "label": "Programa de execução de cenário presente em notebook",
+        "value": true
+      },
+      "user": null,
+      "id": 2
+    },
+    {
+      "date": "07-08-2024",
+      "time": "5000",
+      "noDescription": false,
+      "description": {
+        "descriptionInfo": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário"
+      },
+      "showTextArea": true,
+      "discipline": {
+        "name": "Internato de clinica Médica",
+        "label": "Int.Clinica Médica"
+      },
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
+      "user": null,
+      "id": 3
     }
   ]
 }
