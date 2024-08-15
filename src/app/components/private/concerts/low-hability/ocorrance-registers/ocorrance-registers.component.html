@@ -6,7 +6,7 @@
               <div class="report-content">
                     <div class="report-body">
                         <div class="report-image">
-                            <img src="assets/images/logo/lowSimulators/pelves/enemaPelve.png" alt="">
+                            <img [src]="element.lessonImage" alt="">
                         </div>
                         <div class="report-info">
                             <span>Nome: {{element.lessonCategory}} - {{element.lessonType}}</span>
@@ -25,7 +25,10 @@
                     <span>{{element.lessonOcorrance}}</span>
                 </div>
                 <div class="report-content-footer">
-                    <span>Saber mais...</span>
+                    <div class="link-description" (click)="openPreviewReportDialog(element)">
+                        <span>Imprimir...</span>
+                    </div>
+                    <span class="material-symbols-outlined">visibility</span>
                 </div>
               </div>
         </div>

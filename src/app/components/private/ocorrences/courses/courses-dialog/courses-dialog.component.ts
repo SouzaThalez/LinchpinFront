@@ -26,6 +26,7 @@ export class CoursesDialogComponent implements OnInit{
   defaultMessage = 'Não houve registro de ocorrência de aula';
   defaultSimulatorMessage = 'Não houve ocorrência de Simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
+  lessonImgPath = "assets/images/logo/curso-logo.png";
 
   selectedSimulator: Simulator;
 
@@ -63,7 +64,10 @@ export class CoursesDialogComponent implements OnInit{
 
   checkBox(value: any){
     this.checked = value;
-    this.form.patchValue({ocorrance: this.defaultMessage})
+    this.form.patchValue({
+      ocorrance: this.defaultMessage,
+      lessonDescription:false
+    })
   }
 
   checkSimBox(value: any){
@@ -146,6 +150,8 @@ export class CoursesDialogComponent implements OnInit{
       date: [null,Validators.required],
       name:[this.data.curse.name],
       lessonOcorrance:[],
+      lessonImage:[this.lessonImgPath],
+      lessonDescription:[true],
       simulatorOcorrance:[null,Validators.required],
       simulatorName:[null,Validators.required],
       simulatorCode:[null,Validators.required],

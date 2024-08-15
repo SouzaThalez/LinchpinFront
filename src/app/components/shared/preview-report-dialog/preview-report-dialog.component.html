@@ -1,3 +1,4 @@
+
 <div class="header">
     <div class="close" mat-dialog-close>
         <span class="material-symbols-outlined">close</span>
@@ -11,33 +12,70 @@
     </div>
 </div>
 
-<mat-dialog-content class="mat-typography" >
+<!-- lessonPreviewDialog  -->
+ <div class="lessonDialog" *ngIf="data.isLessonData">
+    <mat-dialog-content class="mat-typography" >
     
-    <div class="dialog-body">
-        <div class="body-header">
-            <span><img [src]="data?.simulator?.simulatorImage" alt=""></span>
-            <div class="header-description">
-                <span>Nome: {{data?.simulator?.simulatorName}}</span>
-                <span>Data abertura: {{data?.simulator?.date}}</span>
-                <span>Código: {{data?.simulator?.simulatorCode}}</span>
+        <div class="dialog-body">
+            <div class="body-header">
+                <span><img [src]="data?.simulator?.simulatorImage" alt=""></span>
+                <div class="header-description">
+                    <h1>lesson data</h1>
+                    <span>Nome: {{data?.simulator?.simulatorName}}</span>
+                    <span>Data abertura: {{data?.simulator?.date}}</span>
+                    <span>Código: {{data?.simulator?.simulatorCode}}</span>
+                </div>
             </div>
+            <div class="dialog-description">
+                <h2>Descrição do chamado</h2>
+                <span>{{data?.simulator?.findings}}</span>
+            </div>
+            <div class="manitance-register">
+                <hr>
+                <span>Status: Enviado para manutenção externa</span>
+                <h2>Manutenção:</h2>
+                <span>Nenhuma manutenção realizada</span>
+                <span>Data manutenção: </span>
+            </div>
+            
         </div>
-        <div class="dialog-description">
-            <h2>Descrição do chamado</h2>
-            <span>{{data?.simulator?.findings}}</span>
-        </div>
-        <div class="manitance-register">
-            <hr>
-            <span>Status: Enviado para manutenção externa</span>
-            <h2>Manutenção:</h2>
-            <span>Nenhuma manutenção realizada</span>
-            <span>Data manutenção: </span>
-        </div>
-        
-    </div>
-          
+              
+    
+    </mat-dialog-content>
+ </div>
 
-</mat-dialog-content>
+ <!-- CursePreviewDialog  -->
+ <div class="lessonDialog" *ngIf="!data.isLessonData">
+    <mat-dialog-content class="mat-typography" >
+    
+        <div class="dialog-body">
+            <div class="body-header">
+                <span><img [src]="data?.simulator?.simulatorImage" alt=""></span>
+                <div class="header-description">
+                    <h1>curse data</h1>
+                    <span>Nome: {{data?.simulator?.simulatorName}}</span>
+                    <span>Data abertura: {{data?.simulator?.date}}</span>
+                    <span>Código: {{data?.simulator?.simulatorCode}}</span>
+                </div>
+            </div>
+            <div class="dialog-description">
+                <h2>Descrição do chamado</h2>
+                <span>{{data?.simulator?.findings}}</span>
+            </div>
+            <div class="manitance-register">
+                <hr>
+                <span>Status: Enviado para manutenção externa</span>
+                <h2>Manutenção:</h2>
+                <span>Nenhuma manutenção realizada</span>
+                <span>Data manutenção: </span>
+            </div>
+            
+        </div>
+              
+    
+    </mat-dialog-content>
+ </div>
+
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>

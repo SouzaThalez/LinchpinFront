@@ -9,7 +9,9 @@
         <div class="card-container" *ngFor="let lesson of discipline?.lessons">
             <div class="card-body" (click)="openOcorranceDialog(lesson)">
                 <div class="card-head">
-                    <div class="card-image"></div>
+                    <div class="card-image">
+                        <img src="assets/images/logo/th-logo.png" alt="">
+                    </div>
                     <div class="card-description">
                         <span>{{lesson.name}}</span>
                         <span>{{lesson.description}}</span>

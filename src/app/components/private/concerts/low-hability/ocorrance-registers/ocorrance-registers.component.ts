@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { PreviewReportDialogComponent } from '../../../../shared/preview-report-dialog/preview-report-dialog.component';
 
 @Component({
   selector: 'app-ocorrance-registers',
@@ -18,6 +19,42 @@ export class OcorranceRegistersComponent implements OnInit{
 
   ngOnInit(): void {
     this.getLessonReports();
+  }
+
+
+  openPreviewReportDialog(element: any){
+    
+ 
+
+    if(element.lessonCategory == "Treinamento Habilidade"){
+      console.log('lesson: ', element)
+      let dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
+        disableClose: true,
+        width:'650px',
+        data:{
+          lesson: element,
+          isLessonData: true
+        }
+      })
+
+      return
+    }
+     
+    console.log('curse: ', element)
+    let dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        curse: element,
+        isLessonData: false
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
   }
 
 

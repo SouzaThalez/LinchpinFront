@@ -21,11 +21,10 @@ export class OcorranceDialogComponent implements OnInit{
   //Checkboxes
   checked = false;
   isValid = false;
-
-
   defaultLessonMessage = 'Não houve registro de ocorrência de aula';
   defaultSimulatorMessage = 'Não houve ocorrência de Simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
+  lessonImgPath = "assets/images/logo/th-logo.png";
 
   selectedSimulator: Simulator;
 
@@ -154,6 +153,7 @@ export class OcorranceDialogComponent implements OnInit{
       name:[this.data.lesson.name],
       lessonOcorrance:[],
       lessonDescription:[true],
+      lessonImage:[this.lessonImgPath],
       simulatorOcorrance:[null,Validators.required],
       simulatorName:[null,Validators.required],
       simulatorCode:[null,Validators.required],
