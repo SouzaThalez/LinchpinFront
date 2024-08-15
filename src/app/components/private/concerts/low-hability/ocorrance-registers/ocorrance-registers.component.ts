@@ -1,10 +1,38 @@
-import { Component } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ocorrance-registers',
   templateUrl: './ocorrance-registers.component.html',
   styleUrl: './ocorrance-registers.component.scss'
 })
-export class OcorranceRegistersComponent {
+export class OcorranceRegistersComponent implements OnInit{
+
+  lessonReportData: any[];
+
+  constructor(
+    private httpClient: HttpClient,
+    private matDialog: MatDialog
+  ){}
+
+  ngOnInit(): void {
+    this.getLessonReports();
+  }
+
+
+  private getLessonReports(){
+
+    let params = new HttpParams().set('lessonDescription', 'true');
+    
+    this.httpClient.get('http://localhost:3000/LessonReports/', { params })
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('request to prepared class  ok!: ',sample);
+          this.lessonReportData = sample;
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
 
 }

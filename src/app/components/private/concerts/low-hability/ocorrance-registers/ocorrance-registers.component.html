@@ -1,28 +1,28 @@
 
 <div class="page">
-    <div class="report-list">
-        <div class="report-container" 
-             *ngFor="let element of [1,2,3,]">
+    <div class="report-detail-list">
+        <div class="report-detail-container" 
+             *ngFor="let element of lessonReportData">
               <div class="report-content">
                     <div class="report-body">
                         <div class="report-image">
                             <img src="assets/images/logo/lowSimulators/pelves/enemaPelve.png" alt="">
                         </div>
                         <div class="report-info">
-                            <span>Title: Simulador Ressusci Anne</span>
+                            <span>Nome: {{element.lessonCategory}} - {{element.lessonType}}</span>
+                            <span>Aula: {{element.name}} </span>
                             <span>Status: Enviado para manutenção</span>
-                            <span>Acompanhamento:
-                                    Aqui vai a descrição do acompanhamento
-                            </span>
+                                    
                         </div>
                     </div>
               </div>
               <div class="report-content">
                 <div class="report-content-header">
+                    <span>Registro:</span>
                     <span class="report-code">Código: e3ghBH</span>
                 </div>
                 <div class="report-content-body">
-                    <span>This place is where the user description text of simulator mal-functions should be</span>
+                    <span>{{element.lessonOcorrance}}</span>
                 </div>
                 <div class="report-content-footer">
                     <span>Saber mais...</span>

@@ -64,6 +64,7 @@ export class OcorranceDialogComponent implements OnInit{
     this.checked = value;
     this.form.patchValue({
       lessonOcorrance: this.defaultLessonMessage,
+      lessonDescription:false
     })
   }
 
@@ -152,6 +153,7 @@ export class OcorranceDialogComponent implements OnInit{
       date: [null,Validators.required],
       name:[this.data.lesson.name],
       lessonOcorrance:[],
+      lessonDescription:[true],
       simulatorOcorrance:[null,Validators.required],
       simulatorName:[null,Validators.required],
       simulatorCode:[null,Validators.required],

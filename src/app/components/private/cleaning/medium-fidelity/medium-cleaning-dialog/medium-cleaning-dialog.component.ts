@@ -50,7 +50,8 @@ export class MediumCleaningDialogComponent implements OnInit{
     this.checked = value;
     if(this.checked){
       this.form.patchValue({
-        findings:this.textMsg
+        findings:this.textMsg,
+        hasDescription:false,
       })
     }
   }
@@ -119,6 +120,8 @@ export class MediumCleaningDialogComponent implements OnInit{
       simulatorName:[this.data.simulator.name],
       simulatorCode:[null,Validators.required],
       findings:[null,Validators.required],
+      hasDescription:[true],
+      simulatorImage:[this.data.simulator.image],
       user: [],
     })
 

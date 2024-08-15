@@ -1,10 +1,11 @@
-.report-detail-container{
-    //overflow-y: scroll;
- 
-    .report-container{
+.report-detail-list{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px;
+    .report-detail-container{
         height: 132px;
         border: 1px solid;
-        margin-bottom: 16px;
         display: grid;
         grid-template-columns: auto auto;
 
@@ -40,9 +41,32 @@
                 .report-info{
                     display: flex;
                     flex-direction: column;
-                    margin-top: 10px;
+                    gap: 4px;
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    .report-button{
+                        padding: 5px;
+                        border-radius: 3px;
+                        background-color: #b0d5bf;
+                    }
+                }
+            }
+
+            .report-content-footer{  
+                display: flex;
+                align-items: center;
+                align-content: center;
+                justify-content: flex-end;
+                    
+                .link-description{
+                    &:hover{
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
                 }
             }
         }
     }
 }
+

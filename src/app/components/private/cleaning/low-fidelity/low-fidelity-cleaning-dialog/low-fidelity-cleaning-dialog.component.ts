@@ -51,10 +51,12 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
     this.checked = value;
     if(this.checked){
       this.form.patchValue({
-        findings:this.textMsg
+        findings:this.textMsg,
+        hasDescription: false
       })
     }
   }
+
   onSubmit(): void {
     
     if (this.form.valid) {
@@ -119,6 +121,8 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
       simulatorName:[this.data.simulator.name],
       simulatorCode:[null,Validators.required],
       findings:[null,Validators.required],
+      hasDescription:[true],
+      simulatorImage:[this.data.simulator.image],
       user: [],
     })
 
