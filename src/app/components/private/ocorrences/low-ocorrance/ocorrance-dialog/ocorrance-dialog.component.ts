@@ -63,20 +63,23 @@ export class OcorranceDialogComponent implements OnInit{
     this.checked = value;
     this.form.patchValue({
       lessonOcorrance: this.defaultLessonMessage,
-      lessonDescription:false
+      lessonDescription:false,
     })
   }
 
   checkSimBox(value: any){
+
     this.isValid = value;
     if(this.isValid){
       this.form.patchValue({
         simulatorOcorrance: this.defaultSimulatorMessage,
         simulatorName:'Não informado',
-        simulatorCode:'Não informado'
+        simulatorCode:'Não informado',
+        simulatorDescription:false
+        
       })
     }
-   
+    
   }
 
   getSimulator(simulator: any) {
@@ -155,6 +158,7 @@ export class OcorranceDialogComponent implements OnInit{
       lessonDescription:[true],
       lessonImage:[this.lessonImgPath],
       simulatorOcorrance:[null,Validators.required],
+      simulatorDescription:[true],
       simulatorName:[null,Validators.required],
       simulatorCode:[null,Validators.required],
       lessonCategory: [this.data.lessonType.name],

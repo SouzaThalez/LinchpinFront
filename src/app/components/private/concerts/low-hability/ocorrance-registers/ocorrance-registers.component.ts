@@ -23,12 +23,12 @@ export class OcorranceRegistersComponent implements OnInit{
 
 
   openPreviewReportDialog(element: any){
-    
- 
 
+    let dialogRef : any ;
+    
     if(element.lessonCategory == "Treinamento Habilidade"){
-      console.log('lesson: ', element)
-      let dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
+     
+      dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
         disableClose: true,
         width:'650px',
         data:{
@@ -39,22 +39,28 @@ export class OcorranceRegistersComponent implements OnInit{
 
       return
     }
-     
-    console.log('curse: ', element)
-    let dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
-      disableClose: true,
-      width:'650px',
-      data:{
-        curse: element,
-        isLessonData: false
-      }
-    })
+    
+    if(element.lessonCategory == "curso"){
+
+      dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
+        disableClose: true,
+        width:'650px',
+        data:{
+          curse: element,
+          isCurseData: true
+        }
+      })
+
+      return
+    }
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
         
       }
     })
+
+
   }
 
 

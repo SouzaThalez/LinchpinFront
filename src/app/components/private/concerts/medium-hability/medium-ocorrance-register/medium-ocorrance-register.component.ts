@@ -1,10 +1,63 @@
-import { Component } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PreviewReportDialogComponent } from '../../../../shared/preview-report-dialog/preview-report-dialog.component';
 
 @Component({
   selector: 'app-medium-ocorrance-register',
   templateUrl: './medium-ocorrance-register.component.html',
   styleUrl: './medium-ocorrance-register.component.scss'
 })
-export class MediumOcorranceRegisterComponent {
+export class MediumOcorranceRegisterComponent implements OnInit{
+
+
+
+  lessonData: any[];
+
+  constructor(
+    private httpClient: HttpClient,
+    private matDialog: MatDialog
+  ){}
+
+
+  
+  ngOnInit(): void {
+    this.getLessonReports();
+  }
+
+  openPreviewReportDialog(element: any){
+    
+    let dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        simulator: element,
+        isSimulatorData: true
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
+
+  private getLessonReports(){
+    // returns data who meets theese 2 conditions
+    let params = new HttpParams()
+      .set('simulatorDescription', 'true');
+    
+    this.httpClient.get('http://localhost:3000/LessonReports/', { params })
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('request!: ',sample);
+          this.lessonData = sample;
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+
 
 }

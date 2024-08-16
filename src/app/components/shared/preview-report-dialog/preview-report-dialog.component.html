@@ -18,17 +18,17 @@
     
         <div class="dialog-body">
             <div class="body-header">
-                <span><img [src]="data?.simulator?.simulatorImage" alt=""></span>
+                <span><img [src]="data?.lesson?.lessonImage" alt=""></span>
                 <div class="header-description">
-                    <h1>lesson data</h1>
-                    <span>Nome: {{data?.simulator?.simulatorName}}</span>
-                    <span>Data abertura: {{data?.simulator?.date}}</span>
-                    <span>Código: {{data?.simulator?.simulatorCode}}</span>
+                    <h1>Imprimir Aula</h1>
+                    <span>Disciplina: {{data?.lesson?.lessonCategory}} - {{data?.lesson?.lessonType}}</span>
+                    <span>Data abertura: {{data?.lesson?.date}}</span>
+                    <span>Aula: {{data?.lesson?.name}}</span>
                 </div>
             </div>
             <div class="dialog-description">
                 <h2>Descrição do chamado</h2>
-                <span>{{data?.simulator?.findings}}</span>
+                <span>{{data?.lesson?.lessonOcorrance}}</span>
             </div>
             <div class="manitance-register">
                 <hr>
@@ -45,15 +45,47 @@
  </div>
 
  <!-- CursePreviewDialog  -->
- <div class="lessonDialog" *ngIf="!data.isLessonData">
+ <div class="lessonDialog" *ngIf="data.isCurseData">
+    <mat-dialog-content class="mat-typography" >
+    
+        <div class="dialog-body">
+            <div class="body-header">
+                <span><img [src]="data?.curse?.lessonImage" alt=""></span>
+                <div class="header-description">
+                    <h1>Imprimir Curso</h1>
+                    <span>Curso: {{data?.curse?.lessonType}}</span>
+                    <span>Data abertura: {{data?.curse?.date}}</span>
+                    <span>Disciplina: {{data?.curse?.name}}</span>
+                </div>
+            </div>
+            <div class="dialog-description">
+                <h2>Descrição do chamado</h2>
+                <span>{{data?.curse?.lessonOcorrance}}</span>
+            </div>
+            <div class="manitance-register">
+                <hr>
+                <span>Status: Enviado para manutenção externa</span>
+                <h2>Manutenção:</h2>
+                <span>Nenhuma manutenção realizada</span>
+                <span>Data manutenção: </span>
+            </div>
+            
+        </div>
+              
+    
+    </mat-dialog-content>
+ </div>
+
+  <!-- CursePreviewDialog  -->
+ <div class="lessonDialog" *ngIf="data.isSimulatorData">
     <mat-dialog-content class="mat-typography" >
     
         <div class="dialog-body">
             <div class="body-header">
                 <span><img [src]="data?.simulator?.simulatorImage" alt=""></span>
                 <div class="header-description">
-                    <h1>curse data</h1>
-                    <span>Nome: {{data?.simulator?.simulatorName}}</span>
+                    <h1>Imprimir Simulador</h1>
+                    <span>Simulador: {{data?.simulator?.simulatorName}}</span>
                     <span>Data abertura: {{data?.simulator?.date}}</span>
                     <span>Código: {{data?.simulator?.simulatorCode}}</span>
                 </div>

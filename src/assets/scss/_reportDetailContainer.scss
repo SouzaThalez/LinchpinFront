@@ -53,6 +53,16 @@
                 }
             }
 
+            .report-content-body {
+                width: 350px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                // width: fit-content;
+                // overflow: hidden;
+                // text-overflow: ellipsis;
+              }
+              
+
             .report-content-footer{  
                 display: flex;
                 align-items: center;

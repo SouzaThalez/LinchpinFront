@@ -68,6 +68,14 @@
         display: flex;
         flex-direction: column;
     }
+
+    .dialog-description{
+        display: block;
+        max-height: 100%;
+        /* Makes sure the text wraps within the container */
+       
+    }
+
 }
 
 .dialog-actions{

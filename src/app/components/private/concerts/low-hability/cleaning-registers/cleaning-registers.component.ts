@@ -30,7 +30,8 @@ export class CleaningRegistersComponent implements OnInit{
       disableClose: true,
       width:'650px',
       data:{
-        simulator: element
+        simulator: element,
+        isSimulatorData: true
       }
     })
 
@@ -43,7 +44,9 @@ export class CleaningRegistersComponent implements OnInit{
 
   private getCleaningReports(){
 
-    let params = new HttpParams().set('hasDescription', 'true');
+    let params = new HttpParams()
+        .set('hasDescription', 'true')
+        .set('simulatorCategory', 'baixa');
     
     this.httpClient.get('http://localhost:3000/CleaningReports/', { params })
     .subscribe({

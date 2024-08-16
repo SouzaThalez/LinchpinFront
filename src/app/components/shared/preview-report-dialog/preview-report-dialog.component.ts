@@ -13,9 +13,11 @@ export class PreviewReportDialogComponent implements OnInit{
     public dialogRef: MatDialogRef<PreviewReportDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {
       simulator: any,
-      isLessonData:boolean,
       lesson:any,
       curse:any
+      isLessonData:boolean,
+      isSimulatorData:boolean,
+      isCurseData:boolean
     },
   ){}
 

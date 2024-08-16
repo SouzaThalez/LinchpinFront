@@ -53,6 +53,78 @@
       "simulatorImage": "assets/images/Simulators/LowFidelity/drainTorso.jpg",
       "user": null,
       "id": 2
+    },
+    {
+      "date": "06-08-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE34",
+      "findings": "Simulator medium descripiton!",
+      "hasDescription": false,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "user": null,
+      "id": 3
+    },
+    {
+      "date": "06-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "MegaCode Kid",
+      "simulatorCode": "DC-2022-06-08",
+      "findings": "grgdfgdfgdfgfdgger",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
+      "user": null,
+      "id": 4
+    },
+    {
+      "date": "05-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "Nurse Anne",
+      "simulatorCode": "NUR8GH",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/nurseAnne.jpeg",
+      "user": null,
+      "id": 5
+    },
+    {
+      "date": "06-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE13",
+      "findings": "uma descrição de simulador a criterio de teste!",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "user": null,
+      "id": 6
+    },
+    {
+      "date": "06-08-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "media",
+      "simulatorName": "MegaCode Kelly",
+      "simulatorCode": "KE8PL5",
+      "findings": "ddwdqwdqdqwdqwdqwddwdqwdqdqwdqwdqwddwdqwdqdqwdqwdqwddwdqwdqdqwdqwdqwddwdqwdqdqwdqwdqwddwdqwdqdqwdqwdqwddwdqwdqdqwdqwdqwdqwdqwddwdqwdqdqwdqwdqwddwdqwdqdqwdqwdqw\nddwdqwdqdqwdqwdqw",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/megaKelly.jpeg",
+      "user": null,
+      "id": 7
+    },
+    {
+      "date": "08-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE13",
+      "findings": "Descrição de um chjamado longo. fdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefefdmomefoefe",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "user": null,
+      "id": 8
     }
   ],
   "LessonReports": [
@@ -111,6 +183,36 @@
       "lessonType": "ACLS",
       "user": null,
       "id": 4
+    },
+    {
+      "date": "09-08-2024",
+      "name": "Exame físico da criança",
+      "lessonOcorrance": "rfeferfrefre",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "simulatorOcorrance": "Não houve ocorrência de Simulador",
+      "simulatorDescription": false,
+      "simulatorName": "Não informado",
+      "simulatorCode": "Não informado",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "5",
+      "user": null,
+      "id": 5
+    },
+    {
+      "date": "08-08-2024",
+      "name": "Exame físico do recém-nascido",
+      "lessonOcorrance": "Não houve registro de ocorrência de aula",
+      "lessonDescription": false,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "simulatorOcorrance": "fwefwewefwefwe",
+      "simulatorDescription": true,
+      "simulatorName": "MegaCode Kid",
+      "simulatorCode": "DC-2022-06-08",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "5",
+      "user": null,
+      "id": 6
     }
   ],
   "manitanceReports": [
