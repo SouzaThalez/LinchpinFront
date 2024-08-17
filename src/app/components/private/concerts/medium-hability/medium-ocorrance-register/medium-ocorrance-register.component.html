@@ -11,7 +11,7 @@
                         <div class="report-info">
                             <span>Nome: {{element.lessonCategory}}</span>
                             <span>Data abertura: {{element.date}}</span>
-                            <span>Aula: {{element.name}}</span>
+                            <span>Aula: {{element.lessonName}}</span>
                             <span>Status:</span>
                         </div>
                     </div>
@@ -20,14 +20,17 @@
               <div class="report-content">
                 <div class="report-content-header">
                     <span>Ocorrência de simulador</span>
-                    <span class="report-code">Código: {{element.simulatorCode}}</span>
+                    <span class="report-code">Código: {{element.simulatorReport.code}}</span>
                 </div>
                 <div class="report-content-body">
-                    <span>{{element.simulatorOcorrance}}</span>
+                    <span>{{element.simulatorReport.ocorrance}}</span>
                 </div>
                 <div class="report-content-footer">
-                    <div class="link-description" (click)="openPreviewReportDialog(element)">
-                        <span>Imprimir...</span>
+                    <div class="simulator-image" (click)="openPreviewSimulatorReportDialog(element)">
+                        <img [src]="element.simulatorReport.image" alt="">
+                    </div>
+                    <div class="link-description">
+                        <!-- <span>Imprimir...</span> -->
                     </div>
                     <span class="material-symbols-outlined">visibility</span>
                 </div>

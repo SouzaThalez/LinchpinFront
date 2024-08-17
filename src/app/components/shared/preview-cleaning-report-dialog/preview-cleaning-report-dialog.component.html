@@ -1,0 +1,51 @@
+
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+    </div>
+    <div class="download">
+        <img src="assets/icons/cloud-download-icon.png" alt="">
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <
+        <div class="dialog-body">
+            <div class="body-header">
+                <span><img [src]="data?.simulatorData?.simulatorImage" alt=""></span>
+                <div class="header-description">
+                    <h1>Imprimir Simulador</h1>
+                    <span>Simulador: {{data?.simulatorData?.simulatorName}}</span>
+                    <span>Data abertura: {{data?.simulatorData?.date}}</span>
+                    <span>Código: {{data?.simulatorData?.simulatorCode}}</span>
+                </div>
+            </div>
+            <div class="dialog-description">
+                <h2>Descrição do chamado</h2>
+                <div class="description">
+                    <span>{{data?.simulatorData?.findings}}</span>
+                </div>
+            </div>
+            <div class="manitance-register">
+                <hr>
+                <span>Status: Enviado para manutenção externa</span>
+                <h2>Manutenção:</h2>
+                <span>Nenhuma manutenção realizada</span>
+                <span>Data manutenção: </span>
+            </div>
+            
+        </div>
+              
+    
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+ 
+    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn confirm-btn">Download</button>
+    
+</mat-dialog-actions>

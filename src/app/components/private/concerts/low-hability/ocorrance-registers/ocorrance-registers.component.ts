@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviewReportDialogComponent } from '../../../../shared/preview-report-dialog/preview-report-dialog.component';
+import { PreviewLessonReportDialogComponent } from '../../../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 
 @Component({
   selector: 'app-ocorrance-registers',
@@ -62,7 +63,7 @@ export class OcorranceRegistersComponent implements OnInit{
 
  
 
-    let dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
+    let dialogRef = this.matDialog.open(PreviewLessonReportDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{

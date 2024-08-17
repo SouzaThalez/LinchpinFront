@@ -1,30 +1,39 @@
 <div class="page">
     <div class="report-detail-list">
+        <div class="nodata" *ngIf="cleaningData?.length == 0">
+            <span>no data</span>
+        </div>
+        <h3>Achados de simulador durante a limpeza</h3>
         <div class="report-detail-container" 
-             *ngFor="let element of [1,2,3,4,5]">
+             *ngFor="let element of cleaningData">
               <div class="report-content">
                     <div class="report-body">
                         <div class="report-image">
-                            <img src="assets/images/logo/lowSimulators/pelves/enemaPelve.png" alt="">
+                            <img [src]="element.simulatorImage" alt="">
                         </div>
                         <div class="report-info">
-                            <span>Title: Simulador Ressusci Anne</span>
+                            <span>Title: {{element.simulatorName}}</span>
+                            <span>Data: {{element.date}}</span>
                             <span>Status: Enviado para manutenção</span>
-                            <span>Acompanhamento:
-                                    Aqui vai a descrição do acompanhamento
-                            </span>
+                            <div class="report-button">
+                                <span>Chamado em aberto</span>
+                            </div>
                         </div>
                     </div>
               </div>
               <div class="report-content">
                 <div class="report-content-header">
-                    <span class="report-code">Código: e3ghBH</span>
+                    <span>Registro:</span>
+                    <span class="report-code">Código: {{element.simulatorCode}}</span>
                 </div>
                 <div class="report-content-body">
-                    <span>This place is where the user description text of simulator mal-functions should be</span>
+                    <span>{{element.findings}}</span>
                 </div>
                 <div class="report-content-footer">
-                    <span>Saber mais...</span>
+                    <div class="link-description" (click)="openPreviewCleaningReportDialog(element)">
+                        <span>Imprimir...</span>
+                    </div>
+                    <span class="material-symbols-outlined">visibility</span>
                 </div>
               </div>
         </div>

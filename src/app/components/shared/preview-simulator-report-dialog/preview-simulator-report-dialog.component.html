@@ -1,0 +1,69 @@
+
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+    </div>
+    <div class="download">
+        <img src="assets/icons/cloud-download-icon.png" alt="">
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+    
+        <div class="dialog-body">
+            <!-- lesson data info -->
+            <div class="body-header">
+                <span><img [src]="data?.reportData?.lessonImage" alt=""></span>
+                <div class="header-description" *ngIf="isLessonReport">
+                    <h1>Dados da Aula</h1>
+                    <span>Disciplina: {{data?.reportData?.lessonCategory}} - {{data?.reportData?.lessonType}}</span>
+                    <span>Data abertura: {{data?.reportData?.date}}</span>
+                    <span>Aula: {{data?.reportData?.lessonName}}</span>
+                </div>
+                <div class="header-description" *ngIf="isCurseReport">
+                    <h1>Dados do Curso</h1>
+                    <span>Nome: {{data?.reportData?.lessonName}}</span>
+                    <span>Data abertura: {{data?.reportData?.date}}</span>
+                    <span>Aula: {{data?.reportData?.lessonCategory}} - {{data?.reportData?.lessonType}}</span>
+                </div>
+            </div>
+            <!-- Simulator data info -->
+            <div class="body-header">
+                <span class="simulator-image"><img [src]="data?.reportData?.simulatorReport?.image" alt=""></span>
+                <div class="header-description">
+                    <h1>Dados do Simulador</h1>
+                    <span>Nome: {{data?.reportData?.simulatorReport.name}}</span>
+                    <span>Código: {{data?.reportData?.simulatorReport.code}}</span>
+                    <span>Categoria: {{data?.reportData?.simulatorReport.simulatorCategory}}</span>
+                </div>
+            </div>
+             <!-- Simulator data description -->
+            <div class="dialog-description">
+                <h2>Registro do Simulador</h2>
+                <div class="description">
+                    <span>{{data?.reportData?.simulatorReport.ocorrance}}</span>
+                </div>
+            </div>
+
+            <div class="manitance-register">
+                <hr>
+                <h2>Manutenção:</h2>
+                <span>Status: Enviado para manutenção externa</span>
+                <span>Nenhuma manutenção realizada</span>
+                <span>Data manutenção: </span>
+            </div>
+            
+        </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+ 
+    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn confirm-btn">Download</button>
+    
+</mat-dialog-actions>

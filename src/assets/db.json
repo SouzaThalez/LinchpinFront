@@ -125,6 +125,18 @@
       "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
       "user": null,
       "id": 8
+    },
+    {
+      "date": "07-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "Harvey",
+      "simulatorCode": "HAR331",
+      "findings": "Houve achados no harvey",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "user": null,
+      "id": 9
     }
   ],
   "LessonReports": [
