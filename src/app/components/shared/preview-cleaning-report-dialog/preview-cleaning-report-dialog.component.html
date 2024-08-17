@@ -13,10 +13,12 @@
 </div>
 
 <mat-dialog-content class="mat-typography" >
-        <
+        
         <div class="dialog-body">
             <div class="body-header">
-                <span><img [src]="data?.simulatorData?.simulatorImage" alt=""></span>
+                <span class="simulator-image">
+                    <img [src]="data?.simulatorData?.simulatorImage" alt="">
+                </span>
                 <div class="header-description">
                     <h1>Imprimir Simulador</h1>
                     <span>Simulador: {{data?.simulatorData?.simulatorName}}</span>
@@ -32,8 +34,8 @@
             </div>
             <div class="manitance-register">
                 <hr>
-                <span>Status: Enviado para manutenção externa</span>
                 <h2>Manutenção:</h2>
+                <span>Status: Enviado para manutenção externa</span>
                 <span>Nenhuma manutenção realizada</span>
                 <span>Data manutenção: </span>
             </div>

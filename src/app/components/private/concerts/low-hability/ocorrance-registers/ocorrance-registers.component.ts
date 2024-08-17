@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PreviewReportDialogComponent } from '../../../../shared/preview-report-dialog/preview-report-dialog.component';
 import { PreviewLessonReportDialogComponent } from '../../../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 
 @Component({
@@ -23,46 +22,9 @@ export class OcorranceRegistersComponent implements OnInit{
   }
 
 
-  openPreviewReportDialog(element: any){
+  openPreviewLessonReportDialog(element: any){
 
-    // let dialogRef : any ;
-    
-    // if(element.lessonCategory == "Treinamento Habilidade"){
-     
-    //   dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
-    //     disableClose: true,
-    //     width:'650px',
-    //     data:{
-    //       lesson: element,
-    //       isLessonData: true
-    //     }
-    //   })
-
-    //   return
-    // }
-    
-    // if(element.lessonCategory == "curso"){
-
-    //   dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
-    //     disableClose: true,
-    //     width:'650px',
-    //     data:{
-    //       curse: element,
-    //       isCurseData: true
-    //     }
-    //   })
-
-    //   return
-    // }
-
-    // dialogRef.afterClosed().subscribe(result=>{
-    //   if(result){
-        
-    //   }
-    // })
-
- 
-
+   
     let dialogRef = this.matDialog.open(PreviewLessonReportDialogComponent,{
       disableClose: true,
       width:'650px',
