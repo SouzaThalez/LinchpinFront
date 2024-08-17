@@ -1,6 +1,7 @@
 
 <div class="page">
     <div class="report-detail-list">
+        <h3>Registros de ocorrencia de aula</h3>
         <div class="report-detail-container" 
              *ngFor="let element of lessonReportData">
               <div class="report-content">
@@ -10,7 +11,7 @@
                         </div>
                         <div class="report-info">
                             <span>Nome: {{element.lessonCategory}} - {{element.lessonType}}</span>
-                            <span>Aula: {{element.name}} </span>
+                            <span>Aula: {{element.lessonName}} </span>
                             <span>Status: Enviado para manutenção</span>
                                     
                         </div>
@@ -18,8 +19,8 @@
               </div>
               <div class="report-content">
                 <div class="report-content-header">
-                    <span>Registro:</span>
-                    <span class="report-code">Código: e3ghBH</span>
+                    <span><b>Registros de aula</b></span>
+                    <span class="report-code">Data: {{element.date}}</span>
                 </div>
                 <div class="report-content-body">
                     <span>{{element.lessonOcorrance}}</span>

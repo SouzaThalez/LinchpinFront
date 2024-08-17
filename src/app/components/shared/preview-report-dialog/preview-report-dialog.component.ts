@@ -9,9 +9,15 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class PreviewReportDialogComponent implements OnInit{
 
+  isCurseReport: boolean = false;
+  isLessonReport: boolean = false;
+  isSimulatorReport: boolean = false;
+
   constructor(
     public dialogRef: MatDialogRef<PreviewReportDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {
+      reportData: any,
+      isCleaningReport:boolean
       simulator: any,
       lesson:any,
       curse:any
@@ -22,7 +28,13 @@ export class PreviewReportDialogComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    // console.log(this.data.simulator)
+    
+    if(this.data.reportData.lessonCategory == 'Treinamento Habilidade'){
+      this.isLessonReport = true
+    }
+    if(this.data.reportData.lessonCategory == 'curso'){
+      this.isCurseReport = true
+    }
     
   }
     

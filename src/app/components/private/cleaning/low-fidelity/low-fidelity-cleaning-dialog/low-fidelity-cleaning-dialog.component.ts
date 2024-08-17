@@ -110,7 +110,6 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
     })
   }
 
-
   private createForm(): FormGroup{
 
     const prevForm = this.fb.group({

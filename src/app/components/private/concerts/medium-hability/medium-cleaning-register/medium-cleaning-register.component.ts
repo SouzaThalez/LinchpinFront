@@ -30,7 +30,7 @@ export class MediumCleaningRegisterComponent implements OnInit{
       width:'650px',
       data:{
         simulator: element,
-        isSimulatorData: true
+        isCleaningReport: true
       }
     })
 

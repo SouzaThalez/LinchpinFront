@@ -31,8 +31,7 @@ export class MediumOcorranceRegisterComponent implements OnInit{
       disableClose: true,
       width:'650px',
       data:{
-        simulator: element,
-        isSimulatorData: true
+        reportData: element
       }
     })
 

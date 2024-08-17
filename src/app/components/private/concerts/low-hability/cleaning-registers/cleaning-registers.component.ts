@@ -22,16 +22,16 @@ export class CleaningRegistersComponent implements OnInit{
     this.getCleaningReports();
   }
 
-
-  
   openPreviewReportDialog(element: any){
     
+    debugger
     let dialogRef = this.matDialog.open(PreviewReportDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
         simulator: element,
-        isSimulatorData: true
+        reportData: element,
+        isCleaningReport: true
       }
     })
 

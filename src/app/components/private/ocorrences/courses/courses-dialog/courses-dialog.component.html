@@ -66,11 +66,13 @@
 
       <ng-template #showSimulatorInfo>
 
+        <div class="simulator-report" formGroupName="simulatorReport">
+          
           <div class="dialog-field-code">
 
             <mat-form-field appearance="outline">
               <mat-label>Simulador</mat-label>
-              <mat-select formControlName="simulatorName">
+              <mat-select formControlName="name">
                   <mat-option (click)="getSimulator(simulator)"
                               *ngFor="let simulator of mediumSimulators"
                               [value]="simulator.name">
@@ -80,12 +82,11 @@
               </mat-select>
             </mat-form-field>
     
-            <div class="simulator-code" *ngIf="form.get('simulatorName')?.value">
+            <div class="simulator-code" *ngIf="form.get('simulatorReport.name')?.value">
                 <mat-form-field class="code-field" appearance="outline">
                   <mat-label>Código</mat-label>
-                  <mat-select formControlName="simulatorCode">
+                  <mat-select formControlName="code">
                       <mat-option #matoption *ngFor="let element of simulatorCodes; let i= index"
-                                  (click)="getCode(element)"
                                   [value]="element.code">
                                   {{element.code}}
                       </mat-option>
@@ -95,14 +96,16 @@
     
           </div>
     
-          <div class="simulator-report" *ngIf="form.get('simulatorCode')?.value">
+          <div class="simulator-description" *ngIf="form.get('simulatorReport.code')?.value">
             <h2>Descreva</h2>
             <mat-form-field class="text-area-form" appearance="outline">
               <mat-label>Durante a aula o Simulador...</mat-label>
-              <textarea matInput formControlName="simulatorOcorrance"></textarea>
+              <textarea matInput formControlName="ocorrance"></textarea>
             </mat-form-field>
           </div>
-
+          
+        </div>
+          
       </ng-template>
 
       

@@ -9,6 +9,7 @@ import moment from 'moment';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { SimulatorReport } from '../../../../models/simulatorReport';
 
 @Component({
   selector: 'app-courses-dialog',
@@ -56,7 +57,7 @@ export class CoursesDialogComponent implements OnInit{
   } 
 
   
-  onClose(value: string): void {
+  onClose(value: any): void {
     this.dialogRef.close(value);
     this.openSnackBar(this.snackbarMessage);
   }
@@ -65,19 +66,37 @@ export class CoursesDialogComponent implements OnInit{
   checkBox(value: any){
     this.checked = value;
     this.form.patchValue({
-      ocorrance: this.defaultMessage,
+      lessonOcorrance: this.defaultMessage,
       lessonDescription:false
     })
   }
 
   checkSimBox(value: any){
     this.isValid = value;
+    // if(this.isValid){
+    //   this.form.patchValue({
+    //     simulatorOcorrance: this.defaultSimulatorMessage,
+    //     simulatorName:'Não informado',
+    //     simulatorCode:'Não informado',
+    //     simulatorDescription:false
+    //   })
+    // }
+
     if(this.isValid){
+
+      const noReportInfo = new SimulatorReport();
+      noReportInfo.code = 'Não informado' ; 
+      noReportInfo.date = 'Não informado' ;
+      noReportInfo.image = 'Não informado' ;
+      noReportInfo.name = 'Não informado' ;
+      noReportInfo.ocorrance = this.defaultSimulatorMessage ;
+      noReportInfo.simulatorCategory = 'Não informado' ;
+
       this.form.patchValue({
-        simulatorOcorrance: this.defaultSimulatorMessage,
-        simulatorName:'Não informado',
-        simulatorCode:'Não informado'
+        simulatorDescription: false,
+        simulatorReport: noReportInfo
       })
+
     }
    
   }
@@ -86,36 +105,48 @@ export class CoursesDialogComponent implements OnInit{
 
   getSimulator(simulator: any) {
     this.selectedSimulator = simulator;
-    this.simulatorCodes = simulator.codes;  
+    this.simulatorCodes = simulator.codes;
+
+    this.form.patchValue({
+      simulatorReport:{
+        image: this.selectedSimulator.image
+      }
+  
+    })
   }
-
-  getCode(code:any){
-   
-  //   this.form.patchValue({
-  //     simulatorCode: code
-  //   })
-  }
-
-
 
   submitForm(){
-   
+ 
     if (this.form.valid) {
 
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
-      this.form.patchValue({date: momentDate});
-  
-      const model = this.form.value;
+      let simulatorReport = this.getSimulatorReport();
+      simulatorReport.date = momentDate;
+
+      this.form.patchValue({
+        date: momentDate,
+        simulatorReport: simulatorReport
+    
+      })
+
       //send data to ocorrance Dialog
-      this.onClose(model);
+      this.onClose(this.form.value);
       
       return
     }
    
     this.openAlertDialog();
 
+  }
 
+  private getSimulatorReport(): SimulatorReport {
+    
+    const simulatorReportValue = this.form.get('simulatorReport')?.value;
+    const simReport = new SimulatorReport();
+    // Map form values to the instance  
+    Object.assign(simReport, simulatorReportValue);
 
+    return simReport;
   }
 
   private openSnackBar(message: string): void {
@@ -148,16 +179,23 @@ export class CoursesDialogComponent implements OnInit{
     const prevForm = this.fb.group({
 
       date: [null,Validators.required],
-      name:[this.data.curse.name],
+      lessonName:[this.data.curse.name],
       lessonOcorrance:[],
-      lessonImage:[this.lessonImgPath],
       lessonDescription:[true],
-      simulatorOcorrance:[null,Validators.required],
-      simulatorName:[null,Validators.required],
-      simulatorCode:[null,Validators.required],
-      lessonCategory: [this.data.curse.type],
+      lessonImage:[this.lessonImgPath],
+      lessonCategory:[this.data.curse.type],
       lessonType:[this.data.curse.value],
+      simulatorDescription:[true],
+      simulatorReport: this.fb.group({
+        name: [null,Validators.required],
+        code: [null,Validators.required],
+        image: [],
+        ocorrance: [null,Validators.required],
+        simulatorCategory: ['media'],
+        date: []
+      }),
       user: [],
+
     })
 
     return prevForm;

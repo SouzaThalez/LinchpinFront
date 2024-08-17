@@ -9,6 +9,7 @@ import moment from 'moment';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { SimulatorReport } from '../../../../models/simulatorReport';
 
 @Component({
   selector: 'app-ocorrance-dialog',
@@ -50,10 +51,11 @@ export class OcorranceDialogComponent implements OnInit{
   
   ngOnInit(): void {
     this.form = this.createForm();
+    console.log(this.data.lessonType)
   } 
 
   
-  onClose(value: string): void {
+  onClose(value: any): void {
     this.dialogRef.close(value);
     this.openSnackBar(this.snackbarMessage);
   }
@@ -71,13 +73,20 @@ export class OcorranceDialogComponent implements OnInit{
 
     this.isValid = value;
     if(this.isValid){
+
+      const noReportInfo = new SimulatorReport();
+      noReportInfo.code = 'Não informado' ; 
+      noReportInfo.date = 'Não informado' ;
+      noReportInfo.image = 'Não informado' ;
+      noReportInfo.name = 'Não informado' ;
+      noReportInfo.ocorrance = this.defaultSimulatorMessage ;
+      noReportInfo.simulatorCategory = 'Não informado' ;
+
       this.form.patchValue({
-        simulatorOcorrance: this.defaultSimulatorMessage,
-        simulatorName:'Não informado',
-        simulatorCode:'Não informado',
-        simulatorDescription:false
-        
+        simulatorDescription: false,
+        simulatorReport: noReportInfo
       })
+
     }
     
   }
@@ -85,11 +94,13 @@ export class OcorranceDialogComponent implements OnInit{
   getSimulator(simulator: any) {
 
     this.selectedSimulator = simulator;
-
     this.simulatorCodes = simulator.codes;
 
     this.form.patchValue({
-      simulatorName: simulator.name
+      simulatorReport:{
+        image: this.selectedSimulator.image
+      }
+  
     })
     
   }
@@ -101,18 +112,24 @@ export class OcorranceDialogComponent implements OnInit{
     })
   }
 
+  submitForm(){
+
   
 
-  submitForm(){
-   
     if (this.form.valid) {
 
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
-      this.form.patchValue({date: momentDate});
-  
-      const model = this.form.value;
+      let simulatorReport = this.getSimulatorReport();
+      simulatorReport.date = momentDate;
+     
+      this.form.patchValue({
+        date: momentDate,
+        simulatorReport: simulatorReport
+    
+      })
+      
       //send data to ocorrance Dialog
-      this.onClose(model);
+      this.onClose(this.form.value);
       
       return
     }
@@ -122,6 +139,17 @@ export class OcorranceDialogComponent implements OnInit{
 
 
   }
+
+  private getSimulatorReport(): SimulatorReport {
+    
+    const simulatorReportValue = this.form.get('simulatorReport')?.value;
+    const simReport = new SimulatorReport();
+    // Map form values to the instance  
+    Object.assign(simReport, simulatorReportValue);
+
+    return simReport;
+  }
+
 
   private openSnackBar(message: string): void {
 
@@ -153,17 +181,23 @@ export class OcorranceDialogComponent implements OnInit{
     const prevForm = this.fb.group({
 
       date: [null,Validators.required],
-      name:[this.data.lesson.name],
+      lessonName:[this.data.lesson.name],
       lessonOcorrance:[],
       lessonDescription:[true],
       lessonImage:[this.lessonImgPath],
-      simulatorOcorrance:[null,Validators.required],
-      simulatorDescription:[true],
-      simulatorName:[null,Validators.required],
-      simulatorCode:[null,Validators.required],
-      lessonCategory: [this.data.lessonType.name],
+      lessonCategory:[this.data.lessonType.name],
       lessonType:[this.data.lessonType.value],
+      simulatorDescription:[true],
+      simulatorReport: this.fb.group({
+        name: [null,Validators.required],
+        code: [null,Validators.required],
+        image: [],
+        ocorrance: [null,Validators.required],
+        simulatorCategory: ['media'],
+        date: []
+      }),
       user: [],
+
     })
 
     return prevForm;
