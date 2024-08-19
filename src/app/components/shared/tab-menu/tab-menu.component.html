@@ -5,12 +5,12 @@
              routerLink="/private/{{pageTypeName}}/{{type}}/{{aTabLink}}"
              routerLinkActive="active">
         </div>
-        <div class="menu-item"
+        <div class="menu-item" *ngIf="bTabLink != ''"
              [innerHTML]="bTabLink"
              routerLink="/private/{{pageTypeName}}/{{type}}/{{bTabLink}}"
              routerLinkActive="active">
         </div>
-        <div class="menu-item"
+        <div class="menu-item" *ngIf="cTabLink != '' "
              [innerHTML]="cTabLink"
              routerLink="/private/{{pageTypeName}}/{{type}}/{{cTabLink}}"
              routerLinkActive="active">

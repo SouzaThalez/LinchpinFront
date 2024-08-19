@@ -5,7 +5,6 @@ export class SimulatorReport{
     ocorrance: string;
     simulatorCategory: string
     date:string;
-
     constructor(){
         
         this.name = '';

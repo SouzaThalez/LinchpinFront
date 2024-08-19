@@ -53,6 +53,30 @@
       "simulatorImage": "assets/images/Simulators/LowFidelity/breasthMilk.png",
       "user": null,
       "id": 2
+    },
+    {
+      "date": "07-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan 3G",
+      "simulatorCode": "3G4231",
+      "findings": "achados duranter a limpeza ",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "user": null,
+      "id": 3
+    },
+    {
+      "date": "07-08-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMom",
+      "simulatorCode": "MOM567",
+      "findings": "achados!",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
+      "user": null,
+      "id": 4
     }
   ],
   "LessonReports": [
@@ -139,12 +163,8 @@
   ],
   "manitanceReports": [
     {
-      "date": "01-08-2024",
+      "date": "13-08-2024",
       "manitanceRegister": [
-        {
-          "label": "Simulador configurado e conectado ao Software",
-          "value": true
-        },
         {
           "label": "Cameras e Monitor do Paciente conectado",
           "value": true
@@ -152,30 +172,14 @@
         {
           "label": "Carrinho de Parada completo",
           "value": true
-        },
-        {
-          "label": "Ventilador Mecânico presente",
-          "value": true
-        },
-        {
-          "label": "Bomba de Infusão presente",
-          "value": true
-        },
-        {
-          "label": "Simulador limpo e Entalcado",
-          "value": true
-        },
-        {
-          "label": "Simulador em Estado Saudável",
-          "value": true
         }
       ],
-      "manitanceCategory": "Primária",
-      "manitanceFindings": "Não houve registro de achados durante a manutenção",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "code": "ALS982",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "noDescription": true,
+      "manitanceCategory": "Secundária",
+      "manitanceFindings": "dewdwedweddwedwed",
+      "simulatorName": "Harvey",
+      "code": "HAR331",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "hasDescription": true,
       "user": {
         "name": "",
         "role": ""
@@ -183,100 +187,24 @@
       "id": 1
     },
     {
-      "date": "01-08-2024",
+      "date": "08-08-2024",
       "manitanceRegister": [
         {
-          "label": "Simulador configurado e conectado ao Software",
-          "value": true
-        },
-        {
-          "label": "Cameras e Monitor do Paciente conectado",
+          "label": "Bomba de Infusão presente",
           "value": true
         }
       ],
       "manitanceCategory": "Secundária",
-      "manitanceFindings": "grgeeger",
-      "simulatorName": "Sim Junior",
-      "code": "NIOR2123",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
-      "noDescription": false,
+      "manitanceFindings": "Não houve registro de achados durante a manutenção",
+      "simulatorName": "Sim Baby Light",
+      "code": "LIGH2123",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simBabyLight.png",
+      "hasDescription": false,
       "user": {
         "name": "",
         "role": ""
       },
       "id": 2
-    },
-    {
-      "date": "07-08-2024",
-      "manitanceRegister": [
-        {
-          "label": "Simulador configurado e conectado ao Software",
-          "value": true
-        },
-        {
-          "label": "Cameras e Monitor do Paciente conectado",
-          "value": true
-        },
-        {
-          "label": "Carrinho de Parada completo",
-          "value": true
-        },
-        {
-          "label": "Ventilador Mecânico presente",
-          "value": true
-        },
-        {
-          "label": "Bomba de Infusão presente",
-          "value": true
-        },
-        {
-          "label": "Simulador limpo e Entalcado",
-          "value": true
-        },
-        {
-          "label": "Simulador em Estado Saudável",
-          "value": true
-        }
-      ],
-      "manitanceCategory": "Geral",
-      "manitanceFindings": "wedwedew",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "code": "ALS982",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "noDescription": false,
-      "user": {
-        "name": "",
-        "role": ""
-      },
-      "id": 3
-    },
-    {
-      "date": "16-08-2024",
-      "manitanceRegister": [
-        {
-          "label": "Bomba de Infusão presente",
-          "value": true
-        },
-        {
-          "label": "Simulador limpo e Entalcado",
-          "value": true
-        },
-        {
-          "label": "Simulador em Estado Saudável",
-          "value": true
-        }
-      ],
-      "manitanceCategory": "Geral",
-      "manitanceFindings": "Não houve registro de achados durante a manutenção",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "code": "ALS982",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "noDescription": true,
-      "user": {
-        "name": "",
-        "role": ""
-      },
-      "id": 4
     }
   ],
   "ScenarioReports": [

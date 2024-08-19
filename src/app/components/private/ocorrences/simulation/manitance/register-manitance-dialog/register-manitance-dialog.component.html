@@ -64,13 +64,13 @@
             <section class="example-section">
                 <mat-checkbox 
                         class="checkbox-manitance"
-                        formControlName="noDescription">
+                        (change)="findingsCheckBox($event.checked)">
                         Nenhum
                 </mat-checkbox>
             </section>
         </div>
    
-        <div *ngIf="form.value.noDescription else show">
+        <div *ngIf="isChecked else show">
                 <span>Nenhum achado durante a manutenção deste simulador </span>
         </div>
 

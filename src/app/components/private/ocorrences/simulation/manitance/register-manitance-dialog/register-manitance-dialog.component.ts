@@ -22,6 +22,8 @@ export class RegisterManitanceDialogComponent implements OnInit{
   defaultMessage = 'Não houve registro de achados durante a manutenção';
   user = { name:'',role:''};
 
+  isChecked = false;
+
   constructor(
     public dialogRef: MatDialogRef<RegisterManitanceDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {
@@ -38,12 +40,7 @@ export class RegisterManitanceDialogComponent implements OnInit{
 
 
   onSubmit(){
-   
-    if(this.form.value.noDescription){
-      this.form.patchValue({manitanceFindings:this.defaultMessage});
-    }  
-
-   
+    
     if (this.form.valid) {
 
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
@@ -68,12 +65,16 @@ export class RegisterManitanceDialogComponent implements OnInit{
   }
 
 
-  getsecondCheckedElement(element:any){
-    element.value = !element.value;
-    this.checkedBoxes = this.allcCheckBoxData.secundCheckboxes.filter((element:any) => element.value == true);
-    this.form.patchValue({manitanceRegister:this.checkedBoxes});
-  }
+  findingsCheckBox(value: boolean){
+      this.isChecked = value;
+      if(this.isChecked){
+        this.form.patchValue({
+          manitanceFindings:this.defaultMessage,
+          hasDescription: false
+        });
+      }
 
+  }
 
   onChangeAllChecked(isChecked:any){
  
@@ -112,7 +113,7 @@ export class RegisterManitanceDialogComponent implements OnInit{
       simulatorName: [this.data.simulator.name],  
       code: [this.data.simulator.codes[0]],
       simulatorImage: [this.data.simulator.image],
-      noDescription: [false],
+      hasDescription: [true],
       user: this.user
     })
 
