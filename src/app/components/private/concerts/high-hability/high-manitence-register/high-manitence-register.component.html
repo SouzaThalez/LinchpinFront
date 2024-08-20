@@ -20,10 +20,13 @@
                     <span class="report-code">Abertura: {{element.date}}</span>
                 </div>
                 <div class="report-content-body">
-                    <span>This place is where the user description text of simulator mal-functions should be</span>
+                    <span>{{element.manitanceFindings}}</span>
                 </div>
                 <div class="report-content-footer">
-                    <span>Saber mais...</span>
+                    <div class="link-description" (click)="openPreviewCleaningReportDialog(element)">
+                        <span>Imprimir...</span>
+                    </div>
+                    <span class="material-symbols-outlined">visibility</span>
                 </div>
               </div>
         </div>

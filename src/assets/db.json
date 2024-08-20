@@ -205,6 +205,30 @@
         "role": ""
       },
       "id": 2
+    },
+    {
+      "date": "07-08-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Primária",
+      "manitanceFindings": "Achados durante a manutenção primária deste simulador!",
+      "simulatorName": "SimMan ALS - Direito",
+      "code": "ALS439",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "hasDescription": true,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 3
     }
   ],
   "ScenarioReports": [

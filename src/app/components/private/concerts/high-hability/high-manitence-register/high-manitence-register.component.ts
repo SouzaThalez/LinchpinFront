@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { PreviewLessonReportDialogComponent } from '../../../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 
 @Component({
   selector: 'app-high-manitence-register',
@@ -21,6 +22,27 @@ export class HighManitenceRegisterComponent implements OnInit{
   ngOnInit(): void {
     this.getManitenceReports();
   }
+
+
+  openPreviewCleaningReportDialog(element: any){
+    
+    let dialogRef = this.matDialog.open(PreviewLessonReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        reportData: element,
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
+
+
+
 
   private getManitenceReports(){
 

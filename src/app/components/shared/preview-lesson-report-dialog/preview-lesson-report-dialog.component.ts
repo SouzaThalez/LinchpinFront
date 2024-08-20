@@ -11,6 +11,7 @@ export class PreviewLessonReportDialogComponent implements OnInit{
   isCurseReport: boolean = false;
   isLessonReport: boolean = false;
   isSimulatorReport: boolean = false;
+  isManitanceReport:boolean = false;
 
 
   constructor(
@@ -21,12 +22,18 @@ export class PreviewLessonReportDialogComponent implements OnInit{
   ){}
   
   ngOnInit(): void {
-    
+ 
     if(this.data.reportData.lessonCategory == 'Treinamento Habilidade'){
-      this.isLessonReport = true
+      this.isLessonReport = true ;
+      return
     }
     if(this.data.reportData.lessonCategory == 'curso'){
-      this.isCurseReport = true
+      this.isCurseReport = true;
+      return
+    }
+    if(this.data.reportData.manitanceCategory != null){
+      this.isManitanceReport = true;
+      return
     }
   }
 
