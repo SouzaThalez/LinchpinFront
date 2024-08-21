@@ -1,0 +1,53 @@
+.concert-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .cross{
+        margin-right: 23px;
+    }
+}
+
+.first-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .concert-checkbox{
+        margin-left: 48px;
+    }
+}
+
+.second-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.ocorrance-btn{
+    margin-right: 23px;
+    padding: 4px;
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    background-color: var(--footer-item-backgroundColor);
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(76 96 109);
+    }
+}
+
+.concert-h2{
+    margin-bottom: 10px;
+}
+
+.manitance-text-area{
+    width: 100%;
+    textarea{
+        height: 164px;
+    }
+}
+
+.dialog-actions{
+    justify-content: flex-end;
+    gap: 10px;
+}

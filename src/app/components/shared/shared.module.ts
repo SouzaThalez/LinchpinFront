@@ -6,7 +6,14 @@ import {MatButtonModule} from '@angular/material/button';
 import { PreviewCleaningReportDialogComponent } from './preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
 import { PreviewLessonReportDialogComponent } from './preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 import { PreviewSimulatorReportDialogComponent } from './preview-simulator-report-dialog/preview-simulator-report-dialog.component';
-
+import { InterventionReportDialogComponent } from './intervention-report-dialog/intervention-report-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,17 +22,27 @@ import { PreviewSimulatorReportDialogComponent } from './preview-simulator-repor
     PreviewCleaningReportDialogComponent,
     PreviewLessonReportDialogComponent,
     PreviewSimulatorReportDialogComponent,
+    InterventionReportDialogComponent,
   ],
   imports: [
     CommonModule,
     MatDialogModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
+  
   ],
   exports: [
     AlertDialogComponent,
     PreviewCleaningReportDialogComponent,
-    PreviewLessonReportDialogComponent
+    PreviewLessonReportDialogComponent,
+    InterventionReportDialogComponent
 
   ],
 })

@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviewCleaningReportDialogComponent } from '../../../../shared/preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
+import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
 
 @Component({
   selector: 'app-cleaning-registers',
@@ -37,6 +38,24 @@ export class CleaningRegistersComponent implements OnInit{
         
       }
     })
+  }
+
+  openInterventionReport(element: any){
+
+    let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        simulatorData: element,
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+
   }
 
   private getCleaningReports(){

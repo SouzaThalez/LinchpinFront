@@ -1,0 +1,64 @@
+<div class="concert-header">
+    <h2 mat-dialog-title>Relato da Intervenção</h2>
+    <span class="material-symbols-outlined cross">
+        <a mat-dialog-close>close</a>
+    </span>
+</div>
+
+<mat-dialog-content class="mat-typography">
+
+    <div class="dialog-body" [formGroup]="interventionForm">
+
+        <div class="first-content">
+            <h2>Descreva a Intervenção realizada</h2>
+            <mat-checkbox
+                    class="concert-checkbox"
+                    (change)="checkBox()"> 
+                    Nenhuma
+            </mat-checkbox>
+        </div>
+    
+        <div class="text-area-container" *ngIf="checked else showTextArea">
+            <p class="text-msg"[innerHtml]="textMsg"></p>
+        </div>
+    
+        <ng-template #showTextArea>
+            <mat-form-field class="manitance-text-area" appearance="outline">
+                <mat-label>Ex..peças eletronicas do simualdor retiradas...</mat-label>
+                <textarea formControlName="interventionText" matInput ></textarea>
+            </mat-form-field>
+        </ng-template>
+      
+        <div class="second-content">
+            <h2 class="concert-h2">Defina os Estatus da Intervenção</h2>
+            <mat-form-field class="code-field" appearance="outline">
+                <mat-label>Definir status</mat-label>
+                <mat-select formControlName="interventionStatus">
+                    <mat-option *ngFor="let element of  manitanceStatus" [value]="element.text">{{element.text}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <h2 class="concert-h2" >Data da intervenção</h2>
+
+        <mat-form-field appearance="outline" class="date-picker">
+            <mat-label>Escolha uma Data</mat-label>
+            <input formControlName="interventionDate" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+    </div>
+
+
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+ 
+    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn confirm-btn">Registrar</button>
+    
+</mat-dialog-actions>
