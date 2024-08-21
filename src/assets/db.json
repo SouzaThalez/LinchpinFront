@@ -40,7 +40,14 @@
       "hasDescription": true,
       "simulatorImage": "assets/images/Simulators/LowFidelity/drainTorso.jpg",
       "user": null,
-      "id": 1
+      "id": 1,
+      "intervention": {
+        "interventionText": "Nenhuma intervenção realizada",
+        "interventionDate": "20-08-2024",
+        "interventionStatus": "Enviado para Fornecedor",
+        "interventionUser": null,
+        "isOpen": false
+      }
     },
     {
       "date": "07-08-2024",
@@ -53,6 +60,25 @@
       "simulatorImage": "assets/images/Simulators/LowFidelity/torco_central.png",
       "user": null,
       "id": 2
+    },
+    {
+      "date": "18-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "IOT Adulto",
+      "simulatorCode": "IOTA3874",
+      "findings": "simualdor com pele rasgaDA",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/iot_adulto.png",
+      "user": null,
+      "id": 3,
+      "intervention": {
+        "interventionText": "A pele do simulador foi trocada. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta accusantium non quidem fuga reprehenderit minima nemo amet, sed repellendus perferendis sint dignissimos ad iure voluptate inventore maxime minus accusamus optio.",
+        "interventionDate": "13-08-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": null,
+        "isOpen": false
+      }
     }
   ],
   "LessonReports": [

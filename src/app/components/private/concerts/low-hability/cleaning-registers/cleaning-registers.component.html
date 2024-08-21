@@ -15,7 +15,13 @@
                         <div class="report-info">
                             <span>Title: {{element.simulatorName}}</span>
                             <span>Data: {{element.date}}</span>
-                            <span>Status: Enviado para manutenção</span>
+                            <div class="intervention" *ngIf="element.intervention else default">
+                                <span>Status::{{element.intervention.interventionStatus}}</span>
+                            </div>
+                            <ng-template #default>
+                                <span>Status: A definir..</span>
+                            </ng-template>
+                            
                             <div class="report-button" (click)="openInterventionReport(element)">
                                 <span>Chamado em aberto</span>
                             </div>

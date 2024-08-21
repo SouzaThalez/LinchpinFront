@@ -69,6 +69,11 @@
     .manitance-register{
         display: flex;
         flex-direction: column;
+
+        .manitence-body{
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     .dialog-description{

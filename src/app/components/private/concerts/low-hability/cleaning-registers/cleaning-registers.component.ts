@@ -43,15 +43,19 @@ export class CleaningRegistersComponent implements OnInit{
 
   openInterventionReport(report: any){
 
+
+
     let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
       disableClose: true,
       width:'650px',
     })
 
     dialogRef.afterClosed().subscribe(result=>{
-  debugger
+ 
       if(result){
-        this.getSelectedReport(result);
+        //adding interventionReport to model 
+        report.intervention = result;
+        this.updateReport(report);
       }
     })
 
@@ -73,9 +77,9 @@ export class CleaningRegistersComponent implements OnInit{
     })
   }
 
-  private getSelectedReport(report:any){
+  private updateReport(model:any){
 
-    this.httpClient.get('http://localhost:3000/CleaningReports/' + report.id)
+    this.httpClient.put('http://localhost:3000/CleaningReports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           console.log('request to specific report!: ',sample);
