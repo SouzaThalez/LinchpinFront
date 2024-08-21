@@ -2,6 +2,7 @@
     <div class="report-detail-list">
         <div class="report-detail-container" 
              *ngFor="let element of manitanceData">
+
               <div class="report-content">
                     <div class="report-body">
                         <div class="report-image">
@@ -14,7 +15,9 @@
                         </div>
                     </div>
               </div>
+              
               <div class="report-content">
+
                 <div class="report-content-header">
                     <span>Achados:</span>
                     <span class="report-code">Abertura: {{element.date}}</span>
@@ -28,6 +31,7 @@
                     </div>
                     <span class="material-symbols-outlined">visibility</span>
                 </div>
+
               </div>
         </div>
     </div>

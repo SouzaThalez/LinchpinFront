@@ -12,6 +12,7 @@ import { InterventionReportDialogComponent } from '../../../../shared/interventi
 export class CleaningRegistersComponent implements OnInit{
 
   cleaningData: any[];
+  selectedReport:any;
 
   constructor(
     private httpClient: HttpClient,
@@ -40,19 +41,17 @@ export class CleaningRegistersComponent implements OnInit{
     })
   }
 
-  openInterventionReport(element: any){
+  openInterventionReport(report: any){
 
     let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
       disableClose: true,
       width:'650px',
-      data:{
-        simulatorData: element,
-      }
     })
 
     dialogRef.afterClosed().subscribe(result=>{
+  debugger
       if(result){
-        
+        this.getSelectedReport(result);
       }
     })
 
@@ -69,6 +68,18 @@ export class CleaningRegistersComponent implements OnInit{
         next: (sample: any)=>{
           console.log('request to prepared class  ok!: ',sample);
           this.cleaningData = sample;
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private getSelectedReport(report:any){
+
+    this.httpClient.get('http://localhost:3000/CleaningReports/' + report.id)
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('request to specific report!: ',sample);
+          this.selectedReport = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })

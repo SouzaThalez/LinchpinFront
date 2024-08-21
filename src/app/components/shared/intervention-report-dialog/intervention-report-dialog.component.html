@@ -19,7 +19,7 @@
         </div>
     
         <div class="text-area-container" *ngIf="checked else showTextArea">
-            <p class="text-msg"[innerHtml]="textMsg"></p>
+            <p class="text-msg"[innerHtml]="defaultInterventionText"></p>
         </div>
     
         <ng-template #showTextArea>
@@ -59,6 +59,6 @@
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn">Registrar</button>
+    <button class="default-btn confirm-btn"(click)=onSubmit()>Registrar</button>
     
 </mat-dialog-actions>

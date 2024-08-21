@@ -19,7 +19,7 @@ export class InterventionReportDialogComponent implements OnInit{
 
   status: string = '';
   checked= false;
-  textMsg = 'Nenhuma intervenção realizada';
+  defaultInterventionText = 'Nenhuma intervenção realizada';
   manitanceStatus = manitenceStatusData;
 
 
@@ -43,16 +43,15 @@ export class InterventionReportDialogComponent implements OnInit{
   checkBox(){
     this.checked = !this.checked;
     if(this.checked == true){
-      this.interventionForm.patchValue({interventionText: this.textMsg});
+      this.interventionForm.patchValue({interventionText: this.defaultInterventionText});
     }else{
       this.interventionForm.patchValue({interventionText: ''});
     }
   }
 
-  getInterventionForm(){
+  onSubmit(){
     
     if(this.interventionForm.valid){
-
       let momentDate = moment(this.interventionForm.value.interventionDate).format('DD-MM-YYYY');
       this.interventionForm.patchValue({interventionDate: momentDate});
       this.dialogRef.close(this.interventionForm.value);

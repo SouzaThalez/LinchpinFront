@@ -6,6 +6,7 @@
         <h3>Achados de simulador durante a limpeza</h3>
         <div class="report-detail-container" 
              *ngFor="let element of cleaningData">
+             
               <div class="report-content">
                     <div class="report-body">
                         <div class="report-image">
@@ -21,7 +22,9 @@
                         </div>
                     </div>
               </div>
+
               <div class="report-content">
+
                 <div class="report-content-header">
                     <span>Registro:</span>
                     <span class="report-code">Código: {{element.simulatorCode}}</span>
@@ -35,6 +38,7 @@
                     </div>
                     <span class="material-symbols-outlined">visibility</span>
                 </div>
+
               </div>
         </div>
     </div>
