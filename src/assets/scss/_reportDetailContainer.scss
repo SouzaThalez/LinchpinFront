@@ -48,7 +48,12 @@
                     .report-button{
                         padding: 5px;
                         border-radius: 3px;
-                        background-color: #b0d5bf;
+                        
+                        background-color: rgb(194, 131, 131);
+                        &.red{
+                            background-color: #b0d5bf
+                        }
+
                         &:hover{
                             cursor: pointer;
                             box-shadow: 2px 2px 1px gray;

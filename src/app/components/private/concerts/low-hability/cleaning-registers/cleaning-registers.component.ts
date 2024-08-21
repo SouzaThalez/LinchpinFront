@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviewCleaningReportDialogComponent } from '../../../../shared/preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
 import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
 
 @Component({
   selector: 'app-cleaning-registers',
@@ -16,7 +18,8 @@ export class CleaningRegistersComponent implements OnInit{
 
   constructor(
     private httpClient: HttpClient,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private snackBar: MatSnackBar
   ){}
 
 
@@ -43,7 +46,17 @@ export class CleaningRegistersComponent implements OnInit{
 
   openInterventionReport(report: any){
 
+    if(report.hasIntervention){
 
+      this.snackBar.open('Ups! Ja foi registrado uma intervenção!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+
+      return
+
+    }
 
     let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
       disableClose: true,
@@ -55,6 +68,7 @@ export class CleaningRegistersComponent implements OnInit{
       if(result){
         //adding interventionReport to model 
         report.intervention = result;
+        report.hasIntervention = true;
         this.updateReport(report);
       }
     })

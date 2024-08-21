@@ -22,8 +22,12 @@
                                 <span>Status: A definir..</span>
                             </ng-template>
                             
-                            <div class="report-button" (click)="openInterventionReport(element)">
-                                <span>Chamado em aberto</span>
+                            <div class="report-button" 
+                                (click)="openInterventionReport(element)"
+                                [ngClass]="{'red': element.hasIntervention}">
+                                <span>
+                                    {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
+                                </span>
                             </div>
                         </div>
                     </div>
