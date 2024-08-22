@@ -187,6 +187,7 @@ export class OcorranceDialogComponent implements OnInit{
       lessonImage:[this.lessonImgPath],
       lessonCategory:[this.data.lessonType.name],
       lessonType:[this.data.lessonType.value],
+      user: [],
       simulatorDescription:[true],
       simulatorReport: this.fb.group({
         name: [null,Validators.required],
@@ -196,8 +197,7 @@ export class OcorranceDialogComponent implements OnInit{
         simulatorCategory: ['media'],
         date: []
       }),
-      user: [],
-
+      hasIntervention:[false],
     })
 
     return prevForm;

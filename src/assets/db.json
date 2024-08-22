@@ -31,137 +31,110 @@
   ],
   "CleaningReports": [
     {
-      "date": "07-08-2024",
-      "cleaningCategory": "secundária",
-      "simulatorCategory": "baixa",
-      "simulatorName": "Pelve Prompt",
-      "simulatorCode": "PROMT001",
-      "findings": "pele bem suja",
-      "hasDescription": true,
-      "hasIntervention": true,
-      "simulatorImage": "assets/images/Simulators/LowFidelity/promptPelv.png",
-      "user": null,
-      "id": 4,
-      "intervention": {
-        "interventionText": "pele foi trocada e limpa.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci, autem quia ab sapiente vel reprehenderit doloremque consectetur facilis vitae nesciunt sed eligendi iusto aspernatur at consequatur. Non, eum fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci, autem quia ab sapiente vel reprehenderit doloremque consectetur facilis vitae nesciunt sed eligendi iusto aspernatur at consequatur. Non, eum fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci, autem quia ab sapiente vel reprehenderit doloremque consectetur facilis vitae nesciunt sed eligendi iusto aspernatur at consequatur. Non, eum fugiat.",
-        "interventionDate": "20-08-2024",
-        "interventionStatus": "Em analise pelo analista",
-        "interventionUser": null,
-        "isOpen": false
-      }
-    },
-    {
       "date": "14-08-2024",
-      "cleaningCategory": "primária",
+      "cleaningCategory": "secundária",
       "simulatorCategory": "media",
       "simulatorName": "MegaCode Kelly",
       "simulatorCode": "KE8PL2",
-      "findings": "Durante a limpeza deste simulador foram achados ...",
-      "hasDescription": true,
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
       "simulatorImage": "assets/images/Simulators/MediumFidelity/megaKelly.jpeg",
       "user": null,
-      "id": 5,
-      "intervention": {
-        "interventionText": "descriçãoda intervenção aqui !",
-        "interventionDate": "15-08-2024",
-        "interventionStatus": "Solucionado após intervenção do Fornecedor",
-        "interventionUser": null
-      },
-      "hasIntervention": true
+      "id": 1
     },
     {
-      "date": "08-08-2024",
+      "date": "14-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE34",
+      "findings": "Descrição de ocorrencia de limpeza ",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "user": null,
+      "id": 2
+    },
+    {
+      "date": "14-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Pelve Sondagem F",
+      "simulatorCode": "SF333",
+      "findings": "achados de limpza!",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/enemaPelve.png",
+      "user": null,
+      "id": 3
+    },
+    {
+      "date": "15-08-2024",
       "cleaningCategory": "secundária",
       "simulatorCategory": "alta",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "simulatorCode": "ALS982",
-      "findings": "simulador com braço sujo",
+      "simulatorName": "Sim Junior",
+      "simulatorCode": "NIOR2123",
+      "findings": "achados de limpza!",
       "hasDescription": true,
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
       "user": null,
-      "id": 6
+      "id": 4
     }
   ],
   "LessonReports": [
     {
-      "date": "02-08-2024",
-      "lessonName": "Punção Venosa Central I",
-      "lessonOcorrance": "Não houve registro de ocorrência de aula",
-      "lessonDescription": false,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "7",
+      "date": "21-08-2024",
+      "lessonName": "Suporte Avançado de Vida Cardiovascular",
+      "lessonOcorrance": "Houve ocorrencia de curso",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/curso-logo.png",
+      "lessonCategory": "curso",
+      "lessonType": "ACLS",
+      "user": null,
       "simulatorDescription": true,
       "simulatorReport": {
         "name": "MegaCode Kid",
         "code": "DC-2022-06-08",
         "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
-        "ocorrance": "Este é um registro longo de ocorrencia de simualdor durante a aula",
+        "ocorrance": "Esta es una ocorrencia de simulador ",
         "simulatorCategory": "media",
-        "date": "02-08-2024"
+        "date": "21-08-2024"
       },
-      "user": null,
-      "id": 1
+      "hasIntervention": true,
+      "id": 1,
+      "intervention": {
+        "interventionText": "descrição de uma intercorrencia realizada",
+        "interventionDate": "15-08-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": null
+      }
     },
     {
-      "date": "10-08-2024",
-      "lessonName": "Primeira - Apresentação inaugural",
-      "lessonOcorrance": "Este é um registro longo de aula",
+      "date": "15-08-2024",
+      "lessonName": "Drenagem Torácica",
+      "lessonOcorrance": "sim houve ocorrencia de aula",
       "lessonDescription": true,
       "lessonImage": "assets/images/logo/th-logo.png",
       "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "2",
-      "simulatorDescription": false,
-      "simulatorReport": {
-        "name": "Não informado",
-        "code": "Não informado",
-        "image": "Não informado",
-        "ocorrance": "Não houve ocorrência de Simulador",
-        "simulatorCategory": "Não informado",
-        "date": "10-08-2024"
-      },
+      "lessonType": "7",
       "user": null,
-      "id": 2
-    },
-    {
-      "date": "16-08-2024",
-      "lessonName": "Queimaduras QR CODE",
-      "lessonOcorrance": "Este é um registro de aulaaa",
-      "lessonDescription": true,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "2",
       "simulatorDescription": true,
       "simulatorReport": {
         "name": "MegaCode Kid",
-        "code": "OSR-A5095-003",
+        "code": "DC-2022-06-08",
         "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
-        "ocorrance": "Este é um registro de simuladorrrr",
+        "ocorrance": "simhouve ocorrencia de simualdor",
         "simulatorCategory": "media",
-        "date": "16-08-2024"
+        "date": "15-08-2024"
       },
-      "user": null,
-      "id": 3
-    },
-    {
-      "date": "11-08-2024",
-      "lessonName": "Suporte Avançado de Vida Cardiovascular",
-      "lessonOcorrance": "Não houve registro de ocorrência de aula",
-      "lessonDescription": false,
-      "lessonImage": "assets/images/logo/curso-logo.png",
-      "lessonCategory": "curso",
-      "lessonType": "ACLS",
-      "simulatorDescription": true,
-      "simulatorReport": {
-        "name": "MegaCode Kelly",
-        "code": "KE8PL2",
-        "image": "assets/images/Simulators/MediumFidelity/megaKelly.jpeg",
-        "ocorrance": "Neste curso o simulador parou de funcionar",
-        "simulatorCategory": "media",
-        "date": "11-08-2024"
-      },
-      "user": null,
-      "id": 4
+      "hasIntervention": true,
+      "id": 2,
+      "intervention": {
+        "interventionText": "Nenhuma intervenção realizada",
+        "interventionDate": "21-08-2024",
+        "interventionStatus": "Enviado para Fornecedor",
+        "interventionUser": null
+      }
     }
   ],
   "manitanceReports": [

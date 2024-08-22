@@ -120,6 +120,7 @@ export class HighCleaningDialogComponent implements OnInit{
       simulatorCode:[null,Validators.required],
       findings:[null,Validators.required],
       hasDescription:[true],
+      hasIntervention:[false],
       simulatorImage:[this.data.simulator.image],
       user: [],
     })

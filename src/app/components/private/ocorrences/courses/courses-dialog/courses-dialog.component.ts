@@ -185,6 +185,7 @@ export class CoursesDialogComponent implements OnInit{
       lessonImage:[this.lessonImgPath],
       lessonCategory:[this.data.curse.type],
       lessonType:[this.data.curse.value],
+      user: [],
       simulatorDescription:[true],
       simulatorReport: this.fb.group({
         name: [null,Validators.required],
@@ -194,7 +195,8 @@ export class CoursesDialogComponent implements OnInit{
         simulatorCategory: ['media'],
         date: []
       }),
-      user: [],
+      hasIntervention:[false],
+      
 
     })
 

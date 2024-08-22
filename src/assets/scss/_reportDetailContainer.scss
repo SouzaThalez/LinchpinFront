@@ -53,12 +53,13 @@
                         &.red{
                             background-color: #b0d5bf
                         }
-
+    
                         &:hover{
                             cursor: pointer;
                             box-shadow: 2px 2px 1px gray;
                         }
                     }
+
                 }
             }
 
@@ -71,17 +72,12 @@
               
 
             .report-content-footer{  
+
                 display: flex;
                 align-items: center;
-                align-content: center;
+                justify-content: space-between;
                 justify-content: flex-end;
-                    
-                .link-description{
-                    &:hover{
-                        cursor: pointer;
-                        text-decoration: underline;
-                    }
-                }
+
                 .simulator-image{
                     img{
                         width: 60px;
@@ -93,6 +89,26 @@
                         }
                     }
                 }
+
+                .report-image-btn{
+                    display: flex;
+                    align-items: center;                
+                    padding: 5px;
+                    border-radius: 10px;
+                    box-shadow: 2px 1px 3px gray;
+
+                    img{
+                        width: 60px;
+                        height: 50px;
+                        object-fit: cover;
+                        &:hover{
+                            box-shadow: 0px 2px 7px #bdb5b5;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                
+               
             }
         }
     }

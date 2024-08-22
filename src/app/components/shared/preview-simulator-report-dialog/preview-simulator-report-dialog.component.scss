@@ -74,7 +74,15 @@
     .manitance-register{
         display: flex;
         flex-direction: column;
+        .manitence-body , .manitence-details{
+            display: flex;
+            flex-direction: column;
+        }
+        .manitence-details{
+            margin-top: 10px;
+        }
     }
+
 
     .dialog-description{
         display: block;
