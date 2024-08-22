@@ -2,6 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviewCleaningReportDialogComponent } from '../../../../shared/preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
+import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
 
 @Component({
   selector: 'app-high-cleaning-register',
@@ -15,7 +18,8 @@ export class HighCleaningRegisterComponent implements OnInit{
 
   constructor(
     private httpClient: HttpClient,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private snackBar: MatSnackBar
   ){}
 
 
@@ -41,6 +45,37 @@ export class HighCleaningRegisterComponent implements OnInit{
     })
   }
 
+  openInterventionReport(report: any){
+
+    if(report.hasIntervention){
+
+      this.snackBar.open('Ups! Ja foi registrado uma intervenção!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+
+      return
+
+    }
+
+    let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+ 
+      if(result){
+
+  //adding interventionReport to model 
+        report.intervention = result;
+        report.hasIntervention = true;
+        // this.updateReport(report);
+      }
+    })
+
+  }
 
   private getCleaningReports(){
     // returns data who meets theese 2 conditions

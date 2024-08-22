@@ -12,15 +12,29 @@
                             <img [src]="element.simulatorImage" alt="">
                         </div>
                         <div class="report-info">
+
                             <span>Title: {{element.simulatorName}}</span>
                             <span>Data: {{element.date}}</span>
-                            <span>Status: Enviado para manutenção</span>
-                            <div class="report-button">
-                                <span>Chamado em aberto</span>
+                        
+                            <div class="intervention" *ngIf="element.intervention else default">
+                                <span>Status::{{element.intervention.interventionStatus}}</span>
+                            </div>
+                            <ng-template #default>
+                                <span>Status: Enviado para manutenção...</span>
+                            </ng-template>
+
+                            <div class="report-button" 
+                                (click)="openInterventionReport(element)"
+                                [ngClass]="{'red': element.hasIntervention}">
+                            <span>
+                                {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
+                            </span>
+                            
                             </div>
                         </div>
                     </div>
               </div>
+
               <div class="report-content">
                 <div class="report-content-header">
                     <span>Registro:</span>
@@ -36,6 +50,7 @@
                     <span class="material-symbols-outlined">visibility</span>
                 </div>
               </div>
+              
         </div>
     </div>
 </div>

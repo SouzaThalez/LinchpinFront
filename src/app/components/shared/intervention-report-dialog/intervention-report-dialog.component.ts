@@ -74,7 +74,6 @@ export class InterventionReportDialogComponent implements OnInit{
       interventionDate: [null, Validators.required],
       interventionStatus: [null, Validators.required],
       interventionUser: [],
-      isOpen: false
     })
 
     return interForm;

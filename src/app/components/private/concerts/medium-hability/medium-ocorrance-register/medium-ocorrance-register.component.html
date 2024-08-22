@@ -12,7 +12,13 @@
                             <span>Nome: {{element.lessonCategory}}</span>
                             <span>Data abertura: {{element.date}}</span>
                             <span>Aula: {{element.lessonName}}</span>
-                            <span>Status:</span>
+                            <div class="intervention" *ngIf="element.intervention else default">
+                                <span>Status::{{element.intervention.interventionStatus}}</span>
+                            </div>
+                            <ng-template #default>
+                                <span>Status: A definir..</span>
+                            </ng-template>
+                            
                         </div>
                     </div>
               </div>

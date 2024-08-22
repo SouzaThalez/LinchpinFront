@@ -32,20 +32,23 @@
                     <span>{{data?.simulatorData?.findings}}</span>
                 </div>
             </div>
+
             <div class="manitance-register">
                 <hr>
                 <h2>Manutenção</h2>
-
-                <div class="manitence-body" *ngIf="data?.simulatorData?.intervention else showDefault">
-                    <span><b>Status:</b> {{data?.simulatorData?.intervention.interventionStatus}}</span>
-                    <span><b>Data da manutenção:</b>{{data?.simulatorData?.intervention.interventionDate}}</span>
-                    <span><b>Registro da manutenção:</b> {{data?.simulatorData?.intervention.interventionText}}</span>
+                <div class="manitence-details">
+                    
+                    <div class="manitence-body" *ngIf="data?.simulatorData?.intervention else showDefault">
+                        <span><b>Status:</b> {{data?.simulatorData?.intervention.interventionStatus}}</span>
+                        <span><b>Data da manutenção:</b>{{data?.simulatorData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da manutenção:</b> {{data?.simulatorData?.intervention.interventionText}}</span>
+                    </div>
+    
+                    <ng-template #showDefault>
+                        <span>Status: A definir..</span>
+                        <span>Nenhuma manutenção realizada no momento</span>
+                    </ng-template>
                 </div>
-                <ng-template #showDefault>
-                    <span>Status: A definir..</span>
-                    <span>Nenhuma manutenção realizada no momento</span>
-                   
-                </ng-template>
                 
             </div>
             

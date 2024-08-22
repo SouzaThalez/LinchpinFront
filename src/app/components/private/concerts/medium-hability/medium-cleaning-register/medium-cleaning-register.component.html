@@ -3,7 +3,7 @@
         <div class="nodata" *ngIf="cleaningData?.length == 0">
             <span>no data</span>
         </div>
-        <h3>Achados de simulador durante a limpeza</h3>
+        <h3>Registros de simulador que foram encontrados durante a limpeza</h3>
         <div class="report-detail-container" 
              *ngFor="let element of cleaningData">
               <div class="report-content">
@@ -12,16 +12,31 @@
                             <img [src]="element.simulatorImage" alt="">
                         </div>
                         <div class="report-info">
+
                             <span>Title: {{element.simulatorName}}</span>
                             <span>Data: {{element.date}}</span>
-                            <span>Status: Enviado para manutenção</span>
-                            <div class="report-button">
-                                <span>Chamado em aberto</span>
+                            <div class="intervention" *ngIf="element.intervention else default">
+                                <span>Status::{{element.intervention.interventionStatus}}</span>
                             </div>
+                            <ng-template #default>
+                                <span>Status: Enviado para manutenção...</span>
+                            </ng-template>
+
+                            <div class="report-button" 
+                                (click)="openInterventionReport(element)"
+                                [ngClass]="{'red': element.hasIntervention}">
+                            <span>
+                                {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
+                            </span>
+                            
+                            </div>
+
                         </div>
                     </div>
               </div>
+
               <div class="report-content">
+
                 <div class="report-content-header">
                     <span>Registro:</span>
                     <span class="report-code">Código: {{element.simulatorCode}}</span>
@@ -35,6 +50,7 @@
                     </div>
                     <span class="material-symbols-outlined">visibility</span>
                 </div>
+
               </div>
         </div>
     </div>

@@ -13,7 +13,7 @@
                             <img [src]="element.simulatorImage" alt="">
                         </div>
                         <div class="report-info">
-                            <span>Title: {{element.simulatorName}}</span>
+                            <span>Simulador: {{element.simulatorName}}</span>
                             <span>Data: {{element.date}}</span>
                             <div class="intervention" *ngIf="element.intervention else default">
                                 <span>Status::{{element.intervention.interventionStatus}}</span>

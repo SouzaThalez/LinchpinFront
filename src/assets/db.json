@@ -49,6 +49,37 @@
         "interventionUser": null,
         "isOpen": false
       }
+    },
+    {
+      "date": "14-08-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "media",
+      "simulatorName": "MegaCode Kelly",
+      "simulatorCode": "KE8PL2",
+      "findings": "Durante a limpeza deste simulador foram achados ...",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/megaKelly.jpeg",
+      "user": null,
+      "id": 5,
+      "intervention": {
+        "interventionText": "descriçãoda intervenção aqui !",
+        "interventionDate": "15-08-2024",
+        "interventionStatus": "Solucionado após intervenção do Fornecedor",
+        "interventionUser": null
+      },
+      "hasIntervention": true
+    },
+    {
+      "date": "08-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "findings": "simulador com braço sujo",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "user": null,
+      "id": 6
     }
   ],
   "LessonReports": [
