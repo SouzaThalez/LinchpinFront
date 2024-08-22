@@ -1,5 +1,10 @@
 <div class="page">
     <div class="report-detail-list">
+
+        <div class="nodata" *ngIf="manitanceData?.length == 0">
+            <span>Não existem registros de manutenção pendente no momento...</span>
+        </div>
+
         <div class="report-detail-container" 
              *ngFor="let element of manitanceData">
 
@@ -9,9 +14,27 @@
                             <img [src]="element.simulatorImage" alt="">
                         </div>
                         <div class="report-info">
-                            <span>Title: {{element.simulatorName}}</span>
+
+                            <span>Simulador: {{element.simulatorName}}</span>
                             <span>Manutenção: {{element.manitanceCategory}}</span>
-                            <span>Status:ABERTO</span>
+                            <span>Data: {{element.date}}</span>
+
+                            <div class="intervention" *ngIf="element.intervention else default">
+                                <span>Status::{{element.intervention.interventionStatus}}</span>
+                            </div>
+                            <ng-template #default>
+                                <span>Status: Enviado para manutenção...</span>
+                            </ng-template>
+
+                            <div class="report-button" 
+                                (click)="openInterventionReport(element)"
+                                [ngClass]="{'red': element.hasIntervention}">
+                                <span>
+                                    {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
+                                </span>
+                                
+                            </div>
+
                         </div>
                     </div>
               </div>
@@ -19,8 +42,8 @@
               <div class="report-content">
 
                 <div class="report-content-header">
-                    <span>Achados:</span>
-                    <span class="report-code">Abertura: {{element.date}}</span>
+                    <span>Achados da manutenção:</span>
+                    <!-- <span class="report-code">Abertura: {{element.date}}</span> -->
                 </div>
                 <div class="report-content-body">
                     <span>{{element.manitanceFindings}}</span>

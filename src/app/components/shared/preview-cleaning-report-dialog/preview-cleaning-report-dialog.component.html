@@ -36,6 +36,7 @@
             <div class="manitance-register">
                 <hr>
                 <h2>Manutenção</h2>
+
                 <div class="manitence-details">
                     
                     <div class="manitence-body" *ngIf="data?.simulatorData?.intervention else showDefault">
@@ -45,7 +46,7 @@
                     </div>
     
                     <ng-template #showDefault>
-                        <span>Status: A definir..</span>
+                        <span>Status: Enviado para manutenção...</span>
                         <span>Nenhuma manutenção realizada no momento</span>
                     </ng-template>
                 </div>

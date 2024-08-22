@@ -3,7 +3,7 @@
         <div class="nodata" *ngIf="cleaningData?.length == 0">
             <span>no data</span>
         </div>
-        <h3>Achados de simulador durante a limpeza</h3>
+        <h3>Achados de simulador encontrados durante a limpeza</h3>
         <div class="report-detail-container" 
              *ngFor="let element of cleaningData">
              
@@ -36,7 +36,7 @@
               <div class="report-content">
 
                 <div class="report-content-header">
-                    <span>Registro:</span>
+                    <span>Achados de limpeza:</span>
                     <span class="report-code">Código: {{element.simulatorCode}}</span>
                 </div>
                 <div class="report-content-body">

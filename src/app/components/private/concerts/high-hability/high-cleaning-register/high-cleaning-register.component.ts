@@ -15,6 +15,7 @@ export class HighCleaningRegisterComponent implements OnInit{
   
   
   cleaningData: any[];
+  selectedReport: any;
 
   constructor(
     private httpClient: HttpClient,
@@ -68,14 +69,27 @@ export class HighCleaningRegisterComponent implements OnInit{
  
       if(result){
 
-  //adding interventionReport to model 
+        //adding interventionReport to model 
         report.intervention = result;
         report.hasIntervention = true;
-        // this.updateReport(report);
+        this.updateReport(report);
       }
     })
 
   }
+
+  private updateReport(model:any){
+
+    this.httpClient.put('http://localhost:3000/CleaningReports/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('request to specific report!: ',sample);
+          this.selectedReport = sample;
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
 
   private getCleaningReports(){
     // returns data who meets theese 2 conditions

@@ -75,10 +75,16 @@
       "simulatorCode": "NIOR2123",
       "findings": "achados de limpza!",
       "hasDescription": true,
-      "hasIntervention": false,
+      "hasIntervention": true,
       "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
       "user": null,
-      "id": 4
+      "id": 4,
+      "intervention": {
+        "interventionText": "descrição d amanutencao",
+        "interventionDate": "21-08-2024",
+        "interventionStatus": "Enviado para Fornecedor",
+        "interventionUser": null
+      }
     }
   ],
   "LessonReports": [
@@ -138,74 +144,7 @@
     }
   ],
   "manitanceReports": [
-    {
-      "date": "13-08-2024",
-      "manitanceRegister": [
-        {
-          "label": "Cameras e Monitor do Paciente conectado",
-          "value": true
-        },
-        {
-          "label": "Carrinho de Parada completo",
-          "value": true
-        }
-      ],
-      "manitanceCategory": "Secundária",
-      "manitanceFindings": "dewdwedweddwedwed",
-      "simulatorName": "Harvey",
-      "code": "HAR331",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
-      "hasDescription": true,
-      "user": {
-        "name": "",
-        "role": ""
-      },
-      "id": 1
-    },
-    {
-      "date": "08-08-2024",
-      "manitanceRegister": [
-        {
-          "label": "Bomba de Infusão presente",
-          "value": true
-        }
-      ],
-      "manitanceCategory": "Secundária",
-      "manitanceFindings": "Não houve registro de achados durante a manutenção",
-      "simulatorName": "Sim Baby Light",
-      "code": "LIGH2123",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/simBabyLight.png",
-      "hasDescription": false,
-      "user": {
-        "name": "",
-        "role": ""
-      },
-      "id": 2
-    },
-    {
-      "date": "07-08-2024",
-      "manitanceRegister": [
-        {
-          "label": "Simulador configurado e conectado ao Software",
-          "value": true
-        },
-        {
-          "label": "Cameras e Monitor do Paciente conectado",
-          "value": true
-        }
-      ],
-      "manitanceCategory": "Primária",
-      "manitanceFindings": "Achados durante a manutenção primária deste simulador!",
-      "simulatorName": "SimMan ALS - Direito",
-      "code": "ALS439",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "hasDescription": true,
-      "user": {
-        "name": "",
-        "role": ""
-      },
-      "id": 3
-    }
+ 
   ],
   "ScenarioReports": [
     {

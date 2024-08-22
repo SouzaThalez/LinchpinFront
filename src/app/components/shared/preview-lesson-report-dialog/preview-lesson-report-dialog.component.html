@@ -37,44 +37,25 @@
 
             <div class="manitance-register">
                 <hr>
-                
-                <span>Status: Enviado para manutenção externa</span>
                 <h2>Manutenção:</h2>
-                <span>Nenhuma manutenção realizada</span>
-                <span>Data manutenção: </span>
+
+                <div class="manitence-details">
+                    
+                    <div class="manitence-body" *ngIf="data?.reportData?.intervention else showDefault">
+                        <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
+                        <span><b>Data da manutenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da manutenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
+                    </div>
+    
+                    <ng-template #showDefault>
+                        <span>Status: Enviado para manutenção...</span>
+                        <span>Nenhuma manutenção realizada no momento</span>
+                    </ng-template>
+                </div>
+            
             </div>
             
         </div>
-
-        <!-- <div class="dialog-body" *ngIf="data.reportData?.lessonDescription">
-           
-            <div class="body-header">
-                <span><img [src]="data?.reportData?.lessonImage" alt=""></span>
-                <div class="header-description">
-                    <h1>Imprimir Curso</h1>
-                    <span>Curso: {{data?.reportData?.lessonType}}</span>
-                    <span>Data abertura: {{data?.reportData?.date}}</span>
-                    <span>Disciplina: {{data?.reportData?.name}}</span>
-                </div>
-            </div>
-         
-           
-            <div class="dialog-description">
-                <h2>Descrição do chamado</h2>
-                <div class="description">
-                    <span>{{data?.reportData?.lessonOcorrance}}</span>
-                </div>
-            </div>
-            
-            <div class="manitance-register">
-                <hr>
-                <span>Status: Enviado para manutenção externa</span>
-                <h2>Manutenção:</h2>
-                <span>Nenhuma manutenção realizada</span>
-                <span>Data manutenção: </span>
-            </div>
-            
-        </div> -->
 
     </mat-dialog-content>
  </div>
@@ -120,6 +101,7 @@
     <mat-dialog-content class="mat-typography" >
         <h2>{{data?.reportData?.simulatorName}}</h2>
         <div class="dialog-body">
+
             <!-- lesson data info -->
             <div class="body-header">
                 <span><img [src]="data?.reportData?.simulatorImage" alt=""></span>
@@ -131,7 +113,6 @@
                 </div>
             </div>
 
-         
             <div class="dialog-description">
                 <h2>Descrição do chamado</h2>
                 <div class="description">
@@ -142,14 +123,19 @@
             <div class="manitance-register">
                 <hr>
                 <h2>Manutenção:</h2>
-                <!-- <div class="manitence-body" *ngIf="data?.reportData?.">
-                    <span>Status: </span>
-                    <span>Data da manutenção:</span>
-                    <span>Registro da manutenção:</span>
-                </div> -->
-                <span>Status: Enviado para manutenção externa</span>
-                <span>Nenhuma manutenção realizada</span>
-                <span>Data manutenção: </span>
+                <div class="manitence-details">
+                    
+                    <div class="manitence-body" *ngIf="data?.reportData?.intervention else showDefault">
+                        <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
+                        <span><b>Data da manutenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da manutenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
+                    </div>
+    
+                    <ng-template #showDefault>
+                        <span>Status: Enviado para manutenção...</span>
+                        <span>Nenhuma manutenção realizada no momento</span>
+                    </ng-template>
+                </div>
             </div>
             
         </div>

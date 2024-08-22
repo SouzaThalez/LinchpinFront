@@ -114,6 +114,7 @@ export class RegisterManitanceDialogComponent implements OnInit{
       code: [this.data.simulator.codes[0]],
       simulatorImage: [this.data.simulator.image],
       hasDescription: [true],
+      hasIntervention:[false],
       user: this.user
     })
 
