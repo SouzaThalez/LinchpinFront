@@ -68,7 +68,7 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
     
-              }
+            }
               
 
             .report-content-footer{  
@@ -108,6 +108,19 @@
                     }
                 }
                 
+                .link-description{
+                    display: flex;
+                    background-color: gainsboro;
+                    padding: 5px;
+                    border-radius: 4px;
+                    align-items: center;
+                    gap: 8px;
+                    cursor: pointer;
+
+                    &:hover{
+                        box-shadow: 2px 2px 1px gray;
+                    }
+                }
                
             }
         }

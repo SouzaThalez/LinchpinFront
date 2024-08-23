@@ -144,7 +144,35 @@
     }
   ],
   "manitanceReports": [
- 
+    {
+      "date": "23-08-2024",
+      "manitanceRegister": [
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Geral",
+      "manitanceFindings": "Descrição de achados de manutenção ",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "code": "ALS982",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 1
+    }
   ],
   "ScenarioReports": [
     {

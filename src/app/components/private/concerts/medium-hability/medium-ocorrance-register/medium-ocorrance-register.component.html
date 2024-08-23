@@ -45,11 +45,15 @@
                 <div class="report-content-body">
                     <span>{{element.simulatorReport.ocorrance}}</span>
                 </div>
-                <div class="report-content-footer">              
-                    <div class="report-image-btn" >
+                <div class="report-content-footer">
+                    <div class="link-description" (click)="openPreviewSimulatorReportDialog(element)">
+                        <span>Imprimir</span>
+                        <span class="material-symbols-outlined">visibility</span>
+                    </div>              
+                    <!-- <div class="report-image-btn" >
                         <img class="button-image" [src]="element.simulatorReport.image" alt="" (click)="openPreviewSimulatorReportDialog(element)">
                         <span class="material-symbols-outlined">visibility</span>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="simulator-image" (click)="openPreviewSimulatorReportDialog(element)">
                         <img [src]="element.simulatorReport.image" alt="">
