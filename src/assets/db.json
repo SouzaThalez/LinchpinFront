@@ -85,6 +85,19 @@
         "interventionStatus": "Enviado para Fornecedor",
         "interventionUser": null
       }
+    },
+    {
+      "date": "08-08-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Pelve Prompt",
+      "simulatorCode": "PROMT001",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/promptPelv.png",
+      "user": null,
+      "id": 5
     }
   ],
   "LessonReports": [

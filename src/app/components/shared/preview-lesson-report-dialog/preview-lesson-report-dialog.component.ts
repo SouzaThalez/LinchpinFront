@@ -22,7 +22,7 @@ export class PreviewLessonReportDialogComponent implements OnInit{
   ){}
   
   ngOnInit(): void {
- 
+   
     if(this.data.reportData.lessonCategory == 'Treinamento Habilidade'){
       this.isLessonReport = true ;
       return

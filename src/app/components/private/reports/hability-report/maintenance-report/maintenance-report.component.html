@@ -1,13 +1,15 @@
 <div class="page">
+   <h3>Lsita de todos os simuladores de baixa fidelidade onde durante o processo de limpeza, tiveram achados</h3>
     <div class="report-container"
-         *ngFor="let element of [1,2,3,4,5,6,7,8]">
+         *ngFor="let element of manitenceData">
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">
             </div>
             <div class="report-description">
-                <span>Manutenção:</span>
-                <span>Data</span>
+                <span>Manutenção: {{element.cleaningCategory}}</span>
+                <span>Simulador: {{element.simulatorName}}</span>
+                <span>Data: {{element.date}}</span>
                 <span>Thales Carvalho</span>
             </div>
         </div>

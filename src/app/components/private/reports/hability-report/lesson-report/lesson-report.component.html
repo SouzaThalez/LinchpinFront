@@ -1,13 +1,15 @@
 <div class="page">
+    <h3>Lsita de todos os registros de aulas</h3>
     <div class="report-container"
-         *ngFor="let element of [1,2,3,4,5,6,7,8]">
+         *ngFor="let element of lessonData">
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">
             </div>
             <div class="report-description">
-                <span>Aula</span>
-                <span>Date</span>
+                <span>Categoria: {{element.lessonCategory}}</span>
+                <span>Aula: {{element.lessonName}}</span>
+                <span>Date: {{element.date}}</span>
                 <span>Thales Carvalho</span>
             </div>
         </div>

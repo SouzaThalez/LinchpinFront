@@ -12,6 +12,7 @@ import { CleaningSimulationReportComponent } from './simulation/cleaning-simulat
 import { ScenarioSimulationReportComponent } from './simulation/scenario-simulation-report/scenario-simulation-report.component';
 import { CleaningReportComponent } from './hability-report/cleaning-report/cleaning-report.component';
 import { MaintenanceReportComponent } from './hability-report/maintenance-report/maintenance-report.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { MaintenanceReportComponent } from './hability-report/maintenance-report
         CommonModule,
         ReportsRoutingModule,
         NavMenuModule,
-        TabMenuModule
+        TabMenuModule,
+        HttpClientModule
     ]
 })
 export class ReportsModule { }

@@ -15,7 +15,7 @@
 <!-- lessonPreviewDialog  -->
  <div class="lessonDialog" *ngIf="isLessonReport">
     <mat-dialog-content class="mat-typography" >
-        <H2>Lesson</H2>
+       
         <div class="dialog-body">
            
             <div class="body-header">
@@ -63,7 +63,7 @@
  <!-- CursePreviewDialog  -->
  <div class="lessonDialog" *ngIf="isCurseReport">
     <mat-dialog-content class="mat-typography" >
-        <h2>curse</h2>
+       
         <div class="dialog-body">
             <!-- lesson data info -->
             <div class="body-header">
@@ -72,7 +72,7 @@
                     <h1>Dados do Curso</h1>
                     <span>Curso: {{data?.reportData?.lessonType}}</span>
                     <span>Data abertura: {{data?.reportData?.date}}</span>
-                    <span>Disciplina: {{data?.reportData?.name}}</span>
+                    <span>Nome: {{data?.reportData?.lessonName}}</span>
                 </div>
             </div>
 
