@@ -79,14 +79,14 @@
             <h2>Houve alguma intercorrência nesses itens* ?</h2>
             <section class="allCheckbox-section">
                 <mat-checkbox class="checkbox-manitance" 
-                formControlName="hasDescription">
+                (change)="checkBoxDescription($event.checked)">
                 Nenhuma</mat-checkbox>
             </section>
         </div>
           
 
-        <div *ngIf="form.value.hasDescription else showDescription">
-            <span>Nenhuma descrição de intercorrência!</span>
+        <div *ngIf="isChecked else showDescription">
+            <span>Nenhuma descrição de intercorrência durante a pré-corrida!</span>
         </div>
 
         <ng-template #showDescription>

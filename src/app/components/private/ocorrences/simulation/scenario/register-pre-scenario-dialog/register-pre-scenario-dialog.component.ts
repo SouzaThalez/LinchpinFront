@@ -22,7 +22,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   user = { name:'',role:''};
   form: FormGroup;
   allcCheckBoxData = checkBoxesData;
-  // hasDescription = false;
+  isChecked = false;
 
   checkedBoxes:any[]=[];
   itemOcorrance: {
@@ -47,11 +47,16 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   }
 
   onSubmit(){
-   
-    
-    if(this.form.value.hasDescription){
-      this.form.patchValue({scenarioOcorrance:this.defaultMessage , itemOcorrance:'Não informado'});
-    }  
+        
+    if(this.isChecked){
+      this.form.patchValue({
+        scenarioOcorrance:this.defaultMessage ,
+        itemOcorrance:'Não informado',
+        hasDescription:false
+       });
+    }else{
+      this.form.patchValue({hasDescription:true});
+    }
 
 
     if (this.form.valid) {
@@ -74,35 +79,41 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
     // this.openSnackBar(this.snackbarMessage);
   }
 
-  simulatorCheckBox(value:any){
-    if(value){
-
-      this.form.patchValue(
-        {
-        simulatorRegister:this.noFailText,
-        monitorRegister: this.noFailText,
-        medicationCarRegister: this.noFailText,
-        energyPanelRegister: this.noFailText,
-        airFlowRegister: this.noFailText,
-        internetCableRegister: this.noFailText,
-        audioAndMediaRegister:this.noFailText,
-        otherRegister:this.noFailText,
-      })
-      
-    }else{  
-      this.form.patchValue(
-        {
-        simulatorRegister:'',
-        monitorRegister: '',
-        medicationCarRegister: '',
-        energyPanelRegister: '',
-        airFlowRegister: '',
-        internetCableRegister: '',
-        audioAndMediaRegister:'',
-        otherRegister: ''
-      })
-    }
+  checkBoxDescription(value:boolean){
+    this.isChecked = value;
   }
+
+
+
+  // simulatorCheckBox(value:any){
+  //   if(value){
+
+  //     this.form.patchValue(
+  //       {
+  //       simulatorRegister:this.noFailText,
+  //       monitorRegister: this.noFailText,
+  //       medicationCarRegister: this.noFailText,
+  //       energyPanelRegister: this.noFailText,
+  //       airFlowRegister: this.noFailText,
+  //       internetCableRegister: this.noFailText,
+  //       audioAndMediaRegister:this.noFailText,
+  //       otherRegister:this.noFailText,
+  //     })
+      
+  //   }else{  
+  //     this.form.patchValue(
+  //       {
+  //       simulatorRegister:'',
+  //       monitorRegister: '',
+  //       medicationCarRegister: '',
+  //       energyPanelRegister: '',
+  //       airFlowRegister: '',
+  //       internetCableRegister: '',
+  //       audioAndMediaRegister:'',
+  //       otherRegister: ''
+  //     })
+  //   }
+  // }
 
   
   getCheckedElement(element:any){
@@ -183,6 +194,8 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
 
     return simulatoForm;
   }
+
+
 
  
 

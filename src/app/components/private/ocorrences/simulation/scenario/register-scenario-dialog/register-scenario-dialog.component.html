@@ -183,12 +183,11 @@
                 <h2>Descrição das Falhas</h2>
                 <mat-checkbox
                     class="manitance-checkbox"
-                    (change)="textAreaCheckBox($event.checked)"> 
-                    Nenhuma
+                    (change)="checkBoxDescription($event.checked)">
                 </mat-checkbox>
             </div>
 
-            <div *ngIf="simulatorForm.value.showTextArea else show">
+            <div *ngIf="isChecked else show">
                 <span>Nenhuma descrição de falha durante a execução de cenário!</span>
             </div>
 

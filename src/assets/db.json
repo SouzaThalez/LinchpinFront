@@ -189,8 +189,8 @@
   ],
   "ScenarioReports": [
     {
-      "date": "01-08-2024",
-      "time": "2000",
+      "date": "08-08-2024",
+      "time": "3000",
       "scenarioRegister": [
         {
           "label": "Notebook funcionando e configurado sem wifi",
@@ -253,15 +253,63 @@
       "scenarioOcorrance": "Não houve registro de intercorrências durante a Pré-corrida de cenário",
       "simulatorName": "SimMan ALS - Esquerdo",
       "simulatorCode": "ALS982",
-      "hasDescription": true,
+      "hasDescription": false,
       "itemOcorrance": "Não informado",
       "user": null,
       "id": 1
     },
     {
-      "date": "02-08-2024",
-      "time": "3000",
+      "date": "19-08-2024",
+      "time": "5000",
       "scenarioRegister": [
+        {
+          "label": "Notebook funcionando e configurado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Microfone de mesa funcionando",
+          "value": true
+        },
+        {
+          "label": "Servidor de camera funcionando",
+          "value": true
+        },
+        {
+          "label": "Cameras no debriefing inicializadas",
+          "value": true
+        },
+        {
+          "label": "Simulador ligado sem intercorrências",
+          "value": true
+        },
+        {
+          "label": "Monitor de paciente ligado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Carrinho de parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador mecânico instalado em sala",
+          "value": true
+        },
+        {
+          "label": "Bomba de infusão instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Escada para PCR instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Oxigênio em sala de simulação funcionando",
+          "value": true
+        },
+        {
+          "label": "Formulário do cenário separado em sala de controle",
+          "value": true
+        },
         {
           "label": "Programa de execução de cenário presente em notebook",
           "value": true
@@ -271,44 +319,17 @@
           "value": true
         }
       ],
-      "scenarioCategory": "Pós-corrida",
-      "scenarioOcorrance": "frferferfre",
-      "simulatorName": "Sim Junior",
-      "simulatorCode": "NIOR2123",
-      "hasDescription": false,
+      "scenarioCategory": "Pré-corrida",
+      "scenarioOcorrance": "DFFWEFWE",
+      "simulatorName": "SimMom",
+      "simulatorCode": "MOM567",
+      "hasDescription": true,
       "itemOcorrance": {
-        "label": "Programa de execução de cenário presente em notebook",
+        "label": "Simulador ligado sem intercorrências",
         "value": true
       },
       "user": null,
       "id": 2
-    },
-    {
-      "date": "07-08-2024",
-      "time": "5000",
-      "noDescription": false,
-      "description": {
-        "descriptionInfo": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário"
-      },
-      "showTextArea": true,
-      "discipline": {
-        "name": "Internato de clinica Médica",
-        "label": "Int.Clinica Médica"
-      },
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "simulatorCode": "ALS982",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "simulatorRegister": "Nenhuma Falha",
-      "monitorRegister": "Nenhuma Falha",
-      "medicationCarRegister": "Nenhuma Falha",
-      "energyPanelRegister": "Nenhuma Falha",
-      "airFlowRegister": "Nenhuma Falha",
-      "internetCableRegister": "Nenhuma Falha",
-      "otherRegister": "Nenhuma Falha",
-      "audioAndMediaRegister": "Nenhuma Falha",
-      "scenarioCategory": "Corrida",
-      "user": null,
-      "id": 3
     }
   ]
 }

@@ -24,13 +24,11 @@ export class RegisterScenarioDialogComponent implements OnInit{
   user = { name:'',role:''};
   simulatorForm: FormGroup;
   
-  hasDescription = false;
+  isChecked = false;
+
   lessonTextArea=false;
   checkedBoxes:any[]=[];
-  selectedItem: {
-    label: string,
-    value:number
-  };
+
   
 
   constructor(
@@ -49,6 +47,17 @@ export class RegisterScenarioDialogComponent implements OnInit{
   }
 
   onSubmit(){
+
+    if(this.isChecked){
+      this.simulatorForm.patchValue(
+        {
+          description: this.defaultMessage,
+          hasDescription: false
+        }
+      );
+    }else{
+      this.simulatorForm.patchValue({hasDescription: true});
+    }
     
     if (this.simulatorForm.valid) {
 
@@ -57,6 +66,7 @@ export class RegisterScenarioDialogComponent implements OnInit{
 
       const model = this.simulatorForm.value;
       this.onClose(model);
+      
       return
     }
 
@@ -95,37 +105,14 @@ export class RegisterScenarioDialogComponent implements OnInit{
     }
   }
 
-  
+  checkBoxDescription(value:boolean){
+    this.isChecked = value;
+  }
+
   onClose(value: any): void {
     this.dialogRef.close(value);
   }
 
-
-  textAreaCheckBox(value:any){
-    
-    if(value){
-      this.simulatorForm.patchValue(
-            {
-              description:{descriptionInfo: this.defaultMessage},
-              showTextArea:true
-            }
-        );
-    }else{
-      this.simulatorForm.patchValue(
-            {
-              description:{descriptionInfo:''},
-              showTextArea:false
-            }
-        );
-    }
-  }
-
-  getCheckedElement(element:any){
-    element.value = !element.value;
-    this.checkedBoxes = this.allcCheckBoxData.prevCheckboxes.filter((element:any) => element.value == true);
-    // this.preventiveForm.patchValue({procedures:this.checkedBoxes});
-  }
-  
   onChangeAllChecked(isChecked:any){
     if(isChecked){
       this.allcCheckBoxData.preScenarioCheckboxes.forEach((element:any)=> element.value = true);
@@ -137,46 +124,6 @@ export class RegisterScenarioDialogComponent implements OnInit{
     
   }
   
-  onChangeOcorrance(isChecked:boolean){
-      this.hasDescription = isChecked;
-      
-    // if(isChecked){
-    //   this.simulatorForm.patchValue({
-    //     noDescription: isChecked,
-    //   })
-    // }
-  } 
-
-  getSimulator(){
-
-    // this.appService.validateForm(this.simulatorForm);
-
-    if(this.simulatorForm.valid){
-      let momentDate = moment(this.simulatorForm.value.date).format('DD-MM-YYYY');
-      this.simulatorForm.patchValue({date:momentDate});
-      this.dialogRef.close(this.simulatorForm.value);
-      
-      // this.snackBar.open('Acompanhamento registrado com sucesso!', 'Fechar',{
-      //   horizontalPosition: this.horizontalPosition,
-      //   verticalPosition: this.verticalPosition,
-      //   duration: this.durationInSeconds * 1000
-      // });
-      
-    }else{
-      // this.snackBar.open('Ainda existem campos Vermelhos!', 'Fechar',{
-      //   horizontalPosition: this.horizontalPosition,
-      //   verticalPosition: this.verticalPosition,
-      //   duration: this.durationInSeconds * 1000
-      // });
-    }
-  }
-
-  getSelectedItem(){
-   
-    this.selectedItem =  this.simulatorForm.get('selectedItem').value;
-
-
-  }
   
   timeValidator(control: AbstractControl): ValidationErrors | null {
     const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/; // Matches HH:MM
@@ -207,10 +154,10 @@ export class RegisterScenarioDialogComponent implements OnInit{
     const simulatoForm = this.fb.group({
       date: [null,Validators.required],
       time: [null,Validators.required],
-      noDescription: [false],
-    
+      // noDescription: [false],
       description:[null,Validators.required],
-      showTextArea: [false],
+      hasDescription:[false],
+      // showTextArea: [false],
       
       discipline:[null, Validators.required],
       simulatorName:[this.data.simulator.name],
