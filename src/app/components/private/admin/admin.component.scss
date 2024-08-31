@@ -1,0 +1,35 @@
+.page-content{
+    display: flex;
+    flex-direction: column;
+
+    .grid-container{
+        display: flex;
+        height: 100%;
+        .grid-column{
+            width: 100%;
+            border: 1px dotted;
+
+            .panel-list{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .panel-button{
+                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                    width: 160px;
+                    padding: 13px;
+                    border-radius: 7px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &:hover{
+                        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                        cursor: pointer;
+                    }
+                }
+            }
+           
+
+        }
+    }
+}

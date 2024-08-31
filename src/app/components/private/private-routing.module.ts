@@ -37,6 +37,10 @@ const routes: Routes = [
           import('./reports/reports.module').then((m) => m.ReportsModule),
       },
       {
+        path: 'administracao',
+        loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+      },
+      {
         path:'**',
         redirectTo:'home'
       }
