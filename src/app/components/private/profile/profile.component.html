@@ -20,18 +20,94 @@
         </div>
     </div>
     <div class="page-content">
-        <div class="forms">
-            <mat-form-field class="mat-form-field" appearance="outline">
-                <mat-label>Seu email</mat-label>
-                <input matInput #loginName maxlength="20" placeholder="Ex. carlos.souza">
-              </mat-form-field>
-              <mat-form-field class="mat-form-field" appearance="outline">
-                <mat-label>Seu login</mat-label>
-                <input matInput #loginName maxlength="20" placeholder="Ex. carlos.souza">
-              </mat-form-field>
-        </div>
-    
 
+        <div class="page-item">
+            <div class="user-details">
+                <span><b>Informações de Perfil</b></span>
+                <div class="contact-list">
+                    <div class="colum">
+                        <div class="column-details">
+                            <span>E-mail profissional</span>
+                            <span>tecnico.labsim.com.br</span>
+                        </div>
+                        <div class="column-details">
+                            <span>Pontos</span>
+                            <span>40</span>
+                        </div>
+                       
+                    </div>
+                    <div class="colum">
+                        <div class="column-details">
+                            <span>Função</span>
+                            <span>Tecnico de simulação</span>
+                        </div>
+                        <div class="column-details">
+                            <span>Horário</span>
+                            <span>07:00 ás 13:00</span>
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="page-item">
+            <div class="user-details">
+                <span><b>Editar Perfil</b></span>
+                <div class="contact-list">
+                    <div class="colum">
+
+                        <mat-form-field class="mat-form-field" appearance="outline">
+                            <mat-label>Alterar email</mat-label>
+                            <input matInput #loginName maxlength="20" placeholder="Ex. carlos.souza">
+                          </mat-form-field>
+                          
+                          <mat-form-field appearance="outline">
+                            <mat-label>Alterar perfil</mat-label>
+                            <mat-select>
+                              <mat-option value="one">Admin</mat-option>
+                              <mat-option value="two">Técnico</mat-option>
+                              <mat-option value="two">Analista</mat-option>
+                              <mat-option value="two">moderador</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                       
+                    </div>
+                    <div class="colum">
+                        <div class="column-details">
+                            <span>Função</span>
+                            <span>Tecnico de simulação</span>
+                        </div>
+                        <div class="column-details">
+                            <span>Horário</span>
+                            <span>07:00 ás 13:00</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-item">
+            <div class="user-details">
+                <span><b>Relatórios</b></span>
+                <div class="contact-list">
+                    <div class="colum">
+                        <div class="chart-container" >
+                            <h3 class="graphic-title">Registros de Limpezas</h3>
+                            <canvas id="cleaningChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="colum">
+                        <div class="chart-container" >
+                            <h3 class="graphic-title">Registros de Aulas</h3>
+                            <canvas id="manitanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>

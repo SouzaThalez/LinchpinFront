@@ -3,17 +3,42 @@
         <div class="page-header">
             <div class="p-header-title">
                 <span class="page-title">Home</span>
-                <span class="page-description">Acompanhe os registros de simuladores</span>
+                <span class="page-description">Visão geral</span>
             </div>
         </div>
     </div>
     <div class="page-content">
-        <div class="graphic-container">
 
+        <div class="page-grid">
+            <div class="colum">
+                <div class="graphic-container">
+                    <canvas id="generalChart"></canvas>
+                </div>
+            </div>
+            <div class="colum page-info">
+                <div class="colum-text">
+                    <span>Informações gerais sobre os relatórios do sistema. Todos os registros aqui são feitos mediante ao registro de relatórios e são
+                        calculados em um somatório mensal.
+                    </span>
+                </div>
+                <div class="column-footer">
+                    <div class="report-badge">
+                        <span>Relatórios</span>
+                        <span>300</span>
+                    </div>
+                    <div class="report-badge">
+                        <span>Limpezas</span>
+                        <span>300</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="reports">
-            <span class="recent-reports">Recent reports</span>
-            <div class="report-container">
+
+        <div class="reports scroll-container">
+
+            <span class="recent-reports">Registros Recentes</span>
+
+            <div class="report-container" *ngFor="let element of [1,2,3,4,5,6,7]">
                 <div class="report-head">
                     <div class="report-icon">
                         <img src="assets/icons/report-icon.png" alt="">
@@ -30,23 +55,8 @@
                     <img src="assets/icons/report-grid.png" alt="">
                 </div>
             </div>
-            <div class="report-container">
-                <div class="report-head">
-                    <div class="report-icon">
-                        <img src="assets/icons/report-icon.png" alt="">
-                    </div>
-                    <div class="report-description">
-                        <span>Title</span>
-                        <span>Date</span>
-                    </div>
-                </div>
-                <div class="report-bars">
-                    <img src="assets/icons/report-bars.png" alt="">
-                </div>
-                <div class="report-grid">
-                    <img src="assets/icons/report-grid.png" alt="">
-                </div>
-            </div>
+        
         </div>
+
     </div>
 </div>

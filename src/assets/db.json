@@ -330,6 +330,31 @@
       },
       "user": null,
       "id": 2
+    },
+    {
+      "date": "21-08-2024",
+      "time": "7000",
+      "scenarioRegister": [
+        {
+          "label": "Microfone de mesa funcionando",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário estudado",
+          "value": true
+        }
+      ],
+      "scenarioCategory": "Pós-corrida",
+      "scenarioOcorrance": "dsweqdwedwed",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "hasDescription": true,
+      "itemOcorrance": {
+        "label": "Simulador ligado sem intercorrências",
+        "value": false
+      },
+      "user": null,
+      "id": 3
     }
   ]
 }

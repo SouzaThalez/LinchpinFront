@@ -8,7 +8,7 @@
             font-size: 20px;
             cursor: pointer;
             &:hover, &.active{
-                border-bottom: 1px solid;
+                border-bottom: 1px solid var(--green-color);
             }
         }
     }
