@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PreviewLessonReportDialogComponent } from '../../../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 
 @Component({
   selector: 'app-lesson-report',
@@ -24,6 +25,23 @@ export class LessonReportComponent implements OnInit{
     
   }
 
+  openPreviewLessonDialog(element: any){
+
+
+    let dialogRef = this.matDialog.open(PreviewLessonReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{reportData:element}
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+
+
+  }
 
 
   private getAllCleaningReports(){

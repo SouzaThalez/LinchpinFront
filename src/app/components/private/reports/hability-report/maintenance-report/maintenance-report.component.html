@@ -1,7 +1,8 @@
 <div class="page">
-   <h3>Lsita de todos os simuladores de baixa fidelidade onde durante o processo de limpeza, tiveram achados</h3>
+   <h3>Uma lista de todos os simuladores de baixa fidelidade onde durante o processo de limpeza, tiveram registro de achados</h3>
     <div class="report-container"
-         *ngFor="let element of manitenceData">
+         *ngFor="let element of manitenceData"
+         (click)="openPreviewLessonDialog(element)">
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">

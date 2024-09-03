@@ -1,7 +1,8 @@
 <div class="page">
     <h3>Lsita de todos os simuladores de baixa fidelidade que tiveram limpeza</h3>
     <div class="report-container"
-         *ngFor="let element of cleaningData">
+         *ngFor="let element of cleaningData"
+         (click)="openPreviewLessonDialog(element)">
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">
