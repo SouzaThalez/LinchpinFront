@@ -21,7 +21,7 @@ export class LessonReportComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.getAllCleaningReports();
+    this.getAllLessonReports();
     
   }
 
@@ -44,7 +44,7 @@ export class LessonReportComponent implements OnInit{
   }
 
 
-  private getAllCleaningReports(){
+  private getAllLessonReports(){
 
     // let params = new HttpParams()
     //     .set('simulatorCategory', 'baixa');
@@ -52,10 +52,10 @@ export class LessonReportComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/LessonReports/')
     .subscribe({
         next: (sample: any)=>{
-          console.log('All cleaning reports: ',sample);
+          console.log('All lesson reports: ',sample);
           this.lessonData = sample;
         },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })
   }
 

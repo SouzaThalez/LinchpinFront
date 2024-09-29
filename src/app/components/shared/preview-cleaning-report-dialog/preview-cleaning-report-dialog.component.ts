@@ -16,7 +16,7 @@ export class PreviewCleaningReportDialogComponent implements OnInit{
   ){}
   
   ngOnInit(): void {
-    
+    console.log('PREVIEW Cleaning report dialog Data: ',this.data)
   }
 
 }

@@ -21,7 +21,8 @@ export class MaintenanceReportComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.getAllManitenceReports();
+
+    this.getAllCleaningReports();
     
   }
 
@@ -45,7 +46,7 @@ export class MaintenanceReportComponent implements OnInit{
   }
 
 
-  private getAllManitenceReports(){
+  private getAllCleaningReports(){
 
     let params = new HttpParams()
         .set('simulatorCategory', 'baixa')

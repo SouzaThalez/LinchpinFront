@@ -1,14 +1,15 @@
 <div class="page">
     <div class="report-container"
-         *ngFor="let element of [1,2,3,4,5,6,7,8]">
+         *ngFor="let element of scenarioReportsData">
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">
             </div>
             <div class="report-description">
-                <span>Registro: Pós corrida</span>
-                <span>Data:</span>
-                <span>Responsavél:Thales Carvalho</span>
+                <span>Registro: {{element.scenarioCategory}}</span>
+                <span>Simulador: {{element.simulatorName}}</span>
+                <span>Data:{{element.date}}</span>
+                <span>Responsavél: </span>
             </div>
         </div>
         <div class="report-bars">
