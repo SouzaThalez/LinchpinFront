@@ -28,7 +28,8 @@ export const simulators ={
                   {code:'PUNA950',disabled: false},
                   {code:'PUNA468',disabled: false},
                   {code:'PUNA819',disabled: false},
-                ]
+                ],
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Punção Venosa',
@@ -61,7 +62,14 @@ export const simulators ={
                   {code:'PUNV7787',disabled:false},
                   {code:'PUNV8810',disabled:false},
                 ],
-          
+                details:[
+                  'Permite venopunção em fossa antecubital ou dorso da mão',
+                  'Permite rotação de deltóide para facilitar acesso (exceto pediátrico)',
+                  'Permite acesso em veias medial, basílica e cefálica',
+                  'Veias palpáveis que permitem escolher o local da punção e preparação',
+                  'Veias que permitem a infusão periférica através da terapia IV com “bolus” ou infusão contínua',
+                  'Permite substituição da pele e do conjunto de veias aumentando a vida útil do produto'
+                ]
               },
               {
                 name: 'Punção Intraossea',
@@ -97,6 +105,7 @@ export const simulators ={
                   {code:'ITRA889',disabled:false},
                   {code:'ITRA431',disabled:false},
                 ],
+                details:'O simulador de punção arterial serve para ...'
                
               },
               {
@@ -121,7 +130,7 @@ export const simulators ={
                   {code:'PUMLOMB015',disabled:false},
                   {code:'PUMLOMB016',disabled:false},
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               }
             ],
            
@@ -158,7 +167,7 @@ export const simulators ={
                   {code:'RCPANE021',disabled:false},
                   {code:'RCPANE022',disabled:false},
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Little junior',
@@ -182,7 +191,7 @@ export const simulators ={
                   {code:'RCPJUNIO0015',disabled:false},
                   {code:'RCPJUNIO0016',disabled:false},
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Ressuci Anne',
@@ -194,7 +203,7 @@ export const simulators ={
                 {code:'RES124',disabled:false},
                 {code:'RES125',disabled:false}
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Choking Charlie',
@@ -218,7 +227,7 @@ export const simulators ={
                   {code:'ENGA4891',disabled:false},
                   {code:'ENGA2746',disabled:false},
                 ],
-               
+               details:'O simulador de punção arterial serve para ...'
               }
             ],
             
@@ -248,7 +257,7 @@ export const simulators ={
                   {code:'TR2874',disabled:false},
                   {code:'TR2305',disabled:false}, 
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Torso paracentese',
@@ -268,7 +277,7 @@ export const simulators ={
                   {code:'CEN6320',disabled:false},
                   {code:'CEN3324',disabled:false}
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Torso Central',
@@ -292,7 +301,7 @@ export const simulators ={
                   {code:'CENT015',disabled:false},
                   {code:'CENT016',disabled:false}
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Torso Abdome',
@@ -311,7 +320,7 @@ export const simulators ={
                   {code:'AB3548',disabled:false},
                   {code:'AB6870',disabled:false},
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               }
             ],
             
@@ -356,7 +365,7 @@ export const simulators ={
                   {code:'PROMT029',disabled:false},
                   {code:'PROMT030',disabled:false},
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Pelve Clinica F',
@@ -369,7 +378,7 @@ export const simulators ={
                   {code:'CF204',disabled:false},
                   {code:'CF205',disabled:false},
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Pelve Clinica M',
@@ -381,7 +390,7 @@ export const simulators ={
                   {code:'CP503',disabled:false},
                   {code:'CP504',disabled:false}
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Pelve Sondagem F',
@@ -391,7 +400,7 @@ export const simulators ={
                   {code:'SF333',disabled:false},
                   {code:'SF334',disabled:false}
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Pelve Sondagem M',
@@ -402,7 +411,7 @@ export const simulators ={
                   {code:'SP323',disabled:false},
                   {code:'SP324',disabled:false}
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               }
             ],
             
@@ -425,7 +434,7 @@ export const simulators ={
                   {code:'ORDE104',disabled:false},
                   {code:'ORDE387',disabled:false},
                 ],
-               
+               details:'O simulador de punção arterial serve para ...'
               },
               {
                 name: 'Mama Exame',
@@ -446,7 +455,7 @@ export const simulators ={
                   {code:'MAM8276',disabled:false},
                   {code:'MAM5912',disabled:false},
                 ],
-                
+                details:'O simulador de punção arterial serve para ...'
               }
             ],
             
@@ -470,7 +479,8 @@ export const simulators ={
                 {code:'EXAMO106',disabled: false},
                 {code:'EXAMO468',disabled: false},
                 {code:'EXAMO639',disabled: false},
-              ]
+              ],
+              details:'O simulador de punção arterial serve para ...'
             },
             {
               name: 'Exame do Ouvido',
@@ -488,7 +498,7 @@ export const simulators ={
                 {code:'EXAMO468',disabled: false},
                 {code:'EXAMO639',disabled: false},
               ],
-              
+              details:'O simulador de punção arterial serve para ...'
             },
             {
               name: 'IOT Adulto',
@@ -519,7 +529,7 @@ export const simulators ={
                 {code:'IOTA8973',disabled:false},
                 {code:'IOTA1045',disabled:false},
               ],
-             
+             details:'O simulador de punção arterial serve para ...'
             },
             {
               name: 'IOT Pediatrico',
@@ -546,7 +556,7 @@ export const simulators ={
                 {code:'IOTP6632',disabled:false},
                 {code:'IOTP6631',disabled:false},
               ],
-              
+              details:'O simulador de punção arterial serve para ...'
             },
             
           ],

@@ -3,6 +3,7 @@ import { LowFidelityCleaningDialogComponent } from '../low-fidelity-cleaning-dia
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { simulators } from '../../../../../data/simulators';
+import { DetailsDialogComponent } from '../../../../shared/details-dialog/details-dialog.component';
 
 @Component({
   selector: 'app-low-fidelity-details',
@@ -51,5 +52,21 @@ export class LowFidelityDetailsComponent implements OnInit{
     
   }
 
+  openDetailsPanel(element:any){
+
+    let dialogRef = this.matDialog.open(DetailsDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        simulator:element,
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
 
 }
