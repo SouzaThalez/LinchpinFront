@@ -37,15 +37,19 @@
         <div class="reports scroll-container">
 
             <span class="recent-reports">Registros Recentes</span>
-
-            <div class="report-container" *ngFor="let element of [1,2,3,4,5,6,7]">
+            
+            <div class="report-container"
+                *ngFor="let element of lessonData"
+                (click)="openPreviewLessonDialog(element)">
                 <div class="report-head">
                     <div class="report-icon">
                         <img src="assets/icons/report-icon.png" alt="">
                     </div>
                     <div class="report-description">
-                        <span>Title</span>
-                        <span>Date</span>
+                        <span>Categoria: {{element.lessonCategory}}</span>
+                        <span>Aula: {{element.lessonName}}</span>
+                        <span>Date: {{element.date}}</span>
+                        <span>Thales Carvalho</span>
                     </div>
                 </div>
                 <div class="report-bars">
@@ -55,7 +59,6 @@
                     <img src="assets/icons/report-grid.png" alt="">
                 </div>
             </div>
-        
         </div>
 
     </div>

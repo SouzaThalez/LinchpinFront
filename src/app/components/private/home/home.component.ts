@@ -1,5 +1,8 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Chart } from 'chart.js';
+import { PreviewLessonReportDialogComponent } from '../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +18,41 @@ export class HomeComponent implements OnInit{
     'Abril',
     'Maio',
   ];
+  lessonData: any;
+  
+  constructor(
+    private httpClient: HttpClient,
+    private matDialog: MatDialog,
+  ){}
+
 
   ngOnInit(): void {
     this.callGeneralChart();
+    this.getAllLessonReports();
   }
 
 
-    //Graphics
-    private callGeneralChart(){
+  openPreviewLessonDialog(element: any){
+
+
+    let dialogRef = this.matDialog.open(PreviewLessonReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{reportData:element}
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+
+
+  }
+
+
+  //Graphics
+  private callGeneralChart(){
     
       const ctx = document.getElementById('generalChart') as HTMLCanvasElement;
       new Chart(ctx, {
@@ -53,7 +83,21 @@ export class HomeComponent implements OnInit{
   
       
   
-     }
+  }
 
+  private getAllLessonReports(){
+
+    let params = new HttpParams()
+        .set('lessonDescription', 'true');
+    
+    this.httpClient.get('http://localhost:3000/LessonReports/',{params})
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('LessonReports-: ',sample);
+          this.lessonData = sample;
+        },
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+    })
+  }
 
 }
