@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PreviewScenarioReportDialogComponent } from '../../../../shared/preview-scenario-report-dialog/preview-scenario-report-dialog.component';
 
 @Component({
   selector: 'app-scenario-simulation-report',
@@ -25,23 +26,25 @@ export class ScenarioSimulationReportComponent implements OnInit{
     
   }
 
-  openPreviewLessonDialog(element: any){
 
+  openPreviewScenarioReport(element: any){
 
-    // let dialogRef = this.matDialog.open(PreviewCleaningReportDialogComponent,{
-    //   disableClose: true,
-    //   width:'650px',
-    //   data:{simulatorData:element}
-    // })
-
-    // dialogRef.afterClosed().subscribe(result=>{
-    //   if(result){
-        
-    //   }
-    // })
-
-
+    let dialogRef = this.matDialog.open(PreviewScenarioReportDialogComponent,{
+        disableClose: true,
+        width:'650px',
+        data:{scenarioData:element}
+      })
+  
+      dialogRef.afterClosed().subscribe(result=>{
+        if(result){
+          
+        }
+      })
+  
   }
+
+
+
 
   private getAllScenarioReports(){
 

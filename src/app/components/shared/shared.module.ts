@@ -15,6 +15,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
+import { PreviewScenarioReportDialogComponent } from './preview-scenario-report-dialog/preview-scenario-report-dialog.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DetailsDialogComponent } from './details-dialog/details-dialog.componen
     PreviewSimulatorReportDialogComponent,
     InterventionReportDialogComponent,
     DetailsDialogComponent,
+    PreviewScenarioReportDialogComponent,
   ],
   imports: [
     CommonModule,

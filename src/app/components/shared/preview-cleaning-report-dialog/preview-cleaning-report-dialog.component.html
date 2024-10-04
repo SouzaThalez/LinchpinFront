@@ -41,13 +41,15 @@
                     
                     <div class="manitence-body" *ngIf="data?.simulatorData?.intervention else showDefault">
                         <span><b>Status:</b> {{data?.simulatorData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da manutenção:</b>{{data?.simulatorData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da manutenção:</b> {{data?.simulatorData?.intervention.interventionText}}</span>
+                        <span><b>Categoria:</b> {{data?.simulatorData?.cleaningCategory}}</span>
+                        <span><b>Data da intervenção:</b>{{data?.simulatorData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da intervenção:</b> {{data?.simulatorData?.intervention.interventionText}}</span>
                     </div>
     
                     <ng-template #showDefault>
-                        <span>Status: Enviado para manutenção</span>
-                        <span>Nenhuma manutenção realizada no momento</span>
+                        <span><b>Status:</b> Enviado para manutenção</span>
+                        <span><b>Categoria:</b> {{data?.simulatorData?.cleaningCategory}}</span>
+                        <span>Nenhuma intervenção realizada no momento</span>
                     </ng-template>
                 </div>
                 

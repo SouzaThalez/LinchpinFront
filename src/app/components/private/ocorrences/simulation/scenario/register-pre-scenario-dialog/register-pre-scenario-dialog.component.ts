@@ -187,6 +187,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
       scenarioOcorrance:[null,Validators.required],
       simulatorName:[this.data.simulator.name],
       simulatorCode:[this.data.simulator.codes[0]],
+      simulatorImage:[this.data.simulator.image],
       hasDescription: [false],
       itemOcorrance:[],
       user: []

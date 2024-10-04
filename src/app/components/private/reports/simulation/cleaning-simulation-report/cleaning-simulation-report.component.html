@@ -1,6 +1,7 @@
 <div class="page">
     <div class="report-container"
-         *ngFor="let element of cleaningReportData">
+         *ngFor="let element of cleaningReportData"
+         (click)="openPreviewCleaningDialog(element)">
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">

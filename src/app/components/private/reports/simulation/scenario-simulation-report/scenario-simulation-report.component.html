@@ -1,6 +1,7 @@
 <div class="page">
     <div class="report-container"
-         *ngFor="let element of scenarioReportsData">
+         *ngFor="let element of scenarioReportsData"
+         (click)="openPreviewScenarioReport(element)">
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">

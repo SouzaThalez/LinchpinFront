@@ -43,13 +43,13 @@
                     
                     <div class="manitence-body" *ngIf="data?.reportData?.intervention else showDefault">
                         <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da manutenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da manutenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
+                        <span><b>Data da intervenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da intervenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
                     </div>
     
                     <ng-template #showDefault>
                         <span>Status: Enviado para manutenção...</span>
-                        <span>Nenhuma manutenção realizada no momento</span>
+                        <span>Nenhuma intervenção realizada no momento</span>
                     </ng-template>
                 </div>
             
@@ -86,10 +86,20 @@
 
             <div class="manitance-register">
                 <hr>
-                <span>Status: Enviado para manutenção externa</span>
                 <h2>Manutenção:</h2>
-                <span>Nenhuma manutenção realizada</span>
-                <span>Data manutenção: </span>
+                <div class="manitence-details">
+                    
+                    <div class="manitence-body" *ngIf="data?.reportData?.intervention else showDefault">
+                        <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
+                        <span><b>Data da intervenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da intervenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
+                    </div>
+    
+                    <ng-template #showDefault>
+                        <span>Status: Enviado para manutenção...</span>
+                        <span>Nenhuma intervenção realizada no momento</span>
+                    </ng-template>
+                </div>
             </div>
             
         </div>
@@ -127,13 +137,13 @@
                     
                     <div class="manitence-body" *ngIf="data?.reportData?.intervention else showDefault">
                         <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da manutenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da manutenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
+                        <span><b>Data da intervenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da intervenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
                     </div>
     
                     <ng-template #showDefault>
                         <span>Status: Enviado para manutenção...</span>
-                        <span>Nenhuma manutenção realizada no momento</span>
+                        <span>Nenhuma intervenção realizada no momento</span>
                     </ng-template>
                 </div>
             </div>
