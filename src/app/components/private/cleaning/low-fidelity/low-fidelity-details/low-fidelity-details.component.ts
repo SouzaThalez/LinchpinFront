@@ -30,7 +30,7 @@ export class LowFidelityDetailsComponent implements OnInit{
       this.lowSimulators = this.lowSimulatorsData[this.routeIndex].simulators;
       this.routeName = this.lowSimulatorsData[this.routeIndex].simulatorClass;
       this.isLoading = true;
-      console.log(this.lowSimulators)
+      // console.log(this.lowSimulators)
    })
 
   }

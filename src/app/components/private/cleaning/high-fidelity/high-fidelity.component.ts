@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { simulators } from '../../../../data/simulators';
 import { MatDialog } from '@angular/material/dialog';
 import { HighCleaningDialogComponent } from './high-cleaning-dialog/high-cleaning-dialog.component';
+import { DetailsDialogComponent } from '../../../shared/details-dialog/details-dialog.component';
 
 @Component({
   selector: 'app-high-fidelity',
@@ -36,6 +37,24 @@ export class HighFidelityComponent implements OnInit{
       }
     })
     
+  }
+
+  
+  openDetailsPanel(element:any){
+
+    let dialogRef = this.matDialog.open(DetailsDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        simulator:element,
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
   }
 
 

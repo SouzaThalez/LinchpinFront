@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit{
     'Abril',
     'Maio',
   ];
+
   lessonData: any;
+  cleaningData:any;
   
   constructor(
     private httpClient: HttpClient,
@@ -29,6 +31,7 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this.callGeneralChart();
     this.getAllLessonReports();
+    this.getAllCleaningReports();
   }
 
 
@@ -93,8 +96,19 @@ export class HomeComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/LessonReports/',{params})
     .subscribe({
         next: (sample: any)=>{
-          console.log('LessonReports-: ',sample);
+          // console.log('LessonReports-: ',sample);
           this.lessonData = sample;
+        },
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+    })
+  }
+  private getAllCleaningReports(){
+    
+    this.httpClient.get('http://localhost:3000/CleaningReports/')
+    .subscribe({
+        next: (sample: any)=>{
+          // console.log('CleaningReports-: ',sample);
+          this.cleaningData = sample;
         },
         error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })

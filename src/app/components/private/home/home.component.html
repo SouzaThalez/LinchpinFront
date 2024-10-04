@@ -24,11 +24,11 @@
                 <div class="column-footer">
                     <div class="report-badge">
                         <span>Relatórios</span>
-                        <span>300</span>
+                        <span>{{lessonData?.length}}</span>
                     </div>
                     <div class="report-badge">
                         <span>Limpezas</span>
-                        <span>300</span>
+                        <span>{{cleaningData?.length}}</span>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         <div class="reports scroll-container">
 
             <span class="recent-reports">Registros Recentes</span>
-            
+
             <div class="report-container"
                 *ngFor="let element of lessonData"
                 (click)="openPreviewLessonDialog(element)">

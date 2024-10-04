@@ -6,10 +6,11 @@
     <div class="header-container">
         <img src="assets/images/logo/logo_icon.png" alt="">
         <img src="assets/images/logo/logo_title.png" alt="">
-    </div>
-    <div class="download">
         <img src="assets/icons/search-icon.png" alt="">
     </div>
+    <!-- <div class="download">
+        <img src="assets/icons/search-icon.png" alt="">
+    </div> -->
 </div>
 
 <mat-dialog-content class="mat-typography" >
@@ -20,59 +21,17 @@
                 <span class="simulator-image">
                     <img [src]="data?.simulator?.image" alt="">
                 </span>
-                <!-- <div class="header-description">
-                    <h1>Detalhes do Simulador</h1>
-                    <span>Simulador: {{data?.simulatorData?.simulatorName}}</span>
-                    <span>Data abertura: {{data?.simulatorData?.date}}</span>
-                    <span>Código: {{data?.simulatorData?.simulatorCode}}</span>
-                </div> -->
+                <div class="header-description">
+                    <h1>Simulador</h1>
+                    <span>{{data?.simulator?.name}}</span>
+                </div>
             </div>
             
             <h2>Caracteristicas</h2>
             <div class="detail-text-list">
-                <span class="detail-text" *ngFor="let element of data.simulator.details">{{element}}</span>
+                <span class="detail-text">{{data?.simulator?.details}}</span>
             </div>
          
-<!-- 
-            <div class="body-header">
-                <span class="simulator-image">
-                    <img [src]="data?.simulatorData?.simulatorImage" alt="">
-                </span>
-                <div class="header-description">
-                    <h1>Detalhes do Simulador</h1>
-                    <span>Simulador: {{data?.simulatorData?.simulatorName}}</span>
-                    <span>Data abertura: {{data?.simulatorData?.date}}</span>
-                    <span>Código: {{data?.simulatorData?.simulatorCode}}</span>
-                </div>
-            </div>
-
-            <div class="dialog-description">
-                <h2>Descrição do chamado</h2>
-                <div class="description">
-                    <span>{{data?.simulatorData?.findings}}</span>
-                </div>
-            </div>
-
-            <div class="manitance-register">
-                <hr>
-                <h2>Manutenção</h2>
-
-                <div class="manitence-details">
-                    
-                    <div class="manitence-body" *ngIf="data?.simulatorData?.intervention else showDefault">
-                        <span><b>Status:</b> {{data?.simulatorData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da manutenção:</b>{{data?.simulatorData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da manutenção:</b> {{data?.simulatorData?.intervention.interventionText}}</span>
-                    </div>
-    
-                    <ng-template #showDefault>
-                        <span>Status: Enviado para manutenção</span>
-                        <span>Nenhuma manutenção realizada no momento</span>
-                    </ng-template>
-                </div>
-                
-            </div>
-             -->
         </div>
               
     
@@ -81,6 +40,5 @@
 <mat-dialog-actions class="dialog-actions">
  
     <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn">Download</button>
     
 </mat-dialog-actions>
