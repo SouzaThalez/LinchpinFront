@@ -16,6 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
 import { PreviewScenarioReportDialogComponent } from './preview-scenario-report-dialog/preview-scenario-report-dialog.component';
+import { PreviewManitanceReportDialogComponent } from './preview-manitance-report-dialog/preview-manitance-report-dialog.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { PreviewScenarioReportDialogComponent } from './preview-scenario-report-
     InterventionReportDialogComponent,
     DetailsDialogComponent,
     PreviewScenarioReportDialogComponent,
+    PreviewManitanceReportDialogComponent,
   ],
   imports: [
     CommonModule,

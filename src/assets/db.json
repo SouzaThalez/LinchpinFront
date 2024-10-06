@@ -136,12 +136,74 @@
       "code": "ALS982",
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
       "hasDescription": true,
+      "hasIntervention": true,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 1,
+      "intervention": {
+        "interventionText": "Nenhuma intervenção realizada",
+        "interventionDate": "06-10-2024",
+        "interventionStatus": "Aguardando Envio para Fornecedor",
+        "interventionUser": null
+      }
+    },
+    {
+      "date": "01-10-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Primária",
+      "manitanceFindings": "O simulador se encontrava sujo após a aula de Ausculta cardiaca ",
+      "simulatorName": "Harvey",
+      "code": "HAR331",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "hasDescription": true,
+      "hasIntervention": true,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 2,
+      "intervention": {
+        "interventionText": "Braço do simulador limpo e entalcado",
+        "interventionDate": "06-10-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": null
+      }
+    },
+    {
+      "date": "03-10-2024",
+      "manitanceRegister": [
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Secundária",
+      "manitanceFindings": "Não houve registro de achados durante a manutenção",
+      "simulatorName": "Sim NewB",
+      "code": "NIWE2123",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimNewb.jpeg",
+      "hasDescription": false,
       "hasIntervention": false,
       "user": {
         "name": "",
         "role": ""
       },
-      "id": 1
+      "id": 3
     }
   ],
   "ScenarioReports": [

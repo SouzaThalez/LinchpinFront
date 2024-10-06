@@ -6,10 +6,11 @@
     <div class="header-container">
         <img src="assets/images/logo/logo_icon.png" alt="">
         <img src="assets/images/logo/logo_title.png" alt="">
-    </div>
-    <div class="download">
         <img src="assets/icons/cloud-download-icon.png" alt="">
     </div>
+    <!-- <div class="download">
+        <img src="assets/icons/cloud-download-icon.png" alt="">
+    </div> -->
 </div>
 
 <!-- lessonPreviewDialog  -->
@@ -109,7 +110,7 @@
 
  <div class="lessonDialog" *ngIf="isManitanceReport">
     <mat-dialog-content class="mat-typography" >
-        <h2>{{data?.reportData?.simulatorName}}</h2>
+      
         <div class="dialog-body">
 
             <!-- lesson data info -->
@@ -117,8 +118,8 @@
                 <span><img [src]="data?.reportData?.simulatorImage" alt=""></span>
                 <div class="header-description">
                     <h1>Detalhes da Manutenção</h1>
+                    <span>Simulador: {{data?.reportData?.simulatorName}}</span>
                     <span>Código: {{data?.reportData?.code}}</span>
-                    <span>Manutenção: {{data?.reportData?.manitanceCategory}}</span>
                     <span>Data abertura: {{data?.reportData?.date}}</span>
                 </div>
             </div>
@@ -137,12 +138,14 @@
                     
                     <div class="manitence-body" *ngIf="data?.reportData?.intervention else showDefault">
                         <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da intervenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
+                        <span><b>Categoria da Manutenção:</b> {{data?.reportData?.manitanceCategory}}</span>
+                        <span><b>Data da intervenção:</b> {{data?.reportData?.intervention.interventionDate}}</span>
                         <span><b>Registro da intervenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
                     </div>
     
                     <ng-template #showDefault>
-                        <span>Status: Enviado para manutenção...</span>
+                        <span><b>Status:</b> Enviado para manutenção...</span>
+                        <span><b>Categoria da Manutenção:</b> {{data?.reportData?.manitanceCategory}}</span>
                         <span>Nenhuma intervenção realizada no momento</span>
                     </ng-template>
                 </div>

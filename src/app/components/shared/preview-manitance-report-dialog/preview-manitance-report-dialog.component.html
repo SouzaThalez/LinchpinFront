@@ -10,9 +10,11 @@
     </div>
 </div>
 
+
 <mat-dialog-content class="mat-typography" >
         
         <div class="dialog-body">
+
             <div class="body-header">
                 <span class="simulator-image">
                     <img [src]="data?.simulatorData?.simulatorImage" alt="">
@@ -21,13 +23,14 @@
                     <h1>Detalhes do Simulador</h1>
                     <span>Simulador: {{data?.simulatorData?.simulatorName}}</span>
                     <span>Data abertura: {{data?.simulatorData?.date}}</span>
-                    <span>Código: {{data?.simulatorData?.simulatorCode}}</span>
+                    <span>Código: {{data?.simulatorData?.code}}</span>
                 </div>
             </div>
+
             <div class="dialog-description">
-                <h2>Descrição dos achados da limpeza</h2>
+                <h2>Descrição dos achados da manutenção</h2>
                 <div class="description">
-                    <span>{{data?.simulatorData?.findings}}</span>
+                    <span>{{data?.simulatorData?.manitanceFindings}}</span>
                 </div>
             </div>
 
@@ -37,16 +40,16 @@
 
                 <div class="manitence-details">
                     
-                    <div class="manitence-body" *ngIf="data?.simulatorData?.intervention else showDefault">
+                    <div class="manitence-body" *ngIf="data?.simulatorData?.hasIntervention else showDefault">
                         <span><b>Status:</b> {{data?.simulatorData?.intervention.interventionStatus}}</span>
-                        <span><b>Categoria da limpeza:</b> {{data?.simulatorData?.cleaningCategory}}</span>
-                        <span><b>Data da intervenção:</b>{{data?.simulatorData?.intervention.interventionDate}}</span>
+                        <span><b>Categoria da manutenção:</b> {{data?.simulatorData?.manitanceCategory}}</span>
+                        <span><b>Data da intervenção:</b> {{data?.simulatorData?.intervention.interventionDate}}</span>
                         <span><b>Registro da intervenção:</b> {{data?.simulatorData?.intervention.interventionText}}</span>
                     </div>
     
                     <ng-template #showDefault>
                         <span><b>Status:</b> Enviado para manutenção</span>
-                        <span><b>Categoria da limpeza:</b> {{data?.simulatorData?.cleaningCategory}}</span>
+                        <span><b>Categoria da manutenção:</b> {{data?.simulatorData?.manitanceCategory}}</span>
                         <span>Nenhuma intervenção realizada no momento</span>
                     </ng-template>
                 </div>
@@ -64,3 +67,6 @@
     <button class="default-btn confirm-btn">Download</button>
     
 </mat-dialog-actions>
+
+
+
