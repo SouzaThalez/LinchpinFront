@@ -1,4 +1,8 @@
 <div class="page">
+
+    <div class="empty-report-data"  *ngIf="!cleaningReportData || cleaningReportData.length === 0">
+        <span class="empty-default-message">Não existem registros no momento...</span>
+    </div>
     <div class="report-container"
          *ngFor="let element of cleaningReportData"
          (click)="openPreviewCleaningDialog(element)">
