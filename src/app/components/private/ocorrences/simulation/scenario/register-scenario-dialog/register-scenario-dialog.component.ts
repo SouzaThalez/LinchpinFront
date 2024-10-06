@@ -51,7 +51,7 @@ export class RegisterScenarioDialogComponent implements OnInit{
     if(this.isChecked){
       this.simulatorForm.patchValue(
         {
-          description: this.defaultMessage,
+          scenarioOcorrance: this.defaultMessage,
           hasDescription: false
         }
       );
@@ -154,11 +154,8 @@ export class RegisterScenarioDialogComponent implements OnInit{
     const simulatoForm = this.fb.group({
       date: [null,Validators.required],
       time: [null,Validators.required],
-      // noDescription: [false],
-      description:[null,Validators.required],
+      scenarioOcorrance:[null,Validators.required],
       hasDescription:[false],
-      // showTextArea: [false],
-      
       discipline:[null, Validators.required],
       simulatorName:[this.data.simulator.name],
       simulatorCode:[this.data.simulator.codes[0]],

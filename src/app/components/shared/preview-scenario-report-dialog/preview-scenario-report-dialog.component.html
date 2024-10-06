@@ -6,57 +6,58 @@
     <div class="header-container">
         <img src="assets/images/logo/logo_icon.png" alt="">
         <img src="assets/images/logo/logo_title.png" alt="">
-    </div>
-    <div class="download">
         <img src="assets/icons/cloud-download-icon.png" alt="">
     </div>
+    <!-- <div class="download">
+        <img src="assets/icons/cloud-download-icon.png" alt="">
+    </div> -->
 </div>
 
 
 <mat-dialog-content class="mat-typography" >
        
-        <div class="dialog-body">
+    <div class="dialog-body">
            
-             <!-- <div class="body-header">
-                <span><img [src]="data?.reportData?.lessonImage" alt=""></span>
+        <div class="body-header">
+                <span><img src="assets/images/logo/scenario-logo.png" alt=""></span>
                 <div class="header-description">
                     <h1>Dados da Aula</h1>
-                    <span>Disciplina: {{data?.reportData?.lessonCategory}} - {{data?.reportData?.lessonType}}</span>
-                    <span>Data abertura: {{data?.reportData?.date}}</span>
-                    <span>Aula: {{data?.reportData?.lessonName}}</span>
+                    <span>Disciplina: {{data?.scenarioData?.discipline?.label}}</span>
+                    <span>Data abertura: {{data?.scenarioData?.date}}</span>
+                    <span>Tipo de Cenário: {{data?.scenarioData?.scenarioCategory}}</span>
                 </div>
-            </div> -->
+        </div>
 
-            
-        <!--
-            <div class="dialog-description">
-                <h2>Descrição do chamado do simulador</h2>
+        <div class="body-header">
+                <span><img [src]="data?.scenarioData?.simulatorImage" alt=""></span>
+                <div class="header-description">
+                    <h1>Dados do simulador</h1>
+                    <span>Nome: {{data?.scenarioData?.simulatorName}}</span>
+                    <span>Código: {{data?.scenarioData?.simulatorCode}}</span>
+                    <!-- <span>Cenário: {{data?.scenarioData?.scenarioCategory}}</span> -->
+                </div>
+        </div>
+        
+        <div class="dialog-description" *ngIf="data?.scenarioData?.hasDescription else showDefault">
+                <h2>Descrição da intercorrência de cenário</h2>
                 <div class="description">
-                    <span>{{data?.reportData?.lessonOcorrance}}</span>
+                    <span><b>Item da intercorrencia:</b> {{data?.scenarioData?.itemOcorrance?.label}}</span>
+                    <span><b>Descrição:</b> {{data?.scenarioData?.scenarioOcorrance}}</span>
+                </div>
+        </div>
+
+        <ng-template #showDefault>
+            <div class="dialog-description">
+                <h2>Descrição da intercorrência de cenário</h2>
+                <div class="description">
+                    <span><b>Item da intercorrência:</b> nenhum item selecionado</span>
+                    <span><b>Descrição:</b> {{data?.scenarioData?.scenarioOcorrance}}</span>
                 </div>
             </div>
-
-            <div class="manitance-register">
-                <hr>
-                <h2>Manutenção:</h2>
-
-                <div class="manitence-details">
-                    
-                    <div class="manitence-body" *ngIf="data?.reportData?.intervention else showDefault">
-                        <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da intervenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da intervenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
-                    </div>
-    
-                    <ng-template #showDefault>
-                        <span>Status: Enviado para manutenção...</span>
-                        <span>Nenhuma intervenção realizada no momento</span>
-                    </ng-template>
-                </div>
+        </ng-template>
+      
             
-            </div> -->
-            
-        </div>
+    </div>
 
 </mat-dialog-content>
 

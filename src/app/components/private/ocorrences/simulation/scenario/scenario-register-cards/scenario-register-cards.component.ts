@@ -57,6 +57,7 @@ export class ScenarioRegisterCardsComponent implements OnInit{
 
   openRegisterDialogs(element: any){
     
+   
       if(this.registerName == 'Corrida'){
 
         let dialogRef = this.matDialog.open(RegisterScenarioDialogComponent,{

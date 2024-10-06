@@ -31,13 +31,24 @@
 
 .dialog-body{
     .dialog-header{
-        .item-content{
-            font-size: 38px;
-            color: #18718d;
-            align-items: baseline;
+
+        .item-form{
             display: flex;
             justify-content: space-between;
+
+            .item-column{
+                
+                .item-content{
+                    font-size: 38px;
+                    color: #18718d;
+                    align-items: baseline;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
         }
+      
+        
     }
 }
 

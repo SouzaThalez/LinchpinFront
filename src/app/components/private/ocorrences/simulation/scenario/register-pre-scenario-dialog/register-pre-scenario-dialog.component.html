@@ -32,30 +32,53 @@
     <div class="dialog-body" [formGroup]="form">
 
         <div class="dialog-header">
+
             <div class="item-form">
-                <h2>Data da Simulação</h2>
-                <div class="item-content">
+                
+                <div class="item-column">
+                    <h2>Data da Simulação</h2>
                     <mat-form-field appearance="outline" class="date-picker">
                         <mat-label>Escolha data</mat-label>
                         <input formControlName="date"  matInput [matDatepicker]="picker">
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker ></mat-datepicker>
                     </mat-form-field>
-                    <span>{{data?.registerType}}</span>
                 </div>
+                <div class="item-column">
+                    <span class="item-content">{{data?.registerType}}</span>
+                </div>
+        
             </div>
-            <div class="Time">
-                <h2>Horário de Inicio</h2>
-                <mat-form-field appearance="outline">
-                    <mat-label>Inserir horario</mat-label>
-                    <input
-                        formControlName="time"
-                        placeholder="00:00"
-                        mask="00:00"
-                        matInput
-                    />
-                </mat-form-field>
+
+            <div class="item-form">
+
+                <div class="item-column">
+                    <h2>Horário de Inicio</h2>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Inserir horario</mat-label>
+                        <input
+                            formControlName="time"
+                            placeholder="00:00"
+                            mask="00:00"
+                            matInput
+                        />
+                    </mat-form-field>
+                </div>
+                <div class="item-column">
+                    <h2>Disciplina</h2>
+                    <mat-form-field appearance="outline">
+                            <mat-label>Escolha</mat-label>
+                            <mat-select formControlName="discipline">
+                                <mat-option *ngFor="let element of disciplines"
+                                        [value]="element">
+                                        {{element.label}}
+                                </mat-option>
+                            </mat-select>
+                    </mat-form-field>
+                </div>
+    
             </div>
+
         </div>
 
         <div class="manitance-section">

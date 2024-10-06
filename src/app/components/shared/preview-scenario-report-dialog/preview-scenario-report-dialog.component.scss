@@ -83,8 +83,13 @@
     .dialog-description{
         display: block;
         max-height: 100%;
-        /* Makes sure the text wraps within the container */
-       
+
+       .description{
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        }
     }
 
 }

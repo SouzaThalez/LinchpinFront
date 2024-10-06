@@ -6,6 +6,7 @@ import { checkBoxesData } from '../../../../../../data/checkBoxesData';
 import moment from 'moment';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { AlertDialogComponent } from '../../../../../shared/alert-dialog/alert-dialog.component';
+import { disciplines } from '../../../../../../data/disciplines';
 
 @Component({
   selector: 'app-register-pre-scenario-dialog',
@@ -22,6 +23,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   user = { name:'',role:''};
   form: FormGroup;
   allcCheckBoxData = checkBoxesData;
+  disciplines = disciplines;
   isChecked = false;
 
   checkedBoxes:any[]=[];
@@ -66,6 +68,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
 
       const model = this.form.value;
       // this.postCleaningReports(model);
+      debugger
         this.onClose(model);
       return
     }
@@ -188,6 +191,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
       simulatorName:[this.data.simulator.name],
       simulatorCode:[this.data.simulator.codes[0]],
       simulatorImage:[this.data.simulator.image],
+      discipline:[null, Validators.required],
       hasDescription: [false],
       itemOcorrance:[],
       user: []

@@ -202,8 +202,8 @@
   ],
   "ScenarioReports": [
     {
-      "date": "05-09-2024",
-      "time": "3000",
+      "date": "06-10-2024",
+      "time": "2000",
       "scenarioRegister": [
         {
           "label": "Notebook funcionando e configurado sem wifi",
@@ -212,21 +212,31 @@
         {
           "label": "Microfone de mesa funcionando",
           "value": true
-        }
-      ],
-      "scenarioCategory": "Pré-corrida",
-      "scenarioOcorrance": "Não houve registro de intercorrências durante a Pré-corrida de cenário",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "simulatorCode": "ALS982",
-      "hasDescription": false,
-      "itemOcorrance": "Não informado",
-      "user": null,
-      "id": 1
-    },
-    {
-      "date": "17-09-2024",
-      "time": "5000",
-      "scenarioRegister": [
+        },
+        {
+          "label": "Cameras no debriefing inicializadas",
+          "value": true
+        },
+        {
+          "label": "Simulador ligado sem intercorrências",
+          "value": true
+        },
+        {
+          "label": "Monitor de paciente ligado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Carrinho de parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador mecânico instalado em sala",
+          "value": true
+        },
+        {
+          "label": "Bomba de infusão instalada em sala",
+          "value": true
+        },
         {
           "label": "Escada para PCR instalada em sala",
           "value": true
@@ -234,47 +244,37 @@
         {
           "label": "Oxigênio em sala de simulação funcionando",
           "value": true
+        },
+        {
+          "label": "Formulário do cenário separado em sala de controle",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário presente em notebook",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário estudado",
+          "value": true
         }
       ],
       "scenarioCategory": "Pré-corrida",
-      "scenarioOcorrance": "wwfewfwefwefwefew",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "simulatorCode": "ALS982",
-      "hasDescription": true,
-      "itemOcorrance": {
-        "label": "Monitor de paciente ligado sem wifi",
-        "value": false
-      },
-      "user": null,
-      "id": 2
-    },
-    {
-      "date": "12-09-2024",
-      "time": "3000",
-      "description": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
-      "hasDescription": false,
-      "discipline": {
-        "name": "Internato de clinica Médica",
-        "label": "Int.Clinica Médica"
-      },
+      "scenarioOcorrance": "Não houve registro de intercorrências durante a Pré-corrida de cenário",
       "simulatorName": "SimMan ALS - Esquerdo",
       "simulatorCode": "ALS982",
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "simulatorRegister": "Nenhuma Falha",
-      "monitorRegister": "Nenhuma Falha",
-      "medicationCarRegister": "Nenhuma Falha",
-      "energyPanelRegister": "Nenhuma Falha",
-      "airFlowRegister": "Nenhuma Falha",
-      "internetCableRegister": "Nenhuma Falha",
-      "otherRegister": "Nenhuma Falha",
-      "audioAndMediaRegister": "Nenhuma Falha",
-      "scenarioCategory": "Corrida",
+      "discipline": {
+        "name": "Internato de Urgência",
+        "label": "Int.Urgência"
+      },
+      "hasDescription": false,
+      "itemOcorrance": "Não informado",
       "user": null,
-      "id": 3
+      "id": 1
     },
     {
-      "date": "12-09-2024",
-      "time": "0040",
+      "date": "05-10-2024",
+      "time": "1400",
       "scenarioRegister": [
         {
           "label": "Notebook funcionando e configurado sem wifi",
@@ -334,14 +334,67 @@
         }
       ],
       "scenarioCategory": "Pós-corrida",
-      "scenarioOcorrance": "efdwerfrwe",
-      "simulatorName": "Nurse Anne - Enfermeira",
-      "simulatorCode": "NURH320",
+      "scenarioOcorrance": "registro de intercorrencia durante a pós corrida de cenário no item 5 ",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "discipline": {
+        "name": "Internato de clinica Médica",
+        "label": "Int.Clinica Médica"
+      },
       "hasDescription": true,
       "itemOcorrance": {
-        "label": "Cameras no debriefing inicializadas",
+        "label": "Simulador ligado sem intercorrências",
         "value": true
       },
+      "user": null,
+      "id": 2
+    },
+    { 
+      "date": "02-10-2024",
+      "time": "0830",
+      "scenarioOcorrance": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
+      "hasDescription": false,
+      "discipline": {
+        "name": "Internato de Pediatria",
+        "label": "Int.Pediatria"
+      },
+      "simulatorName": "Sim Junior",
+      "simulatorCode": "NIOR2123",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
+      "user": null,
+      "id": 3
+    },
+    {
+      "date": "01-10-2024",
+      "time": "0830",
+      "scenarioOcorrance": "simulador tava sem ligar o link box",
+      "hasDescription": true,
+      "discipline": {
+        "name": "Internato de Pediatria",
+        "label": "Int.Pediatria"
+      },
+      "simulatorName": "Sim Junior",
+      "simulatorCode": "NIOR2123",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
       "user": null,
       "id": 4
     }

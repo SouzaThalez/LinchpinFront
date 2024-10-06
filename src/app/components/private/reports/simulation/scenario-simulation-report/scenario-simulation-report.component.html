@@ -1,7 +1,13 @@
 <div class="page">
+
+    <div class="empty-report-data"  *ngIf="!scenarioReportsData || scenarioReportsData.length === 0">
+        <span class="empty-default-message">Não existem registros no momento...</span>
+    </div>
+
     <div class="report-container"
          *ngFor="let element of scenarioReportsData"
          (click)="openPreviewScenarioReport(element)">
+
         <div class="report-head">
             <div class="report-icon">
                 <img src="assets/icons/report-icon.png" alt="">
@@ -19,5 +25,6 @@
         <div class="report-grid">
             <img src="assets/icons/report-grid.png" alt="">
         </div>
+        
     </div>
 </div>
