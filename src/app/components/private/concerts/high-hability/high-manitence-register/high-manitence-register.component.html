@@ -1,8 +1,8 @@
 <div class="page">
     <div class="report-detail-list">
 
-        <div class="nodata" *ngIf="manitanceData?.length == 0">
-            <span>Não existem registros de manutenção pendente no momento...</span>
+        <div class="empty-report-data"  *ngIf="!manitanceData || manitanceData.length === 0">
+            <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
         <div class="report-detail-container" 

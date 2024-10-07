@@ -1,6 +1,9 @@
 <div class="page">
     <div class="report-detail-list">
-        <h3>Achados do simulador durante a aula</h3>
+        <h3>Achados do simulador encontrado durante a aula</h3>
+        <div class="empty-report-data"  *ngIf="!lessonData || lessonData.length === 0">
+            <span class="empty-default-message">Não existem registros no momento...</span>
+        </div>
         <div class="report-detail-container" 
              *ngFor="let element of lessonData">
 
@@ -50,16 +53,7 @@
                         <span>Imprimir</span>
                         <span class="material-symbols-outlined">visibility</span>
                     </div>              
-                    <!-- <div class="report-image-btn" >
-                        <img class="button-image" [src]="element.simulatorReport.image" alt="" (click)="openPreviewSimulatorReportDialog(element)">
-                        <span class="material-symbols-outlined">visibility</span>
-                    </div> -->
 
-                    <!-- <div class="simulator-image" (click)="openPreviewSimulatorReportDialog(element)">
-                        <img [src]="element.simulatorReport.image" alt="">
-                        <span class="material-symbols-outlined">visibility</span>
-                    </div> -->
-        
                 </div>
               </div>
 

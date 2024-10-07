@@ -1,9 +1,10 @@
 <div class="page">
     <div class="report-detail-list">
-        <div class="nodata" *ngIf="cleaningData?.length == 0">
-            <span>no data</span>
-        </div>
         <h3>Achados de simulador encontrados durante a limpeza</h3>
+        <div class="empty-report-data"  *ngIf="!cleaningData || cleaningData.length === 0">
+            <span class="empty-default-message">Não existem registros no momento...</span>
+        </div>
+        
         <div class="report-detail-container" 
              *ngFor="let element of cleaningData">
              

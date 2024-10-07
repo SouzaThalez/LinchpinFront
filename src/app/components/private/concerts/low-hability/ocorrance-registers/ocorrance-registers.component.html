@@ -2,6 +2,9 @@
 <div class="page">
     <div class="report-detail-list">
         <h3>Registros de ocorrencia de aula</h3>
+        <div class="empty-report-data"  *ngIf="!lessonReportData || lessonReportData.length === 0">
+            <span class="empty-default-message">Não existem registros no momento...</span>
+        </div>
         <div class="report-detail-container" 
              *ngFor="let element of lessonReportData">
               <div class="report-content">
