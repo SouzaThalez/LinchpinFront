@@ -804,17 +804,17 @@ export const ocorranceData ={
         {
             name:'Registro',
             value:'Pré-corrida',
-            quantity:'5'
+           
         },
         {
             name:'Registro',
             value:'Corrida',
-            quantity:'3'
+           
         },
         {
             name:'Registro',
             value:'Pós-corrida',
-            quantity:'2'
+           
         }
     ],
     
@@ -823,31 +823,31 @@ export const ocorranceData ={
             name:'Suporte Básico de Vida',
             value:'BLS',
             type: 'curso',
-            quantity:'5'
+           
         },
         {
             name:'Salva Corações',
             value:'RCP',
             type: 'curso',
-            quantity:'5'
+           
       },
         {
             name:'Suporte Avançado de Vida Cardiovascular',
             value:'ACLS',
             type: 'curso',
-            quantity:'3'
+           
         },
         {
             name:'Suporte Avançado de Vida em Pediatria',
             value:'PALS',
             type: 'curso',
-            quantity:'2'
+           
         },
         {
             name:'Curso',
             value:'Outros',
             type: 'curso',
-            quantity:'2'
+           
         }
     ]
 }
