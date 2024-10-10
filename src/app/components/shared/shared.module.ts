@@ -19,6 +19,7 @@ import { PreviewScenarioReportDialogComponent } from './preview-scenario-report-
 import { PreviewManitanceReportDialogComponent } from './preview-manitance-report-dialog/preview-manitance-report-dialog.component';
 
 
+
 @NgModule({
   declarations: [
     AlertDialogComponent,
@@ -29,6 +30,7 @@ import { PreviewManitanceReportDialogComponent } from './preview-manitance-repor
     DetailsDialogComponent,
     PreviewScenarioReportDialogComponent,
     PreviewManitanceReportDialogComponent,
+
   ],
   imports: [
     CommonModule,
