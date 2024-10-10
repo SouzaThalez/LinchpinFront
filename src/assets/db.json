@@ -55,6 +55,31 @@
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
       "user": null,
       "id": 2
+    },
+    {
+      "date": "07-10-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Pelve Sondagem M",
+      "simulatorCode": "SP322",
+      "findings": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/enemaPelve.png",
+      "user": null,
+      "id": 3
+    },
+    {
+      "date": "08-10-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE44",
+      "findings": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "user": null,
+      "id": 4
     }
   ],
   "LessonReports": [
@@ -111,6 +136,90 @@
         "interventionStatus": "Enviado para Fornecedor",
         "interventionUser": null
       }
+    },
+    {
+      "date": "02-10-2024",
+      "lessonName": "Fisioterapia",
+      "lessonOcorrance": "Sim houve ocorrencia de aula da Fisioterapia",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "Fisio",
+      "user": null,
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "02-10-2024"
+      },
+      "hasIntervention": false,
+      "id": 3
+    },
+    {
+      "date": "08-10-2024",
+      "lessonName": "Deontologia",
+      "lessonOcorrance": "Sim houve ocorrencia de aula de Deontologia",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "Deont",
+      "user": null,
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "08-10-2024"
+      },
+      "hasIntervention": false,
+      "id": 4
+    },
+    {
+      "date": "07-10-2024",
+      "lessonName": "Guia - Espaçador",
+      "lessonOcorrance": "ocorrencia de aula longo: Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "Enf",
+      "user": null,
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "07-10-2024"
+      },
+      "hasIntervention": false,
+      "id": 5
+    },
+    {
+      "date": "01-10-2024",
+      "lessonName": "Medidas Antropometricas",
+      "lessonOcorrance": "Não houve registro de ocorrência de aula",
+      "lessonDescription": false,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "1",
+      "user": null,
+      "simulatorDescription": true,
+      "simulatorReport": {
+        "name": "MegaCode Kid",
+        "code": "DC-2022-06-08",
+        "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
+        "ocorrance": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.",
+        "simulatorCategory": "media",
+        "date": "01-10-2024"
+      },
+      "hasIntervention": false,
+      "id": 6
     }
   ],
   "manitanceReports": [

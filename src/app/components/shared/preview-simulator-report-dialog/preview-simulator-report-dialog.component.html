@@ -6,10 +6,9 @@
     <div class="header-container">
         <img src="assets/images/logo/logo_icon.png" alt="">
         <img src="assets/images/logo/logo_title.png" alt="">
-    </div>
-    <div class="download">
         <img src="assets/icons/cloud-download-icon.png" alt="">
     </div>
+  
 </div>
 
 <mat-dialog-content class="mat-typography" >
@@ -56,13 +55,13 @@
                     
                     <div class="manitence-body" *ngIf="data?.reportData?.hasIntervention else showDefault">
                         <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da manutenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da manutenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
+                        <span><b>Data da intervenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
+                        <span><b>Registro da intervenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
                     </div>
     
                     <ng-template #showDefault>
-                        <span>Status: A definir..</span>
-                        <span>Nenhuma manutenção realizada no momento</span>
+                        <span><b>Status:</b> Enviado para manutenção</span>
+                        <span>Nenhuma intervenção realizada no momento</span>
                     </ng-template>
                 </div>
             </div>
