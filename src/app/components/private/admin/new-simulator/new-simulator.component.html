@@ -1,0 +1,91 @@
+<div class="page">    
+    <div class="page-container">
+        <div class="grid-container" [ngSwitch]="value">
+            <div class="grid-column">
+                <div class="card-list">
+                    <div class="simulator-container"
+                        (click)="getSimulatorData(1)">
+                        <mat-card class="simulator-card" appearance="outlined"
+                                  (click)="getSimulatorData(1)">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image">
+                                    <img src="assets/images/default-image.jpg" alt="">
+                                </div>
+                            <mat-card-title>Baixa Fidelidade</mat-card-title>
+                            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-actions>
+                                <span>Novo simulador de baixa fidelidade</span>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="simulator-container"
+                         (click)="getSimulatorData(2)">
+                        <mat-card class="simulator-card" appearance="outlined">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image">
+                                    <img src="assets/images/default-image.jpg" alt="">
+                                </div>
+                            <mat-card-title>Média Fidelidade</mat-card-title>
+                            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-actions>
+                                <span>Novo simulador de média fidelidade</span>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="simulator-container"
+                         (click)="getSimulatorData(3)">
+                        <mat-card class="simulator-card" appearance="outlined">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image">
+                                    <img src="assets/images/default-image.jpg" alt="">
+                                </div>
+                            <mat-card-title>Alta Fidelidade</mat-card-title>
+                            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-actions>
+                                <span>Novo simulador de alta fidelidade</span>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-column">
+                
+                <div class="details-list"*ngSwitchCase="2">
+                    <div class="card-container" *ngFor="let simulator of midiumSimulators">
+                        <div class="card-body">
+                            <div class="card-head">
+                                <div class="card-image">
+                                    <img [src]="simulator.image" alt="">
+                                </div>
+                                <div class="card-description">
+                                    <span>{{simulator.name}}</span>
+                                    <span>{{simulator.description}}</span>
+                                    <span>Quantidade: {{simulator.codes.length}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="details-list"*ngSwitchCase="3">
+                    <div class="card-container" *ngFor="let simulator of highSimulators">
+                        <div class="card-body">
+                            <div class="card-head">
+                                <div class="card-image">
+                                    <img [src]="simulator.image" alt="">
+                                </div>
+                                <div class="card-description">
+                                    <span>{{simulator.name}}</span>
+                                    <span>{{simulator.description}}</span>
+                                    <span>Quantidade: {{simulator.codes.length}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
