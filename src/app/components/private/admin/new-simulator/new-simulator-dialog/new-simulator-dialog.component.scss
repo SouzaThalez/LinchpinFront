@@ -1,0 +1,103 @@
+.header{
+    padding-top: 16px;
+
+    .close{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 10px;
+    }
+
+    .header-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+         gap: 14px;
+    
+        img{
+            height: 57px;
+        }
+    
+        .title{
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        
+        .close{
+            margin-right: 18px;
+            &:hover{
+                cursor: pointer;
+                box-shadow: 0px 0px 5px 2px;
+            }
+        }
+    }
+    .download{
+        display: flex;
+        justify-content: center;
+        img{
+            height: 87px;
+            width: 89px;
+        }
+    }
+}
+
+.dialog-body{
+  
+    .body-header{
+        display: flex;
+        // align-items: center;
+        gap: 21px;
+        img{
+            height: 100px;
+            width: 100px;
+            box-shadow: 0px 2px 7px #bdb5b5;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .header-description{
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+    .dialog-description{
+        padding-top: 13px;
+        .code{
+            border: 1px solid var(--green-color);
+            padding: 5px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+
+            .code-body{
+                display: flex;
+                justify-content: space-between;
+                .code-icons{
+                    display:flex;
+                    gap:10px;
+                    .edit-icon{
+                        padding: 2px;
+                        border-radius: 5px;
+                        &:hover{
+                            cursor: pointer;
+                            background-color: #f1f1f1;
+                        }
+                    }
+                    .remove-icon{
+                        padding: 2px;
+                        border-radius: 5px;
+                        &:hover{
+                            cursor: pointer;
+                            background-color: #ecb3b3;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}
+
+.dialog-actions{
+    justify-content: flex-end;
+    gap: 10px;
+}

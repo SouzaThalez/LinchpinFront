@@ -9,13 +9,19 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
-
-
+import {MatButtonModule} from '@angular/material/button';
+import { NewSimulatorDialogComponent } from './new-simulator/new-simulator-dialog/new-simulator-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteCodeDialogComponent } from './new-simulator/delete-code-dialog/delete-code-dialog.component';
+import { EditCodeDialogComponent } from './new-simulator/edit-code-dialog/edit-code-dialog.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
-    NewSimulatorComponent
+    NewSimulatorComponent,
+    NewSimulatorDialogComponent,
+    DeleteCodeDialogComponent,
+    EditCodeDialogComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +33,9 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule
   ]
 })
 export class AdminModule { }

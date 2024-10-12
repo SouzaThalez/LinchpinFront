@@ -1,0 +1,47 @@
+.header{
+    padding-top: 16px;
+
+    .close{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 10px;
+    }
+
+    .header-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+         gap: 14px;
+    
+        img{
+            height: 57px;
+        }
+    
+        .title{
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        
+        .close{
+            margin-right: 18px;
+            &:hover{
+                cursor: pointer;
+                box-shadow: 0px 0px 5px 2px;
+            }
+        }
+    }
+    .download{
+        display: flex;
+        justify-content: center;
+        img{
+            height: 87px;
+            width: 89px;
+        }
+    }
+}
+
+.dialog-actions{
+    justify-content: flex-end;
+    gap: 10px;
+}

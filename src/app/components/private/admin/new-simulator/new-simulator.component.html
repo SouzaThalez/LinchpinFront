@@ -1,7 +1,9 @@
 <div class="page">    
     <div class="page-container">
-        <div class="grid-container" [ngSwitch]="value">
-            <div class="grid-column">
+        <div class="row" [ngSwitch]="value">
+
+            <div class="col-md-4 columns">
+                <br>
                 <div class="card-list">
                     <div class="simulator-container"
                         (click)="getSimulatorData(1)">
@@ -51,10 +53,42 @@
                     </div>
                 </div>
             </div>
-            <div class="grid-column">
+            
+            <div class="col-md-8 columns scroll-container">
+                
+                <div class="details-list"*ngSwitchCase="1">
+                    
+                    <div class="detail-header">
+                        <span>Total: {{lowCategories.length}}</span>
+                        <button mat-raised-button> + Nova categoria de simulador</button>
+                    </div>
+                   
+                    <div class="card-container" *ngFor="let simulator of lowCategories index as i">
+                        <div class="card-body">
+                            <div class="card-head">
+                                <div class="card-image">
+                                    <img [src]="simulator.classImage" alt="">
+                                </div>
+                                <div class="card-description">
+                                    <span>{{simulator.simulatorClass}}</span>
+                                    <span>Quantidade por categoria: {{simulator.simulators?.length}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                   
+                </div>
                 
                 <div class="details-list"*ngSwitchCase="2">
-                    <div class="card-container" *ngFor="let simulator of midiumSimulators">
+                    
+                    <div class="detail-header">
+                        <span>Total: {{midiumSimulators.length}}</span>
+                        <button mat-raised-button> + Novo simulador</button>
+                    </div>
+
+                    <div class="card-container" 
+                         *ngFor="let simulator of midiumSimulators"
+                         (click)="openNewSimulatorDialog(simulator)">
                         <div class="card-body">
                             <div class="card-head">
                                 <div class="card-image">
@@ -68,8 +102,15 @@
                             </div>
                         </div>
                     </div> 
+
                 </div>
+
                 <div class="details-list"*ngSwitchCase="3">
+                    
+                    <div class="detail-header">
+                        <span>Total: {{highSimulators.length}}</span>
+                        <button mat-raised-button> + Novo simulador</button>
+                    </div>
                     <div class="card-container" *ngFor="let simulator of highSimulators">
                         <div class="card-body">
                             <div class="card-head">
@@ -85,7 +126,9 @@
                         </div>
                     </div> 
                 </div>
+
             </div>
         </div>
+        
     </div>
 </div>

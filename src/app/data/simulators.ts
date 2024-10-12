@@ -561,7 +561,7 @@ export const simulators ={
             
           ],
           
-      },
+        },
        
         
     ],
