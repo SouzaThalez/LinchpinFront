@@ -10,34 +10,50 @@
 </div>
 
 <mat-dialog-content class="mat-typography" >
-        <div class="dialog-body">
+        <div class="dialog-body" [formGroup]="form">
 
             <div class="body-header">
-                <div class="simulator-image">
-                    <img src="assets/images/default-image.jpg" alt="">
-                    <button mat-raised-button>+Imagem</button>
-                </div>
-                <div class="header-description">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Nome do simulador</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Código do simulador</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                
-                </div>
-            </div>
 
-            <div class="simulator-description">
+                <div class="simulator-image">
+                  <img src="assets/images/default-image.jpg" alt="">
+                  <button mat-raised-button>+Imagem</button>
+                </div>
+                
+                <div class="header-description">
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Nome do simulador</mat-label>
+                    <input matInput formControlName="name">
+                  </mat-form-field>
+              
+                  <!-- Loop through the codes FormArray -->
+                  <div formArrayName="codes">
+                    <div class="code-container" *ngFor="let codeGroup of codes.controls; let i = index" [formGroupName]="i">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Código {{ i + 1 }}</mat-label>
+                        <input matInput formControlName="code">
+                      </mat-form-field>
+                      <ng-container *ngIf="i>0">
+                        <span class="material-symbols-outlined delete-icon" (click)=removeCodeForm(i)>delete</span>
+                      </ng-container>
+            
+                    </div>
+                  </div>
+                  
+                  <!-- Button to add a new code input -->
+                  <button mat-raised-button (click)="addCode()">Adicionar + Código</button>
+                </div>
+              </div>
+              
+              <div class="simulator-description">
                 <h2>Descrição do simulador</h2>
                 <mat-form-field class="simulator-description-text" appearance="outline">
-                    <mat-label>Este simulador é para...</mat-label>
-                    <textarea matInput></textarea>
-                  </mat-form-field>
-            
-            </div>    
+                  <mat-label>Este simulador é para...</mat-label>
+                  <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+
+              </div>
+  
 
         </div>
 </mat-dialog-content>

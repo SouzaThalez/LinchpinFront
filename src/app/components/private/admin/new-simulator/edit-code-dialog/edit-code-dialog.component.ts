@@ -38,11 +38,6 @@ export class EditCodeDialogComponent implements OnInit{
     // this.codeValue = this.data.selectedCode;
   }
 
-  codeValidator(control: any) {
-    const value = control.value;
-    const regex = /^[A-Z0-9]{6}$/; // Regex for 6 uppercase letters and numbers
-    return regex.test(value) ? null : { invalidCode: true };
-  }
 
   submitCode(){
    
@@ -127,6 +122,12 @@ export class EditCodeDialogComponent implements OnInit{
    
 
 
+  }
+
+  private codeValidator(control: any) {
+    const value = control.value;
+    const regex = /^[A-Z0-9]{6}$/; // Regex for 6 uppercase letters and numbers
+    return regex.test(value) ? null : { invalidCode: true };
   }
 
   private createEditForm(): FormGroup{

@@ -598,10 +598,6 @@
         {
           "code": "ANNE34",
           "disabled": false
-        },
-        {
-          "code": "ANNE35",
-          "disabled": false
         }
       ],
       "id": 1
@@ -646,6 +642,10 @@
         {
           "code": "KE8PL5",
           "disabled": false
+        },
+        {
+          "code": "KE8PL6",
+          "disabled": false
         }
       ],
       "id": 3
@@ -673,6 +673,22 @@
         }
       ],
       "id": 4
+    },
+    {
+      "name": "SimMan 3D",
+      "image": "assets/images/default-image.jpg",
+      "description": "Descrição simples",
+      "codes": [
+        {
+          "code": "EOMD4",
+          "disabled": false
+        },
+        {
+          "code": "EOMD5",
+          "disabled": false
+        }
+      ],
+      "id": 5
     }
   ]
 }

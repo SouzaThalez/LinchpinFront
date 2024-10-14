@@ -14,7 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class DetailSimulatorDialogComponent implements OnInit{
 
   constructor(
-    public dialogRef: MatDialogRef<DeleteCodeDialogComponent>,
+    public dialogRef: MatDialogRef<DetailSimulatorDialogComponent>,
     private matDialog: MatDialog,
     private httpClient: HttpClient,
     private snackBar:MatSnackBar,
@@ -114,6 +114,24 @@ export class DetailSimulatorDialogComponent implements OnInit{
     })
   }
 
+  openRemoveSimulator(){
+
+    let dialogRef = this.matDialog.open(DeleteCodeDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+      
+        debugger
+      }
+    })
+
+
+  }
 
   private updateCode(model:any){
   
@@ -154,6 +172,17 @@ export class DetailSimulatorDialogComponent implements OnInit{
     .subscribe({
         next: (sample: any)=>{
           
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private removeSimulatorData(model:any){
+
+    this.httpClient.delete('http://localhost:3000/mediumSimulators/' + model.id)
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('REMOVED> ',sample)
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })

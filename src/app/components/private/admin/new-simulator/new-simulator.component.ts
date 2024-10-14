@@ -64,7 +64,9 @@ export class NewSimulatorComponent implements OnInit{
       }
     })
   }
+
   openNewSimulatorDialog(){
+
     let dialogRef = this.matDialog.open(NewSimulatorDialogComponent,{
       disableClose: true,
       width:'468px',
@@ -74,7 +76,8 @@ export class NewSimulatorComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        
+          debugger
+          this.postMediumSimulators(result)
       }
     })
   }
@@ -91,5 +94,19 @@ export class NewSimulatorComponent implements OnInit{
       }
     })
   }
+
+  private postMediumSimulators(model:any){
+
+    this.httpClient.post('http://localhost:3000/mediumSimulators/',model).subscribe({
+      next:(sample: any)=>{
+        console.log(sample)
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
+      }
+    })
+  }
+
+
 
 }
