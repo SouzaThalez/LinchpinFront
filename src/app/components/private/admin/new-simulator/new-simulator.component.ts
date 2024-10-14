@@ -3,6 +3,8 @@ import { simulators } from '../../../../data/simulators';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { NewSimulatorDialogComponent } from './new-simulator-dialog/new-simulator-dialog.component';
+import { HttpClient } from '@angular/common/http';
+import { DetailSimulatorDialogComponent } from './detail-simulator-dialog/detail-simulator-dialog.component';
 
 @Component({
   selector: 'app-new-simulator',
@@ -11,18 +13,23 @@ import { NewSimulatorDialogComponent } from './new-simulator-dialog/new-simulato
 })
 export class NewSimulatorComponent implements OnInit{
 
-  midiumSimulators = simulators.mediumFidelity;
+  // midiumSimulators = simulators.mediumFidelity;
+  mediumSimulators: any;
+
   highSimulators = simulators.highFidelity;
   lowCategories = simulators.lowFidelity;
+
   
   value:any;
   constructor(
     private matDialog: MatDialog,
     private activeRoute: ActivatedRoute,
+    private httpClient: HttpClient
   ){}
   
   ngOnInit(): void {
-    console.log(this.lowCategories)
+    console.log(this.lowCategories);
+    this.getMediumSimulators();
   }
 
   getSimulatorData(element: number){
@@ -40,18 +47,47 @@ export class NewSimulatorComponent implements OnInit{
     // }
   }
 
-  openNewSimulatorDialog(simulator:any){
+  openDetailSimulatorDialog(simulator:any){
       
-    let dialogRef = this.matDialog.open(NewSimulatorDialogComponent,{
+    let dialogRef = this.matDialog.open(DetailSimulatorDialogComponent,{
       disableClose: true,
       width:'468px',
-      data:{simulatorData:simulator}
+      data:{
+        simulatorData:simulator,
+      }
   
     })
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
         
+      }
+    })
+  }
+  openNewSimulatorDialog(){
+    let dialogRef = this.matDialog.open(NewSimulatorDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      data:{}
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
+
+
+  private getMediumSimulators(){
+
+    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+      next:(sample: any)=>{
+        this.mediumSimulators = sample
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
       }
     })
   }

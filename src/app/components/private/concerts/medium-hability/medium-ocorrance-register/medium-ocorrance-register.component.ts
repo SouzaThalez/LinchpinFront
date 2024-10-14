@@ -81,7 +81,7 @@ export class MediumOcorranceRegisterComponent implements OnInit{
   }
 
   private updateReport(model:any){
-
+  
     this.httpClient.put('http://localhost:3000/LessonReports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{

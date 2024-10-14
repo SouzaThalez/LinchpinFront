@@ -13,12 +13,17 @@ export class DeleteCodeDialogComponent implements OnInit{
     public dialogRef: MatDialogRef<DeleteCodeDialogComponent>,
     private matDialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: {
-      simulatorData: any
+      simulatorCode: any
     },
   ){}
 
   ngOnInit(): void {
-    console.log(this.data.simulatorData)
+    // console.log(this.data.simulatorData)
+  }
+
+
+  closeDialog(){
+    this.dialogRef.close(this.data.simulatorCode);
   }
 
 }

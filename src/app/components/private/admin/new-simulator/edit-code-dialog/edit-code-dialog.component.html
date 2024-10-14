@@ -1,1 +1,74 @@
-<p>edit-code-dialog works!</p>
+<div class="edit-code-dialog" *ngIf="data.isEditCodeDialog">
+
+    <div class="header">
+        <div class="close" mat-dialog-close>
+            <span class="material-symbols-outlined">close</span>
+        </div>
+        <div class="header-container">
+            <h1>Editar códgio Simulador</h1>
+            <img src="assets/images/logo/edit-tag-logo.png" alt="">
+        </div>
+    </div>
+    
+    <mat-dialog-content class="mat-typography" >
+            <div class="dialog-body" [formGroup]="editCodeForm">
+    
+    
+                <div class="code-field">
+                    <mat-form-field class="code-form" appearance="outline">
+                        <mat-label>Código</mat-label>
+                        <input matInput formControlName="codeValue" (keyup.enter)="submitCode()">
+                        <mat-error *ngIf="editCodeForm.get('codeValue').hasError('invalidCode')">
+                            O código deve ter 6 caracteres e pode incluir apenas letras maiúsculas e números.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+    
+            </div>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions class="dialog-actions">
+        <button class="default-btn confirm-btn" (click)="submitCode()">Confirmar</button>
+    </mat-dialog-actions>
+    
+</div>
+
+<div class="new-code-dialog" *ngIf="data.isNewCodeDialog">
+
+    <div class="header">
+        <div class="close" mat-dialog-close>
+            <span class="material-symbols-outlined">close</span>
+        </div>
+        <div class="header-container">
+            <h1>Novo códgio Simulador</h1>
+            <img src="assets/images/logo/new-tag-logo.png" alt="">
+        </div>
+    </div>
+    
+    <mat-dialog-content class="mat-typography" >
+
+            <div class="dialog-body" [formGroup]="newCodeForm">
+    
+                <div class="code-field">
+                    <mat-form-field class="code-form" appearance="outline">
+                        <mat-label>Novo Código</mat-label>
+                        <input matInput formControlName="code" (keyup.enter)="submitCode()">
+                        <mat-error *ngIf="newCodeForm.get('code').hasError('invalidCode')">
+                            O código deve ter 6 caracteres e pode incluir apenas letras MAIÚSCULAS e números.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+    
+            </div>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions class="dialog-actions">
+     
+        <!-- <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button> -->
+        <button class="default-btn confirm-btn" (click)="submitCode()">Confirmar</button>
+        
+    </mat-dialog-actions>
+    
+</div>
+
+

@@ -82,13 +82,13 @@
                 <div class="details-list"*ngSwitchCase="2">
                     
                     <div class="detail-header">
-                        <span>Total: {{midiumSimulators.length}}</span>
-                        <button mat-raised-button> + Novo simulador</button>
+                        <span>Total: {{mediumSimulators.length}}</span>
+                        <button mat-raised-button (click)="openNewSimulatorDialog()"> + Novo simulador</button>
                     </div>
 
                     <div class="card-container" 
-                         *ngFor="let simulator of midiumSimulators"
-                         (click)="openNewSimulatorDialog(simulator)">
+                         *ngFor="let simulator of mediumSimulators"
+                         (click)="openDetailSimulatorDialog(simulator)">
                         <div class="card-body">
                             <div class="card-head">
                                 <div class="card-image">

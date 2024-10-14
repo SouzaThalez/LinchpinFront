@@ -580,7 +580,7 @@ export const simulators ={
               {code:'ANNE42',disabled:false},
               {code:'ANNE20',disabled:false}
               ],
-            register: false
+           
           },
           {
             name:'Nurse Anne',
@@ -590,7 +590,7 @@ export const simulators ={
               {code:'NUR7GH',disabled:false},
               {code:'NUR8GH',disabled:false}
               ],
-            register: false
+           
           },
           {
             name:'MegaCode Kelly',
@@ -600,7 +600,7 @@ export const simulators ={
               {code:'KE8PL2',disabled:false},
               {code:'KE8PL5',disabled:false}
             ],
-            register: false
+           
           },
           {
             name:'MegaCode Kid',
@@ -611,8 +611,8 @@ export const simulators ={
             {code:'DC-2022-03-14',disabled:false},
             {code:'OSR-A5095-003',disabled:false},
             {code:'DC-2022-06-08',disabled:false}
-          ],
-            register: false
+            ],
+           
           }
     ],
 

@@ -14,6 +14,7 @@ import { NewSimulatorDialogComponent } from './new-simulator/new-simulator-dialo
 import {MatDialogModule} from '@angular/material/dialog';
 import { DeleteCodeDialogComponent } from './new-simulator/delete-code-dialog/delete-code-dialog.component';
 import { EditCodeDialogComponent } from './new-simulator/edit-code-dialog/edit-code-dialog.component';
+import { DetailSimulatorDialogComponent } from './new-simulator/detail-simulator-dialog/detail-simulator-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditCodeDialogComponent } from './new-simulator/edit-code-dialog/edit-c
     NewSimulatorComponent,
     NewSimulatorDialogComponent,
     DeleteCodeDialogComponent,
-    EditCodeDialogComponent
+    EditCodeDialogComponent,
+    DetailSimulatorDialogComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { EditCodeDialogComponent } from './new-simulator/edit-code-dialog/edit-c
     ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+
   ]
 })
 export class AdminModule { }

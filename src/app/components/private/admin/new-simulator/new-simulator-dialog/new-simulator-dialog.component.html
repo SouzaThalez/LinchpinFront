@@ -5,7 +5,7 @@
     <div class="header-container">
         <img src="assets/images/logo/logo_icon.png" alt="">
         <img src="assets/images/logo/logo_title.png" alt="">
-        <img src="assets/icons/add.png" alt="">
+        <!-- <img src="assets/icons/add.png" alt=""> -->
     </div>
 </div>
 
@@ -13,38 +13,37 @@
         <div class="dialog-body">
 
             <div class="body-header">
-                <span class="simulator-image">
-                    <img [src]="data?.simulatorData?.image" alt="">
-                </span>
+                <div class="simulator-image">
+                    <img src="assets/images/default-image.jpg" alt="">
+                    <button mat-raised-button>+Imagem</button>
+                </div>
                 <div class="header-description">
-                    <h1>Adicionar outro simulador</h1>
-                    <span>Nome: {{data?.simulatorData?.name}}</span>
-                    <span>Categoria: Baixa Fidelidade</span>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nome do simulador</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Código do simulador</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                
                 </div>
             </div>
 
-            <div class="dialog-description">
-                <h2>Códigos existentes</h2>
-                <div class="description">
-                    <div class="code" *ngFor="let code of data?.simulatorData?.codes">
-                        <div class="code-body">
-                            <span>{{code.code}}</span>
-                            <div class="code-icons">
-                                <span class="material-symbols-outlined edit-icon">edit</span>
-                                <span class="material-symbols-outlined remove-icon" (click)="openDeleteCodeDialog(code.code)">delete</span>
-                            </div>
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
+            <div class="simulator-description">
+                <h2>Descrição do simulador</h2>
+                <mat-form-field class="simulator-description-text" appearance="outline">
+                    <mat-label>Este simulador é para...</mat-label>
+                    <textarea matInput></textarea>
+                  </mat-form-field>
+            
+            </div>    
+
         </div>
 </mat-dialog-content>
 
 <mat-dialog-actions class="dialog-actions">
- 
-    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <!-- <button class="default-btn confirm-btn">Download</button> -->
-    
+    <button class="default-btn confirm-btn" (click)="submitForm()">Confirmar</button>
+            
 </mat-dialog-actions>
 

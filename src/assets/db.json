@@ -79,7 +79,14 @@
       "hasDescription": true,
       "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
       "user": null,
-      "id": 4
+      "id": 4,
+      "intervention": {
+        "interventionText": "frfrfrfr",
+        "interventionDate": "23-10-2024",
+        "interventionStatus": "Em analise pelo analista",
+        "interventionUser": null
+      },
+      "hasIntervention": true
     }
   ],
   "LessonReports": [
@@ -218,8 +225,56 @@
         "simulatorCategory": "media",
         "date": "01-10-2024"
       },
+      "hasIntervention": true,
+      "id": 6,
+      "intervention": {
+        "interventionText": "frfr",
+        "interventionDate": "04-10-2024",
+        "interventionStatus": "Em analise pelo analista",
+        "interventionUser": null
+      }
+    },
+    {
+      "date": "04-10-2024",
+      "lessonName": "Primeira - Apresentação inaugural",
+      "lessonOcorrance": "Não houve registro de ocorrência de aula",
+      "lessonDescription": false,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "1",
+      "user": null,
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "04-10-2024"
+      },
       "hasIntervention": false,
-      "id": 6
+      "id": 7
+    },
+    {
+      "date": "11-10-2024",
+      "lessonName": "Primeira - Apresentação inaugural",
+      "lessonOcorrance": "Não houve registro de ocorrência de aula",
+      "lessonDescription": false,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "1",
+      "user": null,
+      "simulatorDescription": true,
+      "simulatorReport": {
+        "name": "MegaCode Kid",
+        "code": "DC-2022-06-08",
+        "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
+        "ocorrance": "frfrfrfrfrfr",
+        "simulatorCategory": "media",
+        "date": "11-10-2024"
+      },
+      "hasIntervention": false,
+      "id": 8
     }
   ],
   "manitanceReports": [
@@ -511,6 +566,112 @@
       "audioAndMediaRegister": "Nenhuma Falha",
       "scenarioCategory": "Corrida",
       "user": null,
+      "id": 4
+    }
+  ],
+  "mediumSimulators": [
+    {
+      "name": "Ressusci Anne",
+      "image": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "description": "Este simulador é mais indicado para monitorização e BLS ...",
+      "codes": [
+        {
+          "code": "ANNE31",
+          "disabled": false
+        },
+        {
+          "code": "ANNE23",
+          "disabled": false
+        },
+        {
+          "code": "ANNE22",
+          "disabled": false
+        },
+        {
+          "code": "ANNE42",
+          "disabled": false
+        },
+        {
+          "code": "ANNE33",
+          "disabled": false
+        },
+        {
+          "code": "ANNE34",
+          "disabled": false
+        },
+        {
+          "code": "ANNE35",
+          "disabled": false
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Nurse Anne",
+      "image": "assets/images/Simulators/MediumFidelity/nurseAnne.jpeg",
+      "description": "Este simulador é mais indicado a cuidados com a gestante ...",
+      "codes": [
+        {
+          "code": "NUR9GH",
+          "disabled": false
+        },
+        {
+          "code": "NUR7GH",
+          "disabled": false
+        },
+        {
+          "code": "NUR3GH",
+          "disabled": false
+        },
+        {
+          "code": "NUR1GH",
+          "disabled": false
+        },
+        {
+          "code": "NUR6GH",
+          "disabled": false
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "MegaCode Kelly",
+      "image": "assets/images/Simulators/MediumFidelity/megaKelly.jpeg",
+      "description": "Este simulador é mais indicado para Ausculta cardiaca ...",
+      "codes": [
+        {
+          "code": "KE8PL2",
+          "disabled": false
+        },
+        {
+          "code": "KE8PL5",
+          "disabled": false
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "MegaCode Kid",
+      "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
+      "description": "Este simulador é mais indicado para exame da criança ...",
+      "codes": [
+        {
+          "code": "DC2022",
+          "disabled": false
+        },
+        {
+          "code": "DC2023",
+          "disabled": false
+        },
+        {
+          "code": "DC2024",
+          "disabled": false
+        },
+        {
+          "code": "DC2025",
+          "disabled": false
+        }
+      ],
       "id": 4
     }
   ]
