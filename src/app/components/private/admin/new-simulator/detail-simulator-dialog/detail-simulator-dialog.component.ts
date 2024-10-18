@@ -5,6 +5,7 @@ import { DeleteCodeDialogComponent } from '../delete-code-dialog/delete-code-dia
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DeleteSimulatorDialogComponent } from '../delete-simulator-dialog/delete-simulator-dialog.component';
 
 @Component({
   selector: 'app-detail-simulator-dialog',
@@ -116,17 +117,18 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   openRemoveSimulator(){
 
-    let dialogRef = this.matDialog.open(DeleteCodeDialogComponent,{
+    let dialogRef = this.matDialog.open(DeleteSimulatorDialogComponent,{
       disableClose: true,
       width:'468px',
-      
+      data:{
+        simulator: this.data.simulatorData
+      }
   
     })
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
-        debugger
+        this.removeSimulatorData(result);
       }
     })
 
@@ -178,7 +180,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
   }
 
   private removeSimulatorData(model:any){
-
+debugger
     this.httpClient.delete('http://localhost:3000/mediumSimulators/' + model.id)
     .subscribe({
         next: (sample: any)=>{

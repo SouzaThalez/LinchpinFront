@@ -675,20 +675,32 @@
       "id": 4
     },
     {
-      "name": "SimMan 3D",
+      "name": "CHINES",
       "image": "assets/images/default-image.jpg",
-      "description": "Descrição simples",
+      "description": "Descrição do simulador Chines",
       "codes": [
         {
-          "code": "EOMD4",
+          "code": "CH30222",
           "disabled": false
         },
         {
-          "code": "EOMD5",
+          "code": "ODMDO2",
           "disabled": false
         }
       ],
       "id": 5
+    },
+    {
+      "name": "JAPONES",
+      "image": "assets/images/default-image.jpg",
+      "description": "Descrição do simulador JAPONES",
+      "codes": [
+        {
+          "code": "QDQWDQ",
+          "disabled": false
+        }
+      ],
+      "id": 6
     }
   ]
 }

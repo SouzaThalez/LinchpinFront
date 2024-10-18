@@ -73,6 +73,14 @@ export class NewSimulatorDialogComponent implements OnInit{
     codes.removeAt(position); 
   }
   
+  
+  private codeValidator(control: any) {
+    const value = control.value;
+    const regex = /^[A-Z0-9]{6}$/; // Regex for 6 uppercase letters and numbers
+    return regex.test(value) ? null : { invalidCode: true };
+  }
+
+
   get codes(): FormArray {
     return this.form.get('codes') as FormArray;  // Ensure correct type
   }

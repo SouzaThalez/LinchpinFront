@@ -1,5 +1,5 @@
 .header{
-    padding-top: 16px;
+    padding-top: 7px;
 
     .close{
         display: flex;
@@ -42,7 +42,11 @@
 }
 
 .dialog-body{
-  
+    display: flex;
+    flex-direction: column;
+    height: 473px;
+    gap: 13px;
+    
     .body-header{
         display: flex;
         // align-items: center;
@@ -65,7 +69,7 @@
     .dialog-description{
         padding-top: 13px;
         overflow-y: auto;
-        height: 382px;
+        // height: 382px;
      
         .code{
 
@@ -110,6 +114,7 @@
                 }
             }
         }
+
         .code-list{
             padding-right: 10px;
         }
