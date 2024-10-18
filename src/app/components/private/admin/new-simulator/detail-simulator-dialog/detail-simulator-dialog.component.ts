@@ -25,9 +25,12 @@ export class DetailSimulatorDialogComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    console.log(this.data.simulatorData)
+    // console.log(this.data.simulatorData)
   }
 
+  closeDialog(value: any){
+    this.dialogRef.close(value);
+  }
 
   openDeleteCodeDialog(code: any, position:number){
 
@@ -47,7 +50,21 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
         this.data.simulatorData.codes = array;
         let model = this.data.simulatorData;
-        this.removeCode(model);
+    
+        //REMOVE DATA BASE ON THE SIMULATOR CATEGORY
+        switch (this.data.simulatorData.simulatorCategory){
+            case 'media':
+              this.removeMediumCode(model);
+              break;
+            case 'alta':
+              this.removeHighCode(model);
+            break;
+          
+            default:
+              break;
+        }
+
+
 
       }
     })
@@ -74,7 +91,20 @@ export class DetailSimulatorDialogComponent implements OnInit{
         
         this.data.simulatorData.codes[position].code = result;
         let model = this.data.simulatorData;
-        this.updateCode(model)
+
+        //Update DATA BASE ON THE SIMULATOR CATEGORY
+        switch (this.data.simulatorData.simulatorCategory){
+          case 'media':
+            this.updateMediumCode(model);
+
+            break;
+          case 'alta':
+            this.updateHighCode(model);
+          break;
+        
+          default:
+            break;
+        }
 
       }
     })
@@ -104,11 +134,20 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
         code.code = result;
         this.data.simulatorData.codes.push(code);
-        
-    
         let model = this.data.simulatorData;
-       
-        this.addNewCode(model);
+
+        //POST DATA BASE ON THE SIMULATOR CATEGORY
+        switch (this.data.simulatorData.simulatorCategory){
+          case 'media':
+            this.addNewMediumCode(model);
+            break;
+          case 'alta':
+            this.addNewHighCode(model);
+          break;
+        
+          default:
+            break;
+        }
  
 
       }
@@ -128,14 +167,31 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        this.removeSimulatorData(result);
+      
+      let model = result;
+         //POST DATA BASE ON THE SIMULATOR CATEGORY
+         switch (model.simulatorCategory){
+          case 'media':
+            this.removeMediumSimulatorData(model);
+            this.closeDialog(model);
+
+            break;
+          case 'alta':
+            this.removeHighSimulatorData(model);
+            this.closeDialog(model);
+          break;
+        
+          default:
+            break;
+        }
+ 
       }
     })
 
 
   }
 
-  private updateCode(model:any){
+  private updateMediumCode(model:any){
   
     this.httpClient.put('http://localhost:3000/mediumSimulators/' + model.id, model)
     .subscribe({
@@ -150,8 +206,24 @@ export class DetailSimulatorDialogComponent implements OnInit{
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
   }
+  
+  private updateHighCode(model:any){
+  
+    this.httpClient.put('http://localhost:3000/highSimulators/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+          
+          this.snackBar.open('Código atualizado com sucesso!', 'Close', {
+            horizontalPosition: snackBarConfig.horizontalPosition,
+            verticalPosition: snackBarConfig.verticalPosition,
+            duration: snackBarConfig.durationInSeconds * 1000 
+          });
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
 
-  private removeCode(model:any){
+  private removeMediumCode(model:any){
 
     this.httpClient.put('http://localhost:3000/mediumSimulators/' + model.id, model)
     .subscribe({
@@ -168,7 +240,24 @@ export class DetailSimulatorDialogComponent implements OnInit{
     })
   }
 
-  private addNewCode(model:any){
+  private removeHighCode(model:any){
+
+    this.httpClient.put('http://localhost:3000/highSimulators/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+          
+          this.snackBar.open('Código removido com sucesso!', 'Close', {
+            horizontalPosition: snackBarConfig.horizontalPosition,
+            verticalPosition: snackBarConfig.verticalPosition,
+            duration: snackBarConfig.durationInSeconds * 1000 
+          });
+
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private addNewMediumCode(model:any){
     
     this.httpClient.put('http://localhost:3000/mediumSimulators/' + model.id, model)
     .subscribe({
@@ -179,12 +268,35 @@ export class DetailSimulatorDialogComponent implements OnInit{
     })
   }
 
-  private removeSimulatorData(model:any){
-debugger
+  private addNewHighCode(model:any){
+
+    this.httpClient.put('http://localhost:3000/highSimulators/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private removeMediumSimulatorData(model:any){
+
     this.httpClient.delete('http://localhost:3000/mediumSimulators/' + model.id)
     .subscribe({
         next: (sample: any)=>{
-          console.log('REMOVED> ',sample)
+          console.log('REMOVED> ',sample);
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private removeHighSimulatorData(model:any){
+
+    this.httpClient.delete('http://localhost:3000/highSimulators/' + model.id)
+    .subscribe({
+        next: (sample: any)=>{
+          console.log('REMOVED> ',sample);
+          
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })

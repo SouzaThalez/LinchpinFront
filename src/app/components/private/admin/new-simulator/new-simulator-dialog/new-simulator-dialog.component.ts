@@ -22,7 +22,7 @@ export class NewSimulatorDialogComponent implements OnInit{
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      simulatorData: any
+      simulatorCategory: string
     },
   ){}
 
@@ -43,8 +43,10 @@ export class NewSimulatorDialogComponent implements OnInit{
     }
     //defaul image
     this.form.patchValue({
-      image: 'assets/images/default-image.jpg'
+      image: 'assets/images/default-image.jpg',
+      simulatorCategory: this.data.simulatorCategory
     })
+
     this.dialogRef.close(this.form.value);
 
   }
@@ -96,7 +98,8 @@ export class NewSimulatorDialogComponent implements OnInit{
           code: [null, Validators.required],  
           disabled: [false]  
         })
-      ])
+      ]),
+      simulatorCategory:['']
     })
 
     return form;

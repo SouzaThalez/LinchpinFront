@@ -32,9 +32,10 @@ export class EditCodeDialogComponent implements OnInit{
 
 
   ngOnInit(): void {
-
+    
     this.editCodeForm = this.createEditForm();
     this.newCodeForm = this.createNewCodeForm();
+    this.data.simulatorData
     // this.codeValue = this.data.selectedCode;
   }
 
@@ -118,9 +119,6 @@ export class EditCodeDialogComponent implements OnInit{
 
     } 
    
-   
-   
-
 
   }
 

@@ -33,7 +33,6 @@
     {
       "date": "06-10-2024",
       "cleaningCategory": "secundária",
-      "simulatorCategory": "alta",
       "simulatorName": "SimMan ALS - Esquerdo",
       "simulatorCode": "ALS982",
       "findings": "Não houve achados durante a limpeza deste simulador",
@@ -600,7 +599,8 @@
           "disabled": false
         }
       ],
-      "id": 1
+      "id": 1,
+      "simulatorCategory": "media"
     },
     {
       "name": "Nurse Anne",
@@ -628,7 +628,8 @@
           "disabled": false
         }
       ],
-      "id": 2
+      "id": 2,
+      "simulatorCategory": "media"
     },
     {
       "name": "MegaCode Kelly",
@@ -648,7 +649,8 @@
           "disabled": false
         }
       ],
-      "id": 3
+      "id": 3,
+      "simulatorCategory": "media"
     },
     {
       "name": "MegaCode Kid",
@@ -672,23 +674,8 @@
           "disabled": false
         }
       ],
-      "id": 4
-    },
-    {
-      "name": "CHINES",
-      "image": "assets/images/default-image.jpg",
-      "description": "Descrição do simulador Chines",
-      "codes": [
-        {
-          "code": "CH30222",
-          "disabled": false
-        },
-        {
-          "code": "ODMDO2",
-          "disabled": false
-        }
-      ],
-      "id": 5
+      "id": 4,
+      "simulatorCategory": "media"
     },
     {
       "name": "JAPONES",
@@ -700,7 +687,144 @@
           "disabled": false
         }
       ],
+      "id": 6,
+      "simulatorCategory": "media"
+    }
+  ],
+  "highSimulators": [
+    {
+      "name": "SimMan ALS - Esquerdo",
+      "image": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "description": "Este é um simulador mais indicado para simulação padrão...",
+      "codes": [
+        {
+          "code": "ALS982",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 1
+    },
+    {
+      "name": "SimMan ALS - Direito",
+      "image": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "description": "Este é um simulador mais indicado para simulação padrão...",
+      "codes": [
+        {
+          "code": "ALS431",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 2
+    },
+    {
+      "name": "SimMan 3G",
+      "image": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "description": "Este é um simulador mais indicado para fluidos corporais...",
+      "codes": [
+        {
+          "code": "3G4231",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 3
+    },
+    {
+      "name": "Harvey",
+      "image": "assets/images/Simulators/HighFidelity/harvey.png",
+      "description": "Este é um simulador mais indicado para ausculta cardiaca avançada...",
+      "codes": [
+        {
+          "code": "HAR331",
+          "disabled": false
+        },
+        {
+          "code": "HAR333",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 4
+    },
+    {
+      "name": "SimMom",
+      "image": "assets/images/Simulators/HighFidelity/simMom.jpg",
+      "description": "Este é um simulador mais indicado para parto...",
+      "codes": [
+        {
+          "code": "MOM567",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 5
+    },
+    {
+      "name": "Nurse Anne - Enfermeira",
+      "image": "assets/images/Simulators/HighFidelity/nursingCare.jpg",
+      "description": "Este é um simulador mais indicado para cuidados da enfermagem...",
+      "codes": [
+        {
+          "code": "NURH320",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
       "id": 6
+    },
+    {
+      "name": "Sim Junior",
+      "image": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
+      "description": "Este é um simulador mais indicado para atendimento pediatrico...",
+      "codes": [
+        {
+          "code": "NIOR2123",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 7
+    },
+    {
+      "name": "Sim Baby",
+      "image": "assets/images/Simulators/HighFidelity/simBaby.jpeg",
+      "description": "Este é um simulador mais indicado para atendimento pediatrico...",
+      "codes": [
+        {
+          "code": "BAYS2123",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 8
+    },
+    {
+      "name": "Sim NewB",
+      "image": "assets/images/Simulators/HighFidelity/SimNewb.jpeg",
+      "description": "Este é um simulador mais indicado para atendimento recem-nascido...",
+      "codes": [
+        {
+          "code": "NIWE2123",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 9
+    },
+    {
+      "name": "Sim Baby Light",
+      "image": "assets/images/Simulators/HighFidelity/simBabyLight.png",
+      "description": "Este é um simulador mais indicado para atendimento pediatrico...",
+      "codes": [
+        {
+          "code": "LIGH2123",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "id": 10
     }
   ]
 }

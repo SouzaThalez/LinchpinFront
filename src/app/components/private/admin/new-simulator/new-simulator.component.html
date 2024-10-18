@@ -83,7 +83,7 @@
                     
                     <div class="detail-header">
                         <span>Total: {{mediumSimulators.length}}</span>
-                        <button mat-raised-button (click)="openNewSimulatorDialog()"> + Novo simulador</button>
+                        <button mat-raised-button (click)="openNewSimulatorDialog(media)"> + Novo simulador</button>
                     </div>
 
                     <div class="card-container" 
@@ -109,9 +109,12 @@
                     
                     <div class="detail-header">
                         <span>Total: {{highSimulators.length}}</span>
-                        <button mat-raised-button> + Novo simulador</button>
+                        
+                        <button mat-raised-button (click)="openNewSimulatorDialog(alta)"> + Novo simulador</button>
                     </div>
-                    <div class="card-container" *ngFor="let simulator of highSimulators">
+                    <div class="card-container" 
+                         *ngFor="let simulator of highSimulators"
+                         (click)="openDetailSimulatorDialog(simulator)">
                         <div class="card-body">
                             <div class="card-head">
                                 <div class="card-image">

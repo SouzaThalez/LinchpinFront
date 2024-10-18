@@ -15,8 +15,10 @@ export class NewSimulatorComponent implements OnInit{
 
   // midiumSimulators = simulators.mediumFidelity;
   mediumSimulators: any;
+  alta = 'alta';
+  media = 'media';
 
-  highSimulators = simulators.highFidelity;
+  highSimulators: any;
   lowCategories = simulators.lowFidelity;
 
   
@@ -30,21 +32,12 @@ export class NewSimulatorComponent implements OnInit{
   ngOnInit(): void {
     console.log(this.lowCategories);
     this.getMediumSimulators();
+    this.getHightSimulators();
   }
 
   getSimulatorData(element: number){
     this.value = element;
-    // switch (element) {
-    //   case 1:
-    //     this.lowSimulatorsData = simulators.highFidelity;
-    //     break;
-    //     case 1:
-    //     this.lowSimulatorsData = simulators.mediumFidelity;
-    //       break;
-    
-    //   default:
-    //     break;
-    // }
+
   }
 
   openDetailSimulatorDialog(simulator:any){
@@ -61,28 +54,80 @@ export class NewSimulatorComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
+debugger
+        let model = result;
+        //Get DATA BASE ON THE SIMULATOR CATEGORY
+        switch (model.simulatorCategory){
+          case 'media':
+            this.getMediumSimulators()
+
+            break;
+          case 'alta':
+            this.getHightSimulators();
+          break;
         
+          default:
+            break;
+        }
       }
     })
   }
 
-  openNewSimulatorDialog(){
+  openNewSimulatorDialog(value:string){
 
     let dialogRef = this.matDialog.open(NewSimulatorDialogComponent,{
       disableClose: true,
       width:'468px',
-      data:{}
+      data:{
+        simulatorCategory: value
+      }
   
     })
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-          
-          this.postMediumSimulators(result);
+       
+        let model = result;
+        //Update DATA BASE ON THE SIMULATOR CATEGORY
+        switch (model.simulatorCategory){
+          case 'media':
+            this.postMediumSimulators(model);
+
+            break;
+          case 'alta':
+            this.postHighSimulators(model);
+          break;
+        
+          default:
+            break;
+        }
+        
       }
     })
   }
 
+  private postMediumSimulators(model:any){
+
+    this.httpClient.post('http://localhost:3000/mediumSimulators/',model).subscribe({
+      next:(sample: any)=>{
+        this.getMediumSimulators();
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
+      }
+    })
+  }
+  private postHighSimulators(model:any){
+
+    this.httpClient.post('http://localhost:3000/highSimulators/',model).subscribe({
+      next:(sample: any)=>{
+        this.getHightSimulators();
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to highSimulators ',error)
+      }
+    })
+  }
 
   private getMediumSimulators(){
 
@@ -95,19 +140,18 @@ export class NewSimulatorComponent implements OnInit{
       }
     })
   }
+  private getHightSimulators(){
 
-  private postMediumSimulators(model:any){
-
-    this.httpClient.post('http://localhost:3000/mediumSimulators/',model).subscribe({
+    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
       next:(sample: any)=>{
-        console.log(sample);
-        this.getMediumSimulators();
+        this.highSimulators = sample
       },
       error:(error)=>{
-        console.log('Something wrong with the request to mediumSimulators ',error)
+        console.log('Something wrong with the request to highSimulators ',error)
       }
     })
   }
+
 
 
 
