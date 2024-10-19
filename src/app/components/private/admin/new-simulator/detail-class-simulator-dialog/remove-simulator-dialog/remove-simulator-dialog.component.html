@@ -1,0 +1,46 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <!-- <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <img src="assets/icons/add.png" alt="">
+    </div> -->
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body">
+            <h2>Tem certeza que deseja remover este simulador ?</h2>
+            <div class="body-header">
+                <span class="simulator-image">
+                    <img [src]="data?.simulatorData?.image" alt="">
+                </span>
+                <div class="header-description">
+                    <span>Nome: {{data?.simulatorData?.name}}</span>
+                    <div class="codes">
+                        <span *ngFor="let element of data?.simulatorData?.codes">{{element.code}}/</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="dialog-description">
+                <h2>*Antes de remover</h2>
+                <div class="description-text">
+                    <ul class="description-list">
+                        <li>Antes de remover esta <b>categoria de simulador</b>, tenha atenção que esta ação irá remover também todos os códigos a ele associados;</li>
+                        <li>Todos os relatórios que foram gerados para este simulador antes da remoção iram permanecer;</li>
+                        <li>Não haverá forma de registrar relatórios para este simulador após a remoção;</li>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="default-btn confirm-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn cancel-btn" (click)=closeDialog()>Remover</button>
+    
+</mat-dialog-actions>
+
