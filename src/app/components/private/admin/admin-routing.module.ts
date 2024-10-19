@@ -9,12 +9,12 @@ const routes: Routes = [
       component: AdminComponent,
       children:[
         {
-          path:'new-simulator',
+          path:'novo-simulador',
           component:NewSimulatorComponent
         },
         {
             path:'**',
-            redirectTo:'new-simulator' 
+            redirectTo:'novo-simulador' 
         }
       ]
     

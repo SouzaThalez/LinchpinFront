@@ -17,6 +17,7 @@ import { EditCodeDialogComponent } from './new-simulator/edit-code-dialog/edit-c
 import { DetailSimulatorDialogComponent } from './new-simulator/detail-simulator-dialog/detail-simulator-dialog.component';
 import { DeleteSimulatorDialogComponent } from './new-simulator/delete-simulator-dialog/delete-simulator-dialog.component';
 import { DetailClassSimulatorDialogComponent } from './new-simulator/detail-class-simulator-dialog/detail-class-simulator-dialog.component';
+import { NavMenuModule } from '../../shared/nav-menu/nav-menu.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DetailClassSimulatorDialogComponent } from './new-simulator/detail-clas
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
+    NavMenuModule
 
   ]
 })
