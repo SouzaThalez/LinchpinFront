@@ -16,6 +16,7 @@ import { DeleteCodeDialogComponent } from './new-simulator/delete-code-dialog/de
 import { EditCodeDialogComponent } from './new-simulator/edit-code-dialog/edit-code-dialog.component';
 import { DetailSimulatorDialogComponent } from './new-simulator/detail-simulator-dialog/detail-simulator-dialog.component';
 import { DeleteSimulatorDialogComponent } from './new-simulator/delete-simulator-dialog/delete-simulator-dialog.component';
+import { DetailClassSimulatorDialogComponent } from './new-simulator/detail-class-simulator-dialog/detail-class-simulator-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DeleteSimulatorDialogComponent } from './new-simulator/delete-simulator
     DeleteCodeDialogComponent,
     EditCodeDialogComponent,
     DetailSimulatorDialogComponent,
-    DeleteSimulatorDialogComponent
+    DeleteSimulatorDialogComponent,
+    DetailClassSimulatorDialogComponent
   ],
   imports: [
     CommonModule,

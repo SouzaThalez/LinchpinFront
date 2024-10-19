@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NewSimulatorDialogComponent } from './new-simulator-dialog/new-simulator-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { DetailSimulatorDialogComponent } from './detail-simulator-dialog/detail-simulator-dialog.component';
+import { DetailClassSimulatorDialogComponent } from './detail-class-simulator-dialog/detail-class-simulator-dialog.component';
 
 @Component({
   selector: 'app-new-simulator',
@@ -54,7 +55,40 @@ export class NewSimulatorComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-debugger
+
+        let model = result;
+        //Get DATA BASE ON THE SIMULATOR CATEGORY
+        switch (model.simulatorCategory){
+          case 'media':
+            this.getMediumSimulators()
+
+            break;
+          case 'alta':
+            this.getHightSimulators();
+          break;
+        
+          default:
+            break;
+        }
+      }
+    })
+  }
+
+  openDetailClassSimulatorDialog(simulator:any){
+      
+    let dialogRef = this.matDialog.open(DetailClassSimulatorDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      height:'660px',
+      data:{
+        simulatorData:simulator,
+      }
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+
         let model = result;
         //Get DATA BASE ON THE SIMULATOR CATEGORY
         switch (model.simulatorCategory){

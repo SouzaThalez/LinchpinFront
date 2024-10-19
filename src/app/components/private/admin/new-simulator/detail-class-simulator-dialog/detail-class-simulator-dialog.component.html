@@ -1,0 +1,67 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <img src="assets/icons/add.png" alt="">
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body">
+
+            <div class="body-header">
+                <span class="simulator-image">
+                    <img [src]="data?.simulatorData?.classImage" alt="">
+                </span>
+                <div class="header-description">
+                    <h1>Classe de Simuladores</h1>
+                    <span>Nome: {{data?.simulatorData?.simulatorClass}}</span>
+                    <span>Categoria: Baixa Fidelidade</span>
+                    <button mat-raised-button >Remover classe</button>
+                </div>
+            </div>
+
+            <div class="dialog-description scroll-container">
+                <h2>Simuladores da classe</h2>
+                <div class="new-sim">
+                    <span class="add-new-sim"> + Adicionar novo simulador</span>
+                </div>
+                <div class="simulator-list">
+                    <div class="simulator-container" *ngFor="let simulator of data?.simulatorData?.simulators">
+                        <div class="sim-image">
+                                <img [src]="simulator.image" alt="">
+                        </div>
+                        <div class="sim-content">{{simulator.name}}</div>
+                        <div class="sim-actions">
+                            <span class="material-symbols-outlined edit-icon">edit</span>
+                            <span class="material-symbols-outlined remove-icon">delete</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="code add" (click)="openNewCodeDialog()">
+                    <span class="add-code"> + Adicionar novo código</span>
+                </div>
+                <div class="code-list">
+                    <div class="code" *ngFor="let code of data?.simulatorData?.codes index as i ">
+                        <div class="code-body">
+                            <span>{{code.code}}</span>
+                            <div class="code-icons">
+                                <span class="material-symbols-outlined edit-icon" (click)="openEditCodeDialog(code.code,i)">edit</span>
+                                <span class="material-symbols-outlined remove-icon" (click)="openDeleteCodeDialog(code.code,i)">delete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+
+    <button class="default-btn confirm-btn" mat-dialog-close>Cancelar</button>
+       
+</mat-dialog-actions>
+

@@ -7,8 +7,7 @@
                 <div class="card-list">
                     <div class="simulator-container"
                         (click)="getSimulatorData(1)">
-                        <mat-card class="simulator-card" appearance="outlined"
-                                  (click)="getSimulatorData(1)">
+                        <mat-card class="simulator-card" appearance="outlined">
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image">
                                     <img src="assets/images/default-image.jpg" alt="">
@@ -63,7 +62,9 @@
                         <button mat-raised-button> + Nova categoria de simulador</button>
                     </div>
                    
-                    <div class="card-container" *ngFor="let simulator of lowCategories index as i">
+                    <div class="card-container" 
+                         *ngFor="let simulator of lowCategories"
+                         (click)="openDetailClassSimulatorDialog(simulator)">
                         <div class="card-body">
                             <div class="card-head">
                                 <div class="card-image">
@@ -109,7 +110,6 @@
                     
                     <div class="detail-header">
                         <span>Total: {{highSimulators.length}}</span>
-                        
                         <button mat-raised-button (click)="openNewSimulatorDialog(alta)"> + Novo simulador</button>
                     </div>
                     <div class="card-container" 
