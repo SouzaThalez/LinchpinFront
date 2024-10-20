@@ -12,6 +12,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TrainingsComponent } from './trainings/trainings.component';
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { CursesComponent } from './curses/curses.component';
+import { NewTrainingDialogComponent } from './trainings/new-training-dialog/new-training-dialog.component';
+import { provideNgxMask } from 'ngx-mask';
+import { NewLessonDialogComponent } from './new-lesson-dialog/new-lesson-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 
@@ -20,7 +25,9 @@ import { CursesComponent } from './curses/curses.component';
     NewLessonComponent,
     TrainingsComponent,
     DisciplinesComponent,
-    CursesComponent
+    CursesComponent,
+    NewTrainingDialogComponent,
+    NewLessonDialogComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +41,11 @@ import { CursesComponent } from './curses/curses.component';
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
+    MatDatepickerModule
+  ],
+  providers: [
+    provideNgxMask(),
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
   ]
 })
 export class NewLessonModule { }

@@ -1,1 +1,32 @@
-<p>trainings works!</p>
+<div class="page">
+    <div class="page-header">
+        <div class="select-form-container">
+            <mat-form-field appearance="outline" class="form-input">
+                <mat-label>Treinamento...</mat-label>
+                <mat-select [(ngModel)]="trainingValue">
+                  <mat-option [value]="i" *ngFor="let element of cardType index as i">{{element.name}} - {{element.value}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <button mat-raised-button (click)="openNewTrainingDialog()"> + Novo Treinamento</button>
+    </div>
+    <div class="page-body">
+        <p><button mat-raised-button (click)="openNewLessonDialog()"> + Novo Aula</button></p>
+        <div class="details-list" *ngIf="cardType[trainingValue]?.lessons">
+            <div class="card-container" *ngFor="let lesson of cardType[trainingValue]?.lessons">
+                <div class="card-body">
+                  <div class="card-head">
+                    <div class="card-image">
+                      <img src="assets/images/logo/th-logo.png" alt="lesson image">
+                    </div>
+                    <div class="card-description">
+                      <span>{{lesson.name}}</span>
+                      <span>{{lesson.description}}</span>
+                      <span>Revisão: {{lesson.updateDate}}</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

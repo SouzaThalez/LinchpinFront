@@ -1,0 +1,58 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <!-- <img src="assets/icons/add.png" alt=""> -->
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body" [formGroup]="form">
+
+            <div class="body-header">
+
+                <div class="simulator-image">
+                  <img src="assets/images/logo/th-logo.png" alt="">
+                  <!-- <button mat-raised-button>+Imagem</button> -->
+                </div>
+                
+                <div class="header-description">
+
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Nome da Aula</mat-label>
+                        <input matInput placeholder="Ex.Sinais vitais" value="Sushi" formControlName="name">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="medium-date-picker">
+                        <mat-label>Data da revisão</mat-label>
+                        <input formControlName="date"  matInput [matDatepicker]="picker" formControlName="updateDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+    
+              
+                </div>
+              </div>
+              
+              <div class="simulator-description">
+                <h2>Descrição da Aula</h2>
+                <mat-form-field class="simulator-description-text" appearance="outline">
+                  <mat-label>Descrição da aula</mat-label>
+                  <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+
+              </div>
+
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="default-btn confirm-btn" (click)="submitForm()">Adicionar</button>
+            
+</mat-dialog-actions>
+
+
+
