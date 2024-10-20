@@ -1,17 +1,25 @@
 <div class="page">
     <div class="page-header">
-        <div class="select-form-container">
-            <mat-form-field appearance="outline" class="form-input">
+        <div class="grid-button-container">
+            <div class="grid-item">
+              <mat-form-field appearance="outline" class="form-options">
                 <mat-label>Treinamento...</mat-label>
                 <mat-select [(ngModel)]="trainingValue">
                   <mat-option [value]="i" *ngFor="let element of cardType index as i">{{element.name}} - {{element.value}}</mat-option>
                 </mat-select>
               </mat-form-field>
+            </div>
+            <div class="grid-item">
+              <button mat-raised-button class="form-options form-buttons" (click)="openNewLessonDialog()"> + Novo Aula</button>
+            </div>
+            <div class="grid-item">
+              <button mat-raised-button class="form-options form-buttons" (click)="openNewTrainingDialog()"> + Novo Treinamento</button> 
+            </div>
         </div>
-        <button mat-raised-button (click)="openNewTrainingDialog()"> + Novo Treinamento</button>
     </div>
+    
     <div class="page-body">
-        <p><button mat-raised-button (click)="openNewLessonDialog()"> + Novo Aula</button></p>
+        <p></p>
         <div class="details-list" *ngIf="cardType[trainingValue]?.lessons">
             <div class="card-container" *ngFor="let lesson of cardType[trainingValue]?.lessons">
                 <div class="card-body">

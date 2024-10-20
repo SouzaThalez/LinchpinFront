@@ -4,6 +4,7 @@ import { snackBarConfig } from '../../../../../data/snackBarData';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ocorranceData } from '../../../../../data/ocorranceData';
 
 @Component({
   selector: 'app-new-lesson-dialog',
@@ -14,6 +15,8 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 export class NewLessonDialogComponent implements OnInit{
 
   form: FormGroup;
+  cardType = ocorranceData.trainingTypes;
+  trainingValue:0;
 
   constructor(
     public dialogRef: MatDialogRef<NewLessonDialogComponent>,

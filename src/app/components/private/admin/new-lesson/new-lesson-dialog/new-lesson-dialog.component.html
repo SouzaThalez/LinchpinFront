@@ -35,16 +35,24 @@
     
               
                 </div>
-              </div>
+
+            </div>
               
-              <div class="simulator-description">
+            <div class="simulator-description">
+                <h2>Aula de qual TH?</h2>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Treinamento...</mat-label>
+                    <mat-select [(ngModel)]="trainingValue">
+                      <mat-option [value]="i" *ngFor="let element of cardType index as i">{{element.name}} - {{element.value}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 <h2>Descrição da Aula</h2>
                 <mat-form-field class="simulator-description-text" appearance="outline">
                   <mat-label>Descrição da aula</mat-label>
                   <textarea matInput formControlName="description"></textarea>
                 </mat-form-field>
 
-              </div>
+            </div>
 
         </div>
 </mat-dialog-content>
