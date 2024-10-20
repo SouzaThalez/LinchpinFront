@@ -6,7 +6,7 @@
         <!-- <img src="assets/images/logo/logo_icon.png" alt="">
         <img src="assets/images/logo/logo_title.png" alt="">
         <img src="assets/icons/add.png" alt=""> -->
-        <h2>Tem certeza que deseja remover este simulador ?</h2>
+        <h2>Tem certeza que deseja remover a classe de simulador ?</h2>
     </div>
 </div>
 
@@ -15,32 +15,32 @@
             <!-- <h2>Tem certeza que deseja remover este simulador ?</h2> -->
             <div class="body-header">
                 <span class="simulator-image">
-                    <img [src]="data?.simulatorData?.image" alt="">
+                    <img [src]="data?.simulatorData?.classImage" alt="">
                 </span>
                 <div class="header-description">
-                    <span>Nome: {{data?.simulatorData?.name}}</span>
-                    <span>Categoria: {{data?.simulatorData?.simulatorCategory}} Fidelidade</span>
+                    <span>Classe: {{data?.simulatorData?.simulatorClass}}</span>
+                    <span>Categoria: Baixa Fidelidade</span>
                     <span>* Leia as instruções abaixo antes de remover</span>
                     
                 </div>
             </div>
             <div class="dialog-description">
                 <div class="description-text">
-                    <h2>Códigos</h2>
+                    <h2>Simuladores da classe</h2>
                     <div class="grid">
-                        <div class="grid-item" *ngFor="let element of data?.simulatorData?.codes">
+                        <div class="grid-item" *ngFor="let element of data?.simulatorData?.simulators">
                             <div class="grid-item-body">
-                                <img src="assets/icons/code-tag-icon.png" alt="">
-                                <span>{{element.code}}</span>
+                                <img [src]="element.image" alt="">
+                                <span>{{element.name}}</span>
                             </div>
                            
                         </div>
                     </div>
                     <h2>*Antes de remover</h2>
                     <ul class="description-list">
-                        <li>Antes de remover esta <b>categoria de simulador</b>, tenha atenção que esta ação irá remover também todos os códigos a ele associados;</li>
-                        <li>Todos os relatórios que foram gerados para este simulador antes da remoção iram permanecer;</li>
-                        <li>Não haverá forma de registrar relatórios para este simulador após a remoção;</li>
+                        <li>Antes de remover esta <b>classe de simulador</b>, tenha atenção que esta ação irá remover também todos os simuladores a ela associados;</li>
+                        <li>Todos os relatórios que foram gerados para os simuladores desta classe <b>antes da remoção</b>  iram permanecer;</li>
+                        <li>Não haverá outra forma de fazer registros para os simuladores que foram excluidos junto com a classe;</li>
                     </ul>
                 </div>
                

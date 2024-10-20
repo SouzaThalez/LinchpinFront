@@ -32,7 +32,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
     this.dialogRef.close(value);
   }
 
-  openDeleteCodeDialog(code: any, position:number){
+  openDeleteCodeDialog(code: any, index:number){
 
     let dialogRef = this.matDialog.open(DeleteCodeDialogComponent,{
       disableClose: true,
@@ -46,7 +46,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
       
         let array:[] = [];
         array = this.data.simulatorData.codes;
-        array.splice(position,1);
+        array.splice(index,1);
 
         this.data.simulatorData.codes = array;
         let model = this.data.simulatorData;
@@ -169,7 +169,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
       if(result){
       
       let model = result;
-         //POST DATA BASE ON THE SIMULATOR CATEGORY
+         //renove DATA BASE ON THE SIMULATOR CATEGORY
          switch (model.simulatorCategory){
           case 'media':
             this.removeMediumSimulatorData(model);

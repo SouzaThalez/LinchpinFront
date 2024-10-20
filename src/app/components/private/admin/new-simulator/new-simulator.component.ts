@@ -6,6 +6,7 @@ import { NewSimulatorDialogComponent } from './new-simulator-dialog/new-simulato
 import { HttpClient } from '@angular/common/http';
 import { DetailSimulatorDialogComponent } from './detail-simulator-dialog/detail-simulator-dialog.component';
 import { DetailClassSimulatorDialogComponent } from './detail-class-simulator-dialog/detail-class-simulator-dialog.component';
+import { NewClassSimulatorDialogComponent } from './new-class-simulator-dialog/new-class-simulator-dialog.component';
 
 @Component({
   selector: 'app-new-simulator',
@@ -20,6 +21,7 @@ export class NewSimulatorComponent implements OnInit{
   media = 'media';
 
   highSimulators: any;
+  lowSimulators: any;
   lowCategories = simulators.lowFidelity;
 
   
@@ -31,9 +33,10 @@ export class NewSimulatorComponent implements OnInit{
   ){}
   
   ngOnInit(): void {
-    console.log(this.lowCategories);
+    
     this.getMediumSimulators();
     this.getHightSimulators();
+    this.getLowSimulators();
   }
 
   getSimulatorData(element: number){
@@ -140,6 +143,27 @@ export class NewSimulatorComponent implements OnInit{
     })
   }
 
+  openNewClassSimulatorDialog(){
+    let dialogRef = this.matDialog.open(NewClassSimulatorDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      data:{
+        // simulatorCategory: value
+      }
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+       
+        let model = result;
+        this.postLowClassSimulator(model);
+        
+      }
+    })
+  }
+
+
   private postMediumSimulators(model:any){
 
     this.httpClient.post('http://localhost:3000/mediumSimulators/',model).subscribe({
@@ -162,12 +186,25 @@ export class NewSimulatorComponent implements OnInit{
       }
     })
   }
+  private postLowClassSimulator(model:any){
+
+    this.httpClient.post('http://localhost:3000/lowSimulators/',model).subscribe({
+      next:(sample: any)=>{
+        // this.getMediumSimulators();
+        this.getLowSimulators();
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to lowSimulators ',error)
+      }
+    })
+  }
 
   private getMediumSimulators(){
 
     this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
       next:(sample: any)=>{
-        this.mediumSimulators = sample
+        this.mediumSimulators = sample;
+        console.log('mediumSimulators: ',this.mediumSimulators);
       },
       error:(error)=>{
         console.log('Something wrong with the request to mediumSimulators ',error)
@@ -178,10 +215,22 @@ export class NewSimulatorComponent implements OnInit{
 
     this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
       next:(sample: any)=>{
-        this.highSimulators = sample
+        this.highSimulators = sample;
+        console.log('highSimulators: ',this.highSimulators);
       },
       error:(error)=>{
         console.log('Something wrong with the request to highSimulators ',error)
+      }
+    })
+  }
+  private getLowSimulators(){
+
+    this.httpClient.get('http://localhost:3000/lowSimulators').subscribe({
+      next:(sample: any)=>{
+        this.lowSimulators = sample;
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
       }
     })
   }

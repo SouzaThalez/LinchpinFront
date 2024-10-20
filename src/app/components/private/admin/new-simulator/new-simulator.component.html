@@ -54,16 +54,16 @@
             </div>
             
             <div class="col-md-8 columns scroll-container">
-                
+                <!-- Low simulators galery -->
                 <div class="details-list"*ngSwitchCase="1">
                     
                     <div class="detail-header">
-                        <span>Total: {{lowCategories.length}}</span>
-                        <button mat-raised-button> + Nova classe de simulador</button>
+                        <span>Total: {{lowSimulators.length}}</span>
+                        <button mat-raised-button (click)="openNewClassSimulatorDialog()"> + Nova classe de simulador</button>
                     </div>
                    
                     <div class="card-container" 
-                         *ngFor="let simulator of lowCategories"
+                         *ngFor="let simulator of lowSimulators"
                          (click)="openDetailClassSimulatorDialog(simulator)">
                         <div class="card-body">
                             <div class="card-head">
@@ -79,7 +79,7 @@
                     </div> 
                    
                 </div>
-                
+                <!-- Medium simulators galery -->
                 <div class="details-list"*ngSwitchCase="2">
                     
                     <div class="detail-header">
@@ -105,7 +105,7 @@
                     </div> 
 
                 </div>
-
+                <!-- High simulators galery -->
                 <div class="details-list"*ngSwitchCase="3">
                     
                     <div class="detail-header">

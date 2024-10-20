@@ -685,10 +685,1520 @@
         {
           "code": "QDQWDQ",
           "disabled": false
+        },
+        {
+          "code": "QDQWDI",
+          "disabled": false
         }
       ],
       "id": 6,
       "simulatorCategory": "media"
+    }
+  ],
+  "lowSimulators": [
+    {
+      "simulatorClass": "Punção procedimentos",
+      "classImage": "assets/images/Simulators/LowFidelity/venousProcedure.png",
+      "simulators": [
+        {
+          "name": "Punção Arterial",
+          "image": "assets/images/Simulators/LowFidelity/arterialArm.jpg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "PUNA203",
+              "disabled": false
+            },
+            {
+              "code": "PUNA958",
+              "disabled": false
+            },
+            {
+              "code": "PUNA337",
+              "disabled": false
+            },
+            {
+              "code": "PUNA701",
+              "disabled": false
+            },
+            {
+              "code": "PUNA459",
+              "disabled": false
+            },
+            {
+              "code": "PUNA808",
+              "disabled": false
+            },
+            {
+              "code": "PUNA124",
+              "disabled": false
+            },
+            {
+              "code": "PUNA971",
+              "disabled": false
+            },
+            {
+              "code": "PUNA612",
+              "disabled": false
+            },
+            {
+              "code": "PUNA736",
+              "disabled": false
+            },
+            {
+              "code": "PUNA590",
+              "disabled": false
+            },
+            {
+              "code": "PUNA212",
+              "disabled": false
+            },
+            {
+              "code": "PUNA893",
+              "disabled": false
+            },
+            {
+              "code": "PUNA415",
+              "disabled": false
+            },
+            {
+              "code": "PUNA677",
+              "disabled": false
+            },
+            {
+              "code": "PUNA303",
+              "disabled": false
+            },
+            {
+              "code": "PUNA950",
+              "disabled": false
+            },
+            {
+              "code": "PUNA468",
+              "disabled": false
+            },
+            {
+              "code": "PUNA819",
+              "disabled": false
+            }
+          ],
+          "id": 1,
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Punção Venosa",
+          "image": "assets/images/Simulators/LowFidelity/venousArm.jpg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "PUNV2245",
+              "disabled": false
+            },
+            {
+              "code": "PUNV3301",
+              "disabled": false
+            },
+            {
+              "code": "PUNV4423",
+              "disabled": false
+            },
+            {
+              "code": "PUNV5567",
+              "disabled": false
+            },
+            {
+              "code": "PUNV6620",
+              "disabled": false
+            },
+            {
+              "code": "PUNV7742",
+              "disabled": false
+            },
+            {
+              "code": "PUNV8879",
+              "disabled": false
+            },
+            {
+              "code": "PUNV9981",
+              "disabled": false
+            },
+            {
+              "code": "PUNV1003",
+              "disabled": false
+            },
+            {
+              "code": "PUNV2235",
+              "disabled": false
+            },
+            {
+              "code": "PUNV3378",
+              "disabled": false
+            },
+            {
+              "code": "PUNV4490",
+              "disabled": false
+            },
+            {
+              "code": "PUNV5512",
+              "disabled": false
+            },
+            {
+              "code": "PUNV6634",
+              "disabled": false
+            },
+            {
+              "code": "PUNV7756",
+              "disabled": false
+            },
+            {
+              "code": "PUNV8819",
+              "disabled": false
+            },
+            {
+              "code": "PUNV9921",
+              "disabled": false
+            },
+            {
+              "code": "PUNV1043",
+              "disabled": false
+            },
+            {
+              "code": "PUNV2185",
+              "disabled": false
+            },
+            {
+              "code": "PUNV3297",
+              "disabled": false
+            },
+            {
+              "code": "PUNV4419",
+              "disabled": false
+            },
+            {
+              "code": "PUNV5542",
+              "disabled": false
+            },
+            {
+              "code": "PUNV6664",
+              "disabled": false
+            },
+            {
+              "code": "PUNV7787",
+              "disabled": false
+            },
+            {
+              "code": "PUNV8810",
+              "disabled": false
+            }
+          ],
+          "id": 2,
+          "simulatorCategory": "baixa",
+          "technicalDescription": [
+            "Permite venopunção em fossa antecubital ou dorso da mão",
+            "Permite rotação de deltóide para facilitar acesso (exceto pediátrico)",
+            "Permite acesso em veias medial, basílica e cefálica",
+            "Veias palpáveis que permitem escolher o local da punção e preparação",
+            "Veias que permitem a infusão periférica através da terapia IV com “bolus” ou infusão contínua",
+            "Permite substituição da pele e do conjunto de veias aumentando a vida útil do produto"
+          ]
+        },
+        {
+          "name": "Punção Intraossea",
+          "image": "assets/images/Simulators/LowFidelity/intraosseous.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "ITRA290",
+              "disabled": false
+            },
+            {
+              "code": "ITRA821",
+              "disabled": false
+            },
+            {
+              "code": "ITRA203",
+              "disabled": false
+            },
+            {
+              "code": "ITRA978",
+              "disabled": false
+            },
+            {
+              "code": "ITRA456",
+              "disabled": false
+            },
+            {
+              "code": "ITRA734",
+              "disabled": false
+            },
+            {
+              "code": "ITRA622",
+              "disabled": false
+            },
+            {
+              "code": "ITRA159",
+              "disabled": false
+            },
+            {
+              "code": "ITRA837",
+              "disabled": false
+            },
+            {
+              "code": "ITRA504",
+              "disabled": false
+            },
+            {
+              "code": "ITRA419",
+              "disabled": false
+            },
+            {
+              "code": "ITRA712",
+              "disabled": false
+            },
+            {
+              "code": "ITRA265",
+              "disabled": false
+            },
+            {
+              "code": "ITRA891",
+              "disabled": false
+            },
+            {
+              "code": "ITRA633",
+              "disabled": false
+            },
+            {
+              "code": "ITRA147",
+              "disabled": false
+            },
+            {
+              "code": "ITRA770",
+              "disabled": false
+            },
+            {
+              "code": "ITRA388",
+              "disabled": false
+            },
+            {
+              "code": "ITRA576",
+              "disabled": false
+            },
+            {
+              "code": "ITRA686",
+              "disabled": false
+            },
+            {
+              "code": "ITRA932",
+              "disabled": false
+            },
+            {
+              "code": "ITRA548",
+              "disabled": false
+            },
+            {
+              "code": "ITRA106",
+              "disabled": false
+            },
+            {
+              "code": "ITRA315",
+              "disabled": false
+            },
+            {
+              "code": "ITRA699",
+              "disabled": false
+            },
+            {
+              "code": "ITRA762",
+              "disabled": false
+            },
+            {
+              "code": "ITRA889",
+              "disabled": false
+            },
+            {
+              "code": "ITRA431",
+              "disabled": false
+            }
+          ],
+          "id": 3,
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Punção Lombar",
+          "image": "assets/images/Simulators/LowFidelity/lumbarPuncture.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "PUMLOMB001",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB002",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB003",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB004",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB005",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB006",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB007",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB008",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB009",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB010",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB011",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB012",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB013",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB014",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB015",
+              "disabled": false
+            },
+            {
+              "code": "PUMLOMB016",
+              "disabled": false
+            }
+          ],
+          "id": 4,
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        }
+      ],
+      "id": 1
+    },
+    {
+      "simulatorClass": "Torsos RCP",
+      "classImage": "assets/images/Simulators/LowFidelity/ressusciQcpr.png",
+      "simulators": [
+        {
+          "name": "Little Anne",
+          "image": "assets/images/Simulators/LowFidelity/little-anne.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "RCPANE001",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE002",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE003",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE004",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE005",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE006",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE007",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE008",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE009",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE010",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE011",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE012",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE013",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE014",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE015",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE016",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE017",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE018",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE019",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE020",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE021",
+              "disabled": false
+            },
+            {
+              "code": "RCPANE022",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Little junior",
+          "image": "assets/images/Simulators/LowFidelity/juniorRCP.jpg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "RCPJUNIO001",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO002",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO003",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO004",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO005",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO006",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO007",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO008",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO009",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO0010",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO0011",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO0012",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO0013",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO0014",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO0015",
+              "disabled": false
+            },
+            {
+              "code": "RCPJUNIO0016",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Ressuci Anne",
+          "image": "assets/images/Simulators/LowFidelity/ressusciQcpr.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "RES121",
+              "disabled": false
+            },
+            {
+              "code": "RES123",
+              "disabled": false
+            },
+            {
+              "code": "RES124",
+              "disabled": false
+            },
+            {
+              "code": "RES125",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Choking Charlie",
+          "image": "assets/images/Simulators/LowFidelity/chokingCharlie.jpg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "ENGA1302",
+              "disabled": false
+            },
+            {
+              "code": "ENGA2457",
+              "disabled": false
+            },
+            {
+              "code": "ENGA8790",
+              "disabled": false
+            },
+            {
+              "code": "ENGA5062",
+              "disabled": false
+            },
+            {
+              "code": "ENGA3104",
+              "disabled": false
+            },
+            {
+              "code": "ENGA7218",
+              "disabled": false
+            },
+            {
+              "code": "ENGA9631",
+              "disabled": false
+            },
+            {
+              "code": "ENGA1825",
+              "disabled": false
+            },
+            {
+              "code": "ENGA6349",
+              "disabled": false
+            },
+            {
+              "code": "ENGA4016",
+              "disabled": false
+            },
+            {
+              "code": "ENGA5473",
+              "disabled": false
+            },
+            {
+              "code": "ENGA9260",
+              "disabled": false
+            },
+            {
+              "code": "ENGA7035",
+              "disabled": false
+            },
+            {
+              "code": "ENGA6327",
+              "disabled": false
+            },
+            {
+              "code": "ENGA4891",
+              "disabled": false
+            },
+            {
+              "code": "ENGA2746",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        }
+      ],
+      "id": 2
+    },
+    {
+      "simulatorClass": "Torços Cirurgicos",
+      "classImage": "assets/images/Simulators/LowFidelity/drainTorso.jpg",
+      "simulators": [
+        {
+          "name": "Torso Drenagem toráxica",
+          "image": "assets/images/Simulators/LowFidelity/drainTorso.jpg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "TR2305",
+              "disabled": false
+            },
+            {
+              "code": "TR9903",
+              "disabled": false
+            },
+            {
+              "code": "TR1243",
+              "disabled": false
+            },
+            {
+              "code": "TR6729",
+              "disabled": false
+            },
+            {
+              "code": "TR3256",
+              "disabled": false
+            },
+            {
+              "code": "TR3560",
+              "disabled": false
+            },
+            {
+              "code": "TR4321",
+              "disabled": false
+            },
+            {
+              "code": "TR4082",
+              "disabled": false
+            },
+            {
+              "code": "TR7634",
+              "disabled": false
+            },
+            {
+              "code": "TR5136",
+              "disabled": false
+            },
+            {
+              "code": "TR1287",
+              "disabled": false
+            },
+            {
+              "code": "TR8715",
+              "disabled": false
+            },
+            {
+              "code": "TR5421",
+              "disabled": false
+            },
+            {
+              "code": "TR2874",
+              "disabled": false
+            },
+            {
+              "code": "TR2305",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Torso paracentese",
+          "image": "assets/images/Simulators/LowFidelity/paracenteseTorso.jpg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "CEN1923",
+              "disabled": false
+            },
+            {
+              "code": "CEN5487",
+              "disabled": false
+            },
+            {
+              "code": "CEN3012",
+              "disabled": false
+            },
+            {
+              "code": "CEN6709",
+              "disabled": false
+            },
+            {
+              "code": "CEN4521",
+              "disabled": false
+            },
+            {
+              "code": "CEN8743",
+              "disabled": false
+            },
+            {
+              "code": "CEN1056",
+              "disabled": false
+            },
+            {
+              "code": "CEN9862",
+              "disabled": false
+            },
+            {
+              "code": "CEN2134",
+              "disabled": false
+            },
+            {
+              "code": "CEN7598",
+              "disabled": false
+            },
+            {
+              "code": "CEN6320",
+              "disabled": false
+            },
+            {
+              "code": "CEN3324",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Torso Central",
+          "image": "assets/images/Simulators/LowFidelity/torco_central.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "CENT001",
+              "disabled": false
+            },
+            {
+              "code": "CENT002",
+              "disabled": false
+            },
+            {
+              "code": "CENT003",
+              "disabled": false
+            },
+            {
+              "code": "CENT004",
+              "disabled": false
+            },
+            {
+              "code": "CENT005",
+              "disabled": false
+            },
+            {
+              "code": "CENT006",
+              "disabled": false
+            },
+            {
+              "code": "CENT007",
+              "disabled": false
+            },
+            {
+              "code": "CENT008",
+              "disabled": false
+            },
+            {
+              "code": "CENT009",
+              "disabled": false
+            },
+            {
+              "code": "CENT010",
+              "disabled": false
+            },
+            {
+              "code": "CENT011",
+              "disabled": false
+            },
+            {
+              "code": "CENT012",
+              "disabled": false
+            },
+            {
+              "code": "CENT013",
+              "disabled": false
+            },
+            {
+              "code": "CENT014",
+              "disabled": false
+            },
+            {
+              "code": "CENT015",
+              "disabled": false
+            },
+            {
+              "code": "CENT016",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Torso Abdome",
+          "image": "assets/images/Simulators/LowFidelity/abdomen.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "AB4612",
+              "disabled": false
+            },
+            {
+              "code": "AB2301",
+              "disabled": false
+            },
+            {
+              "code": "AB7428",
+              "disabled": false
+            },
+            {
+              "code": "AB8935",
+              "disabled": false
+            },
+            {
+              "code": "AB6150",
+              "disabled": false
+            },
+            {
+              "code": "AB1093",
+              "disabled": false
+            },
+            {
+              "code": "AB2876",
+              "disabled": false
+            },
+            {
+              "code": "AB5341",
+              "disabled": false
+            },
+            {
+              "code": "AB9762",
+              "disabled": false
+            },
+            {
+              "code": "AB3548",
+              "disabled": false
+            },
+            {
+              "code": "AB6870",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        }
+      ],
+      "id": 3
+    },
+    {
+      "simulatorClass": "Pelves para Exame",
+      "classImage": "assets/images/Simulators/LowFidelity/clinicalPelv.jpeg",
+      "simulators": [
+        {
+          "name": "Pelve Prompt",
+          "image": "assets/images/Simulators/LowFidelity/promptPelv.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "PROMT001",
+              "disabled": false
+            },
+            {
+              "code": "PROMT002",
+              "disabled": false
+            },
+            {
+              "code": "PROMT003",
+              "disabled": false
+            },
+            {
+              "code": "PROMT004",
+              "disabled": false
+            },
+            {
+              "code": "PROMT005",
+              "disabled": false
+            },
+            {
+              "code": "PROMT006",
+              "disabled": false
+            },
+            {
+              "code": "PROMT007",
+              "disabled": false
+            },
+            {
+              "code": "PROMT008",
+              "disabled": false
+            },
+            {
+              "code": "PROMT009",
+              "disabled": false
+            },
+            {
+              "code": "PROMT010",
+              "disabled": false
+            },
+            {
+              "code": "PROMT011",
+              "disabled": false
+            },
+            {
+              "code": "PROMT012",
+              "disabled": false
+            },
+            {
+              "code": "PROMT013",
+              "disabled": false
+            },
+            {
+              "code": "PROMT014",
+              "disabled": false
+            },
+            {
+              "code": "PROMT015",
+              "disabled": false
+            },
+            {
+              "code": "PROMT016",
+              "disabled": false
+            },
+            {
+              "code": "PROMT017",
+              "disabled": false
+            },
+            {
+              "code": "PROMT018",
+              "disabled": false
+            },
+            {
+              "code": "PROMT019",
+              "disabled": false
+            },
+            {
+              "code": "PROMT020",
+              "disabled": false
+            },
+            {
+              "code": "PROMT021",
+              "disabled": false
+            },
+            {
+              "code": "PROMT022",
+              "disabled": false
+            },
+            {
+              "code": "PROMT023",
+              "disabled": false
+            },
+            {
+              "code": "PROMT024",
+              "disabled": false
+            },
+            {
+              "code": "PROMT025",
+              "disabled": false
+            },
+            {
+              "code": "PROMT026",
+              "disabled": false
+            },
+            {
+              "code": "PROMT027",
+              "disabled": false
+            },
+            {
+              "code": "PROMT028",
+              "disabled": false
+            },
+            {
+              "code": "PROMT029",
+              "disabled": false
+            },
+            {
+              "code": "PROMT030",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Pelve Clinica F",
+          "image": "assets/images/Simulators/LowFidelity/clinicalPelv.jpeg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "CF201",
+              "disabled": false
+            },
+            {
+              "code": "CF202",
+              "disabled": false
+            },
+            {
+              "code": "CF203",
+              "disabled": false
+            },
+            {
+              "code": "CF204",
+              "disabled": false
+            },
+            {
+              "code": "CF205",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Pelve Clinica M",
+          "image": "assets/images/Simulators/LowFidelity/masculinePelve.jpg",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "CP501",
+              "disabled": false
+            },
+            {
+              "code": "CP502",
+              "disabled": false
+            },
+            {
+              "code": "CP503",
+              "disabled": false
+            },
+            {
+              "code": "CP504",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Pelve Sondagem F",
+          "image": "assets/images/Simulators/LowFidelity/enemaPelve.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "SF333",
+              "disabled": false
+            },
+            {
+              "code": "SF334",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Pelve Sondagem M",
+          "image": "assets/images/Simulators/LowFidelity/enemaPelve.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "SP322",
+              "disabled": false
+            },
+            {
+              "code": "SP323",
+              "disabled": false
+            },
+            {
+              "code": "SP324",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        }
+      ],
+      "id": 4
+    },
+    {
+      "simulatorClass": "Cabeças",
+      "classImage": "assets/images/Simulators/LowFidelity/heads.png",
+      "simulators": [
+        {
+          "name": "Exame do olho",
+          "image": "assets/images/Simulators/LowFidelity/head_eye.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "EXAMO510",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO726",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO726",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO645",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO219",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO374",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO807",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO106",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO468",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO639",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "Exame do Ouvido",
+          "image": "assets/images/Simulators/LowFidelity/head_ear.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "EXAMO510",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO726",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO726",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO645",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO219",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO374",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO807",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO106",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO468",
+              "disabled": false
+            },
+            {
+              "code": "EXAMO639",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "IOT Adulto",
+          "image": "assets/images/Simulators/LowFidelity/iot_adulto.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "IOTA2100",
+              "disabled": false
+            },
+            {
+              "code": "IOTA3874",
+              "disabled": false
+            },
+            {
+              "code": "IOTA5298",
+              "disabled": false
+            },
+            {
+              "code": "IOTA6921",
+              "disabled": false
+            },
+            {
+              "code": "IOTA1402",
+              "disabled": false
+            },
+            {
+              "code": "IOTA9537",
+              "disabled": false
+            },
+            {
+              "code": "IOTA2675",
+              "disabled": false
+            },
+            {
+              "code": "IOTA8110",
+              "disabled": false
+            },
+            {
+              "code": "IOTA6489",
+              "disabled": false
+            },
+            {
+              "code": "IOTA7366",
+              "disabled": false
+            },
+            {
+              "code": "IOTA4023",
+              "disabled": false
+            },
+            {
+              "code": "IOTA6085",
+              "disabled": false
+            },
+            {
+              "code": "IOTA1759",
+              "disabled": false
+            },
+            {
+              "code": "IOTA8194",
+              "disabled": false
+            },
+            {
+              "code": "IOTA3146",
+              "disabled": false
+            },
+            {
+              "code": "IOTA1001",
+              "disabled": false
+            },
+            {
+              "code": "IOTA1022",
+              "disabled": false
+            },
+            {
+              "code": "IOTA9268",
+              "disabled": false
+            },
+            {
+              "code": "IOTA5612",
+              "disabled": false
+            },
+            {
+              "code": "IOTA6437",
+              "disabled": false
+            },
+            {
+              "code": "IOTA2821",
+              "disabled": false
+            },
+            {
+              "code": "IOTA8973",
+              "disabled": false
+            },
+            {
+              "code": "IOTA1045",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        },
+        {
+          "name": "IOT Pediatrico",
+          "image": "assets/images/Simulators/LowFidelity/iot_pediatric.png",
+          "description": "simultaor description goes here...",
+          "codes": [
+            {
+              "code": "IOTP2468",
+              "disabled": false
+            },
+            {
+              "code": "IOTP3981",
+              "disabled": false
+            },
+            {
+              "code": "IOTP5043",
+              "disabled": false
+            },
+            {
+              "code": "IOTP6125",
+              "disabled": false
+            },
+            {
+              "code": "IOTP7359",
+              "disabled": false
+            },
+            {
+              "code": "IOTP8412",
+              "disabled": false
+            },
+            {
+              "code": "IOTP9796",
+              "disabled": false
+            },
+            {
+              "code": "IOTP0647",
+              "disabled": false
+            },
+            {
+              "code": "IOTP1834",
+              "disabled": false
+            },
+            {
+              "code": "IOTP2675",
+              "disabled": false
+            },
+            {
+              "code": "IOTP3489",
+              "disabled": false
+            },
+            {
+              "code": "IOTP4260",
+              "disabled": false
+            },
+            {
+              "code": "IOTP5502",
+              "disabled": false
+            },
+            {
+              "code": "IOTP5502",
+              "disabled": false
+            },
+            {
+              "code": "IOTP7238",
+              "disabled": false
+            },
+            {
+              "code": "IOTP6623",
+              "disabled": false
+            },
+            {
+              "code": "IOTP6621",
+              "disabled": false
+            },
+            {
+              "code": "IOTP6632",
+              "disabled": false
+            },
+            {
+              "code": "IOTP6631",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": "O simulador de punção arterial serve para ..."
+        }
+      ],
+      "id": 6
+    },
+    {
+      "simulatorClass": "nova classe teste",
+      "classImage": "assets/images/default-image.jpg",
+      "simulators": [
+        {
+          "name": "simluador1",
+          "image": "assets/images/default-image.jpg",
+          "description": "FRFREFREFRE",
+          "codes": [
+            {
+              "code": "OMDJ3D",
+              "disabled": false
+            },
+            {
+              "code": "OMDJ2D",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": ""
+        },
+        {
+          "name": "Simluador2",
+          "image": "assets/images/default-image.jpg",
+          "description": "ASDADASDAD",
+          "codes": [
+            {
+              "code": "EFEFS3",
+              "disabled": false
+            },
+            {
+              "code": "EFEFS4",
+              "disabled": false
+            },
+            {
+              "code": "EFEFS5",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": ""
+        }
+      ],
+      "id": 7
     }
   ],
   "highSimulators": [

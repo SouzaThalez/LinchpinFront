@@ -135,6 +135,7 @@ export const simulators ={
             ],
            
         },
+
         {
             simulatorClass:'Torsos RCP',
             classImage:'assets/images/Simulators/LowFidelity/ressusciQcpr.png',
@@ -232,6 +233,7 @@ export const simulators ={
             ],
             
         },
+
         {
             simulatorClass:'Torços Cirurgicos',
             classImage:'assets/images/Simulators/LowFidelity/drainTorso.jpg',
@@ -325,6 +327,7 @@ export const simulators ={
             ],
             
         },
+
         {
             simulatorClass:'Pelves para Exame',
             classImage:'assets/images/Simulators/LowFidelity/clinicalPelv.jpeg',
@@ -416,6 +419,7 @@ export const simulators ={
             ],
             
         },
+
         {
             simulatorClass:'Mamas de Exame',
             classImage:'assets/images/Simulators/LowFidelity/breasthExamination.jpeg',
@@ -460,6 +464,7 @@ export const simulators ={
             ],
             
         },
+        
         {
           simulatorClass:'Cabeças',
           classImage:'assets/images/Simulators/LowFidelity/heads.png',
@@ -561,9 +566,7 @@ export const simulators ={
             
           ],
           
-        },
-       
-        
+        },        
     ],
     
     mediumFidelity:[

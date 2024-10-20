@@ -19,6 +19,8 @@ import { DeleteSimulatorDialogComponent } from './new-simulator/delete-simulator
 import { DetailClassSimulatorDialogComponent } from './new-simulator/detail-class-simulator-dialog/detail-class-simulator-dialog.component';
 import { NavMenuModule } from '../../shared/nav-menu/nav-menu.module';
 import { RemoveSimulatorDialogComponent } from './new-simulator/detail-class-simulator-dialog/remove-simulator-dialog/remove-simulator-dialog.component';
+import { NewClassSimulatorDialogComponent } from './new-simulator/new-class-simulator-dialog/new-class-simulator-dialog.component';
+import { RemoveClassDialogComponent } from './new-simulator/detail-class-simulator-dialog/remove-class-dialog/remove-class-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { RemoveSimulatorDialogComponent } from './new-simulator/detail-class-sim
     DetailSimulatorDialogComponent,
     DeleteSimulatorDialogComponent,
     DetailClassSimulatorDialogComponent,
-    RemoveSimulatorDialogComponent
+    RemoveSimulatorDialogComponent,
+    NewClassSimulatorDialogComponent,
+    RemoveClassDialogComponent
   ],
   imports: [
     CommonModule,

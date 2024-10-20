@@ -99,7 +99,8 @@ export class NewSimulatorDialogComponent implements OnInit{
           disabled: [false]  
         })
       ]),
-      simulatorCategory:['']
+      simulatorCategory:[''],
+      technicalDescription:['']
     })
 
     return form;

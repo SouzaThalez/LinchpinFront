@@ -1,0 +1,50 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <!-- <img src="assets/icons/add.png" alt=""> -->
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body" [formGroup]="form">
+
+            <div class="body-header">
+
+                <div class="simulator-image">
+                  <img src="assets/images/default-image.jpg" alt="">
+                  <button mat-raised-button>+Imagem</button>
+                </div>
+                
+                <div class="header-description">
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Nome da classe</mat-label>
+                    <input matInput formControlName="simulatorClass">
+                  </mat-form-field>
+              
+                </div>
+              </div>
+              
+              <!-- <div class="simulator-description">
+                <h2>Descrição do simulador</h2>
+                <mat-form-field class="simulator-description-text" appearance="outline">
+                  <mat-label>Este simulador é para...</mat-label>
+                  <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+
+              </div> -->
+  
+
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="default-btn confirm-btn" (click)="submitForm()">Confirmar</button>
+            
+</mat-dialog-actions>
+
+
