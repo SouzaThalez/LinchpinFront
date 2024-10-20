@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AdminComponent } from "./admin.component";
 import { NewSimulatorComponent } from "./new-simulator/new-simulator.component";
 
+
 const routes: Routes = [
     { 
       path: '', 
@@ -11,6 +12,10 @@ const routes: Routes = [
         {
           path:'novo-simulador',
           component:NewSimulatorComponent
+        },
+        {
+          path: 'nova-aula',
+          loadChildren: () => import('./new-lesson/new-lesson.module').then((m) => m.NewLessonModule),
         },
         {
             path:'**',

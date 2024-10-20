@@ -22,6 +22,7 @@ import { RemoveSimulatorDialogComponent } from './new-simulator/detail-class-sim
 import { NewClassSimulatorDialogComponent } from './new-simulator/new-class-simulator-dialog/new-class-simulator-dialog.component';
 import { RemoveClassDialogComponent } from './new-simulator/detail-class-simulator-dialog/remove-class-dialog/remove-class-dialog.component';
 
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -34,7 +35,7 @@ import { RemoveClassDialogComponent } from './new-simulator/detail-class-simulat
     DetailClassSimulatorDialogComponent,
     RemoveSimulatorDialogComponent,
     NewClassSimulatorDialogComponent,
-    RemoveClassDialogComponent
+    RemoveClassDialogComponent,
   ],
   imports: [
     CommonModule,

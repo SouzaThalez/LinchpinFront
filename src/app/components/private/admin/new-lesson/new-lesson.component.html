@@ -1,0 +1,61 @@
+<div class="page">    
+    <div class="page-container">
+        <div class="row">
+            <div class="col-md-4 columns">
+                <div class="card-list">
+                    <div class="simulator-container">
+                        <mat-card class="simulator-card" appearance="outlined"
+                                  routerLink="treinamentos" routerLinkActive="active">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image">
+                                    <img src="assets/images/logo/th-logo.png" alt="">
+                                </div>
+                            <mat-card-title>Treinamentos de Habilidade</mat-card-title>
+                            <mat-card-subtitle>NOVO TH</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-actions>
+                                <span>Cadastre um novo treinamento de habilidade</span>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="simulator-container">
+                        <mat-card class="simulator-card" appearance="outlined" 
+                                  routerLink="disciplinas" routerLinkActive="active">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image">
+                                    <img src="assets/images/logo/th-logo.png" alt="">
+                                </div>
+                            <mat-card-title>Disciplinas</mat-card-title>
+                            <mat-card-subtitle>NOVA DISCIPLINA</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-actions>
+                                <span>Cadastre uma nova disciplina</span>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="simulator-container">
+                        <mat-card class="simulator-card" appearance="outlined"
+                                  routerLink="cursos" routerLinkActive="active">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image">
+                                    <img src="assets/images/logo/curso-logo.png" alt="">
+                                </div>
+                                <div class="card-header-text">
+                                    <mat-card-title>Cursos AHA</mat-card-title>
+                                    <mat-card-subtitle>NOVO CURSO</mat-card-subtitle>
+                                </div>
+                               
+                            </mat-card-header>
+                            <mat-card-actions>
+                                <span>Cadastre um novo Curso</span>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 columns">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
