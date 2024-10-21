@@ -1,41 +1,47 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { snackBarConfig } from '../../../../../data/snackBarData';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ocorranceData } from '../../../../../data/ocorranceData';
-import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import moment from 'moment';
 
 @Component({
-  selector: 'app-new-lesson-dialog',
-  templateUrl: './new-lesson-dialog.component.html',
-  styleUrl: './new-lesson-dialog.component.scss',
+  selector: 'app-edit-lesson-dialog',
+  templateUrl: './edit-lesson-dialog.component.html',
+  styleUrl: './edit-lesson-dialog.component.scss',
   providers: [provideNativeDateAdapter()],
 })
-export class NewLessonDialogComponent implements OnInit{
+export class EditLessonDialogComponent implements OnInit{
 
   form: FormGroup;
-  cardType = ocorranceData.trainingTypes;
-  trainingValue:0;
-  trainingLessons:any;
 
   constructor(
-    public dialogRef: MatDialogRef<NewLessonDialogComponent>,
-    private httpClient: HttpClient,
+    public dialogRef: MatDialogRef<EditLessonDialogComponent>,
+    private matDialog: MatDialog,
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      lessonData: string
+      lessonData: any
     },
   ){}
 
-  
   ngOnInit(): void {
     this.form = this.createForm();
-    this.getTrainingLessons();
-  }
 
+    const updateDate = moment(this.data.lessonData.updateDate);
+
+    this.form.patchValue({
+      name: this.data.lessonData.name,
+      updateDate: updateDate.isValid() ? updateDate : null ,// Set date if valid
+      description: this.data.lessonData.description,
+    });
+   
+    
+  
+
+
+  }
 
   submitForm(){
   
@@ -48,7 +54,7 @@ export class NewLessonDialogComponent implements OnInit{
       });
       return
     }
-
+    console.log(this.form.value)
     this.dialogRef.close(this.form.value);
 
   }
@@ -65,19 +71,5 @@ export class NewLessonDialogComponent implements OnInit{
     return form;
     
   }
-
-
-  private getTrainingLessons(){
-
-    this.httpClient.get('http://localhost:3000/Trainings').subscribe({
-      next:(sample:any)=>{
-        this.trainingLessons = sample
-      },
-      error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
-    })
-
-  }
-
-
 
 }

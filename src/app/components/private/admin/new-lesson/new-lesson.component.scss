@@ -18,14 +18,16 @@
                 .simulator-container{
                     width: 100%;
                     .simulator-card{
-                        .mat-mdc-card-header{
-                            padding: 0px;
-                            padding-top: 10px;  
-                           
-                            .mat-mdc-card-header-text{
-                                margin-left: 10px;
+                        .card-head{
+                            .card-titles{
+                                margin-left: 30px;
+                            }  
+                            .mat-mdc-card-header{
+                                padding: 0px;
+                                padding-top: 10px;
                             }
                         }
+                       
                        
                         .mat-mdc-card-avatar{
                             img{
@@ -37,9 +39,7 @@
                                 object-fit: cover;
                             }
                         }
-                        .card-header-text{
-                            margin-left: 10px;
-                        }
+                      
                         &:hover,&.active{
                             border: 1px solid var(--green-color);
                             background-color: #bbdbe9;

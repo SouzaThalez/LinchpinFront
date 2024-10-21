@@ -5,12 +5,12 @@
               <mat-form-field appearance="outline" class="form-options">
                 <mat-label>Treinamento...</mat-label>
                 <mat-select [(ngModel)]="trainingValue">
-                  <mat-option [value]="i" *ngFor="let element of cardType index as i">{{element.name}} - {{element.value}}</mat-option>
+                  <mat-option [value]="i" *ngFor="let element of trainingLessons index as i">{{element.name}} - {{element.value}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
             <div class="grid-item">
-              <button mat-raised-button class="form-options form-buttons" (click)="openNewLessonDialog()"> + Novo Aula</button>
+              <button mat-raised-button class="form-options form-buttons" (click)="openNewLessonDialog()"> + Nova Aula</button>
             </div>
             <div class="grid-item">
               <button mat-raised-button class="form-options form-buttons" (click)="openNewTrainingDialog()"> + Novo Treinamento</button> 
@@ -20,8 +20,10 @@
     
     <div class="page-body">
         <p></p>
-        <div class="details-list" *ngIf="cardType[trainingValue]?.lessons">
-            <div class="card-container" *ngFor="let lesson of cardType[trainingValue]?.lessons">
+        <div class="details-list" *ngIf="trainingLessons[trainingValue]?.lessons">
+            <div class="card-container" 
+                 *ngFor="let lesson of trainingLessons[trainingValue]?.lessons"
+                 (click)="openEditLessonDialog(lesson)">
                 <div class="card-body">
                   <div class="card-head">
                     <div class="card-image">

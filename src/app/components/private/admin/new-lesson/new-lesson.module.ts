@@ -17,6 +17,7 @@ import { provideNgxMask } from 'ngx-mask';
 import { NewLessonDialogComponent } from './new-lesson-dialog/new-lesson-dialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { EditLessonDialogComponent } from './edit-lesson-dialog/edit-lesson-dialog.component';
 
 
 
@@ -27,7 +28,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     DisciplinesComponent,
     CursesComponent,
     NewTrainingDialogComponent,
-    NewLessonDialogComponent
+    NewLessonDialogComponent,
+    EditLessonDialogComponent
   ],
   imports: [
     CommonModule,

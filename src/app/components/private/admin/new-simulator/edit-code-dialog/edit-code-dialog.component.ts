@@ -35,8 +35,7 @@ export class EditCodeDialogComponent implements OnInit{
     
     this.editCodeForm = this.createEditForm();
     this.newCodeForm = this.createNewCodeForm();
-    this.data.simulatorData
-    // this.codeValue = this.data.selectedCode;
+    
   }
 
 

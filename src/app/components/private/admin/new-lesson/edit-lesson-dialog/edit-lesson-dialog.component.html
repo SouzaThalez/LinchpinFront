@@ -16,7 +16,7 @@
 
                 <div class="simulator-image">
                   <img src="assets/images/logo/th-logo.png" alt="">
-                  <!-- <button mat-raised-button>+Imagem</button> -->
+                 
                 </div>
                 
                 <div class="header-description">
@@ -28,7 +28,7 @@
 
                     <mat-form-field appearance="outline" class="medium-date-picker">
                         <mat-label>Data da revisão</mat-label>
-                        <input formControlName="date"  matInput [matDatepicker]="picker" formControlName="updateDate">
+                        <input matInput [matDatepicker]="picker" formControlName="updateDate">
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
@@ -39,13 +39,7 @@
             </div>
               
             <div class="simulator-description">
-                <h2>Aula de qual TH?</h2>
-                <mat-form-field appearance="outline" class="form-input">
-                    <mat-label>Treinamento...</mat-label>
-                    <mat-select [(ngModel)]="trainingValue">
-                      <mat-option [value]="i" *ngFor="let element of trainingLessons index as i">{{element.name}} - {{element.value}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
+              
                 <h2>Descrição da Aula</h2>
                 <mat-form-field class="simulator-description-text" appearance="outline">
                   <mat-label>Descrição da aula</mat-label>
@@ -58,9 +52,10 @@
 </mat-dialog-content>
 
 <mat-dialog-actions class="dialog-actions">
-    <button class="default-btn confirm-btn" (click)="submitForm()">Adicionar</button>
+    <button class="default-btn confirm-btn" (click)="submitForm()">Atualizar</button>
             
 </mat-dialog-actions>
+
 
 
 
