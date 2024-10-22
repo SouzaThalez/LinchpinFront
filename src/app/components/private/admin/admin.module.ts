@@ -23,6 +23,7 @@ import { NewClassSimulatorDialogComponent } from './new-simulator/new-class-simu
 import { RemoveClassDialogComponent } from './new-simulator/detail-class-simulator-dialog/remove-class-dialog/remove-class-dialog.component';
 
 
+
 @NgModule({
   declarations: [
     AdminComponent,

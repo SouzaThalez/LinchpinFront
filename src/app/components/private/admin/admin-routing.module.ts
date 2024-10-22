@@ -18,6 +18,10 @@ const routes: Routes = [
           loadChildren: () => import('./new-lesson/new-lesson.module').then((m) => m.NewLessonModule),
         },
         {
+          path: 'novo-usuario',
+          loadChildren: () => import('./new-user/new-user.module').then((m) => m.NewUserModule),
+        },
+        {
             path:'**',
             redirectTo:'novo-simulador' 
         }

@@ -1,1 +1,41 @@
-<p>curses works!</p>
+<div class="page">
+    <div class="page-header">
+        <div class="grid-button-container">
+            <div class="grid-item">
+              <mat-form-field appearance="outline" class="form-options">
+                <mat-label>Treinamento...</mat-label>
+                <mat-select [(ngModel)]="trainingValue">
+                  <mat-option [value]="i" *ngFor="let element of courses index as i">{{element.name}} - {{element.value}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="grid-item">
+              <button mat-raised-button class="form-options form-buttons" (click)="openNewLessonDialog()"> + Novo Curso</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-body">
+        <p></p>
+        <div class="details-list" *ngIf="courses">
+            <div class="card-container" 
+                 *ngFor="let lesson of courses"
+                 (click)="openEditLessonDialog(lesson)">
+                <div class="card-body">
+                  <div class="card-head">
+                    <div class="card-image">
+                      <img src="assets/images/logo/th-logo.png" alt="lesson image">
+                    </div>
+                    <div class="card-description">
+                      <span>{{lesson.name}}</span>
+                      <span>{{lesson.value}}</span>
+                      <!-- <span>Revisão: {{lesson.updateDate}}</span> -->
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
