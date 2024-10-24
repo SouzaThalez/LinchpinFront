@@ -9,6 +9,7 @@ import { ocorranceData } from '../../../../../data/ocorranceData';
 export class ManitanceComponent implements OnInit{
 
   manitance = ocorranceData.manitanceTypes;
+  
   constructor(){}
   ngOnInit(): void {
     

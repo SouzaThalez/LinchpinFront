@@ -36,14 +36,11 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
       this.routeIndex = value['index'];
       switch (this.routeIndex) {
         case '0':
-          this.manitanceName =  'Primária';
+          this.manitanceName =  'Básica';
           break;
         case '1':
-          this.manitanceName =  'Secundária';
-            break;
-        case '2':
           this.manitanceName =  'Geral';
-              break;
+            break;
         default:
           break;
       }

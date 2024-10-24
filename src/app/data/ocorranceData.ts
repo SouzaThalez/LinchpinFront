@@ -783,15 +783,11 @@ export const ocorranceData ={
     ],
 
     manitanceTypes:[
+  
         {
-            name:'Manutenção',
-            value:'Primária',
-            quantity:'5'
-        },
-        {
-            name:'Manutenção',
-            value:'Secundária',
-            quantity:'3'
+          name:'Manutenção',
+          value:'Básica',
+          quantity:'3'
         },
         {
             name:'Manutenção',

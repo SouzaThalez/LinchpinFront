@@ -278,8 +278,49 @@
   ],
   "manitanceReports": [
     {
-      "date": "23-08-2024",
+      "date": "23-10-2024",
       "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Básica",
+      "manitanceFindings": "Não houve registro de achados durante a manutenção",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "code": "ALS982",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "id": 1
+    },
+    {
+      "date": "22-10-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        },
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        },
         {
           "label": "Bomba de Infusão presente",
           "value": true
@@ -294,26 +335,20 @@
         }
       ],
       "manitanceCategory": "Geral",
-      "manitanceFindings": "Descrição de achados de manutenção ",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "code": "ALS982",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "hasDescription": true,
-      "hasIntervention": true,
+      "manitanceFindings": "Não houve registro de achados durante a manutenção",
+      "simulatorName": "Harvey",
+      "code": "HAR331",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "hasDescription": false,
+      "hasIntervention": false,
       "user": {
         "name": "",
         "role": ""
       },
-      "id": 1,
-      "intervention": {
-        "interventionText": "Nenhuma intervenção realizada",
-        "interventionDate": "06-10-2024",
-        "interventionStatus": "Aguardando Envio para Fornecedor",
-        "interventionUser": null
-      }
+      "id": 2
     },
     {
-      "date": "01-10-2024",
+      "date": "21-10-2024",
       "manitanceRegister": [
         {
           "label": "Simulador configurado e conectado ao Software",
@@ -322,30 +357,7 @@
         {
           "label": "Cameras e Monitor do Paciente conectado",
           "value": true
-        }
-      ],
-      "manitanceCategory": "Primária",
-      "manitanceFindings": "O simulador se encontrava sujo após a aula de Ausculta cardiaca ",
-      "simulatorName": "Harvey",
-      "code": "HAR331",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
-      "hasDescription": true,
-      "hasIntervention": true,
-      "user": {
-        "name": "",
-        "role": ""
-      },
-      "id": 2,
-      "intervention": {
-        "interventionText": "Braço do simulador limpo e entalcado",
-        "interventionDate": "06-10-2024",
-        "interventionStatus": "Solucionado após intervenção do Analista",
-        "interventionUser": null
-      }
-    },
-    {
-      "date": "03-10-2024",
-      "manitanceRegister": [
+        },
         {
           "label": "Carrinho de Parada completo",
           "value": true
@@ -353,14 +365,26 @@
         {
           "label": "Ventilador Mecânico presente",
           "value": true
+        },
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
         }
       ],
-      "manitanceCategory": "Secundária",
-      "manitanceFindings": "Não houve registro de achados durante a manutenção",
-      "simulatorName": "Sim NewB",
-      "code": "NIWE2123",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimNewb.jpeg",
-      "hasDescription": false,
+      "manitanceCategory": "Geral",
+      "manitanceFindings": "estetoscopios sem pilhas",
+      "simulatorName": "Harvey",
+      "code": "HAR331",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "hasDescription": true,
       "hasIntervention": false,
       "user": {
         "name": "",
@@ -2337,7 +2361,7 @@
       "id": 10
     }
   ],
-  "Trainings":[
+  "Trainings": [
     {
       "name": "Treinamento Habilidade",
       "value": "1",
