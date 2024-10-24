@@ -702,21 +702,22 @@
       "simulatorCategory": "media"
     },
     {
-      "name": "JAPONES",
+      "name": "novoMEDIA",
       "image": "assets/images/default-image.jpg",
-      "description": "Descrição do simulador JAPONES",
+      "description": "DEEDEDDEDED",
       "codes": [
         {
-          "code": "QDQWDQ",
+          "code": "OMDS23",
           "disabled": false
         },
         {
-          "code": "QDQWDI",
+          "code": "OMDS22",
           "disabled": false
         }
       ],
-      "id": 6,
-      "simulatorCategory": "media"
+      "simulatorCategory": "media",
+      "technicalDescription": "",
+      "id": 7
     }
   ],
   "lowSimulators": [
@@ -2178,51 +2179,6 @@
         }
       ],
       "id": 6
-    },
-    {
-      "simulatorClass": "nova classe teste",
-      "classImage": "assets/images/default-image.jpg",
-      "simulators": [
-        {
-          "name": "simluador1",
-          "image": "assets/images/default-image.jpg",
-          "description": "FRFREFREFRE",
-          "codes": [
-            {
-              "code": "OMDJ3D",
-              "disabled": false
-            },
-            {
-              "code": "OMDJ2D",
-              "disabled": false
-            }
-          ],
-          "simulatorCategory": "baixa",
-          "technicalDescription": ""
-        },
-        {
-          "name": "Simluador2",
-          "image": "assets/images/default-image.jpg",
-          "description": "ASDADASDAD",
-          "codes": [
-            {
-              "code": "EFEFS3",
-              "disabled": false
-            },
-            {
-              "code": "EFEFS4",
-              "disabled": false
-            },
-            {
-              "code": "EFEFS5",
-              "disabled": false
-            }
-          ],
-          "simulatorCategory": "baixa",
-          "technicalDescription": ""
-        }
-      ],
-      "id": 7
     }
   ],
   "highSimulators": [
@@ -2359,6 +2315,24 @@
       ],
       "simulatorCategory": "alta",
       "id": 10
+    },
+    {
+      "name": "SIMULADOR NOVO",
+      "image": "assets/images/default-image.jpg",
+      "description": "Descrição do simulador novov",
+      "codes": [
+        {
+          "code": "DOEMDW1",
+          "disabled": false
+        },
+        {
+          "code": "DOEMD2",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "technicalDescription": "",
+      "id": 11
     }
   ],
   "Trainings": [

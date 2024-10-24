@@ -33,9 +33,8 @@
                             </mat-card-actions>
                         </mat-card>
                     </div>
-                    <div class="simulator-container"
-                         (click)="getSimulatorData(3)">
-                        <mat-card class="simulator-card" appearance="outlined">
+                    <div class="simulator-container">
+                        <mat-card class="simulator-card" appearance="outlined" appearance="outlined" routerLink="galeria-alta" routerLinkActive="active">
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image">
                                     <img src="assets/images/default-image.jpg" alt="">
@@ -53,81 +52,6 @@
             
             <div class="col-md-8 columns scroll-container">
                 <router-outlet></router-outlet>
-                <!-- <div class="details-list"*ngSwitchCase="1">
-                    
-                    <div class="detail-header">
-                        <span>Total: {{lowSimulators.length}}</span>
-                        <button mat-raised-button (click)="openNewClassSimulatorDialog()"> + Nova classe de simulador</button>
-                    </div>
-                   
-                    <div class="card-container" 
-                         *ngFor="let simulator of lowSimulators"
-                         (click)="openDetailClassSimulatorDialog(simulator)">
-                        <div class="card-body">
-                            <div class="card-head">
-                                <div class="card-image">
-                                    <img [src]="simulator.classImage" alt="">
-                                </div>
-                                <div class="card-description">
-                                    <span>{{simulator.simulatorClass}}</span>
-                                    <span>Quantidade por categoria: {{simulator.simulators?.length}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                   
-                </div>
-               
-                <div class="details-list"*ngSwitchCase="2">
-                    
-                    <div class="detail-header">
-                        <span>Total: {{mediumSimulators.length}}</span>
-                        <button mat-raised-button (click)="openNewSimulatorDialog(media)"> + Novo simulador</button>
-                    </div>
-
-                    <div class="card-container" 
-                         *ngFor="let simulator of mediumSimulators"
-                         (click)="openDetailSimulatorDialog(simulator)">
-                        <div class="card-body">
-                            <div class="card-head">
-                                <div class="card-image">
-                                    <img [src]="simulator.image" alt="">
-                                </div>
-                                <div class="card-description">
-                                    <span>{{simulator.name}}</span>
-                                    <span>{{simulator.description}}</span>
-                                    <span>Quantidade: {{simulator.codes.length}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-
-                </div>
-              
-                <div class="details-list"*ngSwitchCase="3">
-                    
-                    <div class="detail-header">
-                        <span>Total: {{highSimulators.length}}</span>
-                        <button mat-raised-button (click)="openNewSimulatorDialog(alta)"> + Novo simulador</button>
-                    </div>
-                    <div class="card-container" 
-                         *ngFor="let simulator of highSimulators"
-                         (click)="openDetailSimulatorDialog(simulator)">
-                        <div class="card-body">
-                            <div class="card-head">
-                                <div class="card-image">
-                                    <img [src]="simulator.image" alt="">
-                                </div>
-                                <div class="card-description">
-                                    <span>{{simulator.name}}</span>
-                                    <span>{{simulator.description}}</span>
-                                    <span>Quantidade: {{simulator.codes.length}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div> -->
-
             </div>
         </div>
     </div>

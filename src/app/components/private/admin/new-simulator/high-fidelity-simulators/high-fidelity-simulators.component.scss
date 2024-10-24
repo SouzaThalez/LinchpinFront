@@ -1,0 +1,19 @@
+.page{
+    height: 100%;
+   
+    .page-container{
+        height: 100%;
+
+        .details-list{
+            .detail-header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 14px;
+            }
+        }
+       
+    }
+}
+
+

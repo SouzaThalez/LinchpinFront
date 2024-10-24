@@ -29,10 +29,10 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    console.log('DATAAAAAA',this.data.simulatorData)
+    // console.log('DATAAAAAA',this.data.simulatorData)
   }
 
-  closeDialog(value: any){
+  closeDialog(value?: any){
     this.dialogRef.close(value);
   }
 
@@ -59,6 +59,7 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
   })
 
   }
+
   openRemoveClassDialog(){
 
     let dialogRef = this.matDialog.open(RemoveClassDialogComponent,{
@@ -75,7 +76,8 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
       if(result){
         let model = result;
         debugger
-        this.removeClassSimulator(model)
+        this.removeClassSimulator(model);
+        
   
       }
     })
@@ -94,7 +96,7 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
+     
         let model = result;
         if(model.simulatorCategory == this.simulatorType){
           this.data.simulatorData.simulators.push(model);
@@ -147,6 +149,7 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
     this.httpClient.delete('http://localhost:3000/lowSimulators/' + model.id)
     .subscribe({
         next: (sample: any)=>{
+
           this.snackBar.open('Classe removida com sucesso!', 'Close', {
             horizontalPosition: snackBarConfig.horizontalPosition,
             verticalPosition: snackBarConfig.verticalPosition,

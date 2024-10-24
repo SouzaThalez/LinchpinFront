@@ -4,12 +4,12 @@
         <div class="details-list">
                     
             <div class="detail-header">
-                    <span>Total: {{mediumSimulators?.length}}</span>
+                    <span>Total: {{highSimulators?.length}}</span>
                     <button mat-raised-button (click)="openNewSimulatorDialog()"> + Novo simulador</button>
             </div>
                        
             <div class="card-container" 
-                *ngFor="let simulator of mediumSimulators"
+                *ngFor="let simulator of highSimulators"
                 (click)="openDetailSimulatorDialog(simulator)">
                 <div class="card-body">
                     <div class="card-head">
@@ -29,3 +29,4 @@
     </div>
 
 </div>
+

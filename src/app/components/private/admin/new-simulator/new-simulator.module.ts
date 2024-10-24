@@ -11,13 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MediumFidelitySimulatorsComponent } from './medium-fidelity-simulators/medium-fidelity-simulators.component';
+import { HighFidelitySimulatorsComponent } from './high-fidelity-simulators/high-fidelity-simulators.component';
 
 
 
 @NgModule({
   declarations: [
     NewSimulatorComponent,
-    MediumFidelitySimulatorsComponent
+    MediumFidelitySimulatorsComponent,
+    HighFidelitySimulatorsComponent
   ],
   imports: [
     CommonModule,

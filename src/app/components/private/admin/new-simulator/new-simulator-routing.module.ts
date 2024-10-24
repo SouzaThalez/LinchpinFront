@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { NewSimulatorComponent } from "./new-simulator.component";
 import { LowFidelitySimulatorsComponent } from "./low-fidelity-simulators/low-fidelity-simulators.component";
 import { MediumFidelitySimulatorsComponent } from "./medium-fidelity-simulators/medium-fidelity-simulators.component";
+import { HighFidelitySimulatorsComponent } from "./high-fidelity-simulators/high-fidelity-simulators.component";
 
 const routes: Routes = [
     { 
@@ -16,7 +17,11 @@ const routes: Routes = [
         {
           path:'galeria-media',
           component:MediumFidelitySimulatorsComponent
-      },
+        },
+        {
+          path:'galeria-alta',
+          component:HighFidelitySimulatorsComponent
+        },
         {
             path:'**',
             redirectTo:'galeria-baixa' 
