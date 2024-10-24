@@ -1,1 +1,36 @@
-<p>new-technician works!</p>
+<div class="page">
+    <div class="page-header">
+        <div class="grid-button-container">
+            <div class="grid-item">
+              
+            </div>
+            <div class="grid-item">
+              <button mat-raised-button class="form-options form-buttons" > + Novo usuário Técnico</button>
+            </div>
+     
+        </div>
+    </div>
+    
+    <div class="page-body">
+        <p></p>
+        <div class="details-list">
+            <div class="card-container" 
+                 *ngFor="let lesson of [1,2,3,4,5]">
+                <div class="card-body">
+                  <div class="card-head">
+                    <div class="card-image">
+                      <img src="assets/images/logo/th-logo.png" alt="lesson image">
+                    </div>
+                    <div class="card-description">
+                      <span>Thales Carvalho</span>
+                      <span>Técnico</span>
+                      <span>selath10gmail.com</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
