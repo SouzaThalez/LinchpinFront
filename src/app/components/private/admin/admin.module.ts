@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { AdminMenuModule } from '../../shared/admin-menu/admin-menu.module';
-import { NewSimulatorComponent } from './new-simulator/new-simulator.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,13 +20,13 @@ import { NavMenuModule } from '../../shared/nav-menu/nav-menu.module';
 import { RemoveSimulatorDialogComponent } from './new-simulator/detail-class-simulator-dialog/remove-simulator-dialog/remove-simulator-dialog.component';
 import { NewClassSimulatorDialogComponent } from './new-simulator/new-class-simulator-dialog/new-class-simulator-dialog.component';
 import { RemoveClassDialogComponent } from './new-simulator/detail-class-simulator-dialog/remove-class-dialog/remove-class-dialog.component';
+import { LowFidelitySimulatorsComponent } from './new-simulator/low-fidelity-simulators/low-fidelity-simulators.component';
 
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    NewSimulatorComponent,
     NewSimulatorDialogComponent,
     DeleteCodeDialogComponent,
     EditCodeDialogComponent,
@@ -37,6 +36,7 @@ import { RemoveClassDialogComponent } from './new-simulator/detail-class-simulat
     RemoveSimulatorDialogComponent,
     NewClassSimulatorDialogComponent,
     RemoveClassDialogComponent,
+    LowFidelitySimulatorsComponent,
   ],
   imports: [
     CommonModule,

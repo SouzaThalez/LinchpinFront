@@ -33,7 +33,7 @@
                             }
                         }
                         
-                        &:hover{
+                        &:hover,&.active{
                             border: 1px solid var(--green-color);
                             background-color: #bbdbe9;
                             cursor: pointer;
@@ -57,47 +57,7 @@
             }
         }
 
-        // .grid-container{
-        //     display: flex;
-        //     padding-top: 14px;
-        //     .grid-column{
-        //         width: 100%;
-        //         display: flex;
-        //         // border: 1px solid black;
-        //         .card-list{
-        //             display: flex;
-        //             flex-direction: column;
-        //             gap: 10px;
-        //         }
-        //         .simulator-container{
-        //             width: 300px;
-
-        //             .simulator-card{
-
-        //                 .mat-mdc-card-header{
-        //                     padding: 0px;
-        //                     padding-top: 10px;
-        //                 }
-        //                 .mat-mdc-card-avatar{
-        //                     img{
-        //                         height: 40px;
-        //                         width: 40px;
-        //                         border-radius: 50%;
-        //                         flex-shrink: 0;
-        //                         margin-bottom: 16px;
-        //                         object-fit: cover;
-        //                     }
-        //                 }
-        //                 &:hover{
-        //                     border: 1px solid var(--green-color);
-        //                     background-color: #bbdbe9;
-        //                     cursor: pointer;
-        //                 }
-        //             }
-        //         }
-                
-        //     }
-        // }
+        
     }
 }
 

@@ -1,0 +1,30 @@
+<div class="page">
+
+    <div class="page-container">
+        <div class="details-list">
+                    
+            <div class="detail-header">
+                    <span>Total: {{lowSimulators?.length}}</span>
+                    <button mat-raised-button (click)="openNewClassSimulatorDialog()"> + Nova classe de simulador</button>
+            </div>
+                       
+            <div class="card-container" 
+                *ngFor="let simulator of lowSimulators"
+                (click)="openDetailClassSimulatorDialog(simulator)">
+                <div class="card-body">
+                    <div class="card-head">
+                        <div class="card-image">
+                            <img [src]="simulator.classImage" alt="">
+                        </div>
+                        <div class="card-description">
+                            <span>{{simulator.simulatorClass}}</span>
+                            <span>Quantidade por categoria: {{simulator.simulators?.length}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+                       
+        </div>
+    </div>
+
+</div>

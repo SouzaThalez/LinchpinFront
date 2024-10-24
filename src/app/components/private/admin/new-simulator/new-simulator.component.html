@@ -1,13 +1,12 @@
 <div class="page">    
     <div class="page-container">
-        <div class="row" [ngSwitch]="value">
+        <div class="row">
 
             <div class="col-md-4 columns">
                 <br>
                 <div class="card-list">
-                    <div class="simulator-container"
-                        (click)="getSimulatorData(1)">
-                        <mat-card class="simulator-card" appearance="outlined">
+                    <div class="simulator-container">
+                        <mat-card class="simulator-card" appearance="outlined" routerLink="galeria-baixa" routerLinkActive="active">
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image">
                                     <img src="assets/images/default-image.jpg" alt="">
@@ -20,9 +19,8 @@
                             </mat-card-actions>
                         </mat-card>
                     </div>
-                    <div class="simulator-container"
-                         (click)="getSimulatorData(2)">
-                        <mat-card class="simulator-card" appearance="outlined">
+                    <div class="simulator-container">
+                        <mat-card class="simulator-card" appearance="outlined" appearance="outlined" routerLink="galeria-media" routerLinkActive="active">
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image">
                                     <img src="assets/images/default-image.jpg" alt="">
@@ -54,8 +52,8 @@
             </div>
             
             <div class="col-md-8 columns scroll-container">
-                <!-- Low simulators galery -->
-                <div class="details-list"*ngSwitchCase="1">
+                <router-outlet></router-outlet>
+                <!-- <div class="details-list"*ngSwitchCase="1">
                     
                     <div class="detail-header">
                         <span>Total: {{lowSimulators.length}}</span>
@@ -79,7 +77,7 @@
                     </div> 
                    
                 </div>
-                <!-- Medium simulators galery -->
+               
                 <div class="details-list"*ngSwitchCase="2">
                     
                     <div class="detail-header">
@@ -105,7 +103,7 @@
                     </div> 
 
                 </div>
-                <!-- High simulators galery -->
+              
                 <div class="details-list"*ngSwitchCase="3">
                     
                     <div class="detail-header">
@@ -128,7 +126,7 @@
                             </div>
                         </div>
                     </div> 
-                </div>
+                </div> -->
 
             </div>
         </div>

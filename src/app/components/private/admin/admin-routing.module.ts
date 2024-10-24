@@ -10,8 +10,8 @@ const routes: Routes = [
       component: AdminComponent,
       children:[
         {
-          path:'novo-simulador',
-          component:NewSimulatorComponent
+          path: 'novo-simulador',
+          loadChildren: () => import('./new-simulator/new-simulator.module').then((m) => m.NewSimulatorModule),
         },
         {
           path: 'nova-aula',
