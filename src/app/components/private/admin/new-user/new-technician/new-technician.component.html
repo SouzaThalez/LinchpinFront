@@ -5,7 +5,7 @@
               
             </div>
             <div class="grid-item">
-              <button mat-raised-button class="form-options form-buttons" > + Novo usuário Técnico</button>
+              <button mat-raised-button class="form-options form-buttons" (click)="openAddNewUserDialog()"> + Novo usuário Técnico</button>
             </div>
      
         </div>
@@ -15,16 +15,16 @@
         <p></p>
         <div class="details-list">
             <div class="card-container" 
-                 *ngFor="let lesson of [1,2,3,4,5]">
+                 *ngFor="let user of tecnicalUsers">
                 <div class="card-body">
                   <div class="card-head">
                     <div class="card-image">
                       <img src="assets/images/logo/th-logo.png" alt="lesson image">
                     </div>
                     <div class="card-description">
-                      <span>Thales Carvalho</span>
-                      <span>Técnico</span>
-                      <span>selath10gmail.com</span>
+                      <span>Usuário: {{user.name}}</span>
+                      <span>Tipo: {{user.role}}</span>
+                      <span>E-mail: {{user.email}}</span>
                     </div>
                   </div>
                 </div>

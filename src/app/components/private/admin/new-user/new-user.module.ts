@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NewAdminComponent } from './new-admin/new-admin.component';
 import { NewTechnicianComponent } from './new-technician/new-technician.component';
 import { NewAnalystComponent } from './new-analyst/new-analyst.component';
+import { AddNewUserDialogComponent } from './add-new-user-dialog/add-new-user-dialog.component';
 
 
 
@@ -21,7 +22,8 @@ import { NewAnalystComponent } from './new-analyst/new-analyst.component';
     NewUserComponent,
     NewAdminComponent,
     NewTechnicianComponent,
-    NewAnalystComponent
+    NewAnalystComponent,
+    AddNewUserDialogComponent
   ],
   imports: [
     CommonModule,

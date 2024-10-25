@@ -1,0 +1,77 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <!-- <img src="assets/icons/add.png" alt=""> -->
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body" [formGroup]="form">
+
+          <h2>Login do usuário</h2>
+
+          <div class="body-header">
+                
+            <div class="header-description">
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Login do usuário</mat-label>
+                    <input matInput formControlName="name" placeholder="Ex.Joao.pedro">
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Nome do usuário</mat-label>
+                    <input matInput formControlName="login" placeholder="Ex.Joao">
+                  </mat-form-field>
+
+            </div>
+
+            <div class="header-description">
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Nova senha</mat-label>
+                    <input matInput formControlName="password" placeholder="Ex.Joao.pedro">
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Confirmar senha</mat-label>
+                    <input matInput formControlName="confirmPassword" placeholder="Ex.Joao">
+                  </mat-form-field>
+
+            </div>
+
+          </div>
+              
+          <div class="simulator-description">
+                <h2>Outras informações</h2>
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail do usuário</mat-label>
+                    <input matInput formControlName="email" placeholder="email.profissional">
+                </mat-form-field>
+
+                <div class="user-role">
+                  <h2>Tipo de perfil</h2>
+                  <span>{{data.role}}</span>
+                </div>
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label>Perfil do usuário</mat-label>
+                    <mat-select>
+                      <mat-option [value]="element" *ngFor="let element of userRoles">{{element.role}}</mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+
+          </div>
+
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="default-btn confirm-btn" (click)="submitForm()">Adicionar</button>
+            
+</mat-dialog-actions>
+
+

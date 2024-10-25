@@ -5,28 +5,108 @@
       "role": "moderador",
       "login": "thales.carvalho",
       "password": "thales.123",
-      "name": "Thales"
+      "name": "Thales",
+      "email": "thales.araujo@feluma.org"
     },
     {
       "id": 2,
       "login": "taline.pereira",
       "password": "taline.123",
       "name": "Taline",
-      "role": "tecnico"
+      "role": "tecnico",
+      "email": "taline.araujo@feluma.org"
     },
     {
       "id": 3,
       "name": "Mariana",
       "password": "mariana.123",
-      "role": "admin",
-      "login": "mariana.araujo"
+      "role": "administrador",
+      "login": "mariana.araujo",
+      "email": "mariana.araujo@feluma.org"
     },
     {
       "name": "Isabela",
       "password": "isabela.123",
       "role": "deposito",
       "logi": "isabela.souza",
+      "email": "isabela.araujo@feluma.org",
       "id": 4
+    },
+    {
+      "id": 5,
+      "role": "analista",
+      "login": "silas.ferreira",
+      "password": "silas.123",
+      "name": "Silas",
+      "email": "silas.araujo@feluma.org"
+    },
+    {
+      "id": 5,
+      "role": "analista",
+      "login": "augusto.moura",
+      "password": "augusto.123",
+      "name": "Augusto",
+      "email": "augusto.araujo@feluma.org"
+    },
+    {
+      "id": 6,
+      "login": "Gilson.pereira",
+      "password": "Gilson.123",
+      "name": "Gilson",
+      "role": "tecnico",
+      "email": "Gilson.araujo@feluma.org"
+    },
+    {
+      "id": 7,
+      "login": "lorrayne.pereira",
+      "password": "lorrayne.123",
+      "name": "lorrayne",
+      "role": "tecnico",
+      "email": "lorrayne.araujo@feluma.org"
+    },
+    {
+      "id": 8,
+      "login": "syarla.pereira",
+      "password": "syarla.123",
+      "name": "syarla",
+      "role": "tecnico",
+      "email": "syarla.araujo@feluma.org"
+    },
+    {
+      "name": "Pedro.oliveira",
+      "login": "Pedro",
+      "password": "pedro.123",
+      "confirmPassword": "pedro.123",
+      "email": "pedro@gmail.com",
+      "role": "administrador",
+      "id": 9
+    },
+    {
+      "name": "bernardo.flavio",
+      "login": "Bernardo",
+      "password": "bernardo.123",
+      "confirmPassword": "bernardo.123",
+      "email": "bernardo@gmail.com",
+      "role": "analista",
+      "id": 10
+    },
+    {
+      "name": "carla.massias",
+      "login": "Carla",
+      "password": "carla.123",
+      "confirmPassword": "carla.123",
+      "email": "carla@gmail.com",
+      "role": "tecnico",
+      "id": 11
+    },
+    {
+      "name": "carla.messias",
+      "login": "Carlar",
+      "password": "carla.123",
+      "confirmPassword": "carla.123",
+      "email": "carla@gmail.com",
+      "role": "tecnico",
+      "id": 12
     }
   ],
   "CleaningReports": [
