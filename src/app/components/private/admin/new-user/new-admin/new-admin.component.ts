@@ -43,7 +43,7 @@ export class NewAdminComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
+
         let model = result;
         this.postUser(model);
        
@@ -66,14 +66,15 @@ export class NewAdminComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        debugger
-        // let model = result;
-        // this.postUser(model);
+       
+        let model = result;
+        this.updateUser(model);
        
       }
     })
   }
 
+  
   private getAdminUsers(){
 
     let params = new HttpParams()
@@ -98,6 +99,17 @@ export class NewAdminComponent implements OnInit{
       error:(error)=>{
         console.log('Something wrong with the request to highSimulators ',error)
       }
+    })
+  }
+
+  private updateUser(model:any){
+
+    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+          this.getAdminUsers();
+        },
+        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
     })
   }
 

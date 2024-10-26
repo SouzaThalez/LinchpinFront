@@ -30,6 +30,7 @@ export class EditUserDialogComponent implements OnInit{
 
   ngOnInit(): void {
     this.form = this.createForm();
+    
     this.form.patchValue(this.data.user);
 
   }
@@ -47,15 +48,6 @@ export class EditUserDialogComponent implements OnInit{
       return
     }
 
-    if(this.form.value.password != this.form.value.confirmPassword){
-      
-      this.snackBar.open('As senhas devem ser iguais!', 'Close', {
-        horizontalPosition: snackBarConfig.horizontalPosition,
-        verticalPosition: snackBarConfig.verticalPosition,
-        duration: snackBarConfig.durationInSeconds * 1000 
-      });
-      return
-    }
     
     this.dialogRef.close(this.form.value);
 
@@ -72,7 +64,8 @@ export class EditUserDialogComponent implements OnInit{
       confirmPassword:[null],
       email:[null,Validators.required],
       image:[],
-      role:[]
+      role:[],
+      id:[]
     })
 
     return form;

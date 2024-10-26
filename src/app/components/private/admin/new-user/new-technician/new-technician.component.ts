@@ -50,6 +50,7 @@ debugger
 
 
   }
+
   openEditUserDialog(user:User){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
@@ -63,7 +64,8 @@ debugger
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-    
+        let model = result;
+        this.updateUser(model);
        
       }
     })
@@ -83,6 +85,7 @@ debugger
       }
     })
   }
+
   private postUser(model:any){
 
     this.httpClient.post('http://localhost:3000/Users/',model).subscribe({
@@ -94,4 +97,17 @@ debugger
       }
     })
   }
+
+  private updateUser(model:any){
+
+    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+          this.getTecnicalUsers();
+        },
+        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
+    })
+  }
+
+
 }

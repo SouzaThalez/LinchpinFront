@@ -82,13 +82,13 @@
       "image": ""
     },
     {
-      "name": "Pedro.oliveira",
+      "name": "pedro.carloois",
       "login": "Pedro",
       "password": "pedro.123",
       "confirmPassword": "pedro.123",
       "email": "pedro@gmail.com",
-      "role": "administrador",
       "image": "",
+      "role": "tecnico",
       "id": 9
     },
     {
@@ -107,8 +107,8 @@
       "password": "carla.123",
       "confirmPassword": "carla.123",
       "email": "carla@gmail.com",
-      "role": "tecnico",
       "image": "",
+      "role": "administrador",
       "id": 11
     },
     {
@@ -117,12 +117,12 @@
       "password": "carla.123",
       "confirmPassword": "carla.123",
       "email": "carla@gmail.com",
-      "role": "tecnico",
       "image": "",
+      "role": "tecnico",
       "id": 12
     },
     {
-      "name": "livia.souza",
+      "name": "livia.vanessa",
       "login": "Livia",
       "password": "livia.123",
       "confirmPassword": "livia.123",
@@ -130,6 +130,16 @@
       "image": "assets/images/users/user-default-admin.png",
       "role": "administrador",
       "id": 13
+    },
+    {
+      "name": "vinicius.martins",
+      "login": "Vinicius",
+      "password": "vinicius.123",
+      "confirmPassword": "vinicius.123",
+      "email": "vinicius@gmail.com",
+      "image": "assets/images/users/user-default-admin.png",
+      "role": "administrador",
+      "id": 14
     }
   ],
   "CleaningReports": [

@@ -49,6 +49,7 @@ export class NewAnalystComponent implements OnInit{
 
 
   }
+
   openEditUserDialog(user:User){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
@@ -62,7 +63,8 @@ export class NewAnalystComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-    
+        let model = result;
+        this.updateUser(model);
        
       }
     })
@@ -92,6 +94,17 @@ export class NewAnalystComponent implements OnInit{
       error:(error)=>{
         console.log('Something wrong with the request to highSimulators ',error)
       }
+    })
+  }
+
+  private updateUser(model:any){
+
+    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+          this.getAnalystUsers();
+        },
+        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
     })
   }
 
