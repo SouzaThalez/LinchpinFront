@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
 import { userRoleType } from '../../../../enums/userRoles';
+import { User } from '../../../../models/user';
+import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 
 
 
@@ -14,7 +16,8 @@ import { userRoleType } from '../../../../enums/userRoles';
 export class NewAdminComponent implements OnInit{
 
   adminUsers: any;
-  userRole = userRoleType.admin;
+  userRole = userRoleType.admin; 
+  userImage = 'assets/images/users/user-default-admin.png';
 
   constructor(
     private matDialog: MatDialog,
@@ -33,7 +36,8 @@ export class NewAdminComponent implements OnInit{
       width:'468px',
       height:'660px',
       data:{
-        role: this.userRole
+        role: this.userRole,
+        image:this.userImage,
       }
     })
 
@@ -49,6 +53,26 @@ export class NewAdminComponent implements OnInit{
 
   }
 
+  openEditUserDialog(user:User){
+
+    let dialogRef = this.matDialog.open(EditUserDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      height:'540px',
+      data:{
+        user:user
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        debugger
+        // let model = result;
+        // this.postUser(model);
+       
+      }
+    })
+  }
 
   private getAdminUsers(){
 

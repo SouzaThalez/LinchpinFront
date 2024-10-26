@@ -15,11 +15,12 @@
         <p></p>
         <div class="details-list">
             <div class="card-container" 
-                 *ngFor="let user of adminUsers">
+                 *ngFor="let user of adminUsers"
+                 (click)="openEditUserDialog(user)">
                 <div class="card-body">
                   <div class="card-head">
                     <div class="card-image">
-                      <img src="assets/images/logo/th-logo.png" alt="lesson image">
+                      <img src="assets/images/users/user-default-admin.png" alt="user-default-imag">
                     </div>
                     <div class="card-description">
                       <span>Usuário: {{user.name}}</span>

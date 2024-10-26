@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
 import { userRoleType } from '../../../../enums/userRoles';
+import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
+import { User } from '../../../../models/user';
 
 @Component({
   selector: 'app-new-technician',
@@ -14,6 +16,7 @@ export class NewTechnicianComponent implements OnInit{
 
    tecnicalUsers: any;
    userRole = userRoleType.technician;
+   userImage = 'assets/images/users/user-default-tec.png';
 
   constructor(
     private matDialog: MatDialog,
@@ -29,9 +32,10 @@ export class NewTechnicianComponent implements OnInit{
     let dialogRef = this.matDialog.open(AddNewUserDialogComponent,{
       disableClose: true,
       width:'468px',
-      height:'660px',
+      height:'540px',
       data:{
-        role: this.userRole
+        role: this.userRole,
+        image:this.userImage
       }
     })
 
@@ -45,6 +49,24 @@ debugger
     })
 
 
+  }
+  openEditUserDialog(user:User){
+
+    let dialogRef = this.matDialog.open(EditUserDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      height:'540px',
+      data:{
+        user:user
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+    
+       
+      }
+    })
   }
 
   private getTecnicalUsers(){

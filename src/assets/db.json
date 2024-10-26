@@ -6,7 +6,8 @@
       "login": "thales.carvalho",
       "password": "thales.123",
       "name": "Thales",
-      "email": "thales.araujo@feluma.org"
+      "email": "thales.araujo@feluma.org",
+      "image": ""
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "password": "taline.123",
       "name": "Taline",
       "role": "tecnico",
-      "email": "taline.araujo@feluma.org"
+      "email": "taline.araujo@feluma.org",
+      "image": ""
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "password": "mariana.123",
       "role": "administrador",
       "login": "mariana.araujo",
-      "email": "mariana.araujo@feluma.org"
+      "email": "mariana.araujo@feluma.org",
+      "image": ""
     },
     {
       "name": "Isabela",
@@ -30,6 +33,7 @@
       "role": "deposito",
       "logi": "isabela.souza",
       "email": "isabela.araujo@feluma.org",
+      "image": "",
       "id": 4
     },
     {
@@ -38,7 +42,8 @@
       "login": "silas.ferreira",
       "password": "silas.123",
       "name": "Silas",
-      "email": "silas.araujo@feluma.org"
+      "email": "silas.araujo@feluma.org",
+      "image": ""
     },
     {
       "id": 5,
@@ -46,7 +51,8 @@
       "login": "augusto.moura",
       "password": "augusto.123",
       "name": "Augusto",
-      "email": "augusto.araujo@feluma.org"
+      "email": "augusto.araujo@feluma.org",
+      "image": ""
     },
     {
       "id": 6,
@@ -54,7 +60,8 @@
       "password": "Gilson.123",
       "name": "Gilson",
       "role": "tecnico",
-      "email": "Gilson.araujo@feluma.org"
+      "email": "Gilson.araujo@feluma.org",
+      "image": ""
     },
     {
       "id": 7,
@@ -62,7 +69,8 @@
       "password": "lorrayne.123",
       "name": "lorrayne",
       "role": "tecnico",
-      "email": "lorrayne.araujo@feluma.org"
+      "email": "lorrayne.araujo@feluma.org",
+      "image": ""
     },
     {
       "id": 8,
@@ -70,7 +78,8 @@
       "password": "syarla.123",
       "name": "syarla",
       "role": "tecnico",
-      "email": "syarla.araujo@feluma.org"
+      "email": "syarla.araujo@feluma.org",
+      "image": ""
     },
     {
       "name": "Pedro.oliveira",
@@ -79,6 +88,7 @@
       "confirmPassword": "pedro.123",
       "email": "pedro@gmail.com",
       "role": "administrador",
+      "image": "",
       "id": 9
     },
     {
@@ -88,6 +98,7 @@
       "confirmPassword": "bernardo.123",
       "email": "bernardo@gmail.com",
       "role": "analista",
+      "image": "",
       "id": 10
     },
     {
@@ -97,6 +108,7 @@
       "confirmPassword": "carla.123",
       "email": "carla@gmail.com",
       "role": "tecnico",
+      "image": "",
       "id": 11
     },
     {
@@ -106,7 +118,18 @@
       "confirmPassword": "carla.123",
       "email": "carla@gmail.com",
       "role": "tecnico",
+      "image": "",
       "id": 12
+    },
+    {
+      "name": "livia.souza",
+      "login": "Livia",
+      "password": "livia.123",
+      "confirmPassword": "livia.123",
+      "email": "livia@gmail.com",
+      "image": "assets/images/users/user-default-admin.png",
+      "role": "administrador",
+      "id": 13
     }
   ],
   "CleaningReports": [

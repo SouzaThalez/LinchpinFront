@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
 import { userRoleType } from '../../../../enums/userRoles';
+import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
+import { User } from '../../../../models/user';
 
 @Component({
   selector: 'app-new-analyst',
@@ -14,6 +16,7 @@ export class NewAnalystComponent implements OnInit{
 
   analystUsers: any;
   userRole = userRoleType.analyst;
+  userImage = 'assets/images/users/user-default-analist.png';
 
   constructor(
     private matDialog: MatDialog,
@@ -29,9 +32,10 @@ export class NewAnalystComponent implements OnInit{
     let dialogRef = this.matDialog.open(AddNewUserDialogComponent,{
       disableClose: true,
       width:'468px',
-      height:'660px',
+      height:'540px',
       data:{
-        role: this.userRole
+        role: this.userRole,
+        image:this.userImage
       }
     })
 
@@ -45,7 +49,24 @@ export class NewAnalystComponent implements OnInit{
 
 
   }
+  openEditUserDialog(user:User){
 
+    let dialogRef = this.matDialog.open(EditUserDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      height:'540px',
+      data:{
+        user:user
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+    
+       
+      }
+    })
+  }
 
   private getAnalystUsers(){
 

@@ -1,0 +1,69 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <!-- <img src="assets/icons/add.png" alt=""> -->
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body" [formGroup]="form">
+
+          <h2>Editar usuário</h2>
+
+          <div class="body-header">
+                
+            <div class="header-description">
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Alterar Login</mat-label>
+                    <input matInput formControlName="name" placeholder="Ex.Joao.pedro">
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Alterar Nome</mat-label>
+                    <input matInput formControlName="login" placeholder="Ex.Joao">
+                  </mat-form-field>
+
+            </div>
+
+
+          </div>
+              
+          <div class="simulator-description">
+
+                <h2>Outras informações</h2>
+                <div class="description-body">
+
+                    <div class="user-email">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Alterar E-mail</mat-label>
+                            <input matInput formControlName="email" placeholder="email.profissional">
+                        </mat-form-field>    
+                    </div>
+                   
+                    <div class="user-role">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Alterar perfil</mat-label>
+                            <mat-select formControlName="role">
+                              <mat-option [value]="element.role" *ngFor="let element of userRoles">{{element.role}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+    
+                </div>
+          </div>
+
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="default-btn confirm-btn" (click)="submitForm()">Alterar</button>
+            
+</mat-dialog-actions>
+
+
+

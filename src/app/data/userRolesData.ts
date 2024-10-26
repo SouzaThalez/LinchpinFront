@@ -1,14 +1,14 @@
 export const userRolesData= [
     {
-        role:'Administrador',
+        role:'administrador',
         label:'admin'
     },
     {
-        role:'Analista',
+        role:'analista',
         label:'analyst'
     },
     {
-        role:'Técnico',
+        role:'tecnico',
         label:'technician'
     },
    

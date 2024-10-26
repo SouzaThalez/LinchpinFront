@@ -14,6 +14,7 @@ import { NewAdminComponent } from './new-admin/new-admin.component';
 import { NewTechnicianComponent } from './new-technician/new-technician.component';
 import { NewAnalystComponent } from './new-analyst/new-analyst.component';
 import { AddNewUserDialogComponent } from './add-new-user-dialog/add-new-user-dialog.component';
+import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
 
 
 
@@ -23,7 +24,8 @@ import { AddNewUserDialogComponent } from './add-new-user-dialog/add-new-user-di
     NewAdminComponent,
     NewTechnicianComponent,
     NewAnalystComponent,
-    AddNewUserDialogComponent
+    AddNewUserDialogComponent,
+    EditUserDialogComponent
   ],
   imports: [
     CommonModule,

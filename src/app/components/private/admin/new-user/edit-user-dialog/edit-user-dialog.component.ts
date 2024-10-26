@@ -1,32 +1,36 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
-
+import { User } from '../../../../models/user';
+import { userRolesData } from '../../../../../data/userRolesData';
 
 @Component({
-  selector: 'app-add-new-user-dialog',
-  templateUrl: './add-new-user-dialog.component.html',
-  styleUrl: './add-new-user-dialog.component.scss'
+  selector: 'app-edit-user-dialog',
+  templateUrl: './edit-user-dialog.component.html',
+  styleUrl: './edit-user-dialog.component.scss'
 })
-export class AddNewUserDialogComponent implements OnInit{
+export class EditUserDialogComponent implements OnInit{
+
 
   form:FormGroup;
- 
+  userRoles = userRolesData;
 
   constructor(
-    public dialogRef: MatDialogRef<AddNewUserDialogComponent>,
-    private matDialog: MatDialog,
+    public dialogRef: MatDialogRef<EditUserDialogComponent>,
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      role: string
-      image: string
+      user:User
     },
   ){}
+
+
+
   ngOnInit(): void {
     this.form = this.createForm();
+    this.form.patchValue(this.data.user);
 
   }
 
@@ -44,7 +48,7 @@ export class AddNewUserDialogComponent implements OnInit{
     }
 
     if(this.form.value.password != this.form.value.confirmPassword){
-
+      
       this.snackBar.open('As senhas devem ser iguais!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
         verticalPosition: snackBarConfig.verticalPosition,
@@ -52,7 +56,7 @@ export class AddNewUserDialogComponent implements OnInit{
       });
       return
     }
-
+    
     this.dialogRef.close(this.form.value);
 
   }
@@ -67,8 +71,8 @@ export class AddNewUserDialogComponent implements OnInit{
       password: [null,Validators.required],
       confirmPassword:[null],
       email:[null,Validators.required],
-      image:[this.data.image],
-      role:[this.data.role]
+      image:[],
+      role:[]
     })
 
     return form;
