@@ -2255,6 +2255,36 @@
         }
       ],
       "id": 6
+    },
+    {
+      "simulatorClass": "Nova classe 2",
+      "classImage": "assets/images/default-image.jpg",
+      "simulators": [
+        {
+          "name": "simulador2",
+          "image": "assets/images/default-image.jpg",
+          "description": "Descrição do simulador 2 ",
+          "codes": [
+            {
+              "code": "124563",
+              "disabled": false
+            },
+            {
+              "code": "986548",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": ""
+        }
+      ],
+      "id": 8
+    },
+    {
+      "simulatorClass": "Nova classe 3",
+      "classImage": "assets/images/default-image.jpg",
+      "simulators": [],
+      "id": 9
     }
   ],
   "highSimulators": [

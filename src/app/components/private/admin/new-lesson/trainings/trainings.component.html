@@ -18,9 +18,10 @@
         </div>
     </div>
     
-    <div class="page-body">
+    <div class="page-body" *ngIf="trainingLessons">
         <p></p>
-        <div class="details-list" *ngIf="trainingLessons[trainingValue]?.lessons">
+        <div class="details-list" 
+             *ngIf="trainingLessons[trainingValue]?.lessons">
             <div class="card-container" 
                  *ngFor="let lesson of trainingLessons[trainingValue]?.lessons"
                  (click)="openEditLessonDialog(lesson)">

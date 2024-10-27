@@ -3,6 +3,7 @@ import { simulators } from '../../../../data/simulators';
 import { MatDialog } from '@angular/material/dialog';
 import { MediumCleaningDialogComponent } from './medium-cleaning-dialog/medium-cleaning-dialog.component';
 import { DetailsDialogComponent } from '../../../shared/details-dialog/details-dialog.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-medium-fidelity',
@@ -11,14 +12,15 @@ import { DetailsDialogComponent } from '../../../shared/details-dialog/details-d
 })
 export class MediumFidelityComponent implements OnInit{
 
-  mediumSimulators = simulators.mediumFidelity;
+  mediumSimulators: any;
 
   constructor(
     private matDialog: MatDialog,
+    private httpClient: HttpClient
   ){}
 
   ngOnInit(): void {
-    
+    this.getMediumSimulators();
   }
 
   openMediumCleaningDialog(element: any){
@@ -38,7 +40,6 @@ export class MediumFidelityComponent implements OnInit{
     })
   }
 
-  
   openDetailsPanel(element:any){
 
     let dialogRef = this.matDialog.open(DetailsDialogComponent,{
@@ -55,6 +56,20 @@ export class MediumFidelityComponent implements OnInit{
       }
     })
   }
+
+  private getMediumSimulators(){
+
+    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+      next:(sample: any)=>{
+        this.mediumSimulators = sample;
+        
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
+      }
+    })
+  }
+
 
 
 }

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { simulators } from '../../../../../data/simulators';
 import { DetailsDialogComponent } from '../../../../shared/details-dialog/details-dialog.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-low-fidelity-details',
@@ -14,25 +15,23 @@ export class LowFidelityDetailsComponent implements OnInit{
 
   routeIndex: string;
   routeName:string;
-  lowSimulatorsData = simulators.lowFidelity;
+  lowSimulatorsData: any;
   lowSimulators: Array<any> = [];
   isLoading = false;
 
   constructor(
     private matDialog: MatDialog,
     private activeRoute: ActivatedRoute,
+    private httpClient: HttpClient
   ){}
 
   ngOnInit(): void {
-    
+    this.getLowSimulators();
     this.activeRoute.params.subscribe(value =>{
       this.routeIndex = value['index'];
-      this.lowSimulators = this.lowSimulatorsData[this.routeIndex].simulators;
-      this.routeName = this.lowSimulatorsData[this.routeIndex].simulatorClass;
-      this.isLoading = true;
-      // console.log(this.lowSimulators)
+      this.getLowSimulators();
+      
    })
-
   }
 
 
@@ -65,6 +64,22 @@ export class LowFidelityDetailsComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
         
+      }
+    })
+  }
+
+  private getLowSimulators(){
+
+    this.httpClient.get('http://localhost:3000/lowSimulators').subscribe({
+      next:(sample: any)=>{
+        this.lowSimulatorsData = sample;
+        this.lowSimulators = this.lowSimulatorsData[this.routeIndex].simulators;
+        this.routeName = this.lowSimulatorsData[this.routeIndex].simulatorClass;
+        this.isLoading = true;
+       
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
       }
     })
   }

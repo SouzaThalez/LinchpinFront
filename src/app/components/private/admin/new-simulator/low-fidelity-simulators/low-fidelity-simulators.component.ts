@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DetailClassSimulatorDialogComponent } from '../detail-class-simulator-dialog/detail-class-simulator-dialog.component';
 import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulator-dialog.component';
 import { NewClassSimulatorDialogComponent } from '../new-class-simulator-dialog/new-class-simulator-dialog.component';
+import { snackBarConfig } from '../../../../../data/snackBarData';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-low-fidelity-simulators',
@@ -18,7 +20,8 @@ export class LowFidelitySimulatorsComponent implements OnInit{
   constructor(
     private matDialog: MatDialog,
     private activeRoute: ActivatedRoute,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar
   ){}
 
   ngOnInit(): void {
@@ -50,9 +53,7 @@ export class LowFidelitySimulatorsComponent implements OnInit{
     let dialogRef = this.matDialog.open(NewClassSimulatorDialogComponent,{
       disableClose: true,
       width:'468px',
-      data:{
-        // simulatorCategory: value
-      }
+      data:{}
   
     })
 
@@ -71,8 +72,15 @@ export class LowFidelitySimulatorsComponent implements OnInit{
 
     this.httpClient.post('http://localhost:3000/lowSimulators/',model).subscribe({
       next:(sample: any)=>{
-        // this.getMediumSimulators();
+
+        this.snackBar.open('Nova classe cadastrada com sucesso!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
         this.getLowSimulators();
+
       },
       error:(error)=>{
         console.log('Something wrong with the request to lowSimulators ',error)
@@ -91,8 +99,6 @@ export class LowFidelitySimulatorsComponent implements OnInit{
       }
     })
   }
-
-
 
 
 }

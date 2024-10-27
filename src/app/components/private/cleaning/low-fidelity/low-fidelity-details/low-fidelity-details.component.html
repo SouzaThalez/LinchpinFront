@@ -6,6 +6,9 @@
         </ol>
     </nav>
     <div class="details-list" *ngIf="isLoading">
+        <ng-container *ngIf="lowSimulators.length == 0">
+            <span>Nenhum simulador cadastrado para esta classe ainda...</span>
+        </ng-container>
         <div class="card-container" *ngFor="let simulator of lowSimulators">
             <div class="card-body" (click)="openLowCleaningDialog(simulator)">
                 <div class="card-head">

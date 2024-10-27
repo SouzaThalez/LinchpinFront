@@ -1,16 +1,9 @@
 
 <div class="page scroll-container">
     
-    <div class="add-item-container">
-        <div class="add-item">
-            <span class="add-text">Adicionar </span>
-            <span class="material-symbols-outlined">add_circle</span>
-        </div>
-    </div>
-
     <div class="cards-list">
         <div class="card" 
-             *ngFor="let element of simulatorClasses index as i" 
+             *ngFor="let element of lowSimulators index as i" 
              routerLink="/private/cleaning/Habilidade/{{i}}">
             <div class="card-head">
                 <div class="card-img">

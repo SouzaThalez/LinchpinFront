@@ -43,8 +43,6 @@ export class MediumFidelitySimulatorsComponent implements OnInit{
       }
     })
   }
-
-
     
   openDetailSimulatorDialog(simulator:any){
       

@@ -3,6 +3,7 @@ import { simulators } from '../../../../data/simulators';
 import { MatDialog } from '@angular/material/dialog';
 import { HighCleaningDialogComponent } from './high-cleaning-dialog/high-cleaning-dialog.component';
 import { DetailsDialogComponent } from '../../../shared/details-dialog/details-dialog.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-high-fidelity',
@@ -11,14 +12,15 @@ import { DetailsDialogComponent } from '../../../shared/details-dialog/details-d
 })
 export class HighFidelityComponent implements OnInit{
 
-  highSimulators = simulators.highFidelity;
+  highSimulators: any;
   
   constructor(
     private matDialog: MatDialog,
+    private httpClient: HttpClient
   ){}
 
   ngOnInit(): void {
-    
+    this.getHightSimulators();
   }
 
   openHighCleaningDialog(element: any){
@@ -39,7 +41,6 @@ export class HighFidelityComponent implements OnInit{
     
   }
 
-  
   openDetailsPanel(element:any){
 
     let dialogRef = this.matDialog.open(DetailsDialogComponent,{
@@ -57,7 +58,18 @@ export class HighFidelityComponent implements OnInit{
     })
   }
 
+  private getHightSimulators(){
 
+    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+      next:(sample: any)=>{
+        this.highSimulators = sample;
+        console.log('highSimulators: ',this.highSimulators);
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to highSimulators ',error)
+      }
+    })
+  }
 
 
 }
