@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ocorranceData } from '../../../../../data/ocorranceData';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,10 +9,28 @@ import { ocorranceData } from '../../../../../data/ocorranceData';
 })
 export class TrainingsComponent implements OnInit{
 
-  cardType = ocorranceData.trainingTypes;
+  
+  trainingLessons:any;
+
+  constructor(
+    private httpClient: HttpClient
+  ){}
 
   ngOnInit(): void {
-   
+    this.getTrainingLessons();
   }
+
+
+  private getTrainingLessons(){
+
+    this.httpClient.get('http://localhost:3000/Trainings').subscribe({
+      next:(sample:any)=>{
+        this.trainingLessons = sample;
+      },
+      error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
+    })
+
+  }
+
 
 }

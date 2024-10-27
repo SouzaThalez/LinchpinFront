@@ -5,7 +5,7 @@ import { ocorranceData } from '../../../../../../data/ocorranceData';
 import { MatDialog } from '@angular/material/dialog';
 import { OcorranceDialogComponent } from '../../ocorrance-dialog/ocorrance-dialog.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -15,9 +15,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class TrainingLessonCardsComponent implements OnInit{
 
-  routeIndex:any;
-  trainingData = ocorranceData.trainingTypes;
-  training:any;
+  routeIndex:string;
+  trainingData: Array<any> = [];
 
   constructor(
     private activeRoute:ActivatedRoute,
@@ -29,8 +28,8 @@ export class TrainingLessonCardsComponent implements OnInit{
 
    this.activeRoute.params.subscribe(value =>{
       this.routeIndex = value['index'];
-    
-      this.training = this.trainingData[this.routeIndex];
+      this.getTrainingLessons(this.routeIndex);
+
       
    })
 
@@ -44,7 +43,7 @@ export class TrainingLessonCardsComponent implements OnInit{
       width:'650px',
       data:{
         lesson:lesson,
-        lessonType: this.training
+        lessonType: this.trainingData[0].value
       }
     })
 
@@ -59,8 +58,6 @@ export class TrainingLessonCardsComponent implements OnInit{
     
   }
 
-
-
   private postLessonReports(model:any){
 
     this.httpClient.post('http://localhost:3000/LessonReports',model)
@@ -70,7 +67,23 @@ export class TrainingLessonCardsComponent implements OnInit{
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
-   }
+  }
+
+  private getTrainingLessons(id: string){
+    
+    let params = new HttpParams()
+    .set('id', id);
+
+    this.httpClient.get('http://localhost:3000/Trainings',{params}).subscribe({
+      next:(sample:any)=>{
+     
+        this.trainingData = sample;
+        console.log(this.trainingData)
+      },
+      error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
+    })
+
+  }
 
 
 }

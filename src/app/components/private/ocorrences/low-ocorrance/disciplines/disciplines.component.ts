@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ocorranceData } from '../../../../../data/ocorranceData';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-disciplines',
@@ -8,11 +8,29 @@ import { ocorranceData } from '../../../../../data/ocorranceData';
 })
 export class DisciplinesComponent implements OnInit{
 
-
-  disciplines = ocorranceData.disciplineTypes;
-  constructor(){}
+  
+  disciplines: any;
+  constructor(
+   
+    private httpClient: HttpClient,
+  ){}
   ngOnInit(): void {
-    
+    this.getDisciplineLessons();
   }
+   
+  
+  private getDisciplineLessons(){
+
+    this.httpClient.get('http://localhost:3000/Disciplines').subscribe({
+      next:(sample:any)=>{
+        this.disciplines = sample;
+      },
+      error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
+    })
+
+  }
+
+
+
 
 }

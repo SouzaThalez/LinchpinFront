@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ocorranceData } from '../../../../../../data/ocorranceData';
 import { OcorranceDialogComponent } from '../../ocorrance-dialog/ocorrance-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-discipline-lesson-cards',
@@ -13,9 +13,8 @@ import { HttpClient } from '@angular/common/http';
 export class DisciplineLessonCardsComponent implements OnInit{
 
 
-  routeIndex:any;
-  disciplines = ocorranceData.disciplineTypes;
-  discipline: any;
+  routeIndex: string;
+  disciplines: any;
 
   constructor(
     private activeRoute:ActivatedRoute,
@@ -27,8 +26,7 @@ export class DisciplineLessonCardsComponent implements OnInit{
 
     this.activeRoute.params.subscribe(value =>{
       this.routeIndex = value['index'];
-      this.discipline = this.disciplines[this.routeIndex];
-      console.log(this.discipline)
+      this.getDisciplineLessons(this.routeIndex);
   
    })
   
@@ -36,13 +34,14 @@ export class DisciplineLessonCardsComponent implements OnInit{
 
 
   openOcorranceDialog(lesson: any){
-
+  
     let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
         lesson:lesson,
-        lessonType: this.discipline
+        lessonType: this.disciplines[0].value
+      
       }
     })
     //disciplines
@@ -65,6 +64,20 @@ export class DisciplineLessonCardsComponent implements OnInit{
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
    }
+
+   private getDisciplineLessons(id: string){
+
+    let params = new HttpParams()
+    .set('id', id);
+    
+    this.httpClient.get('http://localhost:3000/Disciplines',{params}).subscribe({
+      next:(sample:any)=>{
+        this.disciplines = sample;
+      },
+      error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
+    })
+
+  }
 
 
 }

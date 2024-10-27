@@ -2631,29 +2631,6 @@
     },
     {
       "name": "Treinamento Habilidade",
-      "value": "Deont",
-      "lessons": [
-        {
-          "name": "Deontologia",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Outras - Não padronizada",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "nova deonto",
-          "updateDate": "03-10-2024",
-          "description": "dwdwedw",
-          "id": 3
-        }
-      ],
-      "id": 3
-    },
-    {
-      "name": "Treinamento Habilidade",
       "value": "4",
       "lessons": [
         {

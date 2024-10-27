@@ -51,7 +51,6 @@ export class OcorranceDialogComponent implements OnInit{
   
   ngOnInit(): void {
     this.form = this.createForm();
-    console.log(this.data.lessonType)
   } 
 
   

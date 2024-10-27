@@ -2,8 +2,8 @@
     
     <div class="cards-list">
         <div class="card" 
-             *ngFor="let element of disciplines index as i" 
-             routerLink="/private/ocorrences/Habilidade/disciplinas/{{i}}">
+             *ngFor="let element of disciplines" 
+             routerLink="/private/ocorrences/Habilidade/disciplinas/{{element.id}}">
             <div class="card-head">
                 <div class="card-description">
                     <span class="card-title">{{element.name}}</span>
