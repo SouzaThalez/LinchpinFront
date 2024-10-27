@@ -2,6 +2,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
     .page-header{
         height: 80px;
         .grid-button-container{
@@ -26,5 +27,6 @@
     }
     .page-body{
         background-color: #f3f3f3;
+        overflow-y: auto;
     }
 }

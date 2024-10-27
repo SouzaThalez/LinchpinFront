@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 
@@ -17,7 +17,6 @@ export class AddNewUserDialogComponent implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<AddNewUserDialogComponent>,
-    private matDialog: MatDialog,
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
