@@ -19,6 +19,9 @@
     </div>
     
     <div class="page-body" *ngIf="trainingLessons">
+      <ng-container *ngIf="trainingLessons[trainingValue]?.lessons.length == 0">
+        <span>Nenhuma aula cadstrada para este TH...</span>
+      </ng-container>
         <p></p>
         <div class="details-list" 
              *ngIf="trainingLessons[trainingValue]?.lessons">

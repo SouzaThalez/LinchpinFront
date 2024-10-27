@@ -13,7 +13,7 @@ import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog
 })
 export class DisciplinesComponent implements OnInit{
 
-  disciplines = ocorranceData.disciplineTypes;
+  disciplines: any;
   trainingValue = 0;
 
   constructor(
@@ -23,7 +23,7 @@ export class DisciplinesComponent implements OnInit{
 
   
   ngOnInit(): void {
-    
+      this.getDisciplineLessons();
   }
 
   openEditLessonDialog(lesson:any){
@@ -55,7 +55,8 @@ export class DisciplinesComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
+        let model = result;
+        this.postDisciplineLessons(model);
  
 
       }
@@ -67,17 +68,56 @@ export class DisciplinesComponent implements OnInit{
     let dialogRef = this.matDialog.open(NewLessonDialogComponent,{
       disableClose: true,
       width:'468px',
-      data:{}
+      data:{
+        trainingData: this.disciplines
+      }
   
     })
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
-      }
+        let model = result;
+        this.updateDisciplineLessons(model);
+      } 
     })
 
   }
 
 
+
+
+  private getDisciplineLessons(){
+
+    this.httpClient.get('http://localhost:3000/Disciplines').subscribe({
+      next:(sample:any)=>{
+        this.disciplines = sample;
+      },
+      error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
+    })
+
+  }
+
+  private postDisciplineLessons(model:any){
+
+    this.httpClient.post('http://localhost:3000/Disciplines',model)
+      .subscribe({
+          next: (sample: any)=>{
+            this.getDisciplineLessons();
+          },
+          error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
+      })
+  }
+
+  private updateDisciplineLessons(model:any){
+    
+      this.httpClient.put('http://localhost:3000/Disciplines/' + model.id, model)
+      .subscribe({
+          next: (sample: any)=>{
+            this.ngOnInit();
+          },
+          error: (erro)=>{console.log('request Disciplines  is NOT good: ',erro);}
+      })
+  }
+
+  
 }

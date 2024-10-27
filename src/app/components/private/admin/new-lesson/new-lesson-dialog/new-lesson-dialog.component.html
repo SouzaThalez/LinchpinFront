@@ -16,7 +16,7 @@
 
                 <div class="simulator-image">
                   <img src="assets/images/logo/th-logo.png" alt="">
-                  <!-- <button mat-raised-button>+Imagem</button> -->
+                
                 </div>
                 
                 <div class="header-description">
@@ -42,10 +42,11 @@
                 <h2>Aula de qual TH?</h2>
                 <mat-form-field appearance="outline" class="form-input">
                     <mat-label>Treinamento...</mat-label>
-                    <mat-select [(ngModel)]="trainingValue">
-                      <mat-option [value]="i" *ngFor="let element of trainingLessons index as i">{{element.name}} - {{element.value}}</mat-option>
+                    <mat-select formControlName="id">
+                      <mat-option [value]="element.id" *ngFor="let element of data.trainingData index as i">{{element.name}} - {{element.value}}</mat-option>
                     </mat-select>
                   </mat-form-field>
+
                 <h2>Descrição da Aula</h2>
                 <mat-form-field class="simulator-description-text" appearance="outline">
                   <mat-label>Descrição da aula</mat-label>

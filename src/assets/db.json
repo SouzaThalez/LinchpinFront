@@ -103,6 +103,16 @@
       "image": "assets/images/users/user-default-admin.png",
       "role": "administrador",
       "id": 12
+    },
+    {
+      "name": "Carloss",
+      "login": "carlos.pereira",
+      "password": "carlos.123",
+      "confirmPassword": "carlos.123",
+      "email": "carlos@gmail.com",
+      "image": "assets/images/users/user-default-analist.png",
+      "role": "analista",
+      "id": 13
     }
   ],
   "CleaningReports": [
@@ -2445,7 +2455,6 @@
     {
       "name": "Treinamento Habilidade",
       "value": "1",
-      "quantity": "20",
       "lessons": [
         {
           "name": "Primeira - Apresentação inaugural",
@@ -2516,13 +2525,19 @@
           "name": "Outras - Não padronizada",
           "description": "Lesson description",
           "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Exame fisico ",
+          "updateDate": "03-10-2024",
+          "description": "vfsvsvsvfsvsvsfvsvsvsfd",
+          "id": 1
         }
-      ]
+      ],
+      "id": 1
     },
     {
       "name": "Treinamento Habilidade",
       "value": "2",
-      "quantity": "20",
       "lessons": [
         {
           "name": "Primeira - Apresentação inaugural",
@@ -2598,66 +2613,28 @@
           "name": "Outras - Não padronizada",
           "description": "Lesson description",
           "updateDate": "10/10/2024"
+        },
+        {
+          "name": "lavagens dos bracos",
+          "updateDate": "09-10-2024",
+          "description": "ferfrefr",
+          "id": 1
+        },
+        {
+          "name": "erferfe",
+          "updateDate": "10-10-2024",
+          "description": "refeferf",
+          "id": 1
         }
-      ]
+      ],
+      "id": 2
     },
     {
       "name": "Treinamento Habilidade",
-      "value": "3",
-      "quantity": "20",
+      "value": "Deont",
       "lessons": [
         {
-          "name": "Primeira - Apresentação inaugural",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Aspiração QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Cânula Nasal QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Drenos e Ostomias QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Glicemia Capilar QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Máscara com reservatório QD CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Micronebulização QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Monitor Multiparametros QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Segurança do Paciente QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Sistema Venturi QR CODE",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Transporte Paciente Crítico",
+          "name": "Deontologia",
           "description": "Lesson description",
           "updateDate": "10/10/2024"
         },
@@ -2665,13 +2642,19 @@
           "name": "Outras - Não padronizada",
           "description": "Lesson description",
           "updateDate": "10/10/2024"
+        },
+        {
+          "name": "nova deonto",
+          "updateDate": "03-10-2024",
+          "description": "dwdwedw",
+          "id": 3
         }
-      ]
+      ],
+      "id": 3
     },
     {
       "name": "Treinamento Habilidade",
       "value": "4",
-      "quantity": "20",
       "lessons": [
         {
           "name": "Primeira - Apresentação inaugural",
@@ -2748,12 +2731,12 @@
           "description": "Lesson description",
           "updateDate": "10/10/2024"
         }
-      ]
+      ],
+      "id": 4
     },
     {
       "name": "Treinamento Habilidade",
       "value": "5",
-      "quantity": "20",
       "lessons": [
         {
           "name": "Primeira - Apresentação inaugural",
@@ -2825,12 +2808,12 @@
           "description": "Lesson description",
           "updateDate": "10/10/2024"
         }
-      ]
+      ],
+      "id": 5
     },
     {
       "name": "Treinamento Habilidade",
       "value": "6",
-      "quantity": "20",
       "lessons": [
         {
           "name": "Primeira - Apresentação inaugural",
@@ -2897,84 +2880,12 @@
           "description": "Lesson description",
           "updateDate": "10/10/2024"
         }
-      ]
-    },
-    {
-      "name": "Treinamento Habilidade",
-      "value": "7",
-      "quantity": "20",
-      "lessons": [
-        {
-          "name": "Primeira - Apresentação inaugural",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Manejo de Vias Aéreas",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Traqueostomia",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Cricotireoidostomia",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Drenagem Torácica",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Toracocenteses",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Curativo de 3 pontas",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Paracentese",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Punção Venosa Central I",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Punção Venosa Central II",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Inserção de Cateter intra-Arterial",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Punção Lombar",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        },
-        {
-          "name": "Outras - Não padronizada",
-          "description": "Lesson description",
-          "updateDate": "10/10/2024"
-        }
-      ]
+      ],
+      "id": 6
     },
     {
       "name": "Treinamento Habilidade",
       "value": "8",
-      "quantity": "20",
       "lessons": [
         {
           "name": "Primeira - Apresentação inaugural",
@@ -3040,8 +2951,232 @@
           "name": "Outras - Não padronizada",
           "description": "Lesson description",
           "updateDate": "10/10/2024"
+        },
+        {
+          "name": "SONDAGEM GASTRICA",
+          "updateDate": "05-10-2024",
+          "description": "FDWDWEDEW",
+          "id": 7
+        },
+        {
+          "name": "Sondagem enterica",
+          "updateDate": "25-10-2024",
+          "description": "frefrer34",
+          "id": 7
         }
-      ]
+      ],
+      "id": 7
+    },
+    {
+      "name": "Treinamento Habilidade",
+      "value": "9",
+      "lessons": [
+        {
+          "name": "Primeira aula",
+          "updateDate": "24-10-2024",
+          "description": "Descrição d aprimeira aula",
+          "id": 8
+        },
+        {
+          "name": "Segunda aula",
+          "updateDate": "21-10-2024",
+          "description": "Descrição da segunda aula",
+          "id": 8
+        },
+        {
+          "name": "nova aula 9",
+          "updateDate": "03-10-2024",
+          "description": "wdwwedewdew",
+          "id": 8
+        }
+      ],
+      "id": 8
+    }
+  ],
+  "Disciplines": [
+    {
+      "name": "Treinamento Habilidade",
+      "value": "Enf",
+      "lessons": [
+        {
+          "name": "Guia - Manuseio da Bomba de infusão",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Diluições",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Espaçador",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Intra muscular",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Punção intra-óssea",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Punção venosa",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Segurança do paciente",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Vias intra dermica, SC e IM",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Vias Oftálmica, auricular, Nasal, Oral, Sublingual, Tópico e retal",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Conscientização do Ser feminino",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Coleta de Material Cervico e Uterino",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Exame Clinico das Mamas",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Consulta Ginecologica de Enfermagem",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Métodos Contraceptivos",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Exame físico na Gestante",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Mecanismo e Fisiologia do parto normal",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Identificação e auxilio na resolução de complicações obstétricas no parto",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Técnica amamentação, ordenha mamária e relactação",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - BLS Adulto",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - BLS Crianças e bebês",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Medidas de Biossegurança - Colocando Gorro, Máscara Cirúrgica e óculos",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Medidas de Biossegurança Higiene das Mãos",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - OVACE",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Guia - Queimaduras",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Outras - Não padronizada",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Treinamento Habilidade",
+      "value": "Fisio",
+      "lessons": [
+        {
+          "name": "Fisioterapia",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Outras - Não padronizada",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "nova fisio",
+          "updateDate": "03-10-2024",
+          "description": "frrwfwe",
+          "id": 2
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Treinamento Habilidade",
+      "value": "Deont",
+      "lessons": [
+        {
+          "name": "Deontologia",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "Outras - Não padronizada",
+          "description": "Lesson description",
+          "updateDate": "10/10/2024"
+        },
+        {
+          "name": "NOVA DEONTO",
+          "updateDate": "03-10-2024",
+          "description": "DWEDWED",
+          "id": 3
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "Treinamento Habilidade",
+      "value": "30",
+      "lessons": [],
+      "id": 4
     }
   ]
 }

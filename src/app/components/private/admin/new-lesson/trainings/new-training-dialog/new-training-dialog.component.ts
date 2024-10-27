@@ -47,9 +47,9 @@ export class NewTrainingDialogComponent implements OnInit{
   private createForm(){
 
     const form = this.fb.group({
-      name:[null,Validators.required],
+      name:['Treinamento Habilidade'],
       value:[null,Validators.required],
-      description: [null,Validators.required],
+      // description: [null,Validators.required],
       lessons:this.fb.array([]),
     
     })

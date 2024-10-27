@@ -3,9 +3,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ocorranceData } from '../../../../../data/ocorranceData';
-import { HttpClient } from '@angular/common/http';
+import moment from 'moment';
 
 @Component({
   selector: 'app-new-lesson-dialog',
@@ -17,23 +17,23 @@ export class NewLessonDialogComponent implements OnInit{
 
   form: FormGroup;
   cardType = ocorranceData.trainingTypes;
-  trainingValue:0;
-  trainingLessons:any;
+  trainingValue =  0; 
+ 
 
   constructor(
     public dialogRef: MatDialogRef<NewLessonDialogComponent>,
-    private httpClient: HttpClient,
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      lessonData: string
+      trainingData:any
     },
   ){}
 
   
   ngOnInit(): void {
     this.form = this.createForm();
-    this.getTrainingLessons();
+ 
+  
   }
 
 
@@ -46,10 +46,20 @@ export class NewLessonDialogComponent implements OnInit{
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 
       });
+
       return
     }
+    
+    let lesson = this.form.value;
+    let momentDate = moment(lesson.updateDate).format('DD-MM-YYYY');
+    lesson.updateDate = momentDate;
 
-    this.dialogRef.close(this.form.value);
+    let lessonsArray = this.data.trainingData[lesson.id - 1].lessons;
+    lessonsArray.push(lesson);
+
+    let model = this.data.trainingData[lesson.id - 1];
+   
+    this.dialogRef.close(model);
 
   }
 
@@ -59,23 +69,12 @@ export class NewLessonDialogComponent implements OnInit{
       name:[null,Validators.required],
       updateDate:[null,Validators.required],
       description: [null,Validators.required],
+      id:[null,Validators.required]
     
     })
 
     return form;
     
-  }
-
-
-  private getTrainingLessons(){
-
-    this.httpClient.get('http://localhost:3000/Trainings').subscribe({
-      next:(sample:any)=>{
-        this.trainingLessons = sample
-      },
-      error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
-    })
-
   }
 
 
