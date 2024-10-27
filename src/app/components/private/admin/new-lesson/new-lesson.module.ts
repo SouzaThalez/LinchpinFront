@@ -18,6 +18,7 @@ import { NewLessonDialogComponent } from './new-lesson-dialog/new-lesson-dialog.
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { EditLessonDialogComponent } from './edit-lesson-dialog/edit-lesson-dialog.component';
+import { NewCourseDialogComponent } from './curses/new-course-dialog/new-course-dialog.component';
 
 
 
@@ -29,7 +30,8 @@ import { EditLessonDialogComponent } from './edit-lesson-dialog/edit-lesson-dial
     CursesComponent,
     NewTrainingDialogComponent,
     NewLessonDialogComponent,
-    EditLessonDialogComponent
+    EditLessonDialogComponent,
+    NewCourseDialogComponent
   ],
   imports: [
     CommonModule,

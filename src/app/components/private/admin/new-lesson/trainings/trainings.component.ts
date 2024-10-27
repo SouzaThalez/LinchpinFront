@@ -6,6 +6,7 @@ import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog
 import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-trainings',
@@ -20,7 +21,8 @@ export class TrainingsComponent implements OnInit{
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar
   ){}
 
 
@@ -106,6 +108,7 @@ export class TrainingsComponent implements OnInit{
   this.httpClient.post('http://localhost:3000/Trainings',model)
     .subscribe({
         next: (sample: any)=>{
+        
           this.getTrainingLessons();
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
@@ -113,7 +116,7 @@ export class TrainingsComponent implements OnInit{
   }
 
   private updateTrainingLesson(model:any){
-  debugger
+
     this.httpClient.put('http://localhost:3000/Trainings/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{

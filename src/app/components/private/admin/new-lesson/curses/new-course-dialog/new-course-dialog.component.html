@@ -1,0 +1,50 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <!-- <img src="assets/icons/add.png" alt=""> -->
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body" [formGroup]="form">
+
+            <div class="body-header">
+
+                <div class="simulator-image">
+                    <img src="assets/images/logo/curso-logo.png" alt="">
+                
+                </div>
+                
+                <div class="header-description">
+
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Nome do curso</mat-label>
+                        <input matInput placeholder="Ex.Sinais vitais" value="Sushi" formControlName="name">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Abreviação sigla</mat-label>
+                        <input matInput placeholder="Ex.BLS" value="Sushi" formControlName="label">
+                    </mat-form-field>
+    
+              
+                </div>
+
+            </div>
+              
+           
+
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="default-btn confirm-btn" (click)="submitForm()">Adicionar</button>
+            
+</mat-dialog-actions>
+
+
+

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ocorranceData } from '../../../../../data/ocorranceData';
 import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dialog.component';
-import { NewTrainingDialogComponent } from '../trainings/new-training-dialog/new-training-dialog.component';
-import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog.component';
+import { NewCourseDialogComponent } from './new-course-dialog/new-course-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
 
 @Component({
   selector: 'app-curses',
@@ -14,17 +14,18 @@ import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog
 export class CursesComponent implements OnInit{
   
 
-  courses = ocorranceData.courseTypes;
+  courses: any;
   trainingValue = 0;
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar
   ){}
 
   
   ngOnInit(): void {
-    
+    this.getCurses();
   }
 
   openEditLessonDialog(lesson:any){
@@ -45,9 +46,10 @@ export class CursesComponent implements OnInit{
 
   }
   
-  openNewTrainingDialog(){
+  
+  openNewCourseDialog(){
 
-    let dialogRef = this.matDialog.open(NewTrainingDialogComponent,{
+    let dialogRef = this.matDialog.open(NewCourseDialogComponent,{
       disableClose: true,
       width:'468px',
       data:{}
@@ -56,29 +58,43 @@ export class CursesComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
- 
+        
+        let model = result;
+        this.postCourse(model);
 
       }
     })
   }
 
-  openNewLessonDialog(){
 
-    let dialogRef = this.matDialog.open(NewLessonDialogComponent,{
-      disableClose: true,
-      width:'468px',
-      data:{}
-  
-    })
+  private getCurses(){
 
-    dialogRef.afterClosed().subscribe(result=>{
-      if(result){
-      
-      }
+    this.httpClient.get('http://localhost:3000/Curses').subscribe({
+      next:(sample:any)=>{
+        this.courses = sample;
+        console.log(this.courses)
+      },
+      error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
     })
 
   }
+
+  private postCourse(model:any){
+
+    this.httpClient.post('http://localhost:3000/Curses',model)
+      .subscribe({
+          next: (sample: any)=>{
+
+            this.snackBar.open('Curso adicionado com sucesso!', 'Close', {
+              horizontalPosition: snackBarConfig.horizontalPosition,
+              verticalPosition: snackBarConfig.verticalPosition,
+              duration: snackBarConfig.durationInSeconds * 1000 
+            });
+            this.getCurses();
+          },
+          error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+      })
+    }
 
 
 }

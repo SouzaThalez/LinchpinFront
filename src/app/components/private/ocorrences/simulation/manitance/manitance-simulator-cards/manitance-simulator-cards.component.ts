@@ -18,8 +18,7 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
 
   
   routeIndex:any;
-  simulators = simulators.highFidelity;
-  training:any;
+  simulators: any;
   manitanceName: string;
   snackbarMessage = 'Registro salvo com sucesso!';
 
@@ -33,7 +32,9 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
   ngOnInit(): void {
   
    this.activeRoute.params.subscribe(value =>{
-      this.routeIndex = value['index'];
+      
+    this.routeIndex = value['index'];
+
       switch (this.routeIndex) {
         case '0':
           this.manitanceName =  'Básica';
@@ -44,6 +45,7 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
         default:
           break;
       }
+      this.getHightSimulators();
    })
 
 
@@ -93,6 +95,19 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
           this.openSnackBar(this.snackbarMessage);
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private getHightSimulators(){
+    
+    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+      next:(sample: any)=>{
+        this.simulators = sample;
+        
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to highSimulators ',error)
+      }
     })
   }
 

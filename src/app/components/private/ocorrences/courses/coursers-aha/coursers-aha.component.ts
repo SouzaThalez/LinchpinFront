@@ -12,8 +12,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CoursersAhaComponent implements OnInit{
 
-  courses = ocorranceData.courseTypes;
-  //  courses = cursesData;
+  courses : any;
+ 
 
   constructor(
     private matDialog: MatDialog,
@@ -22,7 +22,7 @@ export class CoursersAhaComponent implements OnInit{
 
 
   ngOnInit(): void {
-    
+    this.getCurses();
   }
 
 
@@ -54,6 +54,18 @@ export class CoursersAhaComponent implements OnInit{
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
-   }
+  }
+
+  private getCurses(){
+
+    this.httpClient.get('http://localhost:3000/Curses').subscribe({
+      next:(sample:any)=>{
+        this.courses = sample;
+        console.log(this.courses)
+      },
+      error: (erro)=>{console.log('request to Curses failed: ',erro);}
+    })
+
+  }
 
 }

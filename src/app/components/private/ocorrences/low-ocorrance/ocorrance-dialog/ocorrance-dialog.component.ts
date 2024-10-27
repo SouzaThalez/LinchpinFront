@@ -10,6 +10,7 @@ import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { SimulatorReport } from '../../../../models/simulatorReport';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ocorrance-dialog',
@@ -29,7 +30,7 @@ export class OcorranceDialogComponent implements OnInit{
 
   selectedSimulator: Simulator;
 
-  mediumSimulators =  simulators.mediumFidelity;
+  mediumSimulators: any;
   simulatorCodes: Array<any> = [];
 
   form:FormGroup = this.createForm();
@@ -41,6 +42,7 @@ export class OcorranceDialogComponent implements OnInit{
   constructor(
     public dialogRef: MatDialogRef<OcorranceDialogComponent>,
     private matDialog: MatDialog,
+    private httpClient: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {
       lesson: Lesson,
       lessonType: any
@@ -51,6 +53,7 @@ export class OcorranceDialogComponent implements OnInit{
   
   ngOnInit(): void {
     this.form = this.createForm();
+    this.getMediumSimulators();
   } 
 
   
@@ -202,6 +205,17 @@ export class OcorranceDialogComponent implements OnInit{
     return prevForm;
   }
 
+  private getMediumSimulators(){
+
+    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+      next:(sample: any)=>{
+        this.mediumSimulators = sample;
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
+      }
+    })
+  }
 
 
 }

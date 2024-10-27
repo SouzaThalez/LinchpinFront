@@ -16,8 +16,7 @@ import { snackBarConfig } from '../../../../../../data/snackBarData';
 export class ScenarioRegisterCardsComponent implements OnInit{
  
   routeIndex:any;
-  simulators = simulators.highFidelity;
-  training:any;
+  simulators: any;
   registerName: string;
 
   snackbarMessage = 'Registro salvo com sucesso!';
@@ -47,6 +46,7 @@ export class ScenarioRegisterCardsComponent implements OnInit{
         default:
           break;
       }
+      this.getHightSimulators();
    })
 
 
@@ -120,5 +120,17 @@ export class ScenarioRegisterCardsComponent implements OnInit{
     })
   }
 
+  private getHightSimulators(){
+    
+    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+      next:(sample: any)=>{
+        this.simulators = sample;
+        
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to highSimulators ',error)
+      }
+    })
+  }
 
 }

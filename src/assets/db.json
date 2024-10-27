@@ -3155,5 +3155,42 @@
       "lessons": [],
       "id": 4
     }
+  ],
+  "Curses": [
+    {
+      "name": "Suporte Básico de Vida",
+      "label": "BLS",
+      "id": 1
+    },
+    {
+      "name": "Salva Corações",
+      "label": "RCP",
+      "id": 2
+    },
+    {
+      "name": "Suporte Avançado de Vida Cardiovascular",
+      "label": "ACLS",
+      "id": 3
+    },
+    {
+      "name": "Suporte Avançado de Vida em Pediatria",
+      "label": "PALS",
+      "id": 4
+    },
+    {
+      "name": "Não padronizado",
+      "label": "Outros",
+      "id": 5
+    },
+    {
+      "name": "Advanced eletric car",
+      "label": "AEC",
+      "id": 6
+    },
+    {
+      "name": "Aha trauma life sport",
+      "label": "ATLS",
+      "id": 7
+    }
   ]
 }

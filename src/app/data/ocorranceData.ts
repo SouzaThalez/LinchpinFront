@@ -817,35 +817,35 @@ export const ocorranceData ={
     courseTypes:[
         {
             name:'Suporte Básico de Vida',
-            value:'BLS',
+            label:'BLS',
             type: 'curso',
             description:'Course description'  
            
         },
         {
             name:'Salva Corações',
-            value:'RCP',
+            label:'RCP',
             type: 'curso',
             description:'Course description'
            
       },
         {
             name:'Suporte Avançado de Vida Cardiovascular',
-            value:'ACLS',
+            label:'ACLS',
             type: 'curso',
             description:'Course description'
            
         },
         {
             name:'Suporte Avançado de Vida em Pediatria',
-            value:'PALS',
+            label:'PALS',
             type: 'curso',
             description:'Course description'
            
         },
         {
             name:'Curso',
-            value:'Outros',
+            label:'Outros',
             type: 'curso',
             description:'Course description'
            
