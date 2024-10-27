@@ -10,6 +10,7 @@ import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { SimulatorReport } from '../../../../models/simulatorReport';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-courses-dialog',
@@ -31,14 +32,10 @@ export class CoursesDialogComponent implements OnInit{
 
   selectedSimulator: Simulator;
 
-  mediumSimulators =  simulators.mediumFidelity;
+  mediumSimulators: any;
   simulatorCodes: Array<any> = [];
 
   form:FormGroup = this.createForm();
-
-
-
-
 
   constructor(
     public dialogRef: MatDialogRef<CoursesDialogComponent>,
@@ -47,12 +44,14 @@ export class CoursesDialogComponent implements OnInit{
     },
     private fb : FormBuilder,
     private matDialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private httpClient: HttpClient
   ){}
   
   ngOnInit(): void {
   
     this.form = this.createForm();
+    this.getMediumSimulators();
 
   } 
 
@@ -60,6 +59,7 @@ export class CoursesDialogComponent implements OnInit{
   onClose(value: any): void {
     this.dialogRef.close(value);
     this.openSnackBar(this.snackbarMessage);
+
   }
 
 
@@ -72,16 +72,9 @@ export class CoursesDialogComponent implements OnInit{
   }
 
   checkSimBox(value: any){
-    this.isValid = value;
-    // if(this.isValid){
-    //   this.form.patchValue({
-    //     simulatorOcorrance: this.defaultSimulatorMessage,
-    //     simulatorName:'Não informado',
-    //     simulatorCode:'Não informado',
-    //     simulatorDescription:false
-    //   })
-    // }
 
+    this.isValid = value;
+  
     if(this.isValid){
 
       const noReportInfo = new SimulatorReport();
@@ -202,5 +195,18 @@ export class CoursesDialogComponent implements OnInit{
 
     return prevForm;
   }
+
+  private getMediumSimulators(){
+
+    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+      next:(sample: any)=>{
+        this.mediumSimulators = sample;
+      },
+      error:(error)=>{
+        console.log('Something wrong with the request to mediumSimulators ',error)
+      }
+    })
+  }
+
 
 }

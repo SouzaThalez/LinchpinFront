@@ -61,7 +61,7 @@ export class CoursersAhaComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/Curses').subscribe({
       next:(sample:any)=>{
         this.courses = sample;
-        console.log(this.courses)
+       
       },
       error: (erro)=>{console.log('request to Curses failed: ',erro);}
     })
