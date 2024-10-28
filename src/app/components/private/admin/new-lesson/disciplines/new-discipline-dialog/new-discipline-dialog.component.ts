@@ -1,28 +1,26 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../../data/snackBarData';
 
 @Component({
-  selector: 'app-new-training-dialog',
-  templateUrl: './new-training-dialog.component.html',
-  styleUrl: './new-training-dialog.component.scss'
+  selector: 'app-new-discipline-dialog',
+  templateUrl: './new-discipline-dialog.component.html',
+  styleUrl: './new-discipline-dialog.component.scss'
 })
-export class NewTrainingDialogComponent implements OnInit{
-
+export class NewDisciplineDialogComponent implements OnInit{
   
   form: FormGroup;
 
   constructor(
-    public dialogRef: MatDialogRef<NewTrainingDialogComponent>,
-    private matDialog: MatDialog,
+    public dialogRef: MatDialogRef<NewDisciplineDialogComponent>,
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: {
-      simulatorCategory: string
-    },
+    @Inject(MAT_DIALOG_DATA) public data: {},
   ){}
+
+  
   ngOnInit(): void {
     this.form = this.createForm();
   }
@@ -37,19 +35,22 @@ export class NewTrainingDialogComponent implements OnInit{
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 
       });
+
       return
     }
-
-    this.dialogRef.close(this.form.value);
+    debugger
+    let model = this.form.value;
+    this.dialogRef.close(model);
 
   }
 
   private createForm(){
 
     const form = this.fb.group({
-      name:['Treinamento Habilidade'],
+      name:[null,Validators.required],
       value:[null,Validators.required],
       lessons:this.fb.array([]),
+      
     })
 
     return form;

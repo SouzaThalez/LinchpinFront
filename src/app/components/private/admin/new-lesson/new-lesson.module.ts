@@ -19,6 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { EditLessonDialogComponent } from './edit-lesson-dialog/edit-lesson-dialog.component';
 import { NewCourseDialogComponent } from './curses/new-course-dialog/new-course-dialog.component';
+import { NewDisciplineDialogComponent } from './disciplines/new-discipline-dialog/new-discipline-dialog.component';
 
 
 
@@ -31,7 +32,8 @@ import { NewCourseDialogComponent } from './curses/new-course-dialog/new-course-
     NewTrainingDialogComponent,
     NewLessonDialogComponent,
     EditLessonDialogComponent,
-    NewCourseDialogComponent
+    NewCourseDialogComponent,
+    NewDisciplineDialogComponent
   ],
   imports: [
     CommonModule,

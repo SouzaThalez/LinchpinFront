@@ -3154,6 +3154,12 @@
       "value": "30",
       "lessons": [],
       "id": 4
+    },
+    {
+      "name": "Saude Enfermagem",
+      "value": "SASU",
+      "lessons": [],
+      "id": 5
     }
   ],
   "Curses": [

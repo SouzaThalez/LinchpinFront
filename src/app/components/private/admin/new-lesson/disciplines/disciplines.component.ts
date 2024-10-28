@@ -5,6 +5,7 @@ import { ocorranceData } from '../../../../../data/ocorranceData';
 import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dialog.component';
 import { NewTrainingDialogComponent } from '../trainings/new-training-dialog/new-training-dialog.component';
 import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog.component';
+import { NewDisciplineDialogComponent } from './new-discipline-dialog/new-discipline-dialog.component';
 
 @Component({
   selector: 'app-disciplines',
@@ -44,9 +45,9 @@ export class DisciplinesComponent implements OnInit{
 
   }
   
-  openNewTrainingDialog(){
+  openNewDisciplineDialog(){
 
-    let dialogRef = this.matDialog.open(NewTrainingDialogComponent,{
+    let dialogRef = this.matDialog.open(NewDisciplineDialogComponent,{
       disableClose: true,
       width:'468px',
       data:{}
