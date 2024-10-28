@@ -20,6 +20,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { EditLessonDialogComponent } from './edit-lesson-dialog/edit-lesson-dialog.component';
 import { NewCourseDialogComponent } from './curses/new-course-dialog/new-course-dialog.component';
 import { NewDisciplineDialogComponent } from './disciplines/new-discipline-dialog/new-discipline-dialog.component';
+import { RemoveDisciplineDialogComponent } from './disciplines/remove-discipline-dialog/remove-discipline-dialog.component';
 
 
 
@@ -33,7 +34,8 @@ import { NewDisciplineDialogComponent } from './disciplines/new-discipline-dialo
     NewLessonDialogComponent,
     EditLessonDialogComponent,
     NewCourseDialogComponent,
-    NewDisciplineDialogComponent
+    NewDisciplineDialogComponent,
+    RemoveDisciplineDialogComponent
   ],
   imports: [
     CommonModule,

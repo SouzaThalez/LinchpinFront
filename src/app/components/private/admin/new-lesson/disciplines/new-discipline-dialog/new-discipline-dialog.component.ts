@@ -38,7 +38,7 @@ export class NewDisciplineDialogComponent implements OnInit{
 
       return
     }
-    debugger
+    
     let model = this.form.value;
     this.dialogRef.close(model);
 

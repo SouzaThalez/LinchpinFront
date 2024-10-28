@@ -1,0 +1,41 @@
+<div class="header">
+    <div class="close" mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+    </div>
+    <div class="header-container">
+        <img src="assets/images/logo/logo_icon.png" alt="">
+        <img src="assets/images/logo/logo_title.png" alt="">
+        <!-- <img src="assets/icons/add.png" alt=""> -->
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography" >
+        <div class="dialog-body scroll-container">
+            <h2>Disciplinas cadastradas</h2>
+            <div class="discipline-container" *ngFor="let element of data.disciplines">
+
+                <div class="simulator-image">
+                    <img src="assets/images/logo/th-logo.png" alt="lesson image">
+                </div>
+
+                <div class="header-description">
+                    <span>Nome: {{element.name}}</span>
+                    <span>Sigla: {{element.value}}</span>
+                    <span>Aulas: {{element.lessons.length}}</span>
+                </div>
+                <div class="remove-icon">
+                    <span class="material-symbols-outlined">delete</span>
+                </div>
+            </div>
+              
+           
+
+        </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button class="default-btn confirm-btn" mat-dialog-close>Cancelar</button>
+    <!-- <button class="default-btn cancel-btn" mat-dialog-close>Remover</button> -->
+            
+</mat-dialog-actions>
+

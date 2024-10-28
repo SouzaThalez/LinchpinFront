@@ -6,6 +6,7 @@ import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dia
 import { NewTrainingDialogComponent } from '../trainings/new-training-dialog/new-training-dialog.component';
 import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog.component';
 import { NewDisciplineDialogComponent } from './new-discipline-dialog/new-discipline-dialog.component';
+import { RemoveDisciplineDialogComponent } from './remove-discipline-dialog/remove-discipline-dialog.component';
 
 @Component({
   selector: 'app-disciplines',
@@ -63,6 +64,27 @@ export class DisciplinesComponent implements OnInit{
       }
     })
   }
+
+  openRemoveDisciplineDialog(){
+    let dialogRef = this.matDialog.open(RemoveDisciplineDialogComponent,{
+      disableClose: true,
+      width:'468px',
+      data:{
+        disciplines: this.disciplines
+      }
+  
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        let model = result;
+      
+ 
+
+      }
+    })
+  }
+
 
   openNewLessonDialog(){
 
