@@ -12,7 +12,7 @@
                 *ngFor="let simulator of highSimulators"
                 (click)="openDetailSimulatorDialog(simulator)">
                 <div class="card-body">
-                    <div class="card-head">
+                    <div class="card-head new-simulator">
                         <div class="card-image">
                             <img [src]="simulator.image" alt="">
                         </div>
@@ -20,6 +20,9 @@
                             <span>{{simulator.name}}</span>
                             <span>{{simulator.description}}</span>
                             <span>Quantidade: {{simulator.codes.length}}</span>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">visibility</span>
                         </div>
                     </div>
                 </div>
