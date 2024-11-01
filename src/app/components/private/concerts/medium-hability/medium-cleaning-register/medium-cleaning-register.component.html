@@ -5,16 +5,14 @@
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
-        <div class="report-detail-container" 
-             *ngFor="let element of cleaningData">
-
-              <div class="report-content">
-                    <div class="report-body">
-                        <div class="report-image">
-                            <img [src]="element.simulatorImage" alt="">
-                        </div>
-                        <div class="report-info">
-
+        <div class="report-container-grid"
+            *ngFor="let element of cleaningData">
+            <div class="report-content">
+                <div class="report-body">
+                    <div class="report-image">
+                        <img [src]="element.simulatorImage" alt="simulatorImag">
+                    </div>
+                    <div class="report-info">
                             <span>Simulador: {{element.simulatorName}}</span>
                             <span>Data: {{element.date}}</span>
                             <div class="intervention" *ngIf="element.intervention else default">
@@ -29,32 +27,30 @@
                                 [ngClass]="{'red': element.hasIntervention}">
                             <span>
                                 {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
-                            </span>
+                            </span> 
                             
-                            </div>
-
                         </div>
                     </div>
-              </div>
-
-              <div class="report-content">
-
-                <div class="report-content-header">
-                    <span>Achados de limpeza:</span>
-                    <span class="report-code">Código: {{element.simulatorCode}}</span>
                 </div>
-                <div class="report-content-body">
-                    <span>{{element.findings}}</span>
-                </div>
-                <div class="report-content-footer">
-                    <div class="link-description" (click)="openPreviewCleaningReportDialog(element)">
-                        <span>Imprimir</span>
-                        <span class="material-symbols-outlined">visibility</span>
+            </div>
+            <div class="report-content">
+                <div class="report-footer" (click)="openPreviewCleaningReportDialog(element)">
+                    <div class="footer-header">
+                        <span>Achados de limpeza:</span>
+                        <span class="report-code">Código: {{element.simulatorCode}}</span>
                     </div>
-                    
+                    <div class="footer-content">
+                        <span>{{element.findings}}</span>
+                    </div>
+                    <div class="footer-action">
+                        <div class="footer-button">
+                            <span><b>Imprimir</b></span>
+                            <span class="material-symbols-outlined">visibility</span>
+                        </div>
+                    </div>
                 </div>
-
-              </div>
+            </div>
         </div>
+
     </div>
 </div>

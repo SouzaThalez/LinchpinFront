@@ -1,0 +1,106 @@
+.report-detail-list{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px;
+  
+    .report-container-grid{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin-bottom: 3px;
+        height: 100px;
+        &.medium-report{
+            height: 150px;
+        }
+        
+    .report-content{
+        border: 1px solid #bab4c1;
+        .report-body{
+            width: 310px;
+            display: flex;
+            height: 100%;
+          
+            .report-image{
+                margin-left: 10px;
+                margin-top: 10px;
+                img{
+                    width: 50px;
+                    height: 50px;
+                    box-shadow: 0px 2px 7px #bdb5b5;
+                    border-radius: 5px;
+                    object-fit: cover;
+                }
+            }
+
+            .report-info{
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-left: 10px;
+                gap: 4px;
+                .report-button{
+                    padding: 5px;
+                    border-radius: 3px;
+                    background-color: rgb(194, 131, 131);
+                    display: flex;
+                    justify-content: center;
+                  
+
+                    &.red{
+                        background-color: #b0d5bf
+                    }
+
+                    &:hover{
+                        cursor: pointer;
+                        box-shadow: 2px 2px 1px gray;
+                        color: white;
+                    }
+                }
+            
+            }
+        }
+
+        .report-footer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; 
+
+            .footer-header{
+                display: flex;
+                justify-content: space-between;
+                margin-left: 10px;
+                .report-code{
+                    margin-right: 10px;
+                }
+            }
+            .footer-content{
+                max-height: 60px; /* Set a maximum height for the content */
+                overflow: hidden; /* Hide overflow content */
+                text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+                display: -webkit-box; /* Use flexible box layout */
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .footer-action{
+               .footer-button{
+                display: flex;
+                padding: 6px;
+                border-radius: 4px;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+               }
+            }
+
+            &:hover{
+                background-color: gainsboro;
+                cursor: pointer;
+            }
+        }
+        
+    }
+    }
+    
+}
+

@@ -4,59 +4,56 @@
         <div class="empty-report-data"  *ngIf="!lessonData || lessonData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
-        <div class="report-detail-container" 
+
+             
+        <div class="report-container-grid medium-report"
              *ngFor="let element of lessonData">
+            <div class="report-content">
+                <div class="report-body">
+                    <div class="report-image">
+                        <img [src]="element.lessonImage" alt="leeson-image">
+                    </div>
+                    <div class="report-info">
+                        <span>Aula: {{element.lessonName}}</span>
+                        <span>Tipo: {{element.lessonCategory}}</span>
+                        <span>Data abertura: {{element.date}}</span>
 
-              <div class="report-content">
-                    <div class="report-body">
+                        <div class="report-button" 
+                            (click)="openInterventionReport(element)"
+                            [ngClass]="{'red': element.hasIntervention}">
 
-                        <div class="report-image">
-                            <img [src]="element.lessonImage" alt="">
+                            <span> {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
+
                         </div>
 
-                        <div class="report-info">
-
-                            <span>Aula: {{element.lessonName}}</span>
-                            <span>Tipo: {{element.lessonCategory}}</span>
-                            <span>Data abertura: {{element.date}}</span>
-                            
+                    </div>
+                </div>
+            </div>
+            <div class="report-content">
+                <div class="report-footer" (click)="openPreviewSimulatorReportDialog(element)">
+                    <div class="footer-header">
+                        <span>Ocorrência de simulador</span>
+                        
+                    </div>
+                    <div class="footer-content">
+                        <span>{{element.simulatorReport.ocorrance}}</span>
+                    </div>
+                    <div class="footer-action">
+                        <div class="footer-button">
                             <div class="intervention" *ngIf="element.intervention else default">
-                                <span>Status::{{element.intervention.interventionStatus}}</span>
+                                 <span>Status:{{element.intervention.interventionStatus}}</span>
                             </div>
-
                             <ng-template #default>
-                                 <span>Status: Enviado para manutenção...</span>
+                                <span>Status: Enviado para manutenção...</span>
                             </ng-template>
-
-                            <div class="report-button" 
-                                (click)="openInterventionReport(element)"
-                                [ngClass]="{'red': element.hasIntervention}">
-
-                                <span> {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
-    
-                            </div>
-                            
+                            <span class="material-symbols-outlined">visibility</span>
                         </div>
                     </div>
-              </div>
-
-              <div class="report-content">
-                <div class="report-content-header">
-                    <span>Ocorrência de simulador</span>
-                    <!-- <span class="report-code">Código: {{element.simulatorReport.code}}</span> -->
                 </div>
-                <div class="report-content-body">
-                    <span>{{element.simulatorReport.ocorrance}}</span>
-                </div>
-                <div class="report-content-footer">
-                    <div class="link-description" (click)="openPreviewSimulatorReportDialog(element)">
-                        <span>Imprimir</span>
-                        <span class="material-symbols-outlined">visibility</span>
-                    </div>              
-
-                </div>
-              </div>
-
+            </div>
         </div>
+
+
+        
     </div>
 </div>

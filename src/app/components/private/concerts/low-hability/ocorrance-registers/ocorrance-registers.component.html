@@ -1,42 +1,44 @@
 
 <div class="page">
     <div class="report-detail-list">
-        <h3>Registros de ocorrencia de aula</h3>
+
+        <div class="page-text">Registros de ocorrencia de aula</div>
         <div class="empty-report-data"  *ngIf="!lessonReportData || lessonReportData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
-        <div class="report-detail-container" 
+        
+        <div class="report-container-grid"
              *ngFor="let element of lessonReportData">
-              <div class="report-content">
-                    <div class="report-body">
-                        <div class="report-image">
-                            <img [src]="element.lessonImage" alt="">
-                        </div>
-                        <div class="report-info">
+            <div class="report-content">
+                <div class="report-body">
+                    <div class="report-image">
+                        <img [src]="element.lessonImage" alt="leeson-image">
+                    </div>
+                    <div class="report-info">
                             <span>Nome: {{element.lessonCategory}} - {{element.lessonType}}</span>
                             <span>Aula: {{element.lessonName}} </span>
                             <span>Data: {{element.date}} </span>
-                            <!-- <span>Status: Enviado para manutenção</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="report-content">
+                <div class="report-footer" (click)="openPreviewLessonReportDialog(element)">
+                    <div class="footer-header">
+                        <span>Registros de aula</span>
+                        <span class="report-code">Data: {{element.date}}</span>
+                    </div>
+                    <div class="footer-content">
+                        <span>{{element.lessonOcorrance}}</span>
+                    </div>
+                    <div class="footer-action">
+                        <div class="footer-button">
+                            <span><b>Imprimir</b></span>
+                            <span class="material-symbols-outlined">visibility</span>
                         </div>
                     </div>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.
-              </div>
-              <div class="report-content">
-                <div class="report-content-header">
-                    <span><b>Registros de aula</b></span>
-                    <!-- <span class="report-code">Data: {{element.date}}</span> -->
                 </div>
-                <div class="report-content-body">
-                    <span>{{element.lessonOcorrance}}</span>
-                </div>
-                <div class="report-content-footer">
-                    <div class="link-description" (click)="openPreviewLessonReportDialog(element)">
-                        <span>Imprimir</span>
-                        <span class="material-symbols-outlined">visibility</span>
-                    </div>
-                    
-                </div>
-              </div>
+            </div>
         </div>
+ 
     </div>
 </div>
