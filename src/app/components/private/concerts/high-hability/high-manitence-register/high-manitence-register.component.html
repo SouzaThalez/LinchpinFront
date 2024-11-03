@@ -5,58 +5,51 @@
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
-        <div class="report-detail-container" 
+               
+        <div class="report-container-grid"
              *ngFor="let element of manitanceData">
-
-              <div class="report-content">
-                    <div class="report-body">
-                        <div class="report-image">
-                            <img [src]="element.simulatorImage" alt="">
+            <div class="report-content">
+                <div class="report-body">
+                    <div class="report-image">
+                        <img [src]="element.simulatorImage" alt="simulatorImag">
+                    </div>
+                    <div class="report-info">
+                        <span>Simulador: {{element.simulatorName}}</span>
+                        <span>Data: {{element.date}}</span>
+                            <div class="report-button" 
+                                (click)="openInterventionReport(element)"
+                                [ngClass]="{'red': element.hasIntervention}">
+                            <span>
+                                {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
+                            </span> 
+                            
                         </div>
-                        <div class="report-info">
-
-                            <span>Simulador: {{element.simulatorName}}</span>
-                            <span>Manutenção: {{element.manitanceCategory}}</span>
-                            <span>Data: {{element.date}}</span>
-
+                    </div>
+                </div>
+            </div>
+            <div class="report-content">
+                <div class="report-footer" (click)="openPreviewCleaningReportDialog(element)">
+                    <div class="footer-header">
+                        <span>Achados da manutenção:</span>
+                        <span class="report-code">Manutenção: {{element.manitanceCategory}}</span>
+                    </div>
+                    <div class="footer-content">
+                        <span>{{element.manitanceFindings}}</span>
+                    </div>
+                    <div class="footer-action">
+                        <div class="footer-button" (click)="openPreviewCleaningReportDialog(element)">
                             <div class="intervention" *ngIf="element.intervention else default">
-                                <span>Status::{{element.intervention.interventionStatus}}</span>
+                                <span>Status: {{element.intervention.interventionStatus}}</span>
                             </div>
                             <ng-template #default>
                                 <span>Status: Enviado para manutenção...</span>
                             </ng-template>
-
-                            <div class="report-button" 
-                                (click)="openInterventionReport(element)"
-                                [ngClass]="{'red': element.hasIntervention}">
-                                <span>
-                                    {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
-                                </span>
-                                
-                            </div>
-
+                            <span class="material-symbols-outlined">visibility</span>
                         </div>
                     </div>
-              </div>
-              
-              <div class="report-content">
-
-                <div class="report-content-header">
-                    <span>Achados da manutenção:</span>
-                    <!-- <span class="report-code">Abertura: {{element.date}}</span> -->
                 </div>
-                <div class="report-content-body">
-                    <span>{{element.manitanceFindings}}</span>
-                </div>
-                <div class="report-content-footer">
-                    <div class="link-description" (click)="openPreviewCleaningReportDialog(element)">
-                        <span>Imprimir</span>
-                        <span class="material-symbols-outlined">visibility</span>
-                    </div>
-                    
-                </div>
-
-              </div>
+            </div>
         </div>
+
     </div>
 </div>

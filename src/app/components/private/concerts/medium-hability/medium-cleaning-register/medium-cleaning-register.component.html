@@ -15,12 +15,6 @@
                     <div class="report-info">
                             <span>Simulador: {{element.simulatorName}}</span>
                             <span>Data: {{element.date}}</span>
-                            <div class="intervention" *ngIf="element.intervention else default">
-                                <span>Status::{{element.intervention.interventionStatus}}</span>
-                            </div>
-                            <ng-template #default>
-                                <span>Status: Enviado para manutenção...</span>
-                            </ng-template>
 
                             <div class="report-button" 
                                 (click)="openInterventionReport(element)"
@@ -44,7 +38,12 @@
                     </div>
                     <div class="footer-action">
                         <div class="footer-button">
-                            <span><b>Imprimir</b></span>
+                            <div class="intervention" *ngIf="element.intervention else default">
+                                <span>Status: {{element.intervention.interventionStatus}}</span>
+                            </div>
+                            <ng-template #default>
+                                <span>Status: Enviado para manutenção...</span>
+                            </ng-template>
                             <span class="material-symbols-outlined">visibility</span>
                         </div>
                     </div>
