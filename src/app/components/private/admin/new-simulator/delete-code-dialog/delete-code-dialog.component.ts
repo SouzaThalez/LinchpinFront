@@ -18,7 +18,7 @@ export class DeleteCodeDialogComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    // console.log(this.data.simulatorData)
+   
   }
 
 

@@ -15,6 +15,9 @@
             <div class="grid-item">
               <button mat-raised-button class="form-options form-buttons" (click)="openNewTrainingDialog()"> + Novo Treinamento</button> 
             </div>
+            <div class="grid-item">
+              <button mat-raised-button class="form-options form-buttons" (click)="openRemoveLessonDialog()"> Remover Treinamento</button> 
+            </div>
         </div>
     </div>
     
@@ -37,6 +40,9 @@
                       <span>{{lesson.name}}</span>
                       <span>{{lesson.description}}</span>
                       <span>Revisão: {{lesson.updateDate}}</span>
+                    </div>
+                    <div class="card-icon">
+                      <span class="material-symbols-outlined">visibility</span>
                     </div>
                   </div>
                 </div>

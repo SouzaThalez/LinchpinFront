@@ -11,8 +11,11 @@
 
 <mat-dialog-content class="mat-typography" >
         <div class="dialog-body scroll-container">
-            <h2>Disciplinas cadastradas</h2>
-            <div class="discipline-container" *ngFor="let element of data.disciplines">
+            <h2>{{data.dataName}} no sistema</h2>
+
+            <div class="discipline-container" 
+                 *ngFor="let element of data.lessonData index as i"
+                  (click)="openConfirmRemoveDialog(element, i)">
 
                 <div class="simulator-image">
                     <img src="assets/images/logo/th-logo.png" alt="lesson image">
@@ -35,7 +38,8 @@
 
 <mat-dialog-actions class="dialog-actions">
     <button class="default-btn confirm-btn" mat-dialog-close>Cancelar</button>
-    <!-- <button class="default-btn cancel-btn" mat-dialog-close>Remover</button> -->
+   
             
 </mat-dialog-actions>
+
 

@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ocorranceData } from '../../../../../data/ocorranceData';
 import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dialog.component';
-import { NewTrainingDialogComponent } from '../trainings/new-training-dialog/new-training-dialog.component';
 import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog.component';
 import { NewDisciplineDialogComponent } from './new-discipline-dialog/new-discipline-dialog.component';
-import { RemoveDisciplineDialogComponent } from './remove-discipline-dialog/remove-discipline-dialog.component';
+import { RemoveLessonDialogComponent } from '../remove-lesson-dialog/remove-lesson-dialog.component';
+import { snackBarConfig } from '../../../../../data/snackBarData';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import moment from 'moment';
 
 @Component({
   selector: 'app-disciplines',
@@ -20,7 +21,8 @@ export class DisciplinesComponent implements OnInit{
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar
   ){}
 
   
@@ -39,7 +41,10 @@ export class DisciplinesComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
+        debugger
+        let model = result;
+        const convertedDate = moment(model.updateDate).format('DD-MM-YYYY');
+        model.updateDate = convertedDate;
       }
     })
 
@@ -65,12 +70,14 @@ export class DisciplinesComponent implements OnInit{
     })
   }
 
-  openRemoveDisciplineDialog(){
-    let dialogRef = this.matDialog.open(RemoveDisciplineDialogComponent,{
+  openRemoveLessonDialog(){
+
+    let dialogRef = this.matDialog.open(RemoveLessonDialogComponent,{
       disableClose: true,
       width:'468px',
       data:{
-        disciplines: this.disciplines
+        lessonData: this.disciplines,
+         dataName:'Disciplinas'
       }
   
     })
@@ -83,6 +90,7 @@ export class DisciplinesComponent implements OnInit{
 
       }
     })
+
   }
 
 
@@ -107,8 +115,6 @@ export class DisciplinesComponent implements OnInit{
   }
 
 
-
-
   private getDisciplineLessons(){
 
     this.httpClient.get('http://localhost:3000/Disciplines').subscribe({
@@ -125,6 +131,13 @@ export class DisciplinesComponent implements OnInit{
     this.httpClient.post('http://localhost:3000/Disciplines',model)
       .subscribe({
           next: (sample: any)=>{
+
+            this.snackBar.open('Nova disciplina adicionada com sucesso!', 'Close', {
+              horizontalPosition: snackBarConfig.horizontalPosition,
+              verticalPosition: snackBarConfig.verticalPosition,
+              duration: snackBarConfig.durationInSeconds * 1000 
+            });
+
             this.getDisciplineLessons();
           },
           error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}

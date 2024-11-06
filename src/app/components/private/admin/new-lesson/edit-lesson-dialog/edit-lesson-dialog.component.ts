@@ -15,7 +15,7 @@ import moment from 'moment';
 export class EditLessonDialogComponent implements OnInit{
 
   form: FormGroup;
-
+  updateDate: any;
   constructor(
     public dialogRef: MatDialogRef<EditLessonDialogComponent>,
     private matDialog: MatDialog,
@@ -27,13 +27,14 @@ export class EditLessonDialogComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.form = this.createForm();
 
-    const updateDate = moment(this.data.lessonData.updateDate);
+    this.form = this.createForm();
+    moment.locale('pt-br');
+    const updateDate = moment(this.data.lessonData.updateDate).toDate();
 
     this.form.patchValue({
       name: this.data.lessonData.name,
-      updateDate: updateDate.isValid() ? updateDate : null ,// Set date if valid
+      updateDate:updateDate,
       description: this.data.lessonData.description,
     });
    
@@ -44,7 +45,7 @@ export class EditLessonDialogComponent implements OnInit{
   }
 
   submitForm(){
-  
+debugger
     if(this.form.invalid){
 
       this.snackBar.open('Favor preencher todos os Campos!', 'Close', {
@@ -54,7 +55,7 @@ export class EditLessonDialogComponent implements OnInit{
       });
       return
     }
-    console.log(this.form.value)
+    
     this.dialogRef.close(this.form.value);
 
   }
@@ -63,7 +64,7 @@ export class EditLessonDialogComponent implements OnInit{
 
     const form = this.fb.group({
       name:[null,Validators.required],
-      updateDate:[null,Validators.required],
+      updateDate: [null, Validators.required],
       description: [null,Validators.required],
     
     })

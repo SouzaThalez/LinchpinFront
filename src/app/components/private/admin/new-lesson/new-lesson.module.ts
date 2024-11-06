@@ -16,11 +16,13 @@ import { NewTrainingDialogComponent } from './trainings/new-training-dialog/new-
 import { provideNgxMask } from 'ngx-mask';
 import { NewLessonDialogComponent } from './new-lesson-dialog/new-lesson-dialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { EditLessonDialogComponent } from './edit-lesson-dialog/edit-lesson-dialog.component';
 import { NewCourseDialogComponent } from './curses/new-course-dialog/new-course-dialog.component';
 import { NewDisciplineDialogComponent } from './disciplines/new-discipline-dialog/new-discipline-dialog.component';
-import { RemoveDisciplineDialogComponent } from './disciplines/remove-discipline-dialog/remove-discipline-dialog.component';
+import { RemoveLessonDialogComponent } from './remove-lesson-dialog/remove-lesson-dialog.component';
+import { ConfirmRemoveComponent } from './confirm-remove/confirm-remove.component';
+import { MY_DATE_FORMATS } from '../../../../data/dateformat';
 
 
 
@@ -35,7 +37,8 @@ import { RemoveDisciplineDialogComponent } from './disciplines/remove-discipline
     EditLessonDialogComponent,
     NewCourseDialogComponent,
     NewDisciplineDialogComponent,
-    RemoveDisciplineDialogComponent
+    RemoveLessonDialogComponent,
+    ConfirmRemoveComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +56,8 @@ import { RemoveDisciplineDialogComponent } from './disciplines/remove-discipline
   ],
   providers: [
     provideNgxMask(),
-    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
+    
   ]
 })
 export class NewLessonModule { }

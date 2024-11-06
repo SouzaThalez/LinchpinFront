@@ -15,7 +15,8 @@ import moment from 'moment';
 })
 export class NewLessonDialogComponent implements OnInit{
 
-  form: FormGroup;
+  newDataForm: FormGroup;
+  selectedTraining: FormGroup;
   cardType = ocorranceData.trainingTypes;
   trainingValue =  0; 
  
@@ -31,15 +32,16 @@ export class NewLessonDialogComponent implements OnInit{
 
   
   ngOnInit(): void {
-    this.form = this.createForm();
- 
-  
+    this.newDataForm = this.newLessonForm();
+    this.selectedTraining =  this.selectedTrainingForm();
+
   }
 
 
   submitForm(){
-  
-    if(this.form.invalid){
+    
+ 
+    if(this.newDataForm.invalid){
 
       this.snackBar.open('Favor preencher todos os Campos!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
@@ -50,26 +52,37 @@ export class NewLessonDialogComponent implements OnInit{
       return
     }
     
-    let lesson = this.form.value;
+    if(this.selectedTraining.invalid){
+      this.snackBar.open('Favor selecionar o Treinamento!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+
+      return
+    }
+    
+    let lesson = this.newDataForm.value;
     let momentDate = moment(lesson.updateDate).format('DD-MM-YYYY');
     lesson.updateDate = momentDate;
+  
 
-    let lessonsArray = this.data.trainingData[lesson.id - 1].lessons;
-    lessonsArray.push(lesson);
+  
+    let trainingLessons = this.selectedTraining.get('training').value;
+    trainingLessons.lessons.push(lesson);
 
-    let model = this.data.trainingData[lesson.id - 1];
-   
+    let model = trainingLessons;
     this.dialogRef.close(model);
 
   }
 
-  private createForm(){
+  private newLessonForm(){
 
     const form = this.fb.group({
       name:[null,Validators.required],
       updateDate:[null,Validators.required],
       description: [null,Validators.required],
-      id:[null,Validators.required]
+      id:[]
     
     })
 
@@ -77,6 +90,16 @@ export class NewLessonDialogComponent implements OnInit{
     
   }
 
+  private selectedTrainingForm(){
+
+    const form = this.fb.group({
+      training:[null,Validators.required],
+    })
+
+    return form;
+    
+  }
+  
 
 
 }

@@ -7,14 +7,13 @@
 
 <mat-dialog-content class="mat-typography" >
         <div class="dialog-body">
-            Tem certeza que deseja remover o código <b>{{data.simulatorCode}}</b>
+            Tem certeza que deseja remover a disciplina <b>{{data.lessonData.name}} - {{data.lessonData.value}}</b>
         </div>
 </mat-dialog-content>
 
 <mat-dialog-actions class="dialog-actions">
  
-    <button class="default-btn cancel-btn" mat-dialog-close>Cancelar</button>
-    <button class="default-btn confirm-btn" (click)=closeDialog()>Remover</button>
+    <button class="default-btn confirm-btn" mat-dialog-close>Cancelar</button>
+    <button class="default-btn  cancel-btn" (click)=closeDialog()>Remover</button>
     
 </mat-dialog-actions>
-

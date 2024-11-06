@@ -16,7 +16,7 @@
               <button mat-raised-button class="form-options form-buttons" (click)="openNewDisciplineDialog()"> + Nova Disciplina</button> 
             </div>
             <div class="grid-item">
-              <button mat-raised-button class="form-options form-buttons" (click)="openRemoveDisciplineDialog()"> Remover Disciplina</button> 
+              <button mat-raised-button class="form-options form-buttons" (click)="openRemoveLessonDialog()"> Remover Disciplina</button> 
             </div>
         </div>
     </div>
@@ -39,6 +39,9 @@
                       <span>{{lesson.name}}</span>
                       <span>{{lesson.description}}</span>
                       <span>Revisão: {{lesson.updateDate}}</span>
+                    </div>
+                    <div class="card-icon">
+                      <span class="material-symbols-outlined">visibility</span>
                     </div>
                   </div>
                 </div>
