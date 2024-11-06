@@ -1,3 +1,13 @@
 .page{
     padding: 10px;
 }
+.filter-container{
+    display: flex;
+    gap: 35px;
+
+    .period-container{
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+    }
+}

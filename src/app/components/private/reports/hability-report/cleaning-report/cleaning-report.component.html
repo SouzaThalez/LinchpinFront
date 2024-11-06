@@ -1,5 +1,17 @@
 <div class="page">
     <h3>Listagem de todos os simuladores de baixa fidelidade que tiveram registro de limpeza</h3>
+    <div class="date-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Filtrar por periodo</mat-label>
+            <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+         
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+    </div>
     <div class="report-container"
          *ngFor="let element of cleaningData"
          (click)="openPreviewLessonDialog(element)">

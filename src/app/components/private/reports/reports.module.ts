@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { ReportsRoutingModule } from './reports-routing.module';
 import { ReportsComponent } from './reports.component';
 import { NavMenuModule } from "../../shared/nav-menu/nav-menu.module";
@@ -13,6 +13,13 @@ import { ScenarioSimulationReportComponent } from './simulation/scenario-simulat
 import { CleaningReportComponent } from './hability-report/cleaning-report/cleaning-report.component';
 import { MaintenanceReportComponent } from './hability-report/maintenance-report/maintenance-report.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
     declarations: [
@@ -31,7 +38,15 @@ import { HttpClientModule } from '@angular/common/http';
         ReportsRoutingModule,
         NavMenuModule,
         TabMenuModule,
-        HttpClientModule
-    ]
+        HttpClientModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule
+    ],
+ 
 })
 export class ReportsModule { }

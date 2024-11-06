@@ -3,13 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MAT_DATE_FORMATS, MatDateFormats } from '@angular/material/core';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
   ],
   bootstrap: [AppComponent],
 })

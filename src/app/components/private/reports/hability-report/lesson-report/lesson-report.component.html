@@ -1,24 +1,104 @@
 <div class="page">
     <h3>Listagem de todos os registros de aulas</h3>
-    <div class="report-container"
-         *ngFor="let element of lessonData"
-         (click)="openPreviewLessonDialog(element)">
-        <div class="report-head">
-            <div class="report-icon">
-                <img src="assets/icons/report-icon.png" alt="">
+    <div class="filter-container">
+        
+          <mat-form-field appearance="outline">
+            <mat-label>Filtrar</mat-label>
+            <mat-select [(ngModel)]="selectedValue">
+              <mat-option value="1">Por periodo</mat-option>
+              <mat-option value="2">Por Data</mat-option>
+              <mat-option value="3">Por Técncio</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="period-container" *ngIf="selectedValue == 1">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Selecione o periodo</mat-label>
+                <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
+                  <input matStartDate formControlName="start" placeholder="Data inicio">
+                  <input matEndDate formControlName="end" placeholder="Data fim">
+                </mat-date-range-input>
+             
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+            <button mat-raised-button (click)="clearFilterData()">Limpar tudo</button>
+
+          </div>
+          <div *ngIf="selectedValue == 2">
+            <mat-form-field appearance="outline">
+                <mat-label>Escolha uma data</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+          </div>
+          <div *ngIf="selectedValue == 3">
+            <mat-form-field appearance="outline">
+                <mat-label>Técnicos</mat-label>
+                <mat-select >
+                  <mat-option value="1">Por periodo</mat-option>
+                  <mat-option value="2">Por Data</mat-option>
+                  <mat-option value="3">Por Técncio</mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+    </div>
+
+    <div class="reports" *ngIf="filteredReports else showAllData">
+        <span *ngIf="filteredReports">N° {{filteredReports.length}}</span>
+        <div class="report-container"
+            *ngFor="let element of filteredReports"
+            (click)="openPreviewLessonDialog(element)">
+            <div class="report-head">
+                <div class="report-icon">
+                    <img src="assets/icons/report-icon.png" alt="">
+                </div>
+                <div class="report-description">
+                    <span>Categoria: {{element.lessonCategory}}</span>
+                    <span>Aula: {{element.lessonName}}</span>
+                    <span>Date: {{element.date}}</span>
+                    <span>Thales Carvalho</span>
+                </div>
             </div>
-            <div class="report-description">
-                <span>Categoria: {{element.lessonCategory}}</span>
-                <span>Aula: {{element.lessonName}}</span>
-                <span>Date: {{element.date}}</span>
-                <span>Thales Carvalho</span>
+            <div class="report-bars">
+                <img src="assets/icons/report-bars.png" alt="">
             </div>
-        </div>
-        <div class="report-bars">
-            <img src="assets/icons/report-bars.png" alt="">
-        </div>
-        <div class="report-grid">
-            <img src="assets/icons/report-grid.png" alt="">
+            <div class="report-grid">
+                <img src="assets/icons/report-grid.png" alt="">
+            </div>
         </div>
     </div>
+    <ng-template #showAllData>
+        <div class="report-container"
+            *ngFor="let element of lessonData"
+            (click)="openPreviewLessonDialog(element)">
+       <div class="report-head">
+           <div class="report-icon">
+               <img src="assets/icons/report-icon.png" alt="">
+           </div>
+           <div class="report-description">
+               <span>Categoria: {{element.lessonCategory}}</span>
+               <span>Aula: {{element.lessonName}}</span>
+               <span>Date: {{element.date}}</span>
+               <span>Thales Carvalho</span>
+           </div>
+       </div>
+       <div class="report-bars">
+           <img src="assets/icons/report-bars.png" alt="">
+       </div>
+       <div class="report-grid">
+           <img src="assets/icons/report-grid.png" alt="">
+       </div>
+        </div>
+    </ng-template>
+
+
+
+
+
+
+    
 </div>
