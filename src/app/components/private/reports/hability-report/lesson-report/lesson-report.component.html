@@ -1,5 +1,6 @@
 <div class="page">
     <h3>Listagem de todos os registros de aulas</h3>
+
     <div class="filter-container">
         
           <mat-form-field appearance="outline">
@@ -27,14 +28,17 @@
             <button mat-raised-button (click)="clearFilterData()">Limpar tudo</button>
 
           </div>
-          <div *ngIf="selectedValue == 2">
-            <mat-form-field appearance="outline">
+          
+          <div class="period-container" *ngIf="selectedValue == 2">
+                <mat-form-field appearance="outline">
                 <mat-label>Escolha uma data</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" #dateInput (dateChange)="onSingleDateSelected($event.value)">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
+                </mat-form-field>
+                <button mat-raised-button (click)="clearFilterData()">Limpar tudo</button>
           </div>
+
           <div *ngIf="selectedValue == 3">
             <mat-form-field appearance="outline">
                 <mat-label>Técnicos</mat-label>
@@ -45,6 +49,7 @@
                 </mat-select>
               </mat-form-field>
           </div>
+
     </div>
 
     <div class="reports" *ngIf="filteredReports else showAllData">
@@ -71,34 +76,31 @@
             </div>
         </div>
     </div>
+    
     <ng-template #showAllData>
+        <span *ngIf="lessonData">N° {{lessonData.length}}</span>
         <div class="report-container"
             *ngFor="let element of lessonData"
             (click)="openPreviewLessonDialog(element)">
-       <div class="report-head">
-           <div class="report-icon">
-               <img src="assets/icons/report-icon.png" alt="">
-           </div>
-           <div class="report-description">
-               <span>Categoria: {{element.lessonCategory}}</span>
-               <span>Aula: {{element.lessonName}}</span>
-               <span>Date: {{element.date}}</span>
-               <span>Thales Carvalho</span>
-           </div>
-       </div>
-       <div class="report-bars">
-           <img src="assets/icons/report-bars.png" alt="">
-       </div>
-       <div class="report-grid">
-           <img src="assets/icons/report-grid.png" alt="">
-       </div>
+            <div class="report-head">
+                <div class="report-icon">
+                    <img src="assets/icons/report-icon.png" alt="">
+                </div>
+                <div class="report-description">
+                    <span>Categoria: {{element.lessonCategory}}</span>
+                    <span>Aula: {{element.lessonName}}</span>
+                    <span>Date: {{element.date}}</span>
+                    <span>Thales Carvalho</span>
+                </div>
+            </div>
+            <div class="report-bars">
+                <img src="assets/icons/report-bars.png" alt="">
+            </div>
+            <div class="report-grid">
+                <img src="assets/icons/report-grid.png" alt="">
+            </div>
         </div>
     </ng-template>
-
-
-
-
-
 
     
 </div>

@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { PreviewLessonReportDialogComponent } from '../../../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import moment from 'moment';
@@ -18,13 +17,13 @@ export class LessonReportComponent implements OnInit{
   lessonData: any;
   filteredReports:any;
   form: FormGroup;
-  selectedValue = 0 ;
+  selectedValue = 0;
+  @ViewChild('dateInput') dateInput!: ElementRef;
 
 
   constructor(
     private httpClient: HttpClient,
     private matDialog: MatDialog,
-    private snackBar: MatSnackBar,
     private fb : FormBuilder,
   ){}
 
@@ -39,6 +38,68 @@ export class LessonReportComponent implements OnInit{
     });
     
   }
+
+
+  onDateRangeSelected(startDate: Date, endDate: Date): void {
+
+    if (!startDate || !endDate) {
+      return; // Exit if dates are not fully selected
+    }
+  
+    // Ensure original data remains untouched
+    const originalData = this.lessonData;
+  
+    // Format selected start and end dates
+    const convertedStartDate = moment(startDate).startOf("day");
+    const convertedEndDate = moment(endDate).endOf("day");
+  
+  
+    // Filter reports within the selected date range
+    this.filteredReports = originalData.filter(report => {
+      const reportDate = moment(report.date, "DD-MM-YYYY").startOf("day");
+      return reportDate.isBetween(convertedStartDate, convertedEndDate, null, '[]');
+    });
+  
+    
+  }
+
+
+  onSingleDateSelected(selectedDate: Date): void {
+
+    if (!selectedDate) {
+      return; // Exit if no date is selected
+    }
+  
+    // Format the selected date
+    const formattedDate = moment(selectedDate).startOf("day");
+  
+    
+  
+    // Filter reports matching the selected date
+    this.filteredReports = this.lessonData.filter(report => {
+      const reportDate = moment(report.date, "DD-MM-YYYY").startOf("day");
+      return reportDate.isSame(formattedDate, "day");
+    });
+  
+    
+  }
+
+
+  clearFilterData(): void {
+    // Reset the form fields (date range)
+    this.form.reset();
+    // Reset the filtered data to the original data
+    this.filteredReports = null;
+    
+    if (this.dateInput) {
+      this.dateInput.nativeElement.value = '';
+    }
+  
+    // Reload all data
+    
+    this.lessonData = [...this.lessonData]; 
+  }
+
 
   openPreviewLessonDialog(element: any){
 
@@ -58,37 +119,6 @@ export class LessonReportComponent implements OnInit{
 
   }
   
-  onDateRangeSelected(startDate: Date, endDate: Date): void {
-    
-    this.clearFilterData();
-    const originalData = this.lessonData;
-
-    const convertedStartDate = moment(startDate).format('DD-MM-YYYY');
-    const convertedEndDate = moment(endDate).format('DD-MM-YYYY');
-
-    console.log('Selected Start Date:', convertedStartDate);
-    console.log('Selected End Date:', convertedEndDate);
-
-    this.filteredReports = originalData.filter(report => {
-      
-      const reportDate = moment(report.date).format('DD-MM-YYYY');
-      // Check if the report date is within the selected date range
-      return moment(reportDate, 'DD-MM-YYYY').isBetween(convertedStartDate, convertedEndDate, null, '[]');
-
-    });
-   
-    console.log(this.filteredReports);
-    this.lessonData = this.filteredReports;
-    
-
-
-    
-  }
-
-  clearFilterData(){
-    this.getAllLessonReports();
-  }
-
   private getAllLessonReports(){
 
     // let params = new HttpParams()
