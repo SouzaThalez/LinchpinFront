@@ -84,7 +84,7 @@ export class CleaningRegistersComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/CleaningReports/', { params })
     .subscribe({
         next: (sample: any)=>{
-          console.log('request to prepared class  ok!: ',sample);
+          
           this.cleaningData = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
@@ -96,7 +96,6 @@ export class CleaningRegistersComponent implements OnInit{
     this.httpClient.put('http://localhost:3000/CleaningReports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
-          console.log('request to specific report!: ',sample);
           this.selectedReport = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}

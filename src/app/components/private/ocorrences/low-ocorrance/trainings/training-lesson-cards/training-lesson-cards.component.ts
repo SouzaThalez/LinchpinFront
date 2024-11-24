@@ -63,7 +63,7 @@ export class TrainingLessonCardsComponent implements OnInit{
     this.httpClient.post('http://localhost:3000/LessonReports',model)
     .subscribe({
         next: (sample: any)=>{
-          console.log('request to prepared class  ok!: ',sample);
+          
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
@@ -78,7 +78,7 @@ export class TrainingLessonCardsComponent implements OnInit{
       next:(sample:any)=>{
      
         this.trainingData = sample;
-        console.log(this.trainingData)
+       
       },
       error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
     })

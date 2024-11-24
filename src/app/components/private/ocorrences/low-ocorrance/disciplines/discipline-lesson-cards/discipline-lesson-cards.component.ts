@@ -59,7 +59,7 @@ export class DisciplineLessonCardsComponent implements OnInit{
     this.httpClient.post('http://localhost:3000/LessonReports',model)
     .subscribe({
         next: (sample: any)=>{
-          console.log('request to prepared class  ok!: ',sample);
+          
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })

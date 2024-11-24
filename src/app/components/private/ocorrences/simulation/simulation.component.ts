@@ -14,7 +14,6 @@ export class SimulationComponent implements OnInit{
 
   ngOnInit(): void {
     this.routerName = this.router.snapshot.url[0].path;
-    //console.log(this.router.snapshot.url[0].path)
     
   }
 }

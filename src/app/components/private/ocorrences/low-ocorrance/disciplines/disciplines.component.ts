@@ -11,7 +11,6 @@ export class DisciplinesComponent implements OnInit{
   
   disciplines: any;
   constructor(
-   
     private httpClient: HttpClient,
   ){}
   ngOnInit(): void {

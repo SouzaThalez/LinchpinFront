@@ -52,7 +52,6 @@ export class OcorranceRegistersComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/LessonReports/', { params })
     .subscribe({
         next: (sample: any)=>{
-          console.log('request to prepared class  ok!: ',sample);
           this.lessonReportData = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}

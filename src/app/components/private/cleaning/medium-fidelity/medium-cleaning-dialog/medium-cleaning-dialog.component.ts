@@ -90,7 +90,6 @@ export class MediumCleaningDialogComponent implements OnInit{
    this.httpClient.post('http://localhost:3000/CleaningReports',model)
    .subscribe({
        next: (sample: any)=>{
-         console.log('request to prepared class  ok!: ',sample);
        },
        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
    })

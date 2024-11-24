@@ -91,7 +91,6 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
     this.httpClient.post('http://localhost:3000/manitanceReports',model)
     .subscribe({
         next: (sample: any)=>{
-          console.log('request to prepared class  ok!: ',sample);
           this.openSnackBar(this.snackbarMessage);
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}

@@ -31,7 +31,7 @@ export class LowFidelityComponent implements OnInit{
       next:(sample: any)=>{
         
         this.lowSimulators = sample;
-        console.log(this.lowSimulators)
+       
       },
       error:(error)=>{
         console.log('Something wrong with the request to mediumSimulators ',error)

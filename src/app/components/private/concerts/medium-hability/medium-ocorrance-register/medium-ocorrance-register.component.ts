@@ -85,7 +85,6 @@ export class MediumOcorranceRegisterComponent implements OnInit{
     this.httpClient.put('http://localhost:3000/LessonReports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
-          console.log('request to specific report!: ',sample);
           this.selectedReport = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
@@ -100,7 +99,6 @@ export class MediumOcorranceRegisterComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/LessonReports/', { params })
     .subscribe({
         next: (sample: any)=>{
-          console.log('request!: ',sample);
           this.lessonData = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}

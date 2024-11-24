@@ -17,7 +17,6 @@ export class LowHabilityComponent implements OnInit{
 
   ngOnInit(): void {
     this.routerName = this.router.snapshot.url[0].path;
-    console.log(this.routerName)
     
   }
 
