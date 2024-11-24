@@ -1,7 +1,7 @@
 {
   "Users": [
     {
-      "id": 1,
+      "id": "1",
       "role": "moderador",
       "login": "thales.carvalho",
       "password": "thales.123",
@@ -10,7 +10,7 @@
       "image": ""
     },
     {
-      "id": 2,
+      "id": "2",
       "login": "taline.pereira",
       "password": "taline.123",
       "name": "Taline",
@@ -26,7 +26,7 @@
       "email": "mariana.araujo@feluma.org",
       "image": "",
       "role": "administrador",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Isabela",
@@ -35,10 +35,10 @@
       "logi": "isabela.souza",
       "email": "isabela.araujo@feluma.org",
       "image": "",
-      "id": 4
+      "id": "4"
     },
     {
-      "id": 5,
+      "id": "5",
       "role": "analista",
       "login": "augusto.moura",
       "password": "augusto.123",
@@ -47,7 +47,7 @@
       "image": ""
     },
     {
-      "id": 6,
+      "id": "6",
       "login": "Gilson.pereira",
       "password": "Gilson.123",
       "name": "Gilson",
@@ -63,7 +63,7 @@
       "email": "cristiano.alves@gmail.com",
       "image": "assets/images/users/user-default-analist.png",
       "role": "analista",
-      "id": 7
+      "id": "7"
     },
     {
       "name": "Syarla",
@@ -73,7 +73,7 @@
       "email": "syarla@gmail.com",
       "image": "assets/images/users/user-default-tec.png",
       "role": "tecnico",
-      "id": 9
+      "id": "9"
     },
     {
       "name": "Laura",
@@ -83,7 +83,7 @@
       "email": "laura@gmail.com",
       "image": "assets/images/users/user-default-tec.png",
       "role": "tecnico",
-      "id": 10
+      "id": "10"
     },
     {
       "name": "Marta",
@@ -93,7 +93,7 @@
       "email": "marta@gmail.com",
       "image": "assets/images/users/user-default-tec.png",
       "role": "tecnico",
-      "id": 11
+      "id": "11"
     },
     {
       "name": "Rosana",
@@ -103,7 +103,7 @@
       "email": "rosana@gmail.com",
       "image": "assets/images/users/user-default-admin.png",
       "role": "administrador",
-      "id": 12
+      "id": "12"
     },
     {
       "name": "Carloss",
@@ -113,7 +113,7 @@
       "email": "carlos@gmail.com",
       "image": "assets/images/users/user-default-analist.png",
       "role": "analista",
-      "id": 13
+      "id": "13"
     }
   ],
   "CleaningReports": [
@@ -127,7 +127,7 @@
       "hasIntervention": false,
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
       "user": null,
-      "id": 1
+      "id": "1"
     },
     {
       "date": "01-10-2024",
@@ -140,7 +140,7 @@
       "hasIntervention": false,
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
       "user": null,
-      "id": 2
+      "id": "2"
     },
     {
       "date": "07-10-2024",
@@ -153,7 +153,7 @@
       "hasIntervention": false,
       "simulatorImage": "assets/images/Simulators/LowFidelity/enemaPelve.png",
       "user": null,
-      "id": 3
+      "id": "3"
     },
     {
       "date": "08-10-2024",
@@ -165,7 +165,7 @@
       "hasDescription": true,
       "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
       "user": null,
-      "id": 4,
+      "id": "4",
       "intervention": {
         "interventionText": "frfrfrfr",
         "interventionDate": "23-10-2024",
@@ -195,7 +195,7 @@
         "date": "21-08-2024"
       },
       "hasIntervention": true,
-      "id": 1,
+      "id": "1",
       "intervention": {
         "interventionText": "descrição de uma intercorrencia realizada",
         "interventionDate": "15-08-2024",
@@ -222,7 +222,7 @@
         "date": "15-08-2024"
       },
       "hasIntervention": true,
-      "id": 2,
+      "id": "2",
       "intervention": {
         "interventionText": "Nenhuma intervenção realizada",
         "interventionDate": "21-08-2024",
@@ -249,7 +249,7 @@
         "date": "02-10-2024"
       },
       "hasIntervention": false,
-      "id": 3
+      "id": "3"
     },
     {
       "date": "08-10-2024",
@@ -270,7 +270,7 @@
         "date": "08-10-2024"
       },
       "hasIntervention": false,
-      "id": 4
+      "id": "4"
     },
     {
       "date": "07-10-2024",
@@ -291,7 +291,7 @@
         "date": "07-10-2024"
       },
       "hasIntervention": false,
-      "id": 5
+      "id": "5"
     },
     {
       "date": "01-10-2024",
@@ -312,7 +312,7 @@
         "date": "01-10-2024"
       },
       "hasIntervention": true,
-      "id": 6,
+      "id": "6",
       "intervention": {
         "interventionText": "frfr",
         "interventionDate": "04-10-2024",
@@ -339,7 +339,7 @@
         "date": "04-10-2024"
       },
       "hasIntervention": false,
-      "id": 7
+      "id": "7"
     },
     {
       "date": "11-10-2024",
@@ -360,7 +360,7 @@
         "date": "11-10-2024"
       },
       "hasIntervention": false,
-      "id": 8
+      "id": "8"
     }
   ],
   "manitanceReports": [
@@ -387,7 +387,7 @@
         "name": "",
         "role": ""
       },
-      "id": 1
+      "id": "1"
     },
     {
       "date": "22-10-2024",
@@ -432,7 +432,7 @@
         "name": "",
         "role": ""
       },
-      "id": 2
+      "id": "2"
     },
     {
       "date": "21-10-2024",
@@ -477,7 +477,7 @@
         "name": "",
         "role": ""
       },
-      "id": 3
+      "id": "3"
     }
   ],
   "ScenarioReports": [
@@ -550,7 +550,7 @@
       "hasDescription": false,
       "itemOcorrance": "Não informado",
       "user": null,
-      "id": 1
+      "id": "1"
     },
     {
       "date": "05-10-2024",
@@ -628,7 +628,7 @@
         "value": true
       },
       "user": null,
-      "id": 2
+      "id": "2"
     },
     {
       "date": "02-10-2024",
@@ -652,7 +652,7 @@
       "audioAndMediaRegister": "Nenhuma Falha",
       "scenarioCategory": "Corrida",
       "user": null,
-      "id": 3
+      "id": "3"
     },
     {
       "date": "01-10-2024",
@@ -676,7 +676,34 @@
       "audioAndMediaRegister": "Nenhuma Falha",
       "scenarioCategory": "Corrida",
       "user": null,
-      "id": 4
+      "id": "4"
+    },
+    {
+      "id": "bfb4",
+      "date": "06-10-2024",
+      "time": "0800",
+      "scenarioOcorrance": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
+      "hasDescription": false,
+      "discipline": {
+        "name": "Internato de clinica Médica",
+        "label": "Int.Clinica Médica"
+      },
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": {
+        "code": "ALS982",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
+      "user": null
     }
   ],
   "mediumSimulators": [
@@ -710,7 +737,7 @@
           "disabled": false
         }
       ],
-      "id": 1,
+      "id": "1",
       "simulatorCategory": "media"
     },
     {
@@ -739,7 +766,7 @@
           "disabled": false
         }
       ],
-      "id": 2,
+      "id": "2",
       "simulatorCategory": "media"
     },
     {
@@ -760,7 +787,7 @@
           "disabled": false
         }
       ],
-      "id": 3,
+      "id": "3",
       "simulatorCategory": "media"
     },
     {
@@ -785,7 +812,7 @@
           "disabled": false
         }
       ],
-      "id": 4,
+      "id": "4",
       "simulatorCategory": "media"
     },
     {
@@ -804,7 +831,7 @@
       ],
       "simulatorCategory": "media",
       "technicalDescription": "",
-      "id": 7
+      "id": "7"
     }
   ],
   "lowSimulators": [
@@ -1212,7 +1239,7 @@
           "technicalDescription": "O simulador de punção arterial serve para ..."
         }
       ],
-      "id": 1
+      "id": "1"
     },
     {
       "simulatorClass": "Torsos RCP",
@@ -1487,7 +1514,7 @@
           "technicalDescription": "O simulador de punção arterial serve para ..."
         }
       ],
-      "id": 2
+      "id": "2"
     },
     {
       "simulatorClass": "Torços Cirurgicos",
@@ -1746,7 +1773,7 @@
           "technicalDescription": "O simulador de punção arterial serve para ..."
         }
       ],
-      "id": 3
+      "id": "3"
     },
     {
       "simulatorClass": "Pelves para Exame",
@@ -1974,7 +2001,7 @@
           "technicalDescription": "O simulador de punção arterial serve para ..."
         }
       ],
-      "id": 4
+      "id": "4"
     },
     {
       "simulatorClass": "Cabeças",
@@ -2265,7 +2292,7 @@
           "technicalDescription": "O simulador de punção arterial serve para ..."
         }
       ],
-      "id": 6
+      "id": "6"
     },
     {
       "simulatorClass": "Nova classe 2",
@@ -2289,13 +2316,13 @@
           "technicalDescription": ""
         }
       ],
-      "id": 8
+      "id": "8"
     },
     {
       "simulatorClass": "Nova classe 3",
       "classImage": "assets/images/default-image.jpg",
       "simulators": [],
-      "id": 9
+      "id": "9"
     }
   ],
   "highSimulators": [
@@ -2310,7 +2337,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "SimMan ALS - Direito",
@@ -2323,7 +2350,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 2
+      "id": "2"
     },
     {
       "name": "SimMan 3G",
@@ -2336,7 +2363,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Harvey",
@@ -2353,7 +2380,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 4
+      "id": "4"
     },
     {
       "name": "SimMom",
@@ -2366,7 +2393,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 5
+      "id": "5"
     },
     {
       "name": "Nurse Anne - Enfermeira",
@@ -2379,7 +2406,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 6
+      "id": "6"
     },
     {
       "name": "Sim Junior",
@@ -2392,7 +2419,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 7
+      "id": "7"
     },
     {
       "name": "Sim Baby",
@@ -2405,7 +2432,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 8
+      "id": "8"
     },
     {
       "name": "Sim NewB",
@@ -2418,7 +2445,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 9
+      "id": "9"
     },
     {
       "name": "Sim Baby Light",
@@ -2431,7 +2458,7 @@
         }
       ],
       "simulatorCategory": "alta",
-      "id": 10
+      "id": "10"
     },
     {
       "name": "SIMULADOR NOVO",
@@ -2449,7 +2476,7 @@
       ],
       "simulatorCategory": "alta",
       "technicalDescription": "",
-      "id": 11
+      "id": "11"
     }
   ],
   "Trainings": [
@@ -2534,7 +2561,7 @@
           "id": 1
         }
       ],
-      "id": 1
+      "id": "1"
     },
     {
       "name": "Treinamento Habilidade",
@@ -2628,7 +2655,7 @@
           "id": 1
         }
       ],
-      "id": 2
+      "id": "2"
     },
     {
       "name": "Treinamento Habilidade",
@@ -2710,7 +2737,7 @@
           "updateDate": "10/10/2024"
         }
       ],
-      "id": 4
+      "id": "4"
     },
     {
       "name": "Treinamento Habilidade",
@@ -2787,7 +2814,7 @@
           "updateDate": "10/10/2024"
         }
       ],
-      "id": 5
+      "id": "5"
     },
     {
       "name": "Treinamento Habilidade",
@@ -2859,7 +2886,7 @@
           "updateDate": "10/10/2024"
         }
       ],
-      "id": 6
+      "id": "6"
     },
     {
       "name": "Treinamento Habilidade",
@@ -2948,7 +2975,7 @@
           "description": "dESCRIÇÃO DA SONDAGEM ORAL"
         }
       ],
-      "id": 7
+      "id": "7"
     },
     {
       "name": "Treinamento Habilidade",
@@ -2989,7 +3016,7 @@
           "id": null
         }
       ],
-      "id": 8
+      "id": "8"
     }
   ],
   "Disciplines": [
@@ -3123,7 +3150,7 @@
           "updateDate": "10/10/2024"
         }
       ],
-      "id": 1
+      "id": "1"
     },
     {
       "name": "Treinamento Habilidade",
@@ -3146,7 +3173,7 @@
           "id": 2
         }
       ],
-      "id": 2
+      "id": "2"
     },
     {
       "name": "Treinamento Habilidade",
@@ -3169,56 +3196,56 @@
           "id": 3
         }
       ],
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Cardiologia",
       "value": "Card",
       "lessons": [],
-      "id": 4
+      "id": "4"
     },
     {
       "name": "Dentista",
       "value": "DENT",
       "lessons": [],
-      "id": 5
+      "id": "5"
     }
   ],
   "Curses": [
     {
       "name": "Suporte Básico de Vida",
       "label": "BLS",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "Salva Corações",
       "label": "RCP",
-      "id": 2
+      "id": "2"
     },
     {
       "name": "Suporte Avançado de Vida Cardiovascular",
       "label": "ACLS",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Suporte Avançado de Vida em Pediatria",
       "label": "PALS",
-      "id": 4
+      "id": "4"
     },
     {
       "name": "Não padronizado",
       "label": "Outros",
-      "id": 5
+      "id": "5"
     },
     {
       "name": "Advanced eletric car",
       "label": "AEC",
-      "id": 6
+      "id": "6"
     },
     {
       "name": "Aha trauma life sport",
       "label": "ATLS",
-      "id": 7
+      "id": "7"
     }
   ]
 }

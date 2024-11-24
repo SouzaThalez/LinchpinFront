@@ -136,12 +136,12 @@ export class LessonReportComponent implements OnInit{
 
   private createForm(): FormGroup{
 
-    const prevForm = this.fb.group({
+    const dateForm = this.fb.group({
       start: [null],
       end:[null],
     })
 
-    return prevForm;
+    return dateForm;
   }
 
 }
