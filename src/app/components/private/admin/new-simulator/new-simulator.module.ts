@@ -28,7 +28,6 @@ import { HighFidelitySimulatorsComponent } from './high-fidelity-simulators/high
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
