@@ -20,7 +20,14 @@ export class HomeComponent implements OnInit{
   ];
 
   lessonData: any;
-  cleaningData:any;
+  scenariosData:any;
+  cleaningData: any;
+
+  recentReportsData ={
+    scenarios:[],
+    lessons:[]
+  }
+    
   
   constructor(
     private httpClient: HttpClient,
@@ -30,8 +37,10 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.callGeneralChart();
-    this.getAllLessonReports();
+    // this.getAllLessonReports();
+    // this.getAllScenariosReports();
     this.getAllCleaningReports();
+    this.getAllData();
   }
 
 
@@ -88,20 +97,76 @@ export class HomeComponent implements OnInit{
   
   }
 
-  private getAllLessonReports(){
+
+
+  private getAllData(){
+
+    // get both data !
+    // lessons and scenarios 
 
     let params = new HttpParams()
-        .set('lessonDescription', 'true');
-    
+    .set('lessonDescription', 'true');
+
     this.httpClient.get('http://localhost:3000/LessonReports/',{params})
     .subscribe({
         next: (sample: any)=>{
-          // console.log('LessonReports-: ',sample);
           this.lessonData = sample;
+          this.recentReportsData.lessons = this.lessonData;
+          
         },
         error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })
+
+    this.httpClient.get('http://localhost:3000/ScenarioReports/')
+    .subscribe({
+        next: (sample: any)=>{
+         
+          this.scenariosData = sample;
+          this.recentReportsData.scenarios = this.scenariosData;
+        
+        },
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+    })
+
+    console.log(this.recentReportsData)
+    
   }
+
+
+
+  // private getAllLessonReports(){
+
+  //   let params = new HttpParams()
+  //       .set('lessonDescription', 'true');
+    
+  //   this.httpClient.get('http://localhost:3000/LessonReports/',{params})
+  //   .subscribe({
+  //       next: (sample: any)=>{
+  //         // console.log('LessonReports-: ',sample);
+  //         this.lessonData = sample;
+  //         this.recentReportsData.lessons = this.lessonData;
+          
+  //       },
+  //       error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+  //   })
+  // }
+  
+  // private getAllScenariosReports(){
+    
+  //   this.httpClient.get('http://localhost:3000/ScenarioReports/')
+  //   .subscribe({
+  //       next: (sample: any)=>{
+  //         // console.log('CleaningReports-: ',sample);
+  //         this.scenariosData = sample;
+  //         this.recentReportsData.scenarios = this.scenariosData;
+        
+  //       },
+  //       error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+  //   })
+  // }
+
+  // only for count clianing 
+  // This is not optimal
   private getAllCleaningReports(){
     
     this.httpClient.get('http://localhost:3000/CleaningReports/')
@@ -109,9 +174,11 @@ export class HomeComponent implements OnInit{
         next: (sample: any)=>{
           // console.log('CleaningReports-: ',sample);
           this.cleaningData = sample;
+          
         },
         error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })
   }
+
 
 }

@@ -37,13 +37,13 @@ export class TrainingLessonCardsComponent implements OnInit{
   }
 
   openOcorranceDialog(lesson: any){
-
+   
     let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
-        lesson:lesson,
-        lessonType: this.trainingData[0].value
+        selectedLesson:lesson,
+        training: this.trainingData[0]
       }
     })
 
@@ -76,8 +76,8 @@ export class TrainingLessonCardsComponent implements OnInit{
 
     this.httpClient.get('http://localhost:3000/Trainings',{params}).subscribe({
       next:(sample:any)=>{
-     
         this.trainingData = sample;
+        console.log('trainingDatas',this.trainingData)
        
       },
       error: (erro)=>{console.log('request to Trainings  failed: ',erro);}

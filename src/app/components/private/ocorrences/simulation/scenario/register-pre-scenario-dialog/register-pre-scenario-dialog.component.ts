@@ -68,7 +68,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
 
       const model = this.form.value;
       // this.postCleaningReports(model);
-      debugger
+   
         this.onClose(model);
       return
     }

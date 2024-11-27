@@ -44,8 +44,8 @@ export class OcorranceDialogComponent implements OnInit{
     private matDialog: MatDialog,
     private httpClient: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {
-      lesson: Lesson,
-      lessonType: any
+      selectedLesson: Lesson,
+      training: any
     },
     private fb : FormBuilder,
     private snackBar: MatSnackBar
@@ -54,6 +54,7 @@ export class OcorranceDialogComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.createForm();
     this.getMediumSimulators();
+  
   } 
 
   
@@ -183,12 +184,12 @@ export class OcorranceDialogComponent implements OnInit{
     const prevForm = this.fb.group({
 
       date: [null,Validators.required],
-      lessonName:[this.data.lesson.name],
+      lessonName:[this.data.selectedLesson.name],
       lessonOcorrance:[],
       lessonDescription:[true],
       lessonImage:[this.lessonImgPath],
-      lessonCategory:[this.data.lessonType.name],
-      lessonType:[this.data.lessonType.value],
+      lessonCategory:[this.data.training.name],
+      lessonType:[this.data.training.value],
       user: [],
       simulatorDescription:[true],
       simulatorReport: this.fb.group({

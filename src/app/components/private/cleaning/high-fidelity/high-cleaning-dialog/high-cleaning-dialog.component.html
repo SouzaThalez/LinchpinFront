@@ -55,7 +55,7 @@
                   <mat-select formControlName="simulatorCode">
                       <mat-option #matoption *ngFor="let element of simulatorCodes"
                                   [value]="element">
-                                  {{element}}
+                                  {{element.code}}
                       </mat-option>
                   </mat-select>
                 </mat-form-field>

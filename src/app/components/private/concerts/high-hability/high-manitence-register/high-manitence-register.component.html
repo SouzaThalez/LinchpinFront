@@ -39,10 +39,10 @@
                     <div class="footer-action">
                         <div class="footer-button" (click)="openPreviewCleaningReportDialog(element)">
                             <div class="intervention" *ngIf="element.intervention else default">
-                                <span>Status: {{element.intervention.interventionStatus}}</span>
+                                <span><b>Status: {{element.intervention.interventionStatus}}</b></span>
                             </div>
                             <ng-template #default>
-                                <span>Status: Enviado para manutenção...</span>
+                                <span><b>Status: Enviado para manutenção...</b></span>
                             </ng-template>
                             <span class="material-symbols-outlined">visibility</span>
                         </div>

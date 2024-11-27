@@ -37,6 +37,7 @@ export class HighCleaningDialogComponent implements OnInit{
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
+      
   } 
 
   

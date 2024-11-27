@@ -118,126 +118,48 @@
   ],
   "CleaningReports": [
     {
-      "date": "06-10-2024",
+      "id": "b38c",
+      "date": "26-11-2024",
       "cleaningCategory": "secundária",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "simulatorCode": "ALS982",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Direito",
+      "simulatorCode": {
+        "code": "ALS431",
+        "disabled": false
+      },
+      "findings": "Durante a limpeza deste simulador, o braço estava com a pele solta e tive que colar com cola super bond.",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "user": null
+    },
+    {
+      "id": "6c2c",
+      "date": "25-11-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Direito",
+      "simulatorCode": {
+        "code": "ALS431",
+        "disabled": false
+      },
       "findings": "Não houve achados durante a limpeza deste simulador",
       "hasDescription": false,
       "hasIntervention": false,
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "user": null,
-      "id": "1"
-    },
-    {
-      "date": "01-10-2024",
-      "cleaningCategory": "primária",
-      "simulatorCategory": "alta",
-      "simulatorName": "SimMan ALS - Direito",
-      "simulatorCode": "ALS439",
-      "findings": "O simulador estava com o braço bastante sujo",
-      "hasDescription": true,
-      "hasIntervention": false,
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "user": null,
-      "id": "2"
-    },
-    {
-      "date": "07-10-2024",
-      "cleaningCategory": "secundária",
-      "simulatorCategory": "baixa",
-      "simulatorName": "Pelve Sondagem M",
-      "simulatorCode": "SP322",
-      "findings": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.",
-      "hasDescription": true,
-      "hasIntervention": false,
-      "simulatorImage": "assets/images/Simulators/LowFidelity/enemaPelve.png",
-      "user": null,
-      "id": "3"
-    },
-    {
-      "date": "08-10-2024",
-      "cleaningCategory": "primária",
-      "simulatorCategory": "media",
-      "simulatorName": "Ressusci Anne",
-      "simulatorCode": "ANNE44",
-      "findings": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.",
-      "hasDescription": true,
-      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
-      "user": null,
-      "id": "4",
-      "intervention": {
-        "interventionText": "frfrfrfr",
-        "interventionDate": "23-10-2024",
-        "interventionStatus": "Em analise pelo analista",
-        "interventionUser": null
-      },
-      "hasIntervention": true
+      "user": null
     }
   ],
   "LessonReports": [
     {
-      "date": "21-08-2024",
-      "lessonName": "Suporte Avançado de Vida Cardiovascular",
-      "lessonOcorrance": "Houve ocorrencia de curso",
-      "lessonDescription": true,
-      "lessonImage": "assets/images/logo/curso-logo.png",
-      "lessonCategory": "curso",
-      "lessonType": "ACLS",
-      "user": null,
-      "simulatorDescription": true,
-      "simulatorReport": {
-        "name": "MegaCode Kid",
-        "code": "DC-2022-06-08",
-        "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
-        "ocorrance": "Esta es una ocorrencia de simulador ",
-        "simulatorCategory": "media",
-        "date": "21-08-2024"
-      },
-      "hasIntervention": true,
-      "id": "1",
-      "intervention": {
-        "interventionText": "descrição de uma intercorrencia realizada",
-        "interventionDate": "15-08-2024",
-        "interventionStatus": "Solucionado após intervenção do Analista",
-        "interventionUser": null
-      }
-    },
-    {
-      "date": "15-08-2024",
-      "lessonName": "Drenagem Torácica",
-      "lessonOcorrance": "sim houve ocorrencia de aula",
+      "id": "a4d0",
+      "date": "19-11-2024",
+      "lessonName": "Exame Proctológico",
+      "lessonOcorrance": "Sim houve uma ocorrencia de aula aqui",
       "lessonDescription": true,
       "lessonImage": "assets/images/logo/th-logo.png",
       "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "7",
-      "user": null,
-      "simulatorDescription": true,
-      "simulatorReport": {
-        "name": "MegaCode Kid",
-        "code": "DC-2022-06-08",
-        "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
-        "ocorrance": "simhouve ocorrencia de simualdor",
-        "simulatorCategory": "media",
-        "date": "15-08-2024"
-      },
-      "hasIntervention": true,
-      "id": "2",
-      "intervention": {
-        "interventionText": "Nenhuma intervenção realizada",
-        "interventionDate": "21-08-2024",
-        "interventionStatus": "Enviado para Fornecedor",
-        "interventionUser": null
-      }
-    },
-    {
-      "date": "02-10-2024",
-      "lessonName": "Fisioterapia",
-      "lessonOcorrance": "Sim houve ocorrencia de aula da Fisioterapia",
-      "lessonDescription": true,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "Fisio",
+      "lessonType": "4",
       "user": null,
       "simulatorDescription": false,
       "simulatorReport": {
@@ -246,126 +168,15 @@
         "image": "Não informado",
         "ocorrance": "Não houve ocorrência de Simulador",
         "simulatorCategory": "Não informado",
-        "date": "02-10-2024"
+        "date": "19-11-2024"
       },
-      "hasIntervention": false,
-      "id": "3"
-    },
-    {
-      "date": "08-10-2024",
-      "lessonName": "Deontologia",
-      "lessonOcorrance": "Sim houve ocorrencia de aula de Deontologia",
-      "lessonDescription": true,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "Deont",
-      "user": null,
-      "simulatorDescription": false,
-      "simulatorReport": {
-        "name": "Não informado",
-        "code": "Não informado",
-        "image": "Não informado",
-        "ocorrance": "Não houve ocorrência de Simulador",
-        "simulatorCategory": "Não informado",
-        "date": "08-10-2024"
-      },
-      "hasIntervention": false,
-      "id": "4"
-    },
-    {
-      "date": "07-10-2024",
-      "lessonName": "Guia - Espaçador",
-      "lessonOcorrance": "ocorrencia de aula longo: Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas saepe doloremque numquam dolorem? Nihil eum qui, nemo repellendus odit ipsam veritatis ducimus molestias maxime ad adipisci quisquam officia eligendi.",
-      "lessonDescription": true,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "Enf",
-      "user": null,
-      "simulatorDescription": false,
-      "simulatorReport": {
-        "name": "Não informado",
-        "code": "Não informado",
-        "image": "Não informado",
-        "ocorrance": "Não houve ocorrência de Simulador",
-        "simulatorCategory": "Não informado",
-        "date": "07-10-2024"
-      },
-      "hasIntervention": false,
-      "id": "5"
-    },
-    {
-      "date": "01-10-2024",
-      "lessonName": "Medidas Antropometricas",
-      "lessonOcorrance": "Não houve registro de ocorrência de aula",
-      "lessonDescription": false,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "1",
-      "user": null,
-      "simulatorDescription": true,
-      "simulatorReport": {
-        "name": "MegaCode Kid",
-        "code": "DC-2022-06-08",
-        "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
-        "ocorrance": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, eos dolorem culpa, minus aliquid illo sunt nemo mollitia dolore illum cumque porro eum dignissimos. In vero dicta minus voluptatem perspiciatis.",
-        "simulatorCategory": "media",
-        "date": "01-10-2024"
-      },
-      "hasIntervention": true,
-      "id": "6",
-      "intervention": {
-        "interventionText": "frfr",
-        "interventionDate": "04-10-2024",
-        "interventionStatus": "Em analise pelo analista",
-        "interventionUser": null
-      }
-    },
-    {
-      "date": "04-10-2024",
-      "lessonName": "Primeira - Apresentação inaugural",
-      "lessonOcorrance": "Não houve registro de ocorrência de aula",
-      "lessonDescription": false,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "1",
-      "user": null,
-      "simulatorDescription": false,
-      "simulatorReport": {
-        "name": "Não informado",
-        "code": "Não informado",
-        "image": "Não informado",
-        "ocorrance": "Não houve ocorrência de Simulador",
-        "simulatorCategory": "Não informado",
-        "date": "04-10-2024"
-      },
-      "hasIntervention": false,
-      "id": "7"
-    },
-    {
-      "date": "11-10-2024",
-      "lessonName": "Primeira - Apresentação inaugural",
-      "lessonOcorrance": "Não houve registro de ocorrência de aula",
-      "lessonDescription": false,
-      "lessonImage": "assets/images/logo/th-logo.png",
-      "lessonCategory": "Treinamento Habilidade",
-      "lessonType": "1",
-      "user": null,
-      "simulatorDescription": true,
-      "simulatorReport": {
-        "name": "MegaCode Kid",
-        "code": "DC-2022-06-08",
-        "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
-        "ocorrance": "frfrfrfrfrfr",
-        "simulatorCategory": "media",
-        "date": "11-10-2024"
-      },
-      "hasIntervention": false,
-      "id": "8"
+      "hasIntervention": false
     }
   ],
   "manitanceReports": [
     {
-      "date": "23-10-2024",
+      "id": "d56f",
+      "date": "25-11-2024",
       "manitanceRegister": [
         {
           "label": "Simulador configurado e conectado ao Software",
@@ -373,24 +184,47 @@
         },
         {
           "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        },
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        },
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
           "value": true
         }
       ],
       "manitanceCategory": "Básica",
       "manitanceFindings": "Não houve registro de achados durante a manutenção",
       "simulatorName": "SimMan ALS - Esquerdo",
-      "code": "ALS982",
+      "code": {
+        "code": "ALS982",
+        "disabled": false
+      },
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
       "hasDescription": false,
       "hasIntervention": false,
       "user": {
         "name": "",
         "role": ""
-      },
-      "id": "1"
+      }
     },
     {
-      "date": "22-10-2024",
+      "id": "fa15",
+      "date": "24-11-2024",
       "manitanceRegister": [
         {
           "label": "Simulador configurado e conectado ao Software",
@@ -422,139 +256,80 @@
         }
       ],
       "manitanceCategory": "Geral",
-      "manitanceFindings": "Não houve registro de achados durante a manutenção",
-      "simulatorName": "Harvey",
-      "code": "HAR331",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
-      "hasDescription": false,
-      "hasIntervention": false,
-      "user": {
-        "name": "",
-        "role": ""
+      "manitanceFindings": "Registro de achados durante a manutenção geral deste simulador!",
+      "simulatorName": "SimMom",
+      "code": {
+        "code": "MOM567",
+        "disabled": false
       },
-      "id": "2"
-    },
-    {
-      "date": "21-10-2024",
-      "manitanceRegister": [
-        {
-          "label": "Simulador configurado e conectado ao Software",
-          "value": true
-        },
-        {
-          "label": "Cameras e Monitor do Paciente conectado",
-          "value": true
-        },
-        {
-          "label": "Carrinho de Parada completo",
-          "value": true
-        },
-        {
-          "label": "Ventilador Mecânico presente",
-          "value": true
-        },
-        {
-          "label": "Bomba de Infusão presente",
-          "value": true
-        },
-        {
-          "label": "Simulador limpo e Entalcado",
-          "value": true
-        },
-        {
-          "label": "Simulador em Estado Saudável",
-          "value": true
-        }
-      ],
-      "manitanceCategory": "Geral",
-      "manitanceFindings": "estetoscopios sem pilhas",
-      "simulatorName": "Harvey",
-      "code": "HAR331",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
       "hasDescription": true,
       "hasIntervention": false,
       "user": {
         "name": "",
         "role": ""
-      },
-      "id": "3"
+      }
     }
   ],
   "ScenarioReports": [
     {
-      "date": "06-10-2024",
-      "time": "2000",
-      "scenarioRegister": [
-        {
-          "label": "Notebook funcionando e configurado sem wifi",
-          "value": true
-        },
-        {
-          "label": "Microfone de mesa funcionando",
-          "value": true
-        },
-        {
-          "label": "Cameras no debriefing inicializadas",
-          "value": true
-        },
-        {
-          "label": "Simulador ligado sem intercorrências",
-          "value": true
-        },
-        {
-          "label": "Monitor de paciente ligado sem wifi",
-          "value": true
-        },
-        {
-          "label": "Carrinho de parada completo",
-          "value": true
-        },
-        {
-          "label": "Ventilador mecânico instalado em sala",
-          "value": true
-        },
-        {
-          "label": "Bomba de infusão instalada em sala",
-          "value": true
-        },
-        {
-          "label": "Escada para PCR instalada em sala",
-          "value": true
-        },
-        {
-          "label": "Oxigênio em sala de simulação funcionando",
-          "value": true
-        },
-        {
-          "label": "Formulário do cenário separado em sala de controle",
-          "value": true
-        },
-        {
-          "label": "Programa de execução de cenário presente em notebook",
-          "value": true
-        },
-        {
-          "label": "Programa de execução de cenário estudado",
-          "value": true
-        }
-      ],
-      "scenarioCategory": "Pré-corrida",
-      "scenarioOcorrance": "Não houve registro de intercorrências durante a Pré-corrida de cenário",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "simulatorCode": "ALS982",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "discipline": {
-        "name": "Internato de Urgência",
-        "label": "Int.Urgência"
-      },
+      "id": "783f",
+      "date": "11-11-2024",
+      "time": "0700",
+      "scenarioOcorrance": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
       "hasDescription": false,
-      "itemOcorrance": "Não informado",
-      "user": null,
-      "id": "1"
+      "discipline": {
+        "name": "Internato de clinica Médica",
+        "label": "Int.Clinica Médica"
+      },
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": {
+        "code": "ALS982",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
+      "user": null
     },
     {
-      "date": "05-10-2024",
-      "time": "1400",
+      "id": "af4f",
+      "date": "13-11-2024",
+      "time": "0800",
+      "scenarioOcorrance": "Descrição de falhas durante a corrida de cenário",
+      "hasDescription": true,
+      "discipline": {
+        "name": "Internato de clinica Médica",
+        "label": "Int.Clinica Médica"
+      },
+      "simulatorName": "SimMan 3G",
+      "simulatorCode": {
+        "code": "3G4231",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Falha registrada",
+      "scenarioCategory": "Corrida",
+      "user": null
+    },
+    {
+      "id": "562a",
+      "date": "05-11-2024",
+      "time": "0900",
       "scenarioRegister": [
         {
           "label": "Notebook funcionando e configurado sem wifi",
@@ -613,96 +388,20 @@
           "value": true
         }
       ],
-      "scenarioCategory": "Pós-corrida",
-      "scenarioOcorrance": "registro de intercorrencia durante a pós corrida de cenário no item 5 ",
-      "simulatorName": "SimMan ALS - Esquerdo",
-      "simulatorCode": "ALS982",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "discipline": {
-        "name": "Internato de clinica Médica",
-        "label": "Int.Clinica Médica"
-      },
-      "hasDescription": true,
-      "itemOcorrance": {
-        "label": "Simulador ligado sem intercorrências",
-        "value": true
-      },
-      "user": null,
-      "id": "2"
-    },
-    {
-      "date": "02-10-2024",
-      "time": "0830",
-      "scenarioOcorrance": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
-      "hasDescription": false,
-      "discipline": {
-        "name": "Internato de Pediatria",
-        "label": "Int.Pediatria"
-      },
-      "simulatorName": "Sim Junior",
-      "simulatorCode": "NIOR2123",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
-      "simulatorRegister": "Nenhuma Falha",
-      "monitorRegister": "Nenhuma Falha",
-      "medicationCarRegister": "Nenhuma Falha",
-      "energyPanelRegister": "Nenhuma Falha",
-      "airFlowRegister": "Nenhuma Falha",
-      "internetCableRegister": "Nenhuma Falha",
-      "otherRegister": "Nenhuma Falha",
-      "audioAndMediaRegister": "Nenhuma Falha",
-      "scenarioCategory": "Corrida",
-      "user": null,
-      "id": "3"
-    },
-    {
-      "date": "01-10-2024",
-      "time": "0830",
-      "scenarioOcorrance": "simulador tava sem ligar o link box",
-      "hasDescription": true,
-      "discipline": {
-        "name": "Internato de Pediatria",
-        "label": "Int.Pediatria"
-      },
-      "simulatorName": "Sim Junior",
-      "simulatorCode": "NIOR2123",
-      "simulatorImage": "assets/images/Simulators/HighFidelity/simJunior.jpeg",
-      "simulatorRegister": "Nenhuma Falha",
-      "monitorRegister": "Nenhuma Falha",
-      "medicationCarRegister": "Nenhuma Falha",
-      "energyPanelRegister": "Nenhuma Falha",
-      "airFlowRegister": "Nenhuma Falha",
-      "internetCableRegister": "Nenhuma Falha",
-      "otherRegister": "Nenhuma Falha",
-      "audioAndMediaRegister": "Nenhuma Falha",
-      "scenarioCategory": "Corrida",
-      "user": null,
-      "id": "4"
-    },
-    {
-      "id": "bfb4",
-      "date": "06-10-2024",
-      "time": "0800",
-      "scenarioOcorrance": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
-      "hasDescription": false,
-      "discipline": {
-        "name": "Internato de clinica Médica",
-        "label": "Int.Clinica Médica"
-      },
-      "simulatorName": "SimMan ALS - Esquerdo",
+      "scenarioCategory": "Pré-corrida",
+      "scenarioOcorrance": "Não houve registro de intercorrências durante a Pré-corrida de cenário",
+      "simulatorName": "SimMan 3G",
       "simulatorCode": {
-        "code": "ALS982",
+        "code": "3G4231",
         "disabled": false
       },
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "simulatorRegister": "Nenhuma Falha",
-      "monitorRegister": "Nenhuma Falha",
-      "medicationCarRegister": "Nenhuma Falha",
-      "energyPanelRegister": "Nenhuma Falha",
-      "airFlowRegister": "Nenhuma Falha",
-      "internetCableRegister": "Nenhuma Falha",
-      "otherRegister": "Nenhuma Falha",
-      "audioAndMediaRegister": "Nenhuma Falha",
-      "scenarioCategory": "Corrida",
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "discipline": {
+        "name": "Internato de Cirurgia",
+        "label": "Int.Cirurgia"
+      },
+      "hasDescription": false,
+      "itemOcorrance": "Não informado",
       "user": null
     }
   ],
