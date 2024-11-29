@@ -43,9 +43,7 @@
         <mat-form-field appearance="outline">
             <mat-label>Técnicos</mat-label>
             <mat-select >
-                <mat-option value="1">Por periodo</mat-option>
-                <mat-option value="2">Por Data</mat-option>
-                <mat-option value="3">Por Técncio</mat-option>
+                <mat-option [value]="user.id" *ngFor="let user of usersData">{{user.name}}</mat-option>
             </mat-select>
             </mat-form-field>
         </div>

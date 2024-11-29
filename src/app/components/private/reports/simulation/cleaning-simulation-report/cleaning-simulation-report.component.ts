@@ -16,6 +16,7 @@ export class CleaningSimulationReportComponent implements OnInit{
 
    cleaningReportData: any;
    filteredReports:any;
+   usersData: any;
    form: FormGroup;
    selectedValue = 0;
    @ViewChild('dateInput') dateInput!: ElementRef;
@@ -28,6 +29,7 @@ export class CleaningSimulationReportComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllCleaningReports();
+    this.getAllUsers();
 
     this.form = this.createForm();
     this.form.valueChanges.subscribe(values => {
@@ -124,6 +126,19 @@ export class CleaningSimulationReportComponent implements OnInit{
           this.cleaningReportData = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private getAllUsers(){
+
+    this.httpClient.get('http://localhost:3000/Users/')
+    .subscribe({
+        next: (sample: any)=>{
+        
+          this.usersData = sample;
+          
+        },
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })
   }
 

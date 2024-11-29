@@ -16,6 +16,7 @@ export class LessonReportComponent implements OnInit{
  
   lessonData: any;
   filteredReports:any;
+  usersData:any;
   form: FormGroup;
   selectedValue = 0;
   @ViewChild('dateInput') dateInput!: ElementRef;
@@ -29,13 +30,19 @@ export class LessonReportComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllLessonReports();
+    this.getAllUsers();
 
     this.form = this.createForm();
+
     this.form.valueChanges.subscribe(values => {
       if (values.start && values.end) {
         this.onDateRangeSelected(values.start, values.end);
       }
     });
+
+
+    
+
     
   }
 
@@ -133,6 +140,21 @@ export class LessonReportComponent implements OnInit{
         error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })
   }
+
+  private getAllUsers(){
+
+    this.httpClient.get('http://localhost:3000/Users/')
+    .subscribe({
+        next: (sample: any)=>{
+        
+          this.usersData = sample;
+          
+        },
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+    })
+  }
+
+
 
   private createForm(): FormGroup{
 
