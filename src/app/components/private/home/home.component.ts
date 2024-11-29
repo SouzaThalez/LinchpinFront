@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Chart } from 'chart.js';
 import { PreviewLessonReportDialogComponent } from '../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
+import { PreviewScenarioReportDialogComponent } from '../../shared/preview-scenario-report-dialog/preview-scenario-report-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -62,7 +63,44 @@ export class HomeComponent implements OnInit{
 
   }
 
+  openPreviewLessonReportDialog(element: any){
 
+   
+    let dialogRef = this.matDialog.open(PreviewLessonReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        reportData: element
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+    
+  }
+
+  
+
+  openPreviewScenarioReport(element: any){
+
+    let dialogRef = this.matDialog.open(PreviewScenarioReportDialogComponent,{
+        disableClose: true,
+        width:'650px',
+        data:{scenarioData:element}
+    })
+  
+    dialogRef.afterClosed().subscribe(result=>{
+        if(result){
+          
+        }
+    })
+  
+  }
+
+  
   //Graphics
   private callGeneralChart(){
     
@@ -96,8 +134,6 @@ export class HomeComponent implements OnInit{
       
   
   }
-
-
 
   private getAllData(){
 

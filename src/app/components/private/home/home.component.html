@@ -37,65 +37,36 @@
         <div class="reports scroll-container">
 
             <span class="recent-reports">Registros Recentes</span>
-
-            <!-- <div *ngIf="cleaningData?.length > 0 || lessonData?.length > 0; else showDefaultMsg">
-                    <div class="report-container"
-                        *ngFor="let element of lessonData"
-                        (click)="openPreviewLessonDialog(element)">
-                        <div class="report-head">
-                            <div class="report-icon">
-                                <img src="assets/icons/report-icon.png" alt="">
-                            </div>
-                            <div class="report-description">
-                                <span>Tipo da Aula: <b>{{element.lessonCategory}}</b></span>
-                                <span>Aula: {{element.lessonName}}</span>
-                                <span>Date: {{element.date}}</span>
-                                <span>Thales Carvalho</span>
-                            </div>
-                        </div>
-                        <div class="report-bars">
-                            <img src="assets/icons/report-bars.png" alt="">
-                        </div>
-                        <div class="report-grid">
-                            <img src="assets/icons/report-grid.png" alt="">
-                        </div>
-                    </div>
-            </div>
-
-            <ng-template #showDefaultMsg>
-                <div class="report-content">
-                    <span>Nenhum registro de aula recente ...</span>
-                </div>
-               
-            </ng-template> -->
             
             <div *ngIf="cleaningData?.length > 0 || lessonData?.length > 0; else showDefaultMsg">
                
                 <div class="report-container" 
-                *ngFor="let element of recentReportsData?.lessons">
+                    *ngFor="let element of recentReportsData?.lessons"
+                    (click)="openPreviewLessonReportDialog(element)">
 
-                <div class="report-head">
-                    <div class="report-icon">
-                        <img src="assets/icons/report-icon.png" alt="">
+                    <div class="report-head">
+                        <div class="report-icon">
+                            <img src="assets/icons/report-icon.png" alt="">
+                        </div>
+                        <div class="report-description">
+                            <span>Tipo da Aula: <b>{{element.lessonCategory}}</b></span>
+                            <span>Aula: {{element.lessonName}}</span>
+                            <span>Date: {{element.date}}</span>
+                            <span>Thales Carvalho</span>
+                        </div>
                     </div>
-                    <div class="report-description">
-                        <span>Tipo da Aula: <b>{{element.lessonCategory}}</b></span>
-                        <span>Aula: {{element.lessonName}}</span>
-                        <span>Date: {{element.date}}</span>
-                        <span>Thales Carvalho</span>
+                    <div class="report-bars">
+                        <img src="assets/icons/report-bars.png" alt="">
                     </div>
-                </div>
-                <div class="report-bars">
-                    <img src="assets/icons/report-bars.png" alt="">
-                </div>
-                <div class="report-grid">
-                    <img src="assets/icons/report-grid.png" alt="">
-                </div>
+                    <div class="report-grid">
+                        <img src="assets/icons/report-grid.png" alt="">
+                    </div>
 
                 </div>
 
                 <div class="report-container" 
-                    *ngFor="let element of recentReportsData?.scenarios">
+                    *ngFor="let element of recentReportsData?.scenarios"
+                    (click)="openPreviewScenarioReport(element)">
 
                     <div class="report-head">
                         <div class="report-icon">
@@ -118,11 +89,11 @@
                 </div>
 
             </div>
+
             <ng-template #showDefaultMsg>
                 <div class="report-content">
                     <span>Nenhum registro de aula recente ...</span>
                 </div>
-               
             </ng-template>
             
         </div>

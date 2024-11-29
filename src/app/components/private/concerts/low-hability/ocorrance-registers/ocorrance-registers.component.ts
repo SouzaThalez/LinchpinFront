@@ -38,9 +38,6 @@ export class OcorranceRegistersComponent implements OnInit{
         
       }
     })
-
-
-
     
   }
 
