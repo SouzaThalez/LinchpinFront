@@ -77,7 +77,7 @@ export class TrainingLessonCardsComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/Trainings',{params}).subscribe({
       next:(sample:any)=>{
         this.trainingData = sample;
-        console.log('trainingDatas',this.trainingData)
+        // console.log('trainingDatas',this.trainingData)
        
       },
       error: (erro)=>{console.log('request to Trainings  failed: ',erro);}

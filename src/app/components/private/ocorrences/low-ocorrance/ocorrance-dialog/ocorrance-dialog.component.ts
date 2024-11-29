@@ -33,11 +33,7 @@ export class OcorranceDialogComponent implements OnInit{
   mediumSimulators: any;
   simulatorCodes: Array<any> = [];
 
-  form:FormGroup = this.createForm();
-
-
-
-
+  form: FormGroup = this.createForm();
 
   constructor(
     public dialogRef: MatDialogRef<OcorranceDialogComponent>,

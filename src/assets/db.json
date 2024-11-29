@@ -656,24 +656,6 @@
       ],
       "id": "4",
       "simulatorCategory": "media"
-    },
-    {
-      "name": "novoMEDIA",
-      "image": "assets/images/default-image.jpg",
-      "description": "DEEDEDDEDED",
-      "codes": [
-        {
-          "code": "OMDS23",
-          "disabled": false
-        },
-        {
-          "code": "OMDS22",
-          "disabled": false
-        }
-      ],
-      "simulatorCategory": "media",
-      "technicalDescription": "",
-      "id": "7"
     }
   ],
   "lowSimulators": [
@@ -2165,30 +2147,6 @@
       "classImage": "assets/images/default-image.jpg",
       "simulators": [],
       "id": "9"
-    },
-    {
-      "simulatorClass": "Baixa fidelidade",
-      "classImage": "assets/images/default-image.jpg",
-      "simulators": [
-        {
-          "name": "MamaBirth",
-          "image": "assets/images/default-image.jpg",
-          "description": "Simulador para parto manual com 15 partes e modulos ",
-          "codes": [
-            {
-              "code": "12345",
-              "disabled": false
-            },
-            {
-              "code": "1234fr",
-              "disabled": false
-            }
-          ],
-          "simulatorCategory": "baixa",
-          "technicalDescription": ""
-        }
-      ],
-      "id": "sDj4Di_"
     }
   ],
   "highSimulators": [
@@ -2325,42 +2283,6 @@
       ],
       "simulatorCategory": "alta",
       "id": "10"
-    },
-    {
-      "name": "SIMULADOR NOVO",
-      "image": "assets/images/default-image.jpg",
-      "description": "Descrição do simulador novov",
-      "codes": [
-        {
-          "code": "DOEMDW1",
-          "disabled": false
-        },
-        {
-          "code": "DOEMD2",
-          "disabled": false
-        }
-      ],
-      "simulatorCategory": "alta",
-      "technicalDescription": "",
-      "id": "11"
-    },
-    {
-      "name": "Siman 3G PLUS ",
-      "image": "assets/images/default-image.jpg",
-      "description": "este é o mais top da glaxia ",
-      "codes": [
-        {
-          "code": "1234Y7",
-          "disabled": false
-        },
-        {
-          "code": "1234Y8",
-          "disabled": false
-        }
-      ],
-      "simulatorCategory": "alta",
-      "technicalDescription": "",
-      "id": "WyrzoxT"
     }
   ],
   "Trainings": [

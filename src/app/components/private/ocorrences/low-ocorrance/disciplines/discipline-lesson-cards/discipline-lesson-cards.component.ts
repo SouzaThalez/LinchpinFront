@@ -34,13 +34,13 @@ export class DisciplineLessonCardsComponent implements OnInit{
 
 
   openOcorranceDialog(lesson: any){
-  
+    
     let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
-        lesson:lesson,
-        lessonType: this.disciplines[0].value
+        selectedLesson:lesson,
+        training: this.disciplines[0]
       
       }
     })
@@ -63,9 +63,9 @@ export class DisciplineLessonCardsComponent implements OnInit{
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
-   }
+  }
 
-   private getDisciplineLessons(id: string){
+  private getDisciplineLessons(id: string){
 
     let params = new HttpParams()
     .set('id', id);
@@ -73,6 +73,7 @@ export class DisciplineLessonCardsComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/Disciplines',{params}).subscribe({
       next:(sample:any)=>{
         this.disciplines = sample;
+        console.log(this.disciplines)
       },
       error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
     })

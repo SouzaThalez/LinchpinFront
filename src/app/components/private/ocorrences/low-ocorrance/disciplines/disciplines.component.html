@@ -1,6 +1,6 @@
 <div class="page">
     
-    <div class="cards-list">
+    <div class="cards-list" *ngIf="disciplines">
         <div class="card" 
              *ngFor="let element of disciplines" 
              routerLink="/private/ocorrences/Habilidade/disciplinas/{{element.id}}">
