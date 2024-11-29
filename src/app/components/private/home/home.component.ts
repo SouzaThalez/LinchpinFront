@@ -164,10 +164,11 @@ export class HomeComponent implements OnInit{
   //       error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
   //   })
   // }
-
-  // only for count clianing 
-  // This is not optimal
+  
   private getAllCleaningReports(){
+
+     // only for counting cleaning reperts total
+    // This is not optimal
     
     this.httpClient.get('http://localhost:3000/CleaningReports/')
     .subscribe({

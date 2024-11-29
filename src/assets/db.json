@@ -92,7 +92,7 @@
       "confirmPassword": "marta.123",
       "email": "marta@gmail.com",
       "image": "assets/images/users/user-default-tec.png",
-      "role": "tecnico",
+      "role": "analista",
       "id": "11"
     },
     {
@@ -112,7 +112,7 @@
       "confirmPassword": "carlos.123",
       "email": "carlos@gmail.com",
       "image": "assets/images/users/user-default-analist.png",
-      "role": "analista",
+      "role": "tecnico",
       "id": "13"
     }
   ],
@@ -148,6 +148,32 @@
       "hasIntervention": false,
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
       "user": null
+    },
+    {
+      "date": "29-11-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Punção Intraossea",
+      "simulatorCode": "ITRA290",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/intraosseous.png",
+      "user": null,
+      "id": "LAPAxzW"
+    },
+    {
+      "date": "28-11-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Little Anne",
+      "simulatorCode": "RCPANE001",
+      "findings": "Teste- pele da face do simulador com defeito",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/little-anne.png",
+      "user": null,
+      "id": "Kdco2WK"
     }
   ],
   "LessonReports": [
@@ -171,6 +197,69 @@
         "date": "19-11-2024"
       },
       "hasIntervention": false
+    },
+    {
+      "date": "28-11-2024",
+      "lessonName": "Primeira - Apresentação inaugural",
+      "lessonOcorrance": "Profesessora deraamou cafe em cima do torax de drenagem",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "1",
+      "user": null,
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "28-11-2024"
+      },
+      "hasIntervention": false,
+      "id": "pdV8RZy"
+    },
+    {
+      "date": "28-11-2024",
+      "lessonName": "Primeira - Apresentação inaugural",
+      "lessonOcorrance": "Não houve registro de ocorrência de aula",
+      "lessonDescription": false,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "2",
+      "user": null,
+      "simulatorDescription": true,
+      "simulatorReport": {
+        "name": "MegaCode Kid",
+        "code": "DC2023",
+        "image": "assets/images/Simulators/MediumFidelity/megaKid.jpeg",
+        "ocorrance": "Simulador estragado",
+        "simulatorCategory": "media",
+        "date": "28-11-2024"
+      },
+      "hasIntervention": false,
+      "id": "EWOkEuB"
+    },
+    {
+      "date": "29-11-2024",
+      "lessonName": "Dispneia Pneumotórax",
+      "lessonOcorrance": "Teste- esta é uma occorencia de aula de Dispneia e pneumotorax ",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "8",
+      "user": null,
+      "simulatorDescription": true,
+      "simulatorReport": {
+        "name": "MegaCode Kelly",
+        "code": "KE8PL5",
+        "image": "assets/images/Simulators/MediumFidelity/megaKelly.jpeg",
+        "ocorrance": "Teste- esta é uma occorencia de simulaodr na aula de Dispneia e pneumotorax ",
+        "simulatorCategory": "media",
+        "date": "29-11-2024"
+      },
+      "hasIntervention": false,
+      "id": "CIK2z0v"
     }
   ],
   "manitanceReports": [
@@ -264,11 +353,65 @@
       },
       "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
       "hasDescription": true,
+      "hasIntervention": true,
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "intervention": {
+        "interventionText": "troquei a pele",
+        "interventionDate": "28-11-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": null
+      }
+    },
+    {
+      "date": "22-11-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        },
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        },
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Básica",
+      "manitanceFindings": "Teste - Houve achados durante a manutenção deste simulador Harvey ",
+      "simulatorName": "Harvey",
+      "code": {
+        "code": "HAR331",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "hasDescription": true,
       "hasIntervention": false,
       "user": {
         "name": "",
         "role": ""
-      }
+      },
+      "id": "eem2L_l"
     }
   ],
   "ScenarioReports": [
@@ -412,7 +555,7 @@
       "description": "Este simulador é mais indicado para monitorização e BLS ...",
       "codes": [
         {
-          "code": "ANNE31",
+          "code": "ANNE32",
           "disabled": false
         },
         {
@@ -2022,6 +2165,30 @@
       "classImage": "assets/images/default-image.jpg",
       "simulators": [],
       "id": "9"
+    },
+    {
+      "simulatorClass": "Baixa fidelidade",
+      "classImage": "assets/images/default-image.jpg",
+      "simulators": [
+        {
+          "name": "MamaBirth",
+          "image": "assets/images/default-image.jpg",
+          "description": "Simulador para parto manual com 15 partes e modulos ",
+          "codes": [
+            {
+              "code": "12345",
+              "disabled": false
+            },
+            {
+              "code": "1234fr",
+              "disabled": false
+            }
+          ],
+          "simulatorCategory": "baixa",
+          "technicalDescription": ""
+        }
+      ],
+      "id": "sDj4Di_"
     }
   ],
   "highSimulators": [
@@ -2176,6 +2343,24 @@
       "simulatorCategory": "alta",
       "technicalDescription": "",
       "id": "11"
+    },
+    {
+      "name": "Siman 3G PLUS ",
+      "image": "assets/images/default-image.jpg",
+      "description": "este é o mais top da glaxia ",
+      "codes": [
+        {
+          "code": "1234Y7",
+          "disabled": false
+        },
+        {
+          "code": "1234Y8",
+          "disabled": false
+        }
+      ],
+      "simulatorCategory": "alta",
+      "technicalDescription": "",
+      "id": "WyrzoxT"
     }
   ],
   "Trainings": [

@@ -5,7 +5,7 @@
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
-               
+        <h3>Achados de simuladores durante o registro de manutenção</h3>
         <div class="report-container-grid"
              *ngFor="let element of manitanceData">
             <div class="report-content">
@@ -18,7 +18,7 @@
                         <span>Data: {{element.date}}</span>
                             <div class="report-button" 
                                 (click)="openInterventionReport(element)"
-                                [ngClass]="{'red': element.hasIntervention}">
+                                [ngClass]="{'green': element.hasIntervention}">
                             <span>
                                 {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
                             </span> 
@@ -31,7 +31,7 @@
                 <div class="report-footer" (click)="openPreviewCleaningReportDialog(element)">
                     <div class="footer-header">
                         <span>Achados da manutenção:</span>
-                        <span class="report-code">Manutenção: {{element.manitanceCategory}}</span>
+                        <span class="report-code" [ngClass]="element.hasIntervention ? 'green' : 'red'">Manutenção: {{element.manitanceCategory}}</span>
                     </div>
                     <div class="footer-content">
                         <span>{{element.manitanceFindings}}</span>
