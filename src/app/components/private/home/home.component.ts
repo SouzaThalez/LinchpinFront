@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit{
   lessonData: any;
   scenariosData:any;
   cleaningData: any;
+
   currentUser: User;
 
   recentReportsData ={
@@ -41,7 +42,24 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.currentUser = this.userLogedService.logedUser;
+
+    // this.userLogedService.logedUserSubject.subscribe(({
+    //   next:(result: User)=>{ 
+    //     this.currentUser = result;
+    //     console.log('from HOMe COMPONENT', this.currentUser)
+
+    //   },
+    //   error:(error)=>{console.log('Erro carregando usuário!'), error}
+    // }))
+
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      }
+    });
+
+    
     this.callGeneralChart();
     // this.getAllLessonReports();
     // this.getAllScenariosReports();

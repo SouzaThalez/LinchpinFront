@@ -1,35 +1,63 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLogedService {
 
-  logedUser: User;
-
-  constructor(private httpClient : HttpClient) {
-    let localStorageID = localStorage.getItem('userID');
-    let idConverted = Number(localStorageID);
-    this.getUsersFromJson(idConverted);
-   }
-
-
-
-   private getUsersFromJson(id:number){
-
-    this.httpClient.get('http://localhost:3000/Users/' + id)
-    .subscribe({
-      //if request is true
-        next: (sample: any)=>{
-          this.logedUser = sample;
-        },
-      //if request is false
-        error: (erro)=>{console.log('request to Users NOT good: ',erro);}
-    })
+  private user: User = null;
+  
+  constructor(private httpClient: HttpClient) {
+    this.getCurrentUser();
   }
 
+
+
+  // global method allows calling on other components  
+  getCurrentUser(): Observable<User>{
+
+    return new Observable((subscription) => {
+
+      if (this.user) {
+        subscription.next(this.user);
+        subscription.complete();
+        return;
+      }
+  
+      const localStorageID = localStorage.getItem('userID');
+      const idConverted = Number(localStorageID);
+  
+      if (!idConverted) {
+        console.warn('No user ID found in localStorage.');
+        subscription.next(null);
+        subscription.complete();
+        return;
+      }
+  
+      this.httpClient.get<User>("http://localhost:3000/Users/" + idConverted)
+      .subscribe({
+        next: (user: User) => {
+          this.user = user;
+          subscription.next(this.user);
+          subscription.complete();
+        },
+        error: (error) => {
+          console.error('Request to Users failed:', error);
+          subscription.error(error);
+          subscription.complete();
+        }
+      });
+      
+    });
+
+  }
+
+  logOut(){
+    this.user = null;
+  }
 
 
 }

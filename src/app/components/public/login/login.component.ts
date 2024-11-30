@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { UserLogedService } from '../../../service/user-loged.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +19,6 @@ export class LoginComponent implements OnInit{
     // private firebaseService: FirebaseService,
     private matDialog: MatDialog,
     private httpClient: HttpClient,
-    private userLogedService : UserLogedService
   ){}
 
   ngOnInit(): void {
@@ -40,10 +38,8 @@ export class LoginComponent implements OnInit{
           this.loginMessage = 'Bem vindo!';
           //sending user id to local storage!
           let userID = userFound.id;
-          let userStringID = JSON.stringify(userID);
+          let userStringID = userID.toString();
           localStorage.setItem('userID',userStringID);
-          //populating userLoged service
-          this.userLogedService.logedUser = userFound;
           this.router.navigateByUrl('/private/home');
          
         }else{
@@ -58,7 +54,6 @@ export class LoginComponent implements OnInit{
     .subscribe({
       //if request is true
         next: (sample: any)=>{
-          console.log('request to Users ok!: ',sample);
           this.users = sample;
         },
       //if request is false

@@ -18,12 +18,21 @@ export class LeftPanelComponent implements OnInit{
   constructor(
     private route: Router,
     private matDialog: MatDialog,
-    private userLogedService : UserLogedService
+    public userLogedService : UserLogedService
   ){}
 
 
   ngOnInit(): void {
-    this.currentUser = this.userLogedService.logedUser;
+    
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      }
+    });
+    
+   
+
   }
 
   openlogOutDialog(){
@@ -36,6 +45,7 @@ export class LeftPanelComponent implements OnInit{
       switch (result) {
         case 'yes':
             this.route.navigateByUrl('/login');
+            this.userLogedService.logOut();
           break;
           case 'no':
             
@@ -44,7 +54,6 @@ export class LeftPanelComponent implements OnInit{
     })
 
   }
-
 
 
 }
