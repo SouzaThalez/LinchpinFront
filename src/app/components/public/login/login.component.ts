@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { UserLogedService } from '../../../service/user-loged.service';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +17,10 @@ export class LoginComponent implements OnInit{
 
   constructor(
     private router: Router,
-    // private appService: AppServiceService,
     // private firebaseService: FirebaseService,
     private matDialog: MatDialog,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private userLogedService : UserLogedService
   ){}
 
   ngOnInit(): void {
@@ -41,9 +42,10 @@ export class LoginComponent implements OnInit{
           let userID = userFound.id;
           let userStringID = JSON.stringify(userID);
           localStorage.setItem('userID',userStringID);
-          // this.appService.userLoged = userFound;
+          //populating userLoged service
+          this.userLogedService.logedUser = userFound;
           this.router.navigateByUrl('/private/home');
-          // this.openNewsDialog(userFound);
+         
         }else{
           this.loginMessage = 'Senha Incorreta!';
         }

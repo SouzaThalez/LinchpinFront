@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Chart } from 'chart.js';
 import { PreviewLessonReportDialogComponent } from '../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
+import { User } from '../../models/user';
+import { UserLogedService } from '../../../service/user-loged.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit{
   lessonData: any;
   scenariosData:any;
   cleaningData: any;
+  currentUser: User;
 
   recentReportsData ={
     scenarios:[],
@@ -32,10 +35,13 @@ export class HomeComponent implements OnInit{
   constructor(
     private httpClient: HttpClient,
     private matDialog: MatDialog,
+    private userLogedService : UserLogedService
   ){}
 
 
   ngOnInit(): void {
+
+    this.currentUser = this.userLogedService.logedUser;
     this.callGeneralChart();
     // this.getAllLessonReports();
     // this.getAllScenariosReports();
