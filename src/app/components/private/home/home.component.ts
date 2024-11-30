@@ -5,6 +5,7 @@ import { Chart } from 'chart.js';
 import { PreviewLessonReportDialogComponent } from '../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 import { UserLogedService } from '../../../service/user-loged.service';
 import { User } from '../../../models/user';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -42,16 +43,6 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
 
-
-    // this.userLogedService.logedUserSubject.subscribe(({
-    //   next:(result: User)=>{ 
-    //     this.currentUser = result;
-    //     console.log('from HOMe COMPONENT', this.currentUser)
-
-    //   },
-    //   error:(error)=>{console.log('Erro carregando usuário!'), error}
-    // }))
-
     this.userLogedService.getCurrentUser()
     .subscribe({
       next: (user) => {
@@ -61,8 +52,6 @@ export class HomeComponent implements OnInit{
 
     
     this.callGeneralChart();
-    // this.getAllLessonReports();
-    // this.getAllScenariosReports();
     this.getAllCleaningReports();
     this.getAllData();
   }
@@ -85,7 +74,6 @@ export class HomeComponent implements OnInit{
 
 
   }
-
 
   //Graphics
   private callGeneralChart(){
@@ -121,74 +109,34 @@ export class HomeComponent implements OnInit{
   
   }
 
-
-
   private getAllData(){
 
-    // get both data !
-    // lessons and scenarios 
-
-    let params = new HttpParams()
-    .set('lessonDescription', 'true');
-
-    this.httpClient.get('http://localhost:3000/LessonReports/',{params})
-    .subscribe({
-        next: (sample: any)=>{
-          this.lessonData = sample;
-          this.recentReportsData.lessons = this.lessonData;
-          
-        },
-        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
-    })
-
-    this.httpClient.get('http://localhost:3000/ScenarioReports/')
-    .subscribe({
-        next: (sample: any)=>{
-         
-          this.scenariosData = sample;
-          this.recentReportsData.scenarios = this.scenariosData;
-        
-        },
-        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
-    })
-
-    console.log(this.recentReportsData)
+    const lessonParams = new HttpParams().set('lessonDescription', 'true');
+    const scenarioParams = new HttpParams().set('scenarioCategory', 'Corrida'); 
+    
+    forkJoin({
+      lessons: this.httpClient.get('http://localhost:3000/LessonReports/', { params: lessonParams }),
+      scenarios: this.httpClient.get('http://localhost:3000/ScenarioReports/', { params: scenarioParams })
+    }).subscribe({
+      next: (results: any) => {
+        // Process the combined results
+        this.lessonData = results.lessons;
+        this.scenariosData = results.scenarios;
+  
+        this.recentReportsData = {
+          lessons: this.lessonData,
+          scenarios: this.scenariosData
+        };
+  
+        console.log('Recent reports data:', this.recentReportsData);
+      },
+      error: (error) => {
+        console.log('Error with one or more requests:', error);
+      }
+    });
     
   }
 
-
-
-  // private getAllLessonReports(){
-
-  //   let params = new HttpParams()
-  //       .set('lessonDescription', 'true');
-    
-  //   this.httpClient.get('http://localhost:3000/LessonReports/',{params})
-  //   .subscribe({
-  //       next: (sample: any)=>{
-  //         // console.log('LessonReports-: ',sample);
-  //         this.lessonData = sample;
-  //         this.recentReportsData.lessons = this.lessonData;
-          
-  //       },
-  //       error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
-  //   })
-  // }
-  
-  // private getAllScenariosReports(){
-    
-  //   this.httpClient.get('http://localhost:3000/ScenarioReports/')
-  //   .subscribe({
-  //       next: (sample: any)=>{
-  //         // console.log('CleaningReports-: ',sample);
-  //         this.scenariosData = sample;
-  //         this.recentReportsData.scenarios = this.scenariosData;
-        
-  //       },
-  //       error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
-  //   })
-  // }
-  
   private getAllCleaningReports(){
 
      // only for counting cleaning reperts total
