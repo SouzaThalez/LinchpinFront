@@ -1,6 +1,6 @@
-import { preScenarioCheckboxesType } from "../components/enums/preScenarioCheckboxes";
-import { prevCheckboxesType } from "../components/enums/preveCheckboxes";
-import { secundCheckboxesType } from "../components/enums/secundCheckboxes";
+import { preScenarioCheckboxesType } from "../enums/preScenarioCheckboxes";
+import { prevCheckboxesType } from "../enums/preveCheckboxes";
+import { secundCheckboxesType } from "../enums/secundCheckboxes";
 
 
 export const checkBoxesData={

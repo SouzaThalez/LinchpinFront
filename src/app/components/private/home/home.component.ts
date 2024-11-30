@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Chart } from 'chart.js';
 import { PreviewLessonReportDialogComponent } from '../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
-import { User } from '../../models/user';
 import { UserLogedService } from '../../../service/user-loged.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-home',

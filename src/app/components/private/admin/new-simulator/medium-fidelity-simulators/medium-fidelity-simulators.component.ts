@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailSimulatorDialogComponent } from '../detail-simulator-dialog/detail-simulator-dialog.component';
-import { simulatorCategoryType } from '../../../../enums/simulatorCategory';
+import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulator-dialog.component';
 
 @Component({

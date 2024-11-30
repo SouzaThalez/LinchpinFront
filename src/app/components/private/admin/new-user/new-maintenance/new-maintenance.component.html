@@ -1,0 +1,39 @@
+<div class="page">
+    <div class="page-header">
+        <div class="grid-button-container">
+        
+            <div class="grid-item">
+              <button mat-raised-button class="form-options form-buttons" (click)="openAddNewUserDialog()"> + Novo usuário manutenção</button>
+            </div>
+     
+        </div>
+    </div>
+    
+    <div class="page-body scroll-container">
+        <p></p>
+        <div class="details-list">
+            <div class="card-container" 
+                 *ngFor="let user of manitenceUsers"
+                 (click)="openEditUserDialog(user)">
+                <div class="card-body">
+                  <div class="card-head">
+                    <div class="card-image">
+                      <img src="assets/images/users/user-default-tec.png" alt="user-default-imag">
+                    </div>
+                    <div class="card-description">
+                      <span>Usuário: {{user.name}}</span>
+                      <span>Tipo: {{user.role}}</span>
+                      <span>E-mail: {{user.email}}</span>
+                    </div>
+                    <div class="card-icon">
+                      <span class="material-symbols-outlined">visibility</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LogOutDialogComponent } from './log-out-dialog/log-out-dialog.component';
 import { UserLogedService } from '../../../service/user-loged.service';
-import { User } from '../../models/user';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-left-panel',

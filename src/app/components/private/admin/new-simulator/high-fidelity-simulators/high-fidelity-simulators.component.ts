@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulator-dialog.component';
 import { DetailSimulatorDialogComponent } from '../detail-simulator-dialog/detail-simulator-dialog.component';
-import { simulatorCategoryType } from '../../../../enums/simulatorCategory';
+import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 
 @Component({
   selector: 'app-high-fidelity-simulators',

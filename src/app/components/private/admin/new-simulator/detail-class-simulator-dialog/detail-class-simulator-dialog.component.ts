@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RemoveSimulatorDialogComponent } from './remove-simulator-dialog/remove-simulator-dialog.component';
 import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulator-dialog.component';
-import { simulatorCategoryType } from '../../../../enums/simulatorCategory';
+import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { RemoveClassDialogComponent } from './remove-class-dialog/remove-class-dialog.component';
 

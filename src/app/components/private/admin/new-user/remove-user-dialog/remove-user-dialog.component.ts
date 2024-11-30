@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { User } from '../../../../models/user';
+import { User } from '../../../../../models/user';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class RemoveUserDialogComponent implements OnInit{
   constructor(
     public dialogRef: MatDialogRef<RemoveUserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {
-      user:User
+      user: User
     },
   ){}
 

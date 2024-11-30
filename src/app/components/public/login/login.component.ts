@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-login',

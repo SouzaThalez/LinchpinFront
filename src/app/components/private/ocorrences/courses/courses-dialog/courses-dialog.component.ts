@@ -9,7 +9,7 @@ import moment from 'moment';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
-import { SimulatorReport } from '../../../../models/simulatorReport';
+import { SimulatorReport } from '../../../../../models/simulatorReport';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

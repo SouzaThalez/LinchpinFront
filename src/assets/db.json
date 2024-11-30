@@ -51,7 +51,7 @@
       "login": "Gilson.pereira",
       "password": "Gilson.123",
       "name": "Gilson",
-      "role": "tecnico",
+      "role": "manutencao",
       "email": "Gilson.araujo@feluma.org",
       "image": ""
     },
@@ -62,7 +62,7 @@
       "confirmPassword": "cristiano.123",
       "email": "cristiano.alves@gmail.com",
       "image": "assets/images/users/user-default-analist.png",
-      "role": "analista",
+      "role": "manutencao",
       "id": 7
     },
     {

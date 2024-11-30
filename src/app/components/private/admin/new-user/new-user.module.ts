@@ -16,6 +16,7 @@ import { NewAnalystComponent } from './new-analyst/new-analyst.component';
 import { AddNewUserDialogComponent } from './add-new-user-dialog/add-new-user-dialog.component';
 import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
 import { RemoveUserDialogComponent } from './remove-user-dialog/remove-user-dialog.component';
+import { NewMaintenanceComponent } from './new-maintenance/new-maintenance.component';
 
 
 
@@ -27,7 +28,8 @@ import { RemoveUserDialogComponent } from './remove-user-dialog/remove-user-dial
     NewAnalystComponent,
     AddNewUserDialogComponent,
     EditUserDialogComponent,
-    RemoveUserDialogComponent
+    RemoveUserDialogComponent,
+    NewMaintenanceComponent
   ],
   imports: [
     CommonModule,
