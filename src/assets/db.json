@@ -119,62 +119,73 @@
   ],
   "CleaningReports": [
     {
-      "id": "b38c",
-      "date": "26-11-2024",
-      "cleaningCategory": "secundária",
-      "simulatorCategory": "alta",
-      "simulatorName": "SimMan ALS - Direito",
-      "simulatorCode": {
-        "code": "ALS431",
-        "disabled": false
-      },
-      "findings": "Durante a limpeza deste simulador, o braço estava com a pele solta e tive que colar com cola super bond.",
+      "id": "a07e",
+      "date": "30-11-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Punção Arterial",
+      "simulatorCode": "PUNA203",
+      "findings": "O braço foi encontrado com a pele bastante furada",
       "hasDescription": true,
       "hasIntervention": false,
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "user": null
+      "simulatorImage": "assets/images/Simulators/LowFidelity/arterialArm.jpg",
+      "user": {
+        "name": "Gilson",
+        "role": "manutencao"
+      }
     },
     {
-      "id": "6c2c",
-      "date": "25-11-2024",
-      "cleaningCategory": "primária",
-      "simulatorCategory": "alta",
-      "simulatorName": "SimMan ALS - Direito",
-      "simulatorCode": {
-        "code": "ALS431",
-        "disabled": false
-      },
-      "findings": "Não houve achados durante a limpeza deste simulador",
-      "hasDescription": false,
-      "hasIntervention": false,
-      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
-      "user": null
-    },
-    {
+      "id": "ceea",
       "date": "29-11-2024",
       "cleaningCategory": "primária",
-      "simulatorCategory": "baixa",
-      "simulatorName": "Punção Intraossea",
-      "simulatorCode": "ITRA290",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE32",
+      "findings": "simulador bem sujo durante a limpeza",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "user": {
+        "name": "Gilson",
+        "role": "manutencao"
+      }
+    },
+    {
+      "id": "d982",
+      "date": "28-11-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "Nurse Anne - Enfermeira",
+      "simulatorCode": {
+        "code": "NURH320",
+        "disabled": false
+      },
+      "findings": "Simulador com peruca suja durante a limpeza",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/nursingCare.jpg",
+      "user": {
+        "name": "Gilson",
+        "role": "manutencao"
+      }
+    },
+    {
+      "id": "7614",
+      "date": "30-11-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": {
+        "code": "ALS982",
+        "disabled": false
+      },
       "findings": "Não houve achados durante a limpeza deste simulador",
       "hasDescription": false,
       "hasIntervention": false,
-      "simulatorImage": "assets/images/Simulators/LowFidelity/intraosseous.png",
-      "user": null,
-      "id": "LAPAxzW"
-    },
-    {
-      "date": "28-11-2024",
-      "cleaningCategory": "primária",
-      "simulatorCategory": "baixa",
-      "simulatorName": "Little Anne",
-      "simulatorCode": "RCPANE001",
-      "findings": "Teste- pele da face do simulador com defeito",
-      "hasDescription": true,
-      "hasIntervention": false,
-      "simulatorImage": "assets/images/Simulators/LowFidelity/little-anne.png",
-      "user": null,
-      "id": "Kdco2WK"
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "user": {
+        "name": "Gilson",
+        "role": "manutencao"
+      }
     }
   ],
   "LessonReports": [

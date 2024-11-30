@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import moment from 'moment';
+import { UserLogedService } from '../../../../../service/user-loged.service';
+import { User } from '../../../../../models/user';
 
 @Component({
   selector: 'app-high-cleaning-dialog',
@@ -22,6 +24,11 @@ export class HighCleaningDialogComponent implements OnInit{
   textMsg = 'Não houve achados durante a limpeza deste simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
   simulatorCodes: Array<any> = [];
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
   constructor(
     public dialogRef: MatDialogRef<HighCleaningDialogComponent>,
@@ -31,12 +38,22 @@ export class HighCleaningDialogComponent implements OnInit{
     private fb : FormBuilder,
     private matDialog: MatDialog,
     private httpClient: HttpClient,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userLogedService : UserLogedService
   ){}
   
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
+
+      this.userLogedService.getCurrentUser()
+      .subscribe({
+        next: (user) => {
+          this.currentUser = user;
+          this.userModel.name = this.currentUser.name;
+          this.userModel.role = this.currentUser.role;
+        }
+      });
       
   } 
 
@@ -123,7 +140,7 @@ export class HighCleaningDialogComponent implements OnInit{
       hasDescription:[true],
       hasIntervention:[false],
       simulatorImage:[this.data.simulator.image],
-      user: [],
+      user: [this.userModel],
     })
 
     return prevForm;

@@ -8,6 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import moment from 'moment';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
+import { UserLogedService } from '../../../../../service/user-loged.service';
+import { User } from '../../../../../models/user';
 
 @Component({
   selector: 'app-low-fidelity-cleaning-dialog',
@@ -23,7 +25,11 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
   textMsg = 'Não houve achados durante a limpeza deste simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
   simulatorCodes: Array<any> = [];
-
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
   constructor(
     public dialogRef: MatDialogRef<LowFidelityCleaningDialogComponent>,
@@ -33,12 +39,23 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
     public fb : FormBuilder,
     private matDialog: MatDialog,
     private httpClient: HttpClient,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userLogedService : UserLogedService
   ){}
   
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
+
+      this.userLogedService.getCurrentUser()
+      .subscribe({
+        next: (user) => {
+          this.currentUser = user;
+          this.userModel.name = this.currentUser.name;
+          this.userModel.role = this.currentUser.role;
+        }
+      });
+
   } 
 
   
@@ -69,6 +86,7 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
       this.onClose(model);
       return
     }
+
     this.openAlertDialog();
 
   }
@@ -122,7 +140,7 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
       hasDescription:[true],
       hasIntervention:[false],
       simulatorImage:[this.data.simulator.image],
-      user: [],
+      user: [this.userModel],
     })
 
     return prevForm;
