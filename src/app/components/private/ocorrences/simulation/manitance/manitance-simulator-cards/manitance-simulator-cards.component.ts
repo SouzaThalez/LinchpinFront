@@ -45,6 +45,7 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
         default:
           break;
       }
+
       this.getHightSimulators();
    })
 
@@ -73,8 +74,6 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
 
 
   }
-
-
 
   private openSnackBar(message: string): void {
 

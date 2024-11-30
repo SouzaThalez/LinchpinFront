@@ -127,8 +127,7 @@ export class HomeComponent implements OnInit{
           lessons: this.lessonData,
           scenarios: this.scenariosData
         };
-  
-        console.log('Recent reports data:', this.recentReportsData);
+
       },
       error: (error) => {
         console.log('Error with one or more requests:', error);
