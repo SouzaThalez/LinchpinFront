@@ -35,7 +35,7 @@ export class EditUserDialogComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.createForm();
     this.form.patchValue(this.data.user);
-
+  
   }
 
   openRemoveUserDialog(){
@@ -73,8 +73,6 @@ export class EditUserDialogComponent implements OnInit{
     })
   }
 
-
-
   submitForm(){
   
     if(this.form.invalid){
@@ -84,6 +82,7 @@ export class EditUserDialogComponent implements OnInit{
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 
       });
+      
       return
     }
 
@@ -91,7 +90,6 @@ export class EditUserDialogComponent implements OnInit{
     this.dialogRef.close(this.form.value);
 
   }
-
 
 
   private createForm(){

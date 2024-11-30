@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class UserLogedService {
   getCurrentUser(): Observable<User>{
 
     return new Observable((subscription) => {
-
+   
       if (this.user) {
         subscription.next(this.user);
         subscription.complete();

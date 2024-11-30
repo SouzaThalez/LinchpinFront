@@ -32,7 +32,7 @@ export class NewMaintenanceComponent implements OnInit{
 
 
   openEditUserDialog(user: User){
-
+  
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',

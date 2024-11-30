@@ -1,7 +1,7 @@
 {
   "Users": [
     {
-      "id": 1,
+      "id": "1",
       "role": "moderador",
       "login": "thales.carvalho",
       "password": "thales.123",
@@ -10,7 +10,7 @@
       "image": ""
     },
     {
-      "id": 2,
+      "id": "2",
       "login": "taline.pereira",
       "password": "taline.123",
       "name": "Taline",
@@ -26,7 +26,7 @@
       "email": "mariana.araujo@feluma.org",
       "image": "",
       "role": "administrador",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Isabela",
@@ -35,21 +35,22 @@
       "login": "isabela.souza",
       "email": "isabela.araujo@feluma.org",
       "image": "",
-      "id": 4
+      "id": "4"
     },
     {
-      "id": 5,
-      "role": "analista",
+      "name": "Augusto",
       "login": "augusto.moura",
       "password": "augusto.123",
-      "name": "Augusto",
+      "confirmPassword": null,
       "email": "augusto.araujo@feluma.org",
-      "image": ""
+      "image": "",
+      "role": "analista",
+      "id": "5"
     },
     {
-      "id": 6,
-      "login": "Gilson.pereira",
-      "password": "Gilson.123",
+      "id": "6",
+      "login": "gilson.pereira",
+      "password": "gilson.123",
       "name": "Gilson",
       "role": "manutencao",
       "email": "Gilson.araujo@feluma.org",
@@ -62,8 +63,8 @@
       "confirmPassword": "cristiano.123",
       "email": "cristiano.alves@gmail.com",
       "image": "assets/images/users/user-default-analist.png",
-      "role": "manutencao",
-      "id": 7
+      "role": "tecnico",
+      "id": "7"
     },
     {
       "name": "Syarla",
@@ -72,8 +73,8 @@
       "confirmPassword": "syarla.123",
       "email": "syarla@gmail.com",
       "image": "assets/images/users/user-default-tec.png",
-      "role": "tecnico",
-      "id": 9
+      "role": "manutencao",
+      "id": "9"
     },
     {
       "name": "Laura",
@@ -83,7 +84,7 @@
       "email": "laura@gmail.com",
       "image": "assets/images/users/user-default-tec.png",
       "role": "tecnico",
-      "id": 10
+      "id": "10"
     },
     {
       "name": "Marta",
@@ -93,7 +94,7 @@
       "email": "marta@gmail.com",
       "image": "assets/images/users/user-default-tec.png",
       "role": "analista",
-      "id": 11
+      "id": "11"
     },
     {
       "name": "Rosana",
@@ -103,7 +104,7 @@
       "email": "rosana@gmail.com",
       "image": "assets/images/users/user-default-admin.png",
       "role": "administrador",
-      "id": 12
+      "id": "12"
     },
     {
       "name": "Carloss",
@@ -113,7 +114,7 @@
       "email": "carlos@gmail.com",
       "image": "assets/images/users/user-default-analist.png",
       "role": "tecnico",
-      "id": 13
+      "id": "13"
     }
   ],
   "CleaningReports": [

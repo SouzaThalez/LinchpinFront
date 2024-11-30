@@ -23,7 +23,7 @@ export class LeftPanelComponent implements OnInit{
 
 
   ngOnInit(): void {
-    
+  
     this.userLogedService.getCurrentUser()
     .subscribe({
       next: (user) => {
