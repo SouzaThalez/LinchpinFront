@@ -27,7 +27,7 @@ export class CoursersAhaComponent implements OnInit{
 
 
   openCursesDialog(curse:any){
-
+    
     let dialogRef = this.matDialog.open(CoursesDialogComponent,{
       disableClose: true,
       width:'650px',

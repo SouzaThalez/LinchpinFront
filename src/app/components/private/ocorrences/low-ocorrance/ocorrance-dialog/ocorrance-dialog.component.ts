@@ -11,6 +11,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { SimulatorReport } from '../../../../../models/simulatorReport';
 import { HttpClient } from '@angular/common/http';
+import { UserLogedService } from '../../../../../service/user-loged.service';
+import { User } from '../../../../../models/user';
 
 @Component({
   selector: 'app-ocorrance-dialog',
@@ -32,6 +34,11 @@ export class OcorranceDialogComponent implements OnInit{
 
   mediumSimulators: any;
   simulatorCodes: Array<any> = [];
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
   form: FormGroup = this.createForm();
 
@@ -44,11 +51,22 @@ export class OcorranceDialogComponent implements OnInit{
       training: any
     },
     private fb : FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public userLogedService : UserLogedService
   ){}
   
   ngOnInit(): void {
     this.form = this.createForm();
+
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.userModel.name = this.currentUser.name;
+        this.userModel.role = this.currentUser.role;
+      }
+    });
+    
     this.getMediumSimulators();
   
   } 
@@ -186,7 +204,7 @@ export class OcorranceDialogComponent implements OnInit{
       lessonImage:[this.lessonImgPath],
       lessonCategory:[this.data.training.name],
       lessonType:[this.data.training.value],
-      user: [],
+      user: [this.userModel],
       simulatorDescription:[true],
       simulatorReport: this.fb.group({
         name: [null,Validators.required],

@@ -7,6 +7,8 @@ import moment from 'moment';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { AlertDialogComponent } from '../../../../../shared/alert-dialog/alert-dialog.component';
 import { disciplines } from '../../../../../../data/disciplines';
+import { User } from '../../../../../../models/user';
+import { UserLogedService } from '../../../../../../service/user-loged.service';
 
 @Component({
   selector: 'app-register-pre-scenario-dialog',
@@ -20,7 +22,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   simulatorText = 'Nenhuma descrição de falha durante a execução de cenário';
   defaultMessage = `Não houve registro de intercorrências durante a ${this.data.registerType} de cenário`;
 
-  user = { name:'',role:''};
+ 
   form: FormGroup;
   allcCheckBoxData = checkBoxesData;
   disciplines = disciplines;
@@ -31,6 +33,12 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
     label: string,
     value:number
   };
+
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
   
 
   constructor(
@@ -42,10 +50,21 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
     },
     public fb: FormBuilder,
     private matDialog: MatDialog,
+    private userLogedService : UserLogedService
   ){}
 
   ngOnInit(): void {
     this.form = this.simFormCreation();
+
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.userModel.name = this.currentUser.name;
+        this.userModel.role = this.currentUser.role;
+      }
+    });
+
   }
 
   onSubmit(){
@@ -67,9 +86,8 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
       this.form.patchValue({date: momentDate});
 
       const model = this.form.value;
-      // this.postCleaningReports(model);
-   
-        this.onClose(model);
+      this.onClose(model);
+      
       return
     }
 
@@ -79,46 +97,12 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
 
   onClose(value: any): void {
     this.dialogRef.close(value);
-    // this.openSnackBar(this.snackbarMessage);
   }
 
   checkBoxDescription(value:boolean){
     this.isChecked = value;
   }
 
-
-
-  // simulatorCheckBox(value:any){
-  //   if(value){
-
-  //     this.form.patchValue(
-  //       {
-  //       simulatorRegister:this.noFailText,
-  //       monitorRegister: this.noFailText,
-  //       medicationCarRegister: this.noFailText,
-  //       energyPanelRegister: this.noFailText,
-  //       airFlowRegister: this.noFailText,
-  //       internetCableRegister: this.noFailText,
-  //       audioAndMediaRegister:this.noFailText,
-  //       otherRegister:this.noFailText,
-  //     })
-      
-  //   }else{  
-  //     this.form.patchValue(
-  //       {
-  //       simulatorRegister:'',
-  //       monitorRegister: '',
-  //       medicationCarRegister: '',
-  //       energyPanelRegister: '',
-  //       airFlowRegister: '',
-  //       internetCableRegister: '',
-  //       audioAndMediaRegister:'',
-  //       otherRegister: ''
-  //     })
-  //   }
-  // }
-
-  
   getCheckedElement(element:any){
     element.value = !element.value;
     this.checkedBoxes = this.allcCheckBoxData.preScenarioCheckboxes.filter((element:any) => element.value == true);
@@ -138,18 +122,9 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
   
   getSimulator(){
 
-    // this.appService.validateForm(this.simulatorForm);
-
     if(this.form.valid){
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
       this.form.patchValue({date:momentDate});
-      // this.dialogRef.close(this.form.value);
-      
-      // this.snackBar.open('Acompanhamento registrado com sucesso!', 'Fechar',{
-      //   horizontalPosition: this.horizontalPosition,
-      //   verticalPosition: this.verticalPosition,
-      //   duration: this.durationInSeconds * 1000
-      // });
       
     }else{
       // this.snackBar.open('Ainda existem campos Vermelhos!', 'Fechar',{
@@ -194,7 +169,7 @@ export class RegisterPreScenarioDialogComponent implements OnInit{
       discipline:[null, Validators.required],
       hasDescription: [false],
       itemOcorrance:[],
-      user: []
+      user: [this.userModel]
     })
 
     return simulatoForm;

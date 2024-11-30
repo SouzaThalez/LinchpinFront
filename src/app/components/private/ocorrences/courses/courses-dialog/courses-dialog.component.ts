@@ -11,6 +11,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { SimulatorReport } from '../../../../../models/simulatorReport';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../../../../../models/user';
+import { UserLogedService } from '../../../../../service/user-loged.service';
 
 @Component({
   selector: 'app-courses-dialog',
@@ -34,8 +36,14 @@ export class CoursesDialogComponent implements OnInit{
 
   mediumSimulators: any;
   simulatorCodes: Array<any> = [];
+  
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
-  form:FormGroup = this.createForm();
+  form: FormGroup = this.createForm();
 
   constructor(
     public dialogRef: MatDialogRef<CoursesDialogComponent>,
@@ -45,12 +53,23 @@ export class CoursesDialogComponent implements OnInit{
     private fb : FormBuilder,
     private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private userLogedService : UserLogedService
   ){}
   
   ngOnInit(): void {
   
     this.form = this.createForm();
+  
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.userModel.name = this.currentUser.name;
+        this.userModel.role = this.currentUser.role;
+      }
+    });
+
     this.getMediumSimulators();
 
   } 
@@ -176,9 +195,9 @@ export class CoursesDialogComponent implements OnInit{
       lessonOcorrance:[],
       lessonDescription:[true],
       lessonImage:[this.lessonImgPath],
-      lessonCategory:[this.data.curse.type],
-      lessonType:[this.data.curse.value],
-      user: [],
+      lessonCategory:[this.data.curse.lessonType],
+      lessonType:[this.data.curse.label],
+      user: [this.userModel],
       simulatorDescription:[true],
       simulatorReport: this.fb.group({
         name: [null,Validators.required],
@@ -189,7 +208,6 @@ export class CoursesDialogComponent implements OnInit{
         date: []
       }),
       hasIntervention:[false],
-      
 
     })
 
