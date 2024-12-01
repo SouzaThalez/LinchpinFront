@@ -83,7 +83,7 @@ export class MediumFidelitySimulatorsComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
       next:(sample: any)=>{
         this.mediumSimulators = sample;
-        console.log('mediumSimulators: ',this.mediumSimulators);
+        
       },
       error:(error)=>{
         console.log('Something wrong with the request to mediumSimulators ',error)

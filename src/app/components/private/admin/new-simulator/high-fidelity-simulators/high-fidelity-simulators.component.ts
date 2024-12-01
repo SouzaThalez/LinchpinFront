@@ -85,7 +85,7 @@ export class HighFidelitySimulatorsComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
       next:(sample: any)=>{
         this.highSimulators = sample;
-        console.log('highSimulators: ',this.highSimulators);
+        
       },
       error:(error)=>{
         console.log('Something wrong with the request to highSimulators ',error)
