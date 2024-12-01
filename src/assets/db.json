@@ -186,6 +186,22 @@
         "name": "Gilson",
         "role": "manutencao"
       }
+    },
+    {
+      "id": "99ba",
+      "date": "27-11-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Pelve Prompt",
+      "simulatorCode": "PROMT001",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/promptPelv.png",
+      "user": {
+        "name": "Gilson",
+        "role": "manutencao"
+      }
     }
   ],
   "LessonReports": [

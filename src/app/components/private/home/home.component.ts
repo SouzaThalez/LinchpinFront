@@ -163,7 +163,7 @@ export class HomeComponent implements OnInit{
          .set('user.name',this.currentUser.name);
          
     const cleaningParams = new HttpParams()
-          .set('hasDescription', 'true')
+          // .set('hasDescription', 'true')
           .set('user.name',this.currentUser.name);
     
     forkJoin({
