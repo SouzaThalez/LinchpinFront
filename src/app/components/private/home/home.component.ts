@@ -6,6 +6,7 @@ import { PreviewLessonReportDialogComponent } from '../../shared/preview-lesson-
 import { UserLogedService } from '../../../service/user-loged.service';
 import { User } from '../../../models/user';
 import { forkJoin } from 'rxjs';
+import { userRoleType } from '../../../enums/userRoles';
 
 @Component({
   selector: 'app-home',
@@ -21,16 +22,19 @@ export class HomeComponent implements OnInit{
     'Abril',
     'Maio',
   ];
+  userRoleAdmin =  userRoleType.admin;
 
   lessonData: any;
-  scenariosData:any;
+  scenariosData: any;
   cleaningData: any;
+  cleaningCountData: any;
 
   currentUser: User;
 
   recentReportsData ={
     scenarios:[],
-    lessons:[]
+    lessons:[],
+    cleanings:[]
   }
     
   
@@ -46,14 +50,21 @@ export class HomeComponent implements OnInit{
     this.userLogedService.getCurrentUser()
     .subscribe({
       next: (user) => {
+        
         this.currentUser = user;
+        if(this.currentUser.role == this.userRoleAdmin){
+          this.getAllData();
+        }else{
+          this.getUserRportsData(this.currentUser);
+        }
+       
       }
     });
 
     
     this.callGeneralChart();
     this.getAllCleaningReports();
-    this.getAllData();
+    
   }
 
 
@@ -112,22 +123,27 @@ export class HomeComponent implements OnInit{
   private getAllData(){
 
     const lessonParams = new HttpParams().set('lessonDescription', 'true');
-    const scenarioParams = new HttpParams().set('scenarioCategory', 'Corrida'); 
+    const scenarioParams = new HttpParams().set('scenarioCategory', 'Corrida');
+    const cleaningParams = new HttpParams().set('hasDescription', 'true'); 
     
     forkJoin({
       lessons: this.httpClient.get('http://localhost:3000/LessonReports/', { params: lessonParams }),
-      scenarios: this.httpClient.get('http://localhost:3000/ScenarioReports/', { params: scenarioParams })
+      scenarios: this.httpClient.get('http://localhost:3000/ScenarioReports/', { params: scenarioParams }),
+      cleanings: this.httpClient.get('http://localhost:3000/CleaningReports/', { params: cleaningParams })
     }).subscribe({
       next: (results: any) => {
         // Process the combined results
         this.lessonData = results.lessons;
         this.scenariosData = results.scenarios;
+        this.cleaningData = results.cleanings;
   
         this.recentReportsData = {
           lessons: this.lessonData,
-          scenarios: this.scenariosData
+          scenarios: this.scenariosData,
+          cleanings: this.cleaningData
         };
 
+        console.log(this.recentReportsData);
       },
       error: (error) => {
         console.log('Error with one or more requests:', error);
@@ -135,6 +151,53 @@ export class HomeComponent implements OnInit{
     });
     
   }
+
+  private getUserRportsData(userLoged: User){
+
+    const lessonParams = new HttpParams()
+        .set('lessonDescription', 'true')
+        .set('user.name',this.currentUser.name);
+
+    const scenarioParams = new HttpParams()
+         .set('scenarioCategory', 'Corrida')
+         .set('user.name',this.currentUser.name);
+         
+    const cleaningParams = new HttpParams()
+          .set('hasDescription', 'true')
+          .set('user.name',this.currentUser.name);
+    
+    forkJoin({
+      lessons: this.httpClient.get('http://localhost:3000/LessonReports/', { params: lessonParams }),
+      scenarios: this.httpClient.get('http://localhost:3000/ScenarioReports/', { params: scenarioParams }),
+      cleanings: this.httpClient.get('http://localhost:3000/CleaningReports/', { params: cleaningParams })
+    }).subscribe({
+      next: (results: any) => {
+        // Process the combined results
+        this.lessonData = results.lessons;
+        this.scenariosData = results.scenarios;
+        this.cleaningData = results.cleanings;
+  
+        this.recentReportsData = {
+          lessons: this.lessonData,
+          scenarios: this.scenariosData,
+          cleanings: this.cleaningData
+        };
+
+        console.log(this.recentReportsData);
+
+      },
+      error: (error) => {
+        console.log('Error with one or more requests:', error);
+      }
+    });
+
+
+
+  }
+
+
+
+
 
   private getAllCleaningReports(){
 
@@ -144,8 +207,7 @@ export class HomeComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/CleaningReports/')
     .subscribe({
         next: (sample: any)=>{
-          // console.log('CleaningReports-: ',sample);
-          this.cleaningData = sample;
+          this.cleaningCountData = sample;
           
         },
         error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}

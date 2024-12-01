@@ -2,7 +2,7 @@
   "Users": [
     {
       "id": "1",
-      "role": "moderador",
+      "role": "analista",
       "login": "thales.carvalho",
       "password": "thales.123",
       "name": "Thales",
@@ -31,7 +31,7 @@
     {
       "name": "Isabela",
       "password": "isabela.123",
-      "role": "deposito",
+      "role": "tecnico",
       "login": "isabela.souza",
       "email": "isabela.araujo@feluma.org",
       "image": "",
