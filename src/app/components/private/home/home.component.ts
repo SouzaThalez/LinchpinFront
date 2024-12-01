@@ -143,7 +143,7 @@ export class HomeComponent implements OnInit{
           cleanings: this.cleaningData
         };
 
-        console.log(this.recentReportsData);
+        // console.log(this.recentReportsData);
       },
       error: (error) => {
         console.log('Error with one or more requests:', error);
@@ -183,7 +183,7 @@ export class HomeComponent implements OnInit{
           cleanings: this.cleaningData
         };
 
-        console.log(this.recentReportsData);
+        // console.log(this.recentReportsData);
 
       },
       error: (error) => {
