@@ -1,4 +1,4 @@
-import { manitanceStatusType } from "../components/enums/manitenceStatus";
+import { manitanceStatusType } from "../enums/manitenceStatus";
 
 export const manitenceStatusData = [
     {

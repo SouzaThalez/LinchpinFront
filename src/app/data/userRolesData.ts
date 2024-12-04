@@ -11,5 +11,9 @@ export const userRolesData= [
         role:'tecnico',
         label:'technician'
     },
+    {
+        role:'manutencao',
+        label:'maintenance'
+    },
    
 ]

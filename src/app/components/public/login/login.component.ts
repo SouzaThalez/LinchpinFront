@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +16,9 @@ export class LoginComponent implements OnInit{
 
   constructor(
     private router: Router,
-    // private appService: AppServiceService,
     // private firebaseService: FirebaseService,
     private matDialog: MatDialog,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ){}
 
   ngOnInit(): void {
@@ -39,11 +38,10 @@ export class LoginComponent implements OnInit{
           this.loginMessage = 'Bem vindo!';
           //sending user id to local storage!
           let userID = userFound.id;
-          let userStringID = JSON.stringify(userID);
+          let userStringID = userID.toString();
           localStorage.setItem('userID',userStringID);
-          // this.appService.userLoged = userFound;
           this.router.navigateByUrl('/private/home');
-          // this.openNewsDialog(userFound);
+         
         }else{
           this.loginMessage = 'Senha Incorreta!';
         }
@@ -56,7 +54,6 @@ export class LoginComponent implements OnInit{
     .subscribe({
       //if request is true
         next: (sample: any)=>{
-          console.log('request to Users ok!: ',sample);
           this.users = sample;
         },
       //if request is false

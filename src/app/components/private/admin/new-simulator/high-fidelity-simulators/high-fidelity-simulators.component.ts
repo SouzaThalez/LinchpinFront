@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulator-dialog.component';
 import { DetailSimulatorDialogComponent } from '../detail-simulator-dialog/detail-simulator-dialog.component';
-import { simulatorCategoryType } from '../../../../enums/simulatorCategory';
+import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 
 @Component({
   selector: 'app-high-fidelity-simulators',
@@ -85,7 +85,7 @@ export class HighFidelitySimulatorsComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
       next:(sample: any)=>{
         this.highSimulators = sample;
-        console.log('highSimulators: ',this.highSimulators);
+        
       },
       error:(error)=>{
         console.log('Something wrong with the request to highSimulators ',error)

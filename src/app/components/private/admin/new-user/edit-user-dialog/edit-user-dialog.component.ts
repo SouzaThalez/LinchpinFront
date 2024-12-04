@@ -3,10 +3,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
-import { User } from '../../../../models/user';
 import { userRolesData } from '../../../../../data/userRolesData';
 import { RemoveUserDialogComponent } from '../remove-user-dialog/remove-user-dialog.component';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../../../../../models/user';
 
 @Component({
   selector: 'app-edit-user-dialog',
@@ -26,7 +26,7 @@ export class EditUserDialogComponent implements OnInit{
     private matDialog: MatDialog,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      user:User
+      user: User
     },
   ){}
 
@@ -35,7 +35,7 @@ export class EditUserDialogComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.createForm();
     this.form.patchValue(this.data.user);
-
+  
   }
 
   openRemoveUserDialog(){
@@ -73,8 +73,6 @@ export class EditUserDialogComponent implements OnInit{
     })
   }
 
-
-
   submitForm(){
   
     if(this.form.invalid){
@@ -84,6 +82,7 @@ export class EditUserDialogComponent implements OnInit{
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 
       });
+      
       return
     }
 
@@ -91,7 +90,6 @@ export class EditUserDialogComponent implements OnInit{
     this.dialogRef.close(this.form.value);
 
   }
-
 
 
   private createForm(){

@@ -4,6 +4,7 @@ import { NewUserComponent } from "./new-user.component";
 import { NewAdminComponent } from "./new-admin/new-admin.component";
 import { NewTechnicianComponent } from "./new-technician/new-technician.component";
 import { NewAnalystComponent } from "./new-analyst/new-analyst.component";
+import { NewMaintenanceComponent } from "./new-maintenance/new-maintenance.component";
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
         {
           path:'novo-analista',
           component:NewAnalystComponent
+        },
+        {
+          path:'novo-manutencao',
+          component:NewMaintenanceComponent
         },  
         {
             path:'**',

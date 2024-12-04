@@ -2,11 +2,11 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
-import { userRoleType } from '../../../../enums/userRoles';
+import { userRoleType } from '../../../../../enums/userRoles';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
-import { User } from '../../../../models/user';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from '../../../../../models/user';
 
 @Component({
   selector: 'app-new-technician',
@@ -55,7 +55,7 @@ export class NewTechnicianComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user:User){
+  openEditUserDialog(user: User){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,

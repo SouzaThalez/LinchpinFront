@@ -56,7 +56,7 @@ export class ScenarioRegisterCardsComponent implements OnInit{
 
 
   openRegisterDialogs(element: any){
-    
+      
    
       if(this.registerName == 'Corrida'){
 
@@ -97,7 +97,6 @@ export class ScenarioRegisterCardsComponent implements OnInit{
   
 
 
-  
   private openSnackBar(message: string): void {
 
     this.snackBar.open(message, 'Close', {

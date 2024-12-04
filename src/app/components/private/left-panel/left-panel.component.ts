@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LogOutDialogComponent } from './log-out-dialog/log-out-dialog.component';
+import { UserLogedService } from '../../../service/user-loged.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-left-panel',
@@ -10,17 +12,27 @@ import { LogOutDialogComponent } from './log-out-dialog/log-out-dialog.component
 })
 export class LeftPanelComponent implements OnInit{
 
-
+  currentUser: User;
 
 
   constructor(
     private route: Router,
     private matDialog: MatDialog,
+    public userLogedService : UserLogedService
   ){}
 
 
   ngOnInit(): void {
+  
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      }
+    });
     
+   
+
   }
 
   openlogOutDialog(){
@@ -33,6 +45,7 @@ export class LeftPanelComponent implements OnInit{
       switch (result) {
         case 'yes':
             this.route.navigateByUrl('/login');
+            this.userLogedService.logOut();
           break;
           case 'no':
             
@@ -41,7 +54,6 @@ export class LeftPanelComponent implements OnInit{
     })
 
   }
-
 
 
 }

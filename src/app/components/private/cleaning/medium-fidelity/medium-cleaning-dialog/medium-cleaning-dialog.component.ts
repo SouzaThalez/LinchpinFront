@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { UserLogedService } from '../../../../../service/user-loged.service';
+import { User } from '../../../../../models/user';
 
 
 @Component({
@@ -23,6 +25,11 @@ export class MediumCleaningDialogComponent implements OnInit{
   textMsg = 'Não houve achados durante a limpeza deste simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
   simulatorCodes: Array<any> = [];
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
   constructor(
     public dialogRef: MatDialogRef<MediumCleaningDialogComponent>,
@@ -32,13 +39,23 @@ export class MediumCleaningDialogComponent implements OnInit{
     public fb : FormBuilder,
     private matDialog: MatDialog,
     private httpClient: HttpClient,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userLogedService : UserLogedService
   ){}
 
   ngOnInit(): void {
 
     this.form = this.createForm();
     this.simulatorCodes = this.data.simulator.codes;
+
+    this.userLogedService.getCurrentUser()
+      .subscribe({
+        next: (user) => {
+          this.currentUser = user;
+          this.userModel.name = this.currentUser.name;
+          this.userModel.role = this.currentUser.role;
+        }
+      });
   }
 
   onClose(value: any): void {
@@ -122,7 +139,7 @@ export class MediumCleaningDialogComponent implements OnInit{
       findings:[null,Validators.required],
       hasDescription:[true],
       simulatorImage:[this.data.simulator.image],
-      user: [],
+      user: [this.userModel],
     })
 
     return prevForm;

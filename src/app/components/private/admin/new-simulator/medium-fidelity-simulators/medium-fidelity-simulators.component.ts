@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailSimulatorDialogComponent } from '../detail-simulator-dialog/detail-simulator-dialog.component';
-import { simulatorCategoryType } from '../../../../enums/simulatorCategory';
+import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulator-dialog.component';
 
 @Component({
@@ -83,7 +83,7 @@ export class MediumFidelitySimulatorsComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
       next:(sample: any)=>{
         this.mediumSimulators = sample;
-        console.log('mediumSimulators: ',this.mediumSimulators);
+        
       },
       error:(error)=>{
         console.log('Something wrong with the request to mediumSimulators ',error)

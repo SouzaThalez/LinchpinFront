@@ -28,7 +28,7 @@
                     </div>
                     <div class="report-badge">
                         <span>Limpezas</span>
-                        <span>{{cleaningData?.length}}</span>
+                        <span>{{cleaningCountData?.length}}</span>
                     </div>
                 </div>
             </div>
@@ -43,16 +43,17 @@
                 <div class="report-container" 
                     *ngFor="let element of recentReportsData?.lessons"
                     (click)="openPreviewLessonReportDialog(element)">
+                     *ngFor="let element of recentReportsData?.lessons">
 
                     <div class="report-head">
                         <div class="report-icon">
                             <img src="assets/icons/report-icon.png" alt="">
                         </div>
                         <div class="report-description">
-                            <span>Tipo da Aula: <b>{{element.lessonCategory}}</b></span>
+                            <span>Registro: <b>{{element.lessonCategory}}</b></span>
                             <span>Aula: {{element.lessonName}}</span>
                             <span>Date: {{element.date}}</span>
-                            <span>Thales Carvalho</span>
+                            <span>Responsavél: {{element.user.name}}</span>
                         </div>
                     </div>
                     <div class="report-bars">
@@ -73,10 +74,33 @@
                             <img src="assets/icons/report-icon.png" alt="">
                         </div>
                         <div class="report-description">
-                            <span>Tipo da Aula: <b>Cenário Simulação</b></span>
-                            <span>Aula: {{element.scenarioCategory}}</span>
+                            <span>Registro: <b>Cenário Simulação</b></span>
+                            <span>Categoria: {{element.scenarioCategory}}</span>
                             <span>Date: {{element.date}}</span>
-                            <span>Thales Carvalho</span>
+                            <span>Responsavél: {{element.user.name}}</span>
+                        </div>
+                    </div>
+                    <div class="report-bars">
+                        <img src="assets/icons/report-bars.png" alt="">
+                    </div>
+                    <div class="report-grid">
+                        <img src="assets/icons/report-grid.png" alt="">
+                    </div>
+
+                </div>
+
+                <div class="report-container" 
+                    *ngFor="let element of recentReportsData?.cleanings">
+
+                    <div class="report-head">
+                        <div class="report-icon">
+                            <img src="assets/icons/report-icon.png" alt="">
+                        </div>
+                        <div class="report-description">
+                            <span>Registro: <b>Limpeza</b></span>
+                            <span>Categoria: {{element.cleaningCategory}}</span>
+                            <span>Date: {{element.date}}</span>
+                            <span>Responsavél: {{element.user.name}}</span>
                         </div>
                     </div>
                     <div class="report-bars">
@@ -90,6 +114,7 @@
 
             </div>
 
+            
             <ng-template #showDefaultMsg>
                 <div class="report-content">
                     <span>Nenhum registro de aula recente ...</span>

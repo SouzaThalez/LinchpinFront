@@ -7,6 +7,8 @@ import { checkBoxesData } from '../../../../../../data/checkBoxesData';
 import { Simulator } from '../../../../../../models/simulator';
 import { disciplines } from '../../../../../../data/disciplines';
 import { AlertDialogComponent } from '../../../../../shared/alert-dialog/alert-dialog.component';
+import { UserLogedService } from '../../../../../../service/user-loged.service';
+import { User } from '../../../../../../models/user';
 
 @Component({
   selector: 'app-register-scenario-dialog',
@@ -28,6 +30,11 @@ export class RegisterScenarioDialogComponent implements OnInit{
 
   lessonTextArea=false;
   checkedBoxes:any[]=[];
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
   
 
@@ -40,10 +47,21 @@ export class RegisterScenarioDialogComponent implements OnInit{
     },
     public fb: FormBuilder,
     private matDialog: MatDialog,
+    private userLogedService : UserLogedService
   ){}
 
   ngOnInit(): void {
     this.simulatorForm = this.simFormCreation();
+
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.userModel.name = this.currentUser.name;
+        this.userModel.role = this.currentUser.role;
+      }
+    });
+
   }
 
   onSubmit(){
@@ -170,7 +188,7 @@ export class RegisterScenarioDialogComponent implements OnInit{
       audioAndMediaRegister:[null, Validators.required],
       
       scenarioCategory:[this.data.registerType],
-      user: []
+      user: [this.userModel]
     })
 
     return simulatoForm;

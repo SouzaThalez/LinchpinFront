@@ -6,6 +6,8 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Simulator } from '../../../../../../models/simulator';
 import moment from 'moment';
 import { AlertDialogComponent } from '../../../../../shared/alert-dialog/alert-dialog.component';
+import { UserLogedService } from '../../../../../../service/user-loged.service';
+import { User } from '../../../../../../models/user';
 
 @Component({
   selector: 'app-register-manitance-dialog',
@@ -20,7 +22,11 @@ export class RegisterManitanceDialogComponent implements OnInit{
   form: FormGroup;
   checkedBoxes:any[]=[];
   defaultMessage = 'Não houve registro de achados durante a manutenção';
-  user = { name:'',role:''};
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
   isChecked = false;
 
@@ -32,10 +38,19 @@ export class RegisterManitanceDialogComponent implements OnInit{
     },
     public fb : FormBuilder,
     private matDialog: MatDialog,
+    private userLogedService : UserLogedService
   ){}
 
   ngOnInit(): void {  
       this.form = this.createForm();
+      this.userLogedService.getCurrentUser()
+      .subscribe({
+        next: (user) => {
+          this.currentUser = user;
+          this.userModel.name = this.currentUser.name;
+          this.userModel.role = this.currentUser.role;
+        }
+      });
   }
 
 
@@ -115,7 +130,7 @@ export class RegisterManitanceDialogComponent implements OnInit{
       simulatorImage: [this.data.simulator.image],
       hasDescription: [true],
       hasIntervention:[false],
-      user: this.user
+      user: [this.userModel]
     })
 
     return prevForm;
