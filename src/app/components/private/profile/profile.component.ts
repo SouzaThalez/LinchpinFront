@@ -19,8 +19,8 @@ export class ProfileComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.callChart();
-    this.cleaningChart();
+    // this.callChart();
+    // this.cleaningChart();
   }
 
 

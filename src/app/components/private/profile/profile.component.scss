@@ -57,11 +57,29 @@
 }
 
 .page-content{
-    
     padding: 10px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+
+    .sub-menu-link{
+        display: flex;
+        border: 1px solid #bbdbe9;
+        gap: 10px;
+        .sub-link-item{
+            // border: 1px solid ;
+            padding: 10px;
+            &:hover, &.active{
+                background-color: #bbdbe9;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .page-body{
+        border: 1px solid;
+        height: 100%;
+    }
 
 
 }

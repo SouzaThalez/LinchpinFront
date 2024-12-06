@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit{
     'Abril',
     'Maio',
   ];
+  
   userRoleAdmin =  userRoleType.admin;
-
   lessonData: any;
   scenariosData: any;
   cleaningData: any;

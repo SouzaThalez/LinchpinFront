@@ -11,7 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localePt);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

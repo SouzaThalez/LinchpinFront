@@ -7,7 +7,6 @@ import { RightPanelComponent } from './right-panel/right-panel.component';
 import { PrivateRoutingModule } from './private-routing.module';
 import { LogOutDialogComponent } from './left-panel/log-out-dialog/log-out-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -22,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
     LeftPanelComponent,
     RightPanelComponent,
     LogOutDialogComponent,
-    ProfileComponent,
   ],
   imports: [
     CommonModule,
