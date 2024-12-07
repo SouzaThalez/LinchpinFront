@@ -5,6 +5,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import moment from 'moment';
 import { manitenceStatusData } from '../../../data/manitenceStatusData';
+import { UserLogedService } from '../../../service/user-loged.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-intervention-report-dialog',
@@ -16,24 +18,40 @@ import { manitenceStatusData } from '../../../data/manitenceStatusData';
 export class InterventionReportDialogComponent implements OnInit{
   
   interventionForm: FormGroup;
-
   status: string = '';
   checked= false;
   defaultInterventionText = 'Nenhuma intervenção realizada';
   manitanceStatus = manitenceStatusData;
+
+  currentUser: User;
+  userModel = {
+    name:'',
+    role:''
+  }
 
 
   constructor(
     public dialogRef: MatDialogRef<InterventionReportDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb : FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userLogedService : UserLogedService
   ) {}
 
 
   
   ngOnInit(): void {
+    
     this.interventionForm = this.createForm();
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.userModel.name = this.currentUser.name;
+        this.userModel.role = this.currentUser.role;
+      }
+    });
+
   }
 
   onClose(): void {
@@ -73,7 +91,7 @@ export class InterventionReportDialogComponent implements OnInit{
       interventionText: [null,Validators.required],
       interventionDate: [null, Validators.required],
       interventionStatus: [null, Validators.required],
-      interventionUser: [],
+      interventionUser: [this.userModel],
     })
 
     return interForm;

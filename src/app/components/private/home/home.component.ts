@@ -105,8 +105,6 @@ export class HomeComponent implements OnInit{
     
   }
 
-  
-
   openPreviewScenarioReport(element: any){
 
     let dialogRef = this.matDialog.open(PreviewScenarioReportDialogComponent,{

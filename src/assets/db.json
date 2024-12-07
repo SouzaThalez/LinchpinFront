@@ -127,11 +127,17 @@
       "simulatorCode": "PUNA203",
       "findings": "O braço foi encontrado com a pele bastante furada",
       "hasDescription": true,
-      "hasIntervention": false,
+      "hasIntervention": true,
       "simulatorImage": "assets/images/Simulators/LowFidelity/arterialArm.jpg",
       "user": {
         "name": "Gilson",
         "role": "manutencao"
+      },
+      "intervention": {
+        "interventionText": "Intervenção realizada.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam ut quod maiores ratione esse. Commodi, libero fugit omnis esse dolores doloremque animi. Saepe molestias minima id ut delectus ipsa molestiae.\nLorem ipsum dolor sit, amet consectetur adipisicing elit. Totam ut quod maiores ratione esse. Commodi, libero fugit omnis esse dolores doloremque animi. Saepe molestias minima id ut delectus ipsa molestiae.",
+        "interventionDate": "07-12-2024",
+        "interventionStatus": "Aguardando Envio para Fornecedor",
+        "interventionUser": null
       }
     },
     {
@@ -217,6 +223,22 @@
       "hasDescription": false,
       "hasIntervention": false,
       "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      }
+    },
+    {
+      "id": "f39d",
+      "date": "07-12-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Little Anne",
+      "simulatorCode": "RCPANE002",
+      "findings": "Simulador com pulmão de rcp rasgado",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/little-anne.png",
       "user": {
         "name": "Thales",
         "role": "analista"

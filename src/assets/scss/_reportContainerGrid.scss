@@ -8,13 +8,15 @@
         display: grid;
         grid-template-columns: 1fr 2fr;
         margin-bottom: 3px;
-        height: 120px;
+        height: 143px;
+
         &.medium-report{
             height: 150px;
         }
         
         .report-content{
             border: 1px solid #bab4c1;
+
             .report-body{
                 width: 310px;
                 display: flex;
@@ -38,17 +40,22 @@
                     margin-top: 10px;
                     margin-left: 10px;
                     gap: 4px;
+
                     .report-button{
+
                         width: 200px;
                         padding: 5px;
                         border-radius: 3px;
-                        background-color: rgb(194, 131, 131);
                         display: flex;
                         justify-content: center;
                     
 
                         &.green{
                             background-color: #b0d5bf
+                        }
+
+                        &.red{
+                            background-color: rgb(194, 131, 131);
                         }
 
                         &:hover{

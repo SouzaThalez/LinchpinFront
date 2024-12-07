@@ -5,6 +5,9 @@ import { PreviewCleaningReportDialogComponent } from '../../../../shared/preview
 import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { UserLogedService } from '../../../../../service/user-loged.service';
+import { User } from '../../../../../models/user';
+import { userRoleType } from '../../../../../enums/userRoles';
 
 @Component({
   selector: 'app-cleaning-registers',
@@ -15,16 +18,32 @@ export class CleaningRegistersComponent implements OnInit{
 
   cleaningData: any[];
   selectedReport:any;
+  currentUser: User;
+  userAnalystRole = userRoleType.analyst;
 
   constructor(
     private httpClient: HttpClient,
     private matDialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userLogedService : UserLogedService
   ){}
 
 
   ngOnInit(): void {
     this.getCleaningReports();
+
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      }
+    });
+
+
+
+
+
+    
   }
 
   openPreviewCleaningReportDialog(element: any){
@@ -58,20 +77,34 @@ export class CleaningRegistersComponent implements OnInit{
 
     }
 
-    let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
-      disableClose: true,
-      width:'650px',
-    })
+    if(this.currentUser.role == this.userAnalystRole){
 
-    dialogRef.afterClosed().subscribe(result=>{
- 
-      if(result){
-        //adding interventionReport to model 
-        report.intervention = result;
-        report.hasIntervention = true;
-        this.updateReport(report);
-      }
-    })
+      let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
+        disableClose: true,
+        width:'650px',
+      })
+  
+      dialogRef.afterClosed().subscribe(result=>{
+   
+        if(result){
+          //adding interventionReport to model 
+          report.intervention = result;
+          report.hasIntervention = true;
+          this.updateReport(report);
+        }
+      })
+
+    }else{
+
+      this.snackBar.open('Ups! Você não tem permissão!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+
+
+    }
+
 
   }
 

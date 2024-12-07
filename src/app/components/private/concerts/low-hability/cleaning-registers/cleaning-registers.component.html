@@ -17,19 +17,16 @@
                             <span>Simulador: {{element.simulatorName}}</span>
                             <span>Data Abertura: {{element.date}}</span>
                             <div class="intervention" *ngIf="element.intervention else default">
-                                <span>Status:{{element.intervention.interventionStatus}}</span>
+                                <span>Status: {{element.intervention.interventionStatus}}</span>
                             </div>
                             <ng-template #default>
                                 <span>Status: Enviado para manutenção</span>
                             </ng-template>
                             <div class="report-button" 
                                     (click)="openInterventionReport(element)"
-                                    [ngClass]="{'red': element.hasIntervention}">
-                                    <span>
-                                        {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
-                                    </span>
+                                    [ngClass]="element.hasIntervention ? 'green' : 'red'">
+                                    <span>{{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
                             </div>
-                            
                         </div>
                     </div>
              </div>
