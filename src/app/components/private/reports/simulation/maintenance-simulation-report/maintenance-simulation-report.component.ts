@@ -14,6 +14,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 })
 export class MaintenanceSimulationReportComponent implements OnInit{
 
+  usersData : any;
   manitanceReportData: any;
   filteredReports:any;
   form: FormGroup;
@@ -29,7 +30,9 @@ export class MaintenanceSimulationReportComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+
     this.getAllCleaningReports();
+    this.getAllUsers();
 
     this.form = this.createForm();
     this.form.valueChanges.subscribe(values => {
@@ -128,6 +131,19 @@ export class MaintenanceSimulationReportComponent implements OnInit{
           this.manitanceReportData = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
+
+  private getAllUsers(){
+
+    this.httpClient.get('http://localhost:3000/Users/')
+    .subscribe({
+        next: (sample: any)=>{
+        
+          this.usersData = sample;
+          
+        },
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })
   }
 
