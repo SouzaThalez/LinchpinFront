@@ -51,7 +51,6 @@ export class HomeComponent implements OnInit{
     this.userLogedService.getCurrentUser()
     .subscribe({
       next: (user) => {
-        
         this.currentUser = user;
         if(this.currentUser.role == this.userRoleAdmin){
           this.getAllData();

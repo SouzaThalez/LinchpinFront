@@ -9,6 +9,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -25,8 +29,12 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
-    
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    HttpClientModule,
+    MatDatepickerModule,  
   ]
 })
 export class ProfileModule { }

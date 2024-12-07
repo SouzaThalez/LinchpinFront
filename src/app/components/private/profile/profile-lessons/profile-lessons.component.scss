@@ -4,8 +4,19 @@
     flex-direction: column;
     padding-top: 10px;
 
-    .page-body{
-        background-color: aqua;
-        height: 100%;
+    .filter-container{
+        display: flex;
+        gap: 35px;
+    
+        .period-container{
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+        }
+    }
+
+    .no-fitered-reports-text{
+        margin-top: 22px;
+        font-size: 16px;
     }
 }

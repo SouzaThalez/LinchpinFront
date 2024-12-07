@@ -202,6 +202,25 @@
         "name": "Gilson",
         "role": "manutencao"
       }
+    },
+    {
+      "id": "6fb6",
+      "date": "07-12-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": {
+        "code": "ALS982",
+        "disabled": false
+      },
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      }
     }
   ],
   "LessonReports": [
@@ -216,7 +235,7 @@
       "lessonType": "1",
       "user": {
         "name": "Thales",
-        "role": "moderador"
+        "role": "analista"
       },
       "simulatorDescription": false,
       "simulatorReport": {
@@ -240,7 +259,7 @@
       "lessonType": "Fisio",
       "user": {
         "name": "Thales",
-        "role": "moderador"
+        "role": "analista"
       },
       "simulatorDescription": false,
       "simulatorReport": {

@@ -1,32 +1,103 @@
 <div class="page">
-    <div class="page-title">Registro de todas as minhas limpezas</div>
-    <div class="page-body">
-        <div class="user-reports">
 
-            <div class="report-container" 
-                 *ngFor="let element of [1,2,3,4]">
+    <h3>Registro de todas as minhas limpezas</h3>
 
-            <div class="report-head">
-                <div class="report-icon">
-                    <img src="assets/icons/report-icon.png" alt="">
-                </div>
-                <div class="report-description">
-                    <span>Registro: </span>
-                    <span>Aula: </span>
-                    <span>Date: </span>
-                    <span>Responsavél: </span>
-                </div>
-            </div>
-            <div class="report-bars">
-                <img src="assets/icons/report-bars.png" alt="">
-            </div>
-            <div class="report-grid">
-                <img src="assets/icons/report-grid.png" alt="">
-            </div>
+    <div class="filter-container">
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Buscar por...</mat-label>
+          <mat-select [(ngModel)]="selectedValue">
+            <mat-option value="1">Por Periodo</mat-option>
+            <mat-option value="2">Por Data</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-            </div>
+        <div class="period-container" *ngIf="selectedValue == 1">
+
+          <mat-form-field appearance="outline">
+              <mat-label>Selecione o periodo</mat-label>
+              <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
+                <input matStartDate formControlName="start" placeholder="Data inicio">
+                <input matEndDate formControlName="end" placeholder="Data fim">
+              </mat-date-range-input>
+           
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+
+          <button mat-raised-button (click)="clearFilterData()">Limpar tudo</button>
 
         </div>
-       
+        
+        <div class="period-container" *ngIf="selectedValue == 2">
+              <mat-form-field appearance="outline">
+              <mat-label>Escolha uma data</mat-label>
+              <input matInput [matDatepicker]="picker" #dateInput (dateChange)="onSingleDateSelected($event.value)">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <button mat-raised-button (click)="clearFilterData()">Limpar tudo</button>
+        </div>
+
     </div>
+    
+    <div class="reports" *ngIf="filteredReports else defaultData">
+      <span *ngIf="filteredReports">N° {{filteredReports.length}}</span>
+      <div class="report-container"
+          *ngFor="let element of filteredReports"
+          (click)="openPreviewLessonDialog(element)">
+          <div class="report-head">
+              <div class="report-icon">
+                  <img src="assets/icons/report-icon.png" alt="">
+              </div>
+              <div class="report-description">
+                  <span>Simulador: {{element.simulatorName}}</span>
+                  <span>Limpeza: {{element.cleaningCategory}}</span>
+                  <span>Data: {{element.date}}</span>
+                  <span>Responsavél: {{element.user.name}}</span>
+              </div>
+          </div>
+          <div class="report-bars">
+              <img src="assets/icons/report-bars.png" alt="">
+          </div>
+          <div class="report-grid">
+              <img src="assets/icons/report-grid.png" alt="">
+          </div>
+      </div>
+    </div>
+
+    <div class="no-fitered-reports-text" *ngIf="filteredReports?.length == 0">
+      <span>Não existem relatórios para esta data...</span>
+    </div>
+
+    <ng-template #defaultData>
+      <span *ngIf="cleaningData">N° {{cleaningData.length}}</span>
+      <div class="report-container"
+          *ngFor="let element of cleaningData"
+          (click)="openPreviewLessonDialog(element)">
+          <div class="report-head">
+              <div class="report-icon">
+                  <img src="assets/icons/report-icon.png" alt="">
+              </div>
+              <div class="report-description">
+                  <span>Simulador: {{element.simulatorName}}</span>
+                  <span>Limpeza: {{element.cleaningCategory}}</span>
+                  <span>Data: {{element.date}}</span>
+                  <span>Responsavél: {{element.user.name}}</span>
+              </div>
+          </div>
+          <div class="report-bars">
+              <img src="assets/icons/report-bars.png" alt="">
+          </div>
+          <div class="report-grid">
+              <img src="assets/icons/report-grid.png" alt="">
+          </div>
+      </div>
+    </ng-template>
+
+    <div class="no-fitered-reports-text" *ngIf="cleaningData?.length == 0">
+        <span>Você ainda não tem nenhum relatório de limpeza...</span>
+    </div>
+
+
 </div>
