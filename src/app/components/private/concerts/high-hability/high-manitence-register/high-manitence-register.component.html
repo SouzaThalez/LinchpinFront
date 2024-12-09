@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="report-content">
-                <div class="report-footer" (click)="openPreviewCleaningReportDialog(element)">
+                <div class="report-footer" (click)="openPreviewLessonReportDialog(element)">
                     <div class="footer-header">
                         <span>Achados da manutenção:</span>
                         <span class="report-code" [ngClass]="element.hasIntervention ? 'green' : 'red'">Manutenção: {{element.manitanceCategory}}</span>
@@ -38,7 +38,7 @@
                         <span>{{element.manitanceFindings}}</span>
                     </div>
                     <div class="footer-action">
-                        <div class="footer-button" (click)="openPreviewCleaningReportDialog(element)">
+                        <div class="footer-button">
                             <div class="intervention" *ngIf="element.intervention else default">
                                 <span><b>Status: {{element.intervention.interventionStatus}}</b></span>
                             </div>

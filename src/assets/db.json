@@ -131,7 +131,17 @@
       "user": {
         "name": "Gilson",
         "role": "manutencao"
-      }
+      },
+      "intervention": {
+        "interventionText": "limpa direito besta",
+        "interventionDate": "09-12-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      },
+      "hasIntervention": true
     },
     {
       "id": "7614",
@@ -277,6 +287,22 @@
         "name": "Laura",
         "role": "tecnico"
       }
+    },
+    {
+      "date": "09-12-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Little Anne",
+      "simulatorCode": "RCPANE001",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/little-anne.png",
+      "user": {
+        "name": "Gilson",
+        "role": "manutencao"
+      },
+      "id": "nNti9ny"
     }
   ],
   "LessonReports": [

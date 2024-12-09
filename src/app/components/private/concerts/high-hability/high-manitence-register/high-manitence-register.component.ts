@@ -43,7 +43,7 @@ export class HighManitenceRegisterComponent implements OnInit{
   }
 
 
-  openPreviewCleaningReportDialog(element: any){
+  openPreviewLessonReportDialog(element: any){
     
     let dialogRef = this.matDialog.open(PreviewLessonReportDialogComponent,{
       disableClose: true,
