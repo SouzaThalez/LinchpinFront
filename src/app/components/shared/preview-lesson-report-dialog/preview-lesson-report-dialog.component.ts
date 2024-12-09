@@ -87,14 +87,6 @@ export class PreviewLessonReportDialogComponent implements OnInit{
     doc.text("Categoria:", 10, currentY);
     doc.text(data.lessonCategory + " - " + data.lessonType || "N/A", 30, currentY);
   
-    // currentY += 10;
-    // doc.text("Categoria do simulador:", 10, currentY);
-    // doc.text(data.simulatorCategory || "N/A", 57, currentY);
-  
-    // currentY += 10;
-    // doc.text("Categoria da limpeza:", 10, currentY);
-    // doc.text(data.cleaningCategory || "N/A", 55, currentY);
-  
     // Add Findings (with wrapping)
     currentY += 10;
     doc.text("Registro da aula:", 10, currentY);
