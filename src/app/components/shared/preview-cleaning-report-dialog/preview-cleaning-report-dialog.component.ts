@@ -97,7 +97,7 @@ export class PreviewCleaningReportDialogComponent implements OnInit{
       currentY += 10; // Small gap before the next section
       doc.setFontSize(14);
       doc.setFont("helvetica", "bold");
-      doc.text("Detalhes da intervenção", 10, currentY);
+      doc.text("Informações da intervenção", 10, currentY);
   
       doc.setFontSize(12);
       doc.setFont("helvetica", "normal");
@@ -111,7 +111,7 @@ export class PreviewCleaningReportDialogComponent implements OnInit{
       doc.text(data.intervention.interventionStatus || "N/A", 25, currentY);
   
       currentY += 10;
-      doc.text("Descrição:", 10, currentY);
+      doc.text("Registro:", 10, currentY);
       const wrappedText = doc.splitTextToSize(data.intervention.interventionText || "N/A", 140);
       const wrappedYStart = currentY + 10;
       doc.text(wrappedText, 10, wrappedYStart);

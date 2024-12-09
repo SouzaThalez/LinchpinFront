@@ -351,6 +351,30 @@
         "date": "30-11-2024"
       },
       "hasIntervention": false
+    },
+    {
+      "date": "09-12-2024",
+      "lessonName": "PCR ritmo não Chocável",
+      "lessonOcorrance": "Professora começou aula depois do horário. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto possimus sapiente culpa! Temporibus, saepe. Ipsam quae impedit, reiciendis, distinctio laborum ad sed eligendi, mollitia dicta ab maiores esse nostrum ratione!",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "8",
+      "user": {
+        "name": "Taline",
+        "role": "tecnico"
+      },
+      "simulatorDescription": true,
+      "simulatorReport": {
+        "name": "Ressusci Anne",
+        "code": "ANNE42",
+        "image": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+        "ocorrance": "Ressusci anne não contectou no monitor multiparametros ",
+        "simulatorCategory": "media",
+        "date": "09-12-2024"
+      },
+      "hasIntervention": false,
+      "id": "Y6iDzA2"
     }
   ],
   "manitanceReports": [
