@@ -5,6 +5,9 @@ import { PreviewSimulatorReportDialogComponent } from '../../../../shared/previe
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
+import { User } from '../../../../../models/user';
+import { userRoleType } from '../../../../../enums/userRoles';
+import { UserLogedService } from '../../../../../service/user-loged.service';
 
 @Component({
   selector: 'app-medium-ocorrance-register',
@@ -13,21 +16,29 @@ import { InterventionReportDialogComponent } from '../../../../shared/interventi
 })
 export class MediumOcorranceRegisterComponent implements OnInit{
 
-
-
   lessonData: any[];
   selectedReport:any;
+  currentUser: User;
+  userAnalystRole = userRoleType.analyst;
 
   constructor(
     private httpClient: HttpClient,
     private matDialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userLogedService : UserLogedService
   ){}
 
 
   
   ngOnInit(): void {
     this.getLessonReports();
+
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      }
+    });
   }
 
   openPreviewSimulatorReportDialog(element: any){
@@ -62,21 +73,30 @@ export class MediumOcorranceRegisterComponent implements OnInit{
 
     }
 
-    let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
-      disableClose: true,
-      width:'650px',
-    })
+    if(this.currentUser.role == this.userAnalystRole){
 
-    dialogRef.afterClosed().subscribe(result=>{
- 
-      if(result){
+      let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
+        disableClose: true,
+        width:'650px',
+      })
+  
+      dialogRef.afterClosed().subscribe(result=>{
+        if(result){
+          //adding interventionReport to model 
+          report.intervention = result;
+          report.hasIntervention = true;
+          this.updateReport(report);
+        }
+      })
 
-        //adding interventionReport to model 
-        report.intervention = result;
-        report.hasIntervention = true;
-        this.updateReport(report);
-      }
-    })
+    }else{
+       
+      this.snackBar.open('Ups! Você não tem permissão!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+    }
 
   }
 

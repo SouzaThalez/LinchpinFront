@@ -20,10 +20,8 @@
 
                         <div class="report-button" 
                             (click)="openInterventionReport(element)"
-                            [ngClass]="{'red': element.hasIntervention}">
-
+                            [ngClass]="element.hasIntervention ? 'green' : 'red'">
                             <span> {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
-
                         </div>
 
                     </div>
