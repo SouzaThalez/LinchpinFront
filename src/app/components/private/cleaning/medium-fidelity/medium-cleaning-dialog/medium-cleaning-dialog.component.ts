@@ -47,6 +47,7 @@ export class MediumCleaningDialogComponent implements OnInit{
 
     this.form = this.createForm();
     this.simulatorCodes = this.data.simulator.codes;
+  
 
     this.userLogedService.getCurrentUser()
       .subscribe({

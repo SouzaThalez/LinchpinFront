@@ -119,28 +119,6 @@
   ],
   "CleaningReports": [
     {
-      "id": "a07e",
-      "date": "30-11-2024",
-      "cleaningCategory": "primária",
-      "simulatorCategory": "baixa",
-      "simulatorName": "Punção Arterial",
-      "simulatorCode": "PUNA203",
-      "findings": "O braço foi encontrado com a pele bastante furada",
-      "hasDescription": true,
-      "hasIntervention": true,
-      "simulatorImage": "assets/images/Simulators/LowFidelity/arterialArm.jpg",
-      "user": {
-        "name": "Gilson",
-        "role": "manutencao"
-      },
-      "intervention": {
-        "interventionText": "Intervenção realizada.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam ut quod maiores ratione esse. Commodi, libero fugit omnis esse dolores doloremque animi. Saepe molestias minima id ut delectus ipsa molestiae.\nLorem ipsum dolor sit, amet consectetur adipisicing elit. Totam ut quod maiores ratione esse. Commodi, libero fugit omnis esse dolores doloremque animi. Saepe molestias minima id ut delectus ipsa molestiae.",
-        "interventionDate": "07-12-2024",
-        "interventionStatus": "Aguardando Envio para Fornecedor",
-        "interventionUser": null
-      }
-    },
-    {
       "id": "ceea",
       "date": "29-11-2024",
       "cleaningCategory": "primária",
@@ -150,25 +128,6 @@
       "findings": "simulador bem sujo durante a limpeza",
       "hasDescription": true,
       "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
-      "user": {
-        "name": "Gilson",
-        "role": "manutencao"
-      }
-    },
-    {
-      "id": "d982",
-      "date": "28-11-2024",
-      "cleaningCategory": "secundária",
-      "simulatorCategory": "alta",
-      "simulatorName": "Nurse Anne - Enfermeira",
-      "simulatorCode": {
-        "code": "NURH320",
-        "disabled": false
-      },
-      "findings": "Simulador com peruca suja durante a limpeza",
-      "hasDescription": true,
-      "hasIntervention": false,
-      "simulatorImage": "assets/images/Simulators/HighFidelity/nursingCare.jpg",
       "user": {
         "name": "Gilson",
         "role": "manutencao"
@@ -237,11 +196,86 @@
       "simulatorCode": "RCPANE002",
       "findings": "Simulador com pulmão de rcp rasgado",
       "hasDescription": true,
-      "hasIntervention": false,
+      "hasIntervention": true,
       "simulatorImage": "assets/images/Simulators/LowFidelity/little-anne.png",
       "user": {
         "name": "Thales",
         "role": "analista"
+      },
+      "intervention": {
+        "interventionText": "O pulmão foi trocado e colocado um novo em seu lugar",
+        "interventionDate": "07-12-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "id": "d771",
+      "date": "06-12-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Torso Central",
+      "simulatorCode": "CENT002",
+      "findings": "Torso de punção central com muito sangue me agulhas.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eaque tempore voluptate, dolores ullam corrupti obcaecati nihil nostrum ipsa quod quis eveniet hic libero reiciendis odit. A corporis voluptatum excepturi.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eaque tempore voluptate, dolores ullam corrupti obcaecati nihil nostrum ipsa quod quis eveniet hic libero reiciendis odit. A corporis voluptatum excepturi.",
+      "hasDescription": true,
+      "hasIntervention": true,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/torco_central.png",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "intervention": {
+        "interventionText": "Intervenção longa realizada.Deleniti eaque tempore voluptate, dolores ullam corruptibcaecati nihil nostrum ipsa quod quis eveniet hic libero reiciendis odit.\n A corporisvoluptatum excepturi.Lorem ipsum dolor sit amet consectetur adipisicing elit. Delenitieaque tempore voluptate, dolores ullam corrupti obcaecati nihil nostrum ipsa quod\n\nquis eveniet hic libero reiciendis odit. A corporis voluptatum excepturi.",
+        "interventionDate": "07-12-2024",
+        "interventionStatus": "Solucionado após intervenção do Fornecedor",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "id": "9a28",
+      "date": "15-11-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Choking Charlie",
+      "simulatorCode": "ENGA2457",
+      "findings": "Simulador de desengasgo sem corda de OVAC ",
+      "hasDescription": true,
+      "hasIntervention": true,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/chokingCharlie.jpg",
+      "user": {
+        "name": "Taline",
+        "role": "tecnico"
+      },
+      "intervention": {
+        "interventionText": "Corda de desdengasgo foi trocada",
+        "interventionDate": "06-12-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "id": "03c5",
+      "date": "07-12-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "Sim Baby Light",
+      "simulatorCode": "LIGH2123",
+      "findings": "Simulador sujo",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simBabyLight.png",
+      "user": {
+        "name": "Laura",
+        "role": "tecnico"
       }
     }
   ],

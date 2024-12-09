@@ -46,6 +46,7 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
+     
 
       this.userLogedService.getCurrentUser()
       .subscribe({

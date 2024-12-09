@@ -39,10 +39,6 @@ export class CleaningRegistersComponent implements OnInit{
       }
     });
 
-
-
-
-
     
   }
 

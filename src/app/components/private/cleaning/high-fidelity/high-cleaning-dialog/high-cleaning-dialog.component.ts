@@ -45,6 +45,8 @@ export class HighCleaningDialogComponent implements OnInit{
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
+  
+    
 
       this.userLogedService.getCurrentUser()
       .subscribe({
@@ -81,6 +83,7 @@ export class HighCleaningDialogComponent implements OnInit{
       this.form.patchValue({date: momentDate});
 
       const model = this.form.value;
+   
       this.postCleaningReports(model);
       this.onClose(model);
 

@@ -15,10 +15,11 @@
                     </div>
                     <div class="report-info">
                         <span>Simulador: {{element.simulatorName}}</span>
+                        <span>Manutenção: {{element.manitanceCategory}}</span>
                         <span>Data: {{element.date}}</span>
                             <div class="report-button" 
                                 (click)="openInterventionReport(element)"
-                                [ngClass]="{'green': element.hasIntervention}">
+                                [ngClass]="element.hasIntervention ? 'green' : 'red'">
                             <span>
                                 {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
                             </span> 

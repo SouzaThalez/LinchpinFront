@@ -54,7 +54,7 @@
                   <mat-label>Código</mat-label>
                   <mat-select formControlName="simulatorCode">
                       <mat-option #matoption *ngFor="let element of simulatorCodes"
-                                  [value]="element">
+                                  [value]="element.code">
                                   {{element.code}}
                       </mat-option>
                   </mat-select>
