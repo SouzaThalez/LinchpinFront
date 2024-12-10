@@ -7,11 +7,11 @@
         <div class="p-header-content">
             <div class="user-content">
                 <div class="user-image">
-                    <img src="assets/images/users/user-default.png" alt="">
+                    <img [src]="userModel?.image" alt="">
                 </div>
                 <div class="user-info">
-                    <span>Thales Carvalho</span>
-                    <span>moderador</span>
+                    <span>{{userModel?.name}}</span>
+                    <span>{{userModel?.role}}</span>
                     <div class="photo-container">
                         <button mat-raised-button class="login-btn">Alterar foto</button>
                     </div>

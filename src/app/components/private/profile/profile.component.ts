@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart,registerables } from 'chart.js';
+import { UserLogedService } from '../../../service/user-loged.service';
+import { User } from '../../../models/user';
 Chart.register(...registerables);
 
 @Component({
@@ -16,9 +18,30 @@ export class ProfileComponent implements OnInit{
     'Abril',
     'Maio',
   ];
+  
+  currentUser: User;
+  userModel = {
+    name: '',
+    role: '',
+    image: ''
+  }
 
+  constructor(
+    private userLogedService : UserLogedService,
+  ){}
 
   ngOnInit(): void {
+
+    
+    this.userLogedService.getCurrentUser()
+    .subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.userModel.name = this.currentUser.name;
+        this.userModel.role = this.currentUser.role;
+        this.userModel.image = this.currentUser.image;
+      }
+    });
     // this.callChart();
     // this.cleaningChart();
   }
