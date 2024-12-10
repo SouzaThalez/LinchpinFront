@@ -18,7 +18,17 @@
                     gap: 10px;
                 }
             }
+
+            .form-field-email{
+                mat-form-field{
+                    width: 248px;
+                }
+            }
     
+        }
+        .page-confirm{
+            display: flex;
+            padding-bottom: 22px;
         }
     }
 

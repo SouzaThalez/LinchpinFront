@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,7 +11,8 @@ import { User } from '../../../../../models/user';
 @Component({
   selector: 'app-edit-user-dialog',
   templateUrl: './edit-user-dialog.component.html',
-  styleUrl: './edit-user-dialog.component.scss'
+  styleUrl: './edit-user-dialog.component.scss',
+ 
 })
 export class EditUserDialogComponent implements OnInit{
 
@@ -86,7 +87,6 @@ export class EditUserDialogComponent implements OnInit{
       return
     }
 
-    
     this.dialogRef.close(this.form.value);
 
   }

@@ -1,49 +1,77 @@
 <div class="page">
     <div class="page-title">Informações de perfil</div>
-    <div class="page-body">
+    <div class="page-body" [formGroup]="userForm">
+
         <div class="page-row">
             <div class="form-field">
                 <mat-form-field  appearance="outline">
                     <mat-label>Editar login</mat-label>
-                    <input matInput placeholder="Ex. paulo.vieira">
+                    <input matInput formControlName="login" placeholder="Ex. paulo.vieira">
                   </mat-form-field>
             </div>
             <div class="form-field">
                 <mat-form-field  appearance="outline">
                     <mat-label>Editar nome </mat-label>
-                    <input matInput placeholder="Ex. Paulo">
+                    <input matInput formControlName="name" placeholder="Ex. Paulo">
                   </mat-form-field>
             </div>
-            <div class="form-field">
+            <div class="form-field-email">
                 <mat-form-field  appearance="outline">
                     <mat-label>Editar e-mail </mat-label>
-                    <input matInput placeholder="Ex. Paulo">
+                    <input matInput formControlName="email" placeholder="email.profissional">
                   </mat-form-field>
             </div>
         </div>
+
+        <div class="page-confirm">
+            <div class="user-info">
+                <button mat-raised-button>Confirmar dados</button>
+            </div>
+        </div>
+
         <div class="page-row">
             <div class="user-info">
                 <div class="page-title">Alterar senha</div>
                 <div class="password-forms">
                     <div class="form-field">
-                        <mat-form-field  appearance="outline">
-                            <mat-label>Nova senha</mat-label>
-                            <input matInput>
-                          </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="isShowing() ? 'password' : 'text'" />
+                            <button
+                              mat-icon-button
+                              matSuffix
+                              (click)="clickEvent($event)"
+                              [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="isShowing()"
+                            >
+                              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
                     </div>
                     <div class="form-field">
-                        <mat-form-field  appearance="outline">
-                            <mat-label>Confirmar senha</mat-label>
-                            <input matInput>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide() ? 'password' : 'text'" />
+                            <button
+                              mat-icon-button
+                              matSuffix
+                              (click)="clickEventOne($event)"
+                              [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide()"
+                            >
+                              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
                           </mat-form-field>
-                    </div>
-                    <div class="form-field">
-                        <button mat-raised-button>Alterar</button>
                     </div>
                 </div>
                 
             </div>
         </div>
+
+        <div class="page-confirm">
+            <button mat-raised-button>Alterar senha</button>
+        </div>
+
         <div class="page-row">  
             <div class="user-info">
                 <div class="page-title">Tipo de usuário</div>

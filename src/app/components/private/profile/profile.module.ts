@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -34,7 +35,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ReactiveFormsModule,
     MatSelectModule,
     HttpClientModule,
-    MatDatepickerModule,  
+    MatDatepickerModule,
+    MatInputModule,
+    MatIconModule                    
+  
   ]
 })
 export class ProfileModule { }

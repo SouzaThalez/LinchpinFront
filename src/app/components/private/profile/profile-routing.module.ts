@@ -24,7 +24,7 @@ const routes: Routes = [
       },
       {
         path:'**',
-        redirectTo:'profile-edit'
+        redirectTo:'profile-cleaning'
       }
     ]
   }
