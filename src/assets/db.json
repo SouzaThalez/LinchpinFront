@@ -494,10 +494,115 @@
       },
       "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
       "hasDescription": true,
-      "hasIntervention": false,
+      "hasIntervention": true,
       "user": {
         "name": "Gilson",
         "role": "manutencao"
+      },
+      "intervention": {
+        "interventionText": "simuladore melhor agora",
+        "interventionDate": "09-12-2024",
+        "interventionStatus": "Solucionado após intervenção do Fornecedor",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "id": "a332",
+      "date": "09-12-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        },
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        },
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Básica",
+      "manitanceFindings": "Não houve registro de achados durante a manutenção",
+      "simulatorName": "SimMan 3G",
+      "code": {
+        "code": "3G4231",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      }
+    },
+    {
+      "id": "af2a",
+      "date": "08-12-2024",
+      "manitanceRegister": [
+        {
+          "label": "Simulador configurado e conectado ao Software",
+          "value": true
+        },
+        {
+          "label": "Cameras e Monitor do Paciente conectado",
+          "value": true
+        },
+        {
+          "label": "Carrinho de Parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador Mecânico presente",
+          "value": true
+        },
+        {
+          "label": "Bomba de Infusão presente",
+          "value": true
+        },
+        {
+          "label": "Simulador limpo e Entalcado",
+          "value": true
+        },
+        {
+          "label": "Simulador em Estado Saudável",
+          "value": true
+        }
+      ],
+      "manitanceCategory": "Geral",
+      "manitanceFindings": "Este foi um achado durante a manutenção geral",
+      "simulatorName": "Harvey",
+      "code": {
+        "code": "HAR331",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "user": {
+        "name": "Thales",
+        "role": "analista"
       }
     }
   ],

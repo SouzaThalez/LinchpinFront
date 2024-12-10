@@ -54,7 +54,7 @@
         <span *ngIf="filteredReports">N° {{filteredReports.length}}</span>
         <div class="report-container"
             *ngFor="let element of filteredReports"
-            (click)="openPreviewCleaningDialog(element)">
+            (click)="openPreviewManitanceReportDialog(element)">
             <div class="report-head">
                 <div class="report-icon">
                     <img src="assets/icons/report-icon.png" alt="">
@@ -79,7 +79,7 @@
         <span *ngIf="manitanceReportData">N° {{manitanceReportData.length}}</span>
         <div class="report-container"
             *ngFor="let element of manitanceReportData"
-            (click)="openPreviewCleaningDialog(element)">
+            (click)="openPreviewManitanceReportDialog(element)">
             <div class="report-head">
                 <div class="report-icon">
                     <img src="assets/icons/report-icon.png" alt="">

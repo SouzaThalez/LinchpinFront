@@ -102,7 +102,7 @@ export class MaintenanceSimulationReportComponent implements OnInit{
   }
 
 
-  openPreviewCleaningDialog(element: any){
+  openPreviewManitanceReportDialog(element: any){
 
 
     let dialogRef = this.matDialog.open(PreviewManitanceReportDialogComponent,{

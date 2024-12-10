@@ -1,13 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Chart } from 'chart.js';
+import { Chart, registerables, CategoryScale, LinearScale } from 'chart.js';
 import { PreviewLessonReportDialogComponent } from '../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 import { PreviewScenarioReportDialogComponent } from '../../shared/preview-scenario-report-dialog/preview-scenario-report-dialog.component';
 import { UserLogedService } from '../../../service/user-loged.service';
 import { User } from '../../../models/user';
 import { forkJoin } from 'rxjs';
 import { userRoleType } from '../../../enums/userRoles';
+import { PreviewCleaningReportDialogComponent } from '../../shared/preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -122,8 +123,28 @@ export class HomeComponent implements OnInit{
   }
 
   
+  openPreviewCleaningReportDialog(element: any){
+    
+    let dialogRef = this.matDialog.open(PreviewCleaningReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      data:{
+        simulatorData: element,
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        
+      }
+    })
+  }
+
+
   //Graphics
   private callGeneralChart(){
+
+    Chart.register(...registerables, CategoryScale, LinearScale);
     
       const ctx = document.getElementById('generalChart') as HTMLCanvasElement;
       new Chart(ctx, {
@@ -140,9 +161,12 @@ export class HomeComponent implements OnInit{
         },
         options: {
           scales: {
+            x: {
+              type: 'category', // Default scale for x-axis
+            },
             y: {
-              beginAtZero: true
-            }
+              type: 'linear', // Linear scale for y-axis
+            },
           },
           plugins: {
              legend: {
@@ -230,10 +254,6 @@ export class HomeComponent implements OnInit{
 
 
   }
-
-
-
-
 
   private getAllCleaningReports(){
 

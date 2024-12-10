@@ -89,7 +89,8 @@
                 </div>
 
                 <div class="report-container" 
-                    *ngFor="let element of recentReportsData?.cleanings">
+                    *ngFor="let element of recentReportsData?.cleanings"
+                     (click)="openPreviewCleaningReportDialog(element)">
 
                     <div class="report-head">
                         <div class="report-icon">

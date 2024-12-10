@@ -44,7 +44,7 @@ export class PreviewLessonReportDialogComponent implements OnInit{
   generatePDF() {
 
     const data = this.data.reportData;
-   
+  
     const doc = new jsPDF();
 
     if(this.isManitanceReport){
@@ -85,12 +85,12 @@ export class PreviewLessonReportDialogComponent implements OnInit{
         doc.text(data.simulatorName || "N/A", 31, currentY);
       
         currentY += 10;
-        doc.text("Manutenção:", 10, currentY);
-        doc.text(data.manitanceCategory || "N/A", 35, currentY);
+        doc.text("Tipo da Manutenção:", 10, currentY);
+        doc.text(data.manitanceCategory || "N/A", 50, currentY);
       
         // Add Findings (with wrapping)
         currentY += 10;
-        doc.text("Registro da manutenção:", 10, currentY);
+        doc.text("Achados durante a manutenção:", 10, currentY);
 
           // Calculate the dimensions for the findings text
         const wrappedFindings = doc.splitTextToSize(data.manitanceFindings || "N/A", 140);
@@ -108,27 +108,49 @@ export class PreviewLessonReportDialogComponent implements OnInit{
 
         // Update currentY to the end of the findings section
         currentY = findingsYStart + findingsTextHeight;
+
+       // Add Maintenance Register Section
+        currentY += 10; // Space before the section
+        doc.setFontSize(14);
+        doc.setFont("helvetica", "bold");
+        doc.text("Itens do Registro da Manutenção", 10, currentY);
+
+        currentY += 10; // Space before the list
+
+        // Iterate through the manitanceRegister array and add items as a list
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        (data.manitanceRegister || []).forEach((item, index) => {
+          // Format each item as "1. [Label]: [✔️/❌]"
+          const status = item.value ? "✔️" : "❌"; // Use a checkmark or cross for status
+          const listItem = `${index + 1}. ${item.label}: ${status}`;
+          doc.text(listItem, 10, currentY);
+          currentY += 8; // Move down for the next item
+        });
+        
+    
+
         // Add Intervention Details
-        if (data.simulatorDescription) {
+        if (data.hasIntervention && data.intervention) {
           currentY += 10; // Small gap before the next section
           doc.setFontSize(14);
           doc.setFont("helvetica", "bold");
-          doc.text("Informações do simulador", 10, currentY);
+          doc.text("Informações da intervenção", 10, currentY);
       
           doc.setFontSize(12);
           doc.setFont("helvetica", "normal");
       
           currentY += 10;
           doc.text("Data:", 10, currentY);
-          doc.text(data.simulatorReport.date || "N/A", 22, currentY);
+          doc.text(data.intervention.interventionDate || "N/A", 22, currentY);
       
           currentY += 10;
-          doc.text("Nome:", 10, currentY);
-          doc.text(data.simulatorReport.name || "N/A", 25, currentY);
+          doc.text("Status:", 10, currentY);
+          doc.text(data.intervention.interventionStatus || "N/A", 25, currentY);
       
           currentY += 10;
-          doc.text("Registro do simulador:", 10, currentY);
-          const wrappedText = doc.splitTextToSize(data.simulatorReport.ocorrance || "N/A", 140);
+          doc.text("Registro:", 10, currentY);
+          const wrappedText = doc.splitTextToSize(data.intervention.interventionText || "N/A", 140);
           const wrappedYStart = currentY + 10;
           doc.text(wrappedText, 10, wrappedYStart);
       
