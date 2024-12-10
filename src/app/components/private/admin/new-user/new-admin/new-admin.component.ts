@@ -138,6 +138,7 @@ export class NewAdminComponent implements OnInit{
             verticalPosition: snackBarConfig.verticalPosition,
             duration: snackBarConfig.durationInSeconds * 1000 
           });
+          
           this.getAdminUsers();
         },
         error: (erro)=>{console.log('request Users  is NOT good: ',erro);}

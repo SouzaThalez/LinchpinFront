@@ -90,16 +90,6 @@
       "id": 15
     },
     {
-      "name": "Thales",
-      "login": "thales.carvalho",
-      "password": "thales.123",
-      "confirmPassword": "thales.123",
-      "email": "thales.carvalho@feluma.org.br",
-      "image": "assets/images/users/user-default-analist.png",
-      "role": "analista",
-      "id": 16
-    },
-    {
       "name": "Gilson",
       "login": "gilson.pereira",
       "password": "gilson.123",
@@ -108,6 +98,16 @@
       "image": "assets/images/users/user-default-manitence.png",
       "role": "manutencao",
       "id": 17
+    },
+    {
+      "name": "Thales",
+      "login": "thales.carvalho",
+      "password": "thales.123",
+      "confirmPassword": "thales.123",
+      "email": "thales.carvalho@feluma.org.br",
+      "image": "assets/images/users/user-default-analist.png",
+      "role": "analista",
+      "id": 18
     }
   ],
   "CleaningReports": [
@@ -394,6 +394,39 @@
       },
       "hasIntervention": false,
       "id": "Y6iDzA2"
+    },
+    {
+      "date": "10-12-2024",
+      "lessonName": "Queimaduras QR CODE",
+      "lessonOcorrance": "Não houve registro de ocorrência de aula",
+      "lessonDescription": false,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "2",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "simulatorDescription": true,
+      "simulatorReport": {
+        "name": "Ressusci Anne",
+        "code": "ANNE22",
+        "image": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+        "ocorrance": "Parou de funcionar",
+        "simulatorCategory": "media",
+        "date": "10-12-2024"
+      },
+      "hasIntervention": true,
+      "id": "wmc30Ll",
+      "intervention": {
+        "interventionText": "abrir e troquei o cabo",
+        "interventionDate": "10-12-2024",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
     }
   ],
   "manitanceReports": [

@@ -4,6 +4,7 @@ import { User } from '../../../../models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../data/snackBarData';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-profile',
@@ -17,17 +18,21 @@ export class EditProfileComponent implements OnInit{
 
   currentUser: User;
   userForm: FormGroup;
+  userPasswordForm : FormGroup;
 
   constructor(
     private userLogedService : UserLogedService,
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
+    private httpClient: HttpClient,
   ){}
 
 
   ngOnInit(): void {
 
-    this.userForm = this.createForm();
+    this.userForm = this.createUserForm();
+    this.userPasswordForm =  this.createPasswordForm();
+
 
     this.userLogedService.getCurrentUser()
     .subscribe({
@@ -40,8 +45,8 @@ export class EditProfileComponent implements OnInit{
 
   }
 
-  submitForm(){
-  
+  submitUserForm(){
+    
     if(this.userForm.invalid){
 
       this.snackBar.open('Favor preencher todos os Campos!', 'Close', {
@@ -51,6 +56,45 @@ export class EditProfileComponent implements OnInit{
       });
       
       return
+    }
+   
+    this.currentUser.name = this.userForm.get('name').value;
+    this.currentUser.login = this.userForm.get('login').value;
+    this.currentUser.email = this.userForm.get('email').value;
+    //UpdateUser replaces the entire object of the selected id. So i'm passing the currentUser
+    let model = this.currentUser;
+    this.updateUser(model);
+
+  }
+
+  submitPasswordForm(){
+
+    if(this.userPasswordForm.invalid){
+
+      this.snackBar.open('Favor preencher os dois campos!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+      
+      return
+    }
+    
+    let newPassword = this.userPasswordForm.get('password').value;
+    let confirmPassword = this.userPasswordForm.get('confirmPassword').value;
+    if(newPassword != confirmPassword){
+      
+      this.snackBar.open('As senhas precisam ser iguais!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+    }else{
+      this.snackBar.open('Senhas iguais!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
     }
 
   }
@@ -66,21 +110,52 @@ export class EditProfileComponent implements OnInit{
   }
   
 
-  private createForm(){
+  private createUserForm(){
 
     const form = this.fb.group({
       name:[null,Validators.required],
       login:[null,Validators.required],
-      password: [null,Validators.required],
-      confirmPassword:[null],
       email:[null,Validators.required],
-      image:[],
-      role:[],
-      id:[]
+      id:[] // ID property necessary only for sending updatedUser form to usersDB.
+      // password: [null,Validators.required],
+      // confirmPassword:[null],
+      // image:[],
+      // role:[],
+      // id:[]
     })
 
     return form;
     
+  }
+
+  private createPasswordForm(){
+
+    const form = this.fb.group({
+      id:[],
+      password: [null,Validators.required],
+      confirmPassword:[null, Validators.required],
+    })
+
+    return form;
+    
+  }
+
+  private updateUser(model:any){
+    //Model id property is coming from patchValue form
+    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
+    .subscribe({
+        next: (sample: any)=>{
+
+          this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
+            horizontalPosition: snackBarConfig.horizontalPosition,
+            verticalPosition: snackBarConfig.verticalPosition,
+            duration: snackBarConfig.durationInSeconds * 1000 
+          });
+          
+          
+        },
+        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
+    })
   }
 
 }

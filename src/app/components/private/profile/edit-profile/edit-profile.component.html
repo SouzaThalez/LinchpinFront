@@ -1,8 +1,8 @@
 <div class="page">
     <div class="page-title">Informações de perfil</div>
-    <div class="page-body" [formGroup]="userForm">
+    <div class="page-body">
 
-        <div class="page-row">
+        <div class="page-row" [formGroup]="userForm">
             <div class="form-field">
                 <mat-form-field  appearance="outline">
                     <mat-label>Editar login</mat-label>
@@ -25,7 +25,7 @@
 
         <div class="page-confirm">
             <div class="user-info">
-                <button mat-raised-button>Confirmar dados</button>
+                <button mat-raised-button (click)="submitUserForm()">Alterar dados</button>
             </div>
         </div>
 
@@ -35,7 +35,7 @@
                 <div class="password-forms">
                     <div class="form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Enter your password</mat-label>
+                            <mat-label>Nova senha</mat-label>
                             <input matInput [type]="isShowing() ? 'password' : 'text'" />
                             <button
                               mat-icon-button
@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Enter your password</mat-label>
+                            <mat-label>Confirmar senha</mat-label>
                             <input matInput [type]="hide() ? 'password' : 'text'" />
                             <button
                               mat-icon-button
@@ -69,7 +69,7 @@
         </div>
 
         <div class="page-confirm">
-            <button mat-raised-button>Alterar senha</button>
+            <button mat-raised-button (click)="submitPasswordForm()">Alterar senha</button>
         </div>
 
         <div class="page-row">  
