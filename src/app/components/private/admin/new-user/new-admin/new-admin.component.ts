@@ -7,6 +7,7 @@ import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.co
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { User } from '../../../../../models/user';
+import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 
 
 
@@ -19,7 +20,7 @@ export class NewAdminComponent implements OnInit{
 
   adminUsers: any;
   userRole = userRoleType.admin; 
-  userImage = 'assets/images/users/user-default-admin.png';
+  userImage = userDefaultImagesType.defaultAdminImage;
 
   constructor(
     private matDialog: MatDialog,
@@ -68,7 +69,7 @@ export class NewAdminComponent implements OnInit{
     })
 
     dialogRef.afterClosed().subscribe(result=>{
-  
+      debugger
       //if result is remove. update users
       if(result){
 

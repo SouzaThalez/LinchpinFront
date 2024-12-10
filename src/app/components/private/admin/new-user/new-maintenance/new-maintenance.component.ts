@@ -7,6 +7,7 @@ import { userRoleType } from '../../../../../enums/userRoles';
 import { User } from '../../../../../models/user';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
+import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 
 @Component({
   selector: 'app-new-maintenance',
@@ -18,7 +19,7 @@ export class NewMaintenanceComponent implements OnInit{
 
   manitenceUsers: any;
   userRole = userRoleType.maintenance; 
-  userImage = 'assets/images/users/user-default-admin.png';
+  userImage = userDefaultImagesType.defaultMaintenanceImage;
 
   constructor(
     private matDialog: MatDialog,

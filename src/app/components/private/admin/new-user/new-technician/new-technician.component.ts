@@ -7,6 +7,7 @@ import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.co
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../../../../models/user';
+import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 
 @Component({
   selector: 'app-new-technician',
@@ -18,7 +19,7 @@ export class NewTechnicianComponent implements OnInit{
 
    tecnicalUsers: any;
    userRole = userRoleType.technician;
-   userImage = 'assets/images/users/user-default-tec.png';
+   userImage = userDefaultImagesType.defaultTechnicianImage;
 
   constructor(
     private matDialog: MatDialog,

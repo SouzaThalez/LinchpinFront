@@ -53,6 +53,7 @@ export class AddNewUserDialogComponent implements OnInit{
     }
 
     this.dialogRef.close(this.form.value);
+    debugger
 
   }
 
@@ -67,7 +68,7 @@ export class AddNewUserDialogComponent implements OnInit{
       confirmPassword:[null],
       email:[null,Validators.required],
       image:[this.data.image],
-      role:[this.data.role]
+      role:[this.data.role],
     })
 
     return form;

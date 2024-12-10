@@ -6,7 +6,7 @@
         </div>
         <div class="header-item">
             <div class="user-img">
-                <img src="assets/images/users/user-default.png" alt="">
+                <img [src]="currentUser?.image" alt="">
             </div>
             <div class="user-content">
                 <div class="user-name"><b>{{currentUser?.name}}</b></div>

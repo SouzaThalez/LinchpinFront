@@ -7,6 +7,7 @@ import { userRolesData } from '../../../../../data/userRolesData';
 import { RemoveUserDialogComponent } from '../remove-user-dialog/remove-user-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../../../../models/user';
+import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 
 @Component({
   selector: 'app-edit-user-dialog',
@@ -17,8 +18,13 @@ import { User } from '../../../../../models/user';
 export class EditUserDialogComponent implements OnInit{
 
 
-  form:FormGroup;
+  form: FormGroup;
   userRoles = userRolesData;
+  adminImage = userDefaultImagesType.defaultAdminImage;
+  analystImage = userDefaultImagesType.defaultAnalystImage;
+  tecnicianImage = userDefaultImagesType.defaultTechnicianImage;
+  manitanceImage = userDefaultImagesType.defaultMaintenanceImage; 
+
 
   constructor(
     public dialogRef: MatDialogRef<EditUserDialogComponent>,
@@ -34,6 +40,7 @@ export class EditUserDialogComponent implements OnInit{
 
 
   ngOnInit(): void {
+  
     this.form = this.createForm();
     this.form.patchValue(this.data.user);
   
@@ -73,6 +80,35 @@ export class EditUserDialogComponent implements OnInit{
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
   }
+  
+  getSelectedRole(role: string){
+    
+    switch (role) {
+      case 'tecnico':
+      this.form.patchValue({
+        image: this.tecnicianImage
+      })
+      break;
+      case 'analista':
+        this.form.patchValue({
+          image: this.analystImage
+        })
+      break;
+      case 'administrador':
+        this.form.patchValue({
+          image: this.adminImage
+        })
+      break;
+      case 'manutencao':
+        this.form.patchValue({
+          image: this.manitanceImage
+        })
+      break;
+    
+      default:
+        break;
+    }
+  }
 
   submitForm(){
   
@@ -86,7 +122,7 @@ export class EditUserDialogComponent implements OnInit{
       
       return
     }
-
+   
     this.dialogRef.close(this.form.value);
 
   }
