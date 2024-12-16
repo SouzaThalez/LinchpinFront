@@ -7,6 +7,7 @@ export class User{
     password:string;
     email: string;
     image: string;
+    task: string;
 
     constructor(user: User){
         this.id = user.id;
@@ -16,5 +17,6 @@ export class User{
         this.password = user.password;
         this.email = user.email;
         this.image = user.image;
+        this.task = user.task;
     }
 }

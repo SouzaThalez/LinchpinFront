@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { userRoleType } from '../../../../../enums/userRoles';
+import { userTaskData } from '../../../../../data/userTask';
 
 
 @Component({
@@ -12,8 +14,9 @@ import { snackBarConfig } from '../../../../../data/snackBarData';
 })
 export class AddNewUserDialogComponent implements OnInit{
 
-  form:FormGroup;
- 
+  form: FormGroup;
+  userTecRole = userRoleType.technician;
+  userTask = userTaskData;
 
   constructor(
     public dialogRef: MatDialogRef<AddNewUserDialogComponent>,
@@ -31,7 +34,13 @@ export class AddNewUserDialogComponent implements OnInit{
 
 
   submitForm(){
-  
+
+    if(this.data.role != this.userTecRole){
+      this.form.patchValue({
+        task:'N/A'
+      })
+    }
+
     if(this.form.invalid){
 
       this.snackBar.open('Favor preencher todos os Campos!', 'Close', {
@@ -53,7 +62,7 @@ export class AddNewUserDialogComponent implements OnInit{
     }
 
     this.dialogRef.close(this.form.value);
-    debugger
+    
 
   }
 
@@ -69,6 +78,7 @@ export class AddNewUserDialogComponent implements OnInit{
       email:[null,Validators.required],
       image:[this.data.image],
       role:[this.data.role],
+      task:[null,Validators.required],
     })
 
     return form;

@@ -17,6 +17,7 @@ import { AddNewUserDialogComponent } from './add-new-user-dialog/add-new-user-di
 import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
 import { RemoveUserDialogComponent } from './remove-user-dialog/remove-user-dialog.component';
 import { NewMaintenanceComponent } from './new-maintenance/new-maintenance.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -43,7 +44,8 @@ import { NewMaintenanceComponent } from './new-maintenance/new-maintenance.compo
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatButtonToggleModule
   ]
 })
 export class NewUserModule { }

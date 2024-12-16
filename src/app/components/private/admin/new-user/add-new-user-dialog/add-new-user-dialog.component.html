@@ -55,8 +55,21 @@
                 </mat-form-field>
 
                 <div class="user-role">
-                  <h2>Tipo de perfil</h2>
-                  <span>{{data.role}}</span>
+
+                  <div class="user-column">
+                    <h2>Tipo de perfil</h2>
+                    <span>{{data.role}}</span>
+                  </div>
+
+                  <div class="user-column" *ngIf="data?.role == userTecRole">
+                    <div class="column-body">
+                      <span>Selecione o cargo</span>
+                      <mat-button-toggle-group formControlName="task" aria-label="Font Style">
+                        <mat-button-toggle [value]="task.name" *ngFor="let task of userTask">{{task.name}}</mat-button-toggle>
+                      </mat-button-toggle-group>
+                    </div>
+                  </div>
+               
                 </div>
        
 

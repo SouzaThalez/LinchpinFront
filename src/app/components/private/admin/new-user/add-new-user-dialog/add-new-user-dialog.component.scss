@@ -117,13 +117,19 @@
     .simulator-description{
         display: flex;
         flex-direction: column;
-        gap: 7px;
+        gap: 4px;
         
         .user-role{
             display: flex;
-            flex-direction: column;
-             gap: 9px;
+            justify-content: space-between;
+            gap: 9px;
 
+            .user-column{
+                .column-body{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
         }
     }
 

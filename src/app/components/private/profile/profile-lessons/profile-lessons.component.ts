@@ -22,6 +22,8 @@ export class ProfileLessonsComponent implements OnInit{
   selectedValue = 0;
   currentUser: User;
 
+
+
   @ViewChild('dateInput') dateInput!: ElementRef;
 
   constructor(
@@ -46,6 +48,10 @@ export class ProfileLessonsComponent implements OnInit{
     .subscribe({
       next: (user) => {
         this.currentUser = user;
+        if(this.currentUser.role){
+
+        }
+        
         this.getLessonReports(this.currentUser);
       }
     });
