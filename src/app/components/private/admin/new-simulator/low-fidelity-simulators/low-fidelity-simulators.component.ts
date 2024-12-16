@@ -33,7 +33,7 @@ export class LowFidelitySimulatorsComponent implements OnInit{
     let dialogRef = this.matDialog.open(DetailClassSimulatorDialogComponent,{
       disableClose: true,
       width:'468px',
-      height:'660px',
+      height:'624px',
       data:{
         simulatorData:simulator,
       }

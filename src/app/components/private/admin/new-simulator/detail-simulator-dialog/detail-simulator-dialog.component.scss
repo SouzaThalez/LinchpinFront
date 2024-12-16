@@ -68,38 +68,21 @@
     
     .dialog-description{
         padding-top: 13px;
-        overflow-y: auto;
-        // height: 382px;
-     
         .code{
-
             border: 1px solid var(--green-color);
             padding: 5px;
             border-radius: 4px;
             margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
 
             .code-body{
                 display: flex;
-                justify-content: space-between;
-                .code-icons{
-                    display:flex;
-                    gap:10px;
-                    .edit-icon{
-                        padding: 2px;
-                        border-radius: 5px;
-                        &:hover{
-                            cursor: pointer;
-                            background-color: #f1f1f1;
-                        }
-                    }
-                    .remove-icon{
-                        padding: 2px;
-                        border-radius: 5px;
-                        &:hover{
-                            cursor: pointer;
-                            background-color: #ecb3b3;
-                        }
-                    }
+                width: 340px;
+                
+                .code-content{
+                    display: flex;
+                    gap:16px;
                 }
             }
 
@@ -112,6 +95,11 @@
                 &:hover{
                     background-color: rgb(157 217 217)
                 }
+            }
+
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(216 249 249);
             }
         }
 

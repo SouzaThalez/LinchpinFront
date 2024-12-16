@@ -24,20 +24,20 @@
                 </div>
             </div>
 
-            <div class="dialog-description scroll-container">
+            <div class="dialog-description">
                 <h2>Códigos existentes</h2>
                 <div class="code add" (click)="openNewCodeDialog()">
                     <span class="add-code"> + Adicionar novo código</span>
                 </div>
                 <div class="code-list">
                     <div class="code" *ngFor="let code of data?.simulatorData?.codes index as i ">
-                        <div class="code-body">
-                            <span>{{code.code}}</span>
-                            <div class="code-icons">
-                                <span class="material-symbols-outlined edit-icon" (click)="openEditCodeDialog(code.code,i)">edit</span>
-                                <span class="material-symbols-outlined remove-icon" (click)="openDeleteCodeDialog(code.code,i)">delete</span>
+                        <div class="code-body" (click)="openEditCodeDialog(code.code,i)">
+                            <div class="code-content">
+                                <span>{{code.code}}</span>
+                                <span class="material-symbols-outlined edit-icon">edit</span>
                             </div>
                         </div>
+                        <span class="material-symbols-outlined remove-icon" (click)="openDeleteCodeDialog(code.code,i)">delete</span>
                     </div>
                 </div>
             </div>

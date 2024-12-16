@@ -69,7 +69,6 @@
     
     .dialog-description{
         padding-top: 13px;
-        overflow-y: auto;
         padding-right: 7px;
         // height: 382px;
 
@@ -83,6 +82,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
                 .sim-image, img{
                     height: 57px;
                     width: 63px;
@@ -119,11 +119,14 @@
                         }
                     }
                 }
+                &:hover{
+                    cursor: pointer;
+                    background-color: rgb(216 249 249);
+                }
             }
         }
         
         .new-sim{
-            
             border: 1px solid var(--green-color);
             background-color: rgb(216 249 249);
             display: flex;
