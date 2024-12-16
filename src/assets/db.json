@@ -102,12 +102,11 @@
     {
       "name": "Thales",
       "login": "thales.carvalho",
-      "password": "thales.123",
-      "confirmPassword": "thales.123",
       "email": "thales.carvalho@feluma.org.br",
+      "id": 18,
+      "password": "mineiro.123",
       "image": "assets/images/users/user-default-analist.png",
-      "role": "analista",
-      "id": 18
+      "role": "analista"
     }
   ],
   "CleaningReports": [

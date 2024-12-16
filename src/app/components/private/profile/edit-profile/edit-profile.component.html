@@ -25,18 +25,18 @@
 
         <div class="page-confirm">
             <div class="user-info">
-                <button mat-raised-button (click)="submitUserForm()">Alterar dados</button>
+                <button mat-raised-button (click)="submitUserForm()">Alterar login</button>
             </div>
         </div>
 
         <div class="page-row">
             <div class="user-info">
                 <div class="page-title">Alterar senha</div>
-                <div class="password-forms">
+                <div class="password-forms"  [formGroup]="userPasswordForm">
                     <div class="form-field">
                         <mat-form-field appearance="outline">
                             <mat-label>Nova senha</mat-label>
-                            <input matInput [type]="isShowing() ? 'password' : 'text'" />
+                            <input matInput formControlName="password" [type]="isShowing() ? 'password' : 'text'" />
                             <button
                               mat-icon-button
                               matSuffix
@@ -51,7 +51,7 @@
                     <div class="form-field">
                         <mat-form-field appearance="outline">
                             <mat-label>Confirmar senha</mat-label>
-                            <input matInput [type]="hide() ? 'password' : 'text'" />
+                            <input matInput formControlName="confirmPassword" [type]="hide() ? 'password' : 'text'" />
                             <button
                               mat-icon-button
                               matSuffix

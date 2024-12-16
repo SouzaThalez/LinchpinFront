@@ -23,7 +23,8 @@ export class ProfileComponent implements OnInit{
   userModel = {
     name: '',
     role: '',
-    image: ''
+    image: '',
+    email:''
   }
 
   constructor(
@@ -40,6 +41,7 @@ export class ProfileComponent implements OnInit{
         this.userModel.name = this.currentUser.name;
         this.userModel.role = this.currentUser.role;
         this.userModel.image = this.currentUser.image;
+        this.userModel.email = this.currentUser.email;
       }
     });
     // this.callChart();

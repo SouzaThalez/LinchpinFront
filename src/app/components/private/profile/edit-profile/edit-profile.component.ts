@@ -45,8 +45,8 @@ export class EditProfileComponent implements OnInit{
 
   }
 
-  submitUserForm(){
-    
+  submitUserForm(){   
+
     if(this.userForm.invalid){
 
       this.snackBar.open('Favor preencher todos os Campos!', 'Close', {
@@ -61,6 +61,7 @@ export class EditProfileComponent implements OnInit{
     this.currentUser.name = this.userForm.get('name').value;
     this.currentUser.login = this.userForm.get('login').value;
     this.currentUser.email = this.userForm.get('email').value;
+    
     //UpdateUser replaces the entire object of the selected id. So i'm passing the currentUser
     let model = this.currentUser;
     this.updateUser(model);
@@ -68,6 +69,13 @@ export class EditProfileComponent implements OnInit{
   }
 
   submitPasswordForm(){
+
+
+  
+  this.userPasswordForm.patchValue({
+    id: this.currentUser.id
+  })
+
 
     if(this.userPasswordForm.invalid){
 
@@ -82,6 +90,7 @@ export class EditProfileComponent implements OnInit{
     
     let newPassword = this.userPasswordForm.get('password').value;
     let confirmPassword = this.userPasswordForm.get('confirmPassword').value;
+
     if(newPassword != confirmPassword){
       
       this.snackBar.open('As senhas precisam ser iguais!', 'Close', {
@@ -90,11 +99,22 @@ export class EditProfileComponent implements OnInit{
         duration: snackBarConfig.durationInSeconds * 1000 
       });
     }else{
+
       this.snackBar.open('Senhas iguais!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 
       });
+      
+      //Populating userModel after password change
+      let model = this.userForm.value;
+      model.password = newPassword;
+      model.image = this.currentUser.image;
+      model.role = this.currentUser.role;
+
+      this.updateUser(model);
+
+
     }
 
   }
@@ -141,6 +161,7 @@ export class EditProfileComponent implements OnInit{
   }
 
   private updateUser(model:any){
+  
     //Model id property is coming from patchValue form
     this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
     .subscribe({
@@ -151,7 +172,8 @@ export class EditProfileComponent implements OnInit{
             verticalPosition: snackBarConfig.verticalPosition,
             duration: snackBarConfig.durationInSeconds * 1000 
           });
-          
+
+          this.ngOnInit();
           
         },
         error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
