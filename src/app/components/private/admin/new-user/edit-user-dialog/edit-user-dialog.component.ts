@@ -8,6 +8,8 @@ import { RemoveUserDialogComponent } from '../remove-user-dialog/remove-user-dia
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
+import { userTaskData } from '../../../../../data/userTaskData';
+import { userRoleType } from '../../../../../enums/userRoles';
 
 @Component({
   selector: 'app-edit-user-dialog',
@@ -24,6 +26,10 @@ export class EditUserDialogComponent implements OnInit{
   analystImage = userDefaultImagesType.defaultAnalystImage;
   tecnicianImage = userDefaultImagesType.defaultTechnicianImage;
   manitanceImage = userDefaultImagesType.defaultMaintenanceImage; 
+  userTask = userTaskData;
+  userTecRole = userRoleType.technician;
+  selectedRole: string ; 
+
 
 
   constructor(
@@ -43,6 +49,7 @@ export class EditUserDialogComponent implements OnInit{
   
     this.form = this.createForm();
     this.form.patchValue(this.data.user);
+    this.selectedRole = this.data.user.role;
   
   }
 
@@ -68,21 +75,8 @@ export class EditUserDialogComponent implements OnInit{
     })
   }
 
-
-  private removeUser(model:any){
-
-    this.httpClient.delete('http://localhost:3000/Users/' + model.id)
-    .subscribe({
-        next: (sample: any)=>{
-          this.dialogRef.close('remove');
-          
-        },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
-    })
-  }
-  
   getSelectedRole(role: string){
-    
+    this.selectedRole = role;
     switch (role) {
       case 'tecnico':
       this.form.patchValue({
@@ -112,6 +106,33 @@ export class EditUserDialogComponent implements OnInit{
 
   submitForm(){
   
+    let formRole = this.form.get('role').value;
+    let formTask = this.form.get('task').value;
+
+    if(formTask == 'N/A'){
+      if(formRole == this.userTecRole){
+        this.form.patchValue({
+          task: null
+        })
+      }
+    }else{
+
+      if(formRole != this.userTecRole){
+        this.form.patchValue({
+          task: 'N/A'
+        })
+      }else{
+
+        this.form.patchValue({
+          task: this.form.get('task').value
+        })
+      }
+
+
+    
+    }
+  
+
     if(this.form.invalid){
 
       this.snackBar.open('Favor preencher todos os Campos!', 'Close', {
@@ -122,11 +143,26 @@ export class EditUserDialogComponent implements OnInit{
       
       return
     }
-   
+
+
+
+
+
     this.dialogRef.close(this.form.value);
 
   }
 
+  private removeUser(model:any){
+
+    this.httpClient.delete('http://localhost:3000/Users/' + model.id)
+    .subscribe({
+        next: (sample: any)=>{
+          this.dialogRef.close('remove');
+          
+        },
+        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+    })
+  }
 
   private createForm(){
 
@@ -136,6 +172,7 @@ export class EditUserDialogComponent implements OnInit{
       password: [null,Validators.required],
       confirmPassword:[null],
       email:[null,Validators.required],
+      task:[null,Validators.required],
       image:[],
       role:[],
       id:[]

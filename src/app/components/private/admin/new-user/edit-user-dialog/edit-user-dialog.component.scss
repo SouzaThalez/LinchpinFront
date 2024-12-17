@@ -1,5 +1,5 @@
 .header{
-    padding-top: 16px;
+    padding-top: 6px;
 
     .close{
         display: flex;
@@ -31,6 +31,7 @@
             }
         }
     }
+
     .download{
         display: flex;
         justify-content: center;
@@ -117,10 +118,10 @@
     .simulator-description{
         display: flex;
         flex-direction: column;
-        gap: 7px;
+ 
 
         .description-body{
-            margin-top: 15px;
+            margin-top: 11px;
         }
         .user-email{
             display: flex;
@@ -128,8 +129,13 @@
         }
         .user-role{
             display: flex;
-            flex-direction: column;
-             gap: 9px;
+            gap: 22px;
+             .user-column{
+                .form-role{
+                    margin-top: 20px;
+                    width: 170px;
+                }
+             }
 
         }
     }

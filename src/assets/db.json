@@ -6,9 +6,9 @@
       "password": "rosana.123",
       "confirmPassword": "rosana.123",
       "email": "rosana.amaral@gmail.com",
+      "task": "N/A",
       "image": "assets/images/users/user-default-admin.png",
       "role": "administrador",
-      "task": "N/A",
       "id": 19
     },
     {
@@ -17,9 +17,9 @@
       "password": "thales.123",
       "confirmPassword": "thales.123",
       "email": "thales.carvalho@feluma.org.br",
+      "task": "N/A",
       "image": "assets/images/users/user-default-analist.png",
       "role": "analista",
-      "task": "N/A",
       "id": 20
     },
     {
@@ -28,9 +28,9 @@
       "password": "taline.123",
       "confirmPassword": "taline.123",
       "email": "taline.maria@gmail.com",
+      "task": "habilidade",
       "image": "assets/images/users/user-default-tec.png",
       "role": "tecnico",
-      "task": "habilidade",
       "id": 21
     },
     {
@@ -39,10 +39,21 @@
       "password": "maria.123",
       "confirmPassword": "maria.123",
       "email": "maria.souza@gmail.com",
+      "task": "habilidade",
       "image": "assets/images/users/user-default-tec.png",
       "role": "tecnico",
-      "task": "simulação",
       "id": 22
+    },
+    {
+      "name": "Mateus",
+      "login": "mateus.correira",
+      "password": "mateus.123",
+      "confirmPassword": "mateus.123",
+      "email": "mateus.correira@gmail.com",
+      "task": "N/A",
+      "image": "assets/images/users/user-default-manitence.png",
+      "role": "manutencao",
+      "id": 23
     }
   ],
   "CleaningReports": [],

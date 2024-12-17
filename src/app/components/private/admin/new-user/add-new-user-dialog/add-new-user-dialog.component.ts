@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { userRoleType } from '../../../../../enums/userRoles';
-import { userTaskData } from '../../../../../data/userTask';
+import { userTaskData } from '../../../../../data/userTaskData';
 
 
 @Component({

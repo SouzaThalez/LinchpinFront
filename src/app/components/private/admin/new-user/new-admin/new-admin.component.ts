@@ -38,7 +38,7 @@ export class NewAdminComponent implements OnInit{
     let dialogRef = this.matDialog.open(AddNewUserDialogComponent,{
       disableClose: true,
       width:'468px',
-      height:'598px',
+      height:'600px',
       data:{
         role: this.userRole,
         image:this.userImage,
