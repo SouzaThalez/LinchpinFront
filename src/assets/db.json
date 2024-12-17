@@ -6,9 +6,9 @@
       "password": "rosana.123",
       "confirmPassword": "rosana.123",
       "email": "rosana.amaral@gmail.com",
-      "task": "habilidade",
-      "image": "assets/images/users/user-default-tec.png",
-      "role": "tecnico",
+      "task": "N/A",
+      "image": "assets/images/users/user-default-admin.png",
+      "role": "administrador",
       "id": 19
     },
     {
@@ -50,16 +50,119 @@
       "password": "mateus.123",
       "confirmPassword": "mateus.123",
       "email": "mateus.correira@gmail.com",
-      "task": "N/A",
-      "image": "assets/images/users/user-default-analist.png",
-      "role": "analista",
+      "task": "simulação",
+      "image": "assets/images/users/user-default-tec.png",
+      "role": "tecnico",
       "id": 23
     }
   ],
-  "CleaningReports": [],
-  "LessonReports": [],
+  "CleaningReports": [
+    {
+      "date": "17-12-2024",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": "ALS982",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "user": {
+        "name": "Mateus",
+        "role": "tecnico"
+      },
+      "id": 1
+    }
+  ],
+  "LessonReports": [
+    {
+      "date": "15-12-2024",
+      "lessonName": "Punção Venosa",
+      "lessonOcorrance": "Sim houve uma ocorrencia de aula neste dia",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "1",
+      "user": {
+        "name": "Taline",
+        "role": "tecnico"
+      },
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "15-12-2024"
+      },
+      "hasIntervention": false,
+      "id": 1
+    }
+  ],
   "manitanceReports": [],
-  "ScenarioReports": [],
+  "ScenarioReports": [
+    {
+      "date": "17-12-2024",
+      "time": "0900",
+      "scenarioOcorrance": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
+      "hasDescription": false,
+      "discipline": {
+        "name": "Internato de Urgência",
+        "label": "Int.Urgência"
+      },
+      "simulatorName": "SimMan 3G",
+      "simulatorCode": {
+        "code": "3G4231",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
+      "user": {
+        "name": "Mateus",
+        "role": "tecnico"
+      },
+      "id": 1
+    },
+    {
+      "date": "16-12-2024",
+      "time": "1000",
+      "scenarioOcorrance": "Não houve registro de intercorrências ou falhas durante a Corrida de cenário",
+      "hasDescription": false,
+      "discipline": {
+        "name": "Internato de clinica Médica",
+        "label": "Int.Clinica Médica"
+      },
+      "simulatorName": "Nurse Anne - Enfermeira",
+      "simulatorCode": {
+        "code": "NURH320",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/nursingCare.jpg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Nenhuma Falha",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
+      "user": {
+        "name": "Mateus",
+        "role": "tecnico"
+      },
+      "id": 2
+    }
+  ],
   "mediumSimulators": [
     {
       "name": "Ressusci Anne",

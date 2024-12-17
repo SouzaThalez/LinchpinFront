@@ -48,11 +48,17 @@ export class ProfileLessonsComponent implements OnInit{
     .subscribe({
       next: (user) => {
         this.currentUser = user;
-        if(this.currentUser.role){
+ 
+        if(this.currentUser.task == 'habilidade'){
+          this.getLessonReports(this.currentUser);
+        }else if(this.currentUser.task == 'simulação'){
+          this.getScenarioReports(this.currentUser);
+         
+        }else{
 
         }
         
-        this.getLessonReports(this.currentUser);
+
       }
     });
   }
@@ -150,6 +156,29 @@ export class ProfileLessonsComponent implements OnInit{
         error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
     })
   }
+
+  private getScenarioReports(user: User){
+
+    this.httpClient.get('http://localhost:3000/ScenarioReports/')
+    .subscribe({
+        next: (sample: any)=>{
+
+          this.lessonData = sample;
+          
+          //client-side filter on reports ny user.
+          //Both conditions on filter must be true: user.name and user.role
+          this.lessonData = sample.filter((report: any) => {
+            return report.user?.name === user.name && report.user?.role === user.role;
+          });
+
+          console.log(this.lessonData)
+
+          
+        },
+        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+    })
+  }
+
 
   private createFormDate(): FormGroup{
 
