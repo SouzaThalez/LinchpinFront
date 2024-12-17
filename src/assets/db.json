@@ -6,9 +6,9 @@
       "password": "rosana.123",
       "confirmPassword": "rosana.123",
       "email": "rosana.amaral@gmail.com",
-      "task": "N/A",
-      "image": "assets/images/users/user-default-admin.png",
-      "role": "administrador",
+      "task": "habilidade",
+      "image": "assets/images/users/user-default-tec.png",
+      "role": "tecnico",
       "id": 19
     },
     {
@@ -51,8 +51,8 @@
       "confirmPassword": "mateus.123",
       "email": "mateus.correira@gmail.com",
       "task": "N/A",
-      "image": "assets/images/users/user-default-manitence.png",
-      "role": "manutencao",
+      "image": "assets/images/users/user-default-analist.png",
+      "role": "analista",
       "id": 23
     }
   ],

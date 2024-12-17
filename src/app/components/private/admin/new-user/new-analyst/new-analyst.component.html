@@ -11,7 +11,7 @@
     
     <div class="page-body scroll-container">
         <p></p>
-        <div class="details-list">
+        <div class="details-list" *ngIf="analystUsers.length > 0 ; else showDefaultMsg">
             <div class="card-container" 
                  *ngFor="let user of analystUsers"
                  (click)="openEditUserDialog(user)">
@@ -32,6 +32,9 @@
                 </div>
             </div>
         </div>
+        <ng-template #showDefaultMsg>
+          <span>Não existem usuários analistas cadastrados</span>
+        </ng-template>
     </div>
 </div>
 
