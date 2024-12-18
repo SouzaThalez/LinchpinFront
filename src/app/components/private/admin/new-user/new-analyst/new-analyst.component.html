@@ -11,7 +11,7 @@
     
     <div class="page-body scroll-container">
         <p></p>
-        <div class="details-list" *ngIf="analystUsers.length > 0 ; else showDefaultMsg">
+        <div class="details-list" *ngIf="analystUsers?.length > 0 ; else showDefaultMsg">
             <div class="card-container" 
                  *ngFor="let user of analystUsers"
                  (click)="openEditUserDialog(user)">

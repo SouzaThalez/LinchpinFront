@@ -41,8 +41,8 @@
             <div class="simulator-description">
 
                 <h2>Aula de qual TH?</h2>
-                <div class="form" [formGroup]="selectedTraining">
-                    <mat-form-field appearance="outline" class="form-input">
+                <div [formGroup]="selectedTraining">
+                    <mat-form-field appearance="outline" class="training-form-field">
                         <mat-label>Treinamento...</mat-label>
                         <mat-select formControlName="training">
                           <mat-option [value]="element" *ngFor="let element of data.trainingData">{{element.name}} - {{element.value}}</mat-option>

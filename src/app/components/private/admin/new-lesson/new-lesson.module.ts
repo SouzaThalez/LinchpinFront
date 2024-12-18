@@ -13,7 +13,7 @@ import { TrainingsComponent } from './trainings/trainings.component';
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { CursesComponent } from './curses/curses.component';
 import { NewTrainingDialogComponent } from './trainings/new-training-dialog/new-training-dialog.component';
-import { provideNgxMask } from 'ngx-mask';
+
 import { NewLessonDialogComponent } from './new-lesson-dialog/new-lesson-dialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -23,6 +23,8 @@ import { NewDisciplineDialogComponent } from './disciplines/new-discipline-dialo
 import { RemoveLessonDialogComponent } from './remove-lesson-dialog/remove-lesson-dialog.component';
 import { ConfirmRemoveComponent } from './confirm-remove/confirm-remove.component';
 import { MY_DATE_FORMATS } from '../../../../data/dateformat';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+
 
 
 
@@ -52,12 +54,14 @@ import { MY_DATE_FORMATS } from '../../../../data/dateformat';
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    NgxMaskDirective, 
+    NgxMaskPipe
   ],
+
   providers: [
     provideNgxMask(),
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
-    
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
   ]
 })
 export class NewLessonModule { }

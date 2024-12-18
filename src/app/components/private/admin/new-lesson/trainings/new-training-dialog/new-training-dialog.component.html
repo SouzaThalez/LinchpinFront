@@ -23,11 +23,17 @@
                     <h2>Novo treinamento de Habilidade</h2>
 
                   <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Numero(1-99)</mat-label>
-                    <input matInput type="text" mask="00" placeholder="insira um Numero(1-99)" formControlName="value">
+                        <mat-label>Numero(1-99)</mat-label>
+                        <input matInput 
+                          type="text" 
+                          placeholder="ex..(1-99)" 
+                          formControlName="value" 
+                          [mask]="'99'" 
+                          (ngModelChange)="onInputChange($event)">
                   </mat-form-field>
-                
-              
+                  <div *ngIf="form.get('value').hasError('rangeError')">
+                    O número deve estar entre 1 e 99.
+                  </div>
                 </div>
               </div>
 
