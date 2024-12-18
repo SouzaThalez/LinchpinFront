@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfileComponent } from './profile/profile.component';
+
 
 
 @NgModule({
@@ -32,7 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatButtonModule,
     MatSelectModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ]
 })
 export class PrivateModule { }
