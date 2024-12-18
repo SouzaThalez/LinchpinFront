@@ -9,6 +9,7 @@ import { User } from '../../../models/user';
 import { forkJoin } from 'rxjs';
 import { userRoleType } from '../../../enums/userRoles';
 import { PreviewCleaningReportDialogComponent } from '../../shared/preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -51,7 +52,7 @@ export class HomeComponent implements OnInit{
 
 
   ngOnInit(): void {
-
+    console.log(environment.apiUrl)
     this.userLogedService.getCurrentUser()
     .subscribe({
       next: (user) => {
