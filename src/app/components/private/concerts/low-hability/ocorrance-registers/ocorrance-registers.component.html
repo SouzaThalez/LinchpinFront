@@ -1,8 +1,11 @@
 
 <div class="page">
     <div class="report-detail-list">
-
-        <div class="page-text">Registros de ocorrencia de aula</div>
+        
+        <div class="page-header-description">
+            <span>Registros das ocorrencias de aulas</span>
+        </div>
+       
         <div class="empty-report-data"  *ngIf="!lessonReportData || lessonReportData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>

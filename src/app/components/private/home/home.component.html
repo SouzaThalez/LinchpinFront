@@ -38,7 +38,7 @@
 
             <span class="recent-reports">Registros Recentes</span>
             
-            <div *ngIf="cleaningData?.length > 0 || lessonData?.length > 0; else showDefaultMsg">
+            <div *ngIf="lessonData?.length > 0 || cleaningData?.length > 0 || scenariosData?.length; else showDefaultMsg">
                
                 <div class="report-container" 
                     *ngFor="let element of recentReportsData?.lessons"

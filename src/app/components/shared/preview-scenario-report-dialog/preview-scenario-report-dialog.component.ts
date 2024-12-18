@@ -18,7 +18,7 @@ export class PreviewScenarioReportDialogComponent implements OnInit{
 
 
   ngOnInit(): void {
-  console.log(this.data.scenarioData)
+    console.log(this.data.scenarioData)
   }
 
 

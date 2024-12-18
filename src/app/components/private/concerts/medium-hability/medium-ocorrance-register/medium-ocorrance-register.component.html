@@ -1,6 +1,10 @@
 <div class="page">
     <div class="report-detail-list">
-        <h3>Achados do simulador encontrado durante a aula</h3>
+
+        <div class="page-header-description">
+            <span>Todos os achados do simuladores encontrado durante a aula</span>
+        </div>
+        
         <div class="empty-report-data"  *ngIf="!lessonData || lessonData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>

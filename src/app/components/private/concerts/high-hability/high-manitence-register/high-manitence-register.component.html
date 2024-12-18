@@ -1,11 +1,15 @@
 <div class="page">
     <div class="report-detail-list">
 
+        <div class="page-header-description">
+            <span>Todos os achados de simuladores durante o registro da manutenção</span>
+        </div>
+
+
         <div class="empty-report-data"  *ngIf="!manitanceData || manitanceData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
-        <h3>Achados de simuladores durante o registro de manutenção</h3>
         <div class="report-container-grid"
              *ngFor="let element of manitanceData">
             <div class="report-content">

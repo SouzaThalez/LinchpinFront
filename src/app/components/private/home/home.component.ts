@@ -26,11 +26,14 @@ export class HomeComponent implements OnInit{
   ];
   
   userRoleAdmin =  userRoleType.admin;
-  lessonData: any;
-  scenariosData: any;
-  cleaningData: any;
-  cleaningCountData: any;
 
+  //reportsData types
+  lessonData: any;
+  cleaningData: any;
+  scenariosData: any;
+
+
+  cleaningCountData: any;
   currentUser: User;
 
   recentReportsData ={
@@ -62,7 +65,6 @@ export class HomeComponent implements OnInit{
       }
     });
 
-    
     this.callGeneralChart();
     this.getAllCleaningReports();
     
@@ -214,17 +216,19 @@ export class HomeComponent implements OnInit{
 
   private getUserRportsData(userLoged: User){
 
+    // This is the same data request but filtering by user
+
     const lessonParams = new HttpParams()
         .set('lessonDescription', 'true')
-        .set('user.name',this.currentUser.name);
+        .set('user.name',userLoged.name);
 
     const scenarioParams = new HttpParams()
          .set('scenarioCategory', 'Corrida')
-         .set('user.name',this.currentUser.name);
+         .set('user.name',userLoged.name);
          
     const cleaningParams = new HttpParams()
-          // .set('hasDescription', 'true')
-          .set('user.name',this.currentUser.name);
+          .set('hasDescription', 'true')
+          .set('user.name',userLoged.name);
     
     forkJoin({
       lessons: this.httpClient.get('http://localhost:3000/LessonReports/', { params: lessonParams }),
@@ -243,7 +247,7 @@ export class HomeComponent implements OnInit{
           cleanings: this.cleaningData
         };
 
-        // console.log(this.recentReportsData);
+        console.log(this.recentReportsData);
 
       },
       error: (error) => {

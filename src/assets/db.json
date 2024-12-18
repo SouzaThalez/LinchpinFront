@@ -72,6 +72,22 @@
         "role": "tecnico"
       },
       "id": "1"
+    },
+    {
+      "id": "df6f",
+      "date": "11-12-2024",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Ressuci Anne",
+      "simulatorCode": "RES121",
+      "findings": "Durante a limpeza deste simulador foi encontrado o balão de respiração rasgado",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/ressusciQcpr.png",
+      "user": {
+        "name": "Taline",
+        "role": "tecnico"
+      }
     }
   ],
   "LessonReports": [
@@ -161,6 +177,282 @@
         "role": "tecnico"
       },
       "id": "2"
+    },
+    {
+      "id": "b14f",
+      "date": "17-12-2024",
+      "time": "0800",
+      "scenarioRegister": [
+        {
+          "label": "Notebook funcionando e configurado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Microfone de mesa funcionando",
+          "value": true
+        },
+        {
+          "label": "Servidor de camera funcionando",
+          "value": true
+        },
+        {
+          "label": "Cameras no debriefing inicializadas",
+          "value": true
+        },
+        {
+          "label": "Simulador ligado sem intercorrências",
+          "value": true
+        },
+        {
+          "label": "Monitor de paciente ligado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Carrinho de parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador mecânico instalado em sala",
+          "value": true
+        },
+        {
+          "label": "Bomba de infusão instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Escada para PCR instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Oxigênio em sala de simulação funcionando",
+          "value": true
+        },
+        {
+          "label": "Formulário do cenário separado em sala de controle",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário presente em notebook",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário estudado",
+          "value": true
+        }
+      ],
+      "scenarioCategory": "Pós-corrida",
+      "scenarioOcorrance": "Não houve registro de intercorrências durante a Pós-corrida de cenário",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": {
+        "code": "ALS982",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "discipline": {
+        "name": "Internato de clinica Médica",
+        "label": "Int.Clinica Médica"
+      },
+      "hasDescription": false,
+      "itemOcorrance": "Não informado",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      }
+    },
+    {
+      "id": "a8af",
+      "date": "18-12-2024",
+      "time": "1000",
+      "scenarioOcorrance": "Fonte de energia precisou ser trocada",
+      "hasDescription": true,
+      "discipline": {
+        "name": "Internato de Pediatria",
+        "label": "Int.Pediatria"
+      },
+      "simulatorName": "Sim NewB",
+      "simulatorCode": {
+        "code": "NIWE2123",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimNewb.jpeg",
+      "simulatorRegister": "Nenhuma Falha",
+      "monitorRegister": "Nenhuma Falha",
+      "medicationCarRegister": "Nenhuma Falha",
+      "energyPanelRegister": "Falha registrada",
+      "airFlowRegister": "Nenhuma Falha",
+      "internetCableRegister": "Nenhuma Falha",
+      "otherRegister": "Nenhuma Falha",
+      "audioAndMediaRegister": "Nenhuma Falha",
+      "scenarioCategory": "Corrida",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      }
+    },
+    {
+      "id": "20cd",
+      "date": "11-12-2024",
+      "time": "0900",
+      "scenarioRegister": [
+        {
+          "label": "Notebook funcionando e configurado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Microfone de mesa funcionando",
+          "value": true
+        },
+        {
+          "label": "Servidor de camera funcionando",
+          "value": true
+        },
+        {
+          "label": "Cameras no debriefing inicializadas",
+          "value": true
+        },
+        {
+          "label": "Simulador ligado sem intercorrências",
+          "value": true
+        },
+        {
+          "label": "Monitor de paciente ligado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Carrinho de parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador mecânico instalado em sala",
+          "value": true
+        },
+        {
+          "label": "Bomba de infusão instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Escada para PCR instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Oxigênio em sala de simulação funcionando",
+          "value": true
+        },
+        {
+          "label": "Formulário do cenário separado em sala de controle",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário presente em notebook",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário estudado",
+          "value": true
+        }
+      ],
+      "scenarioCategory": "Pré-corrida",
+      "scenarioOcorrance": "Não houve registro de intercorrências durante a Pré-corrida de cenário",
+      "simulatorName": "SimMan ALS - Esquerdo",
+      "simulatorCode": {
+        "code": "ALS982",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SimManALS.jpeg",
+      "discipline": {
+        "name": "Internato Saúde da mulher",
+        "label": "Int.Obstetricia"
+      },
+      "hasDescription": false,
+      "itemOcorrance": "Não informado",
+      "user": {
+        "name": "Mateus",
+        "role": "tecnico"
+      }
+    },
+    {
+      "id": "3c3c",
+      "date": "18-12-2024",
+      "time": "0800",
+      "scenarioRegister": [
+        {
+          "label": "Notebook funcionando e configurado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Microfone de mesa funcionando",
+          "value": true
+        },
+        {
+          "label": "Servidor de camera funcionando",
+          "value": true
+        },
+        {
+          "label": "Cameras no debriefing inicializadas",
+          "value": true
+        },
+        {
+          "label": "Simulador ligado sem intercorrências",
+          "value": true
+        },
+        {
+          "label": "Monitor de paciente ligado sem wifi",
+          "value": true
+        },
+        {
+          "label": "Carrinho de parada completo",
+          "value": true
+        },
+        {
+          "label": "Ventilador mecânico instalado em sala",
+          "value": true
+        },
+        {
+          "label": "Bomba de infusão instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Escada para PCR instalada em sala",
+          "value": true
+        },
+        {
+          "label": "Oxigênio em sala de simulação funcionando",
+          "value": true
+        },
+        {
+          "label": "Formulário do cenário separado em sala de controle",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário presente em notebook",
+          "value": true
+        },
+        {
+          "label": "Programa de execução de cenário estudado",
+          "value": true
+        }
+      ],
+      "scenarioCategory": "Pré-corrida",
+      "scenarioOcorrance": "Simulador foi ligado 2 x",
+      "simulatorName": "Harvey",
+      "simulatorCode": {
+        "code": "HAR331",
+        "disabled": false
+      },
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "discipline": {
+        "name": "Outro",
+        "label": "Outro"
+      },
+      "hasDescription": true,
+      "itemOcorrance": {
+        "label": "Simulador ligado sem intercorrências",
+        "value": true
+      },
+      "user": {
+        "name": "Mateus",
+        "role": "tecnico"
+      }
     }
   ],
   "mediumSimulators": [
@@ -2636,6 +2928,19 @@
       "value": "DENT",
       "lessons": [],
       "id": "5"
+    },
+    {
+      "id": "6c7c",
+      "name": "Disciplina NOVA",
+      "value": "DVO",
+      "lessons": [
+        {
+          "name": "AULA 1 - mãos",
+          "updateDate": "17-12-2024",
+          "description": "Descrição da aula de DVO",
+          "id": null
+        }
+      ]
     }
   ],
   "Curses": [

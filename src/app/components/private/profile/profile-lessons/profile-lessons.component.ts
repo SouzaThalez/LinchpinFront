@@ -171,7 +171,7 @@ export class ProfileLessonsComponent implements OnInit{
             return report.user?.name === user.name && report.user?.role === user.role;
           });
 
-          console.log(this.lessonData)
+      
 
           
         },

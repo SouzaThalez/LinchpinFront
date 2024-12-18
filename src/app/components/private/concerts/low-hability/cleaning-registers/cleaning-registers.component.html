@@ -1,7 +1,10 @@
 <div class="page">
     <div class="report-detail-list">
 
-        <h3>Achados de simulador encontrados durante a limpeza</h3>
+        <div class="page-header-description">
+            <span>Todos os achados de simuladores encontrados durante a limpeza</span>
+        </div>
+        
         <div class="empty-report-data"  *ngIf="!cleaningData || cleaningData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>

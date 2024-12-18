@@ -3,7 +3,12 @@
     flex-direction: column;
     gap: 7px;
     padding: 10px;
-  
+    
+    .page-header-description{
+        font-size: 17px;
+        color: rgb(105, 105, 105);
+    }
+    
     .report-container-grid{
         display: grid;
         grid-template-columns: 1fr 2fr;

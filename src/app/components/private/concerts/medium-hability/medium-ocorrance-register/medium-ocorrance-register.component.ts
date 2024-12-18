@@ -91,7 +91,7 @@ export class MediumOcorranceRegisterComponent implements OnInit{
 
     }else{
        
-      this.snackBar.open('Ups! Você não tem permissão!', 'Close', {
+      this.snackBar.open('Ups! não é possivél realizar uma intervenção!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 

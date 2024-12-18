@@ -16,6 +16,10 @@ export const disciplines= [
         label:'Int.Pediatria'
     },
     {
+        name:'Internato Saúde da mulher',
+        label:'Int.Obstetricia'
+    },
+    {
         name:'Fisiologia',
         label:'Fisiologia'
     },

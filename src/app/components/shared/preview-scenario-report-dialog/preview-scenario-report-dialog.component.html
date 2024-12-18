@@ -38,8 +38,8 @@
         <div class="dialog-description" *ngIf="data?.scenarioData?.hasDescription else showDefault">
                 <h2>Descrição da intercorrência de cenário</h2>
                 <div class="description">
-                    <span><b>Item da intercorrencia:</b> {{data?.scenarioData?.itemOcorrance?.label}}</span>
-                    <span><b>Descrição:</b> {{data?.scenarioData?.scenarioOcorrance}}</span>
+                    <!-- <span><b>Item da intercorrencia:</b> {{data?.scenarioData?.itemOcorrance?.label}}</span> -->
+                    <span> {{data?.scenarioData?.scenarioOcorrance}}</span>
                 </div>
         </div>
 
@@ -47,8 +47,8 @@
             <div class="dialog-description">
                 <h2>Descrição da intercorrência de cenário</h2>
                 <div class="description">
-                    <span><b>Item da intercorrência:</b> nenhum item selecionado</span>
-                    <span><b>Descrição:</b> {{data?.scenarioData?.scenarioOcorrance}}</span>
+                    <!-- <span><b>Item da intercorrência:</b> nenhum item selecionado</span> -->
+                    <span> {{data?.scenarioData?.scenarioOcorrance}}</span>
                 </div>
             </div>
         </ng-template>
