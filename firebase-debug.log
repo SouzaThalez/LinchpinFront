@@ -1,0 +1,55 @@
+[debug] [2024-12-19T12:47:25.306Z] ----------------------------------------------------------------------
+[debug] [2024-12-19T12:47:25.312Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\thalinissom\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-12-19T12:47:25.312Z] CLI Version:   13.29.1
+[debug] [2024-12-19T12:47:25.313Z] Platform:      win32
+[debug] [2024-12-19T12:47:25.313Z] Node Version:  v20.15.0
+[debug] [2024-12-19T12:47:25.313Z] Time:          Thu Dec 19 2024 09:47:25 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-12-19T12:47:25.313Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-19T12:47:25.388Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-19T12:47:25.388Z] > authorizing via signed-in user (linchpinsystem@cienciasmedicasmg.edu.br)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\thalinissom\Documents\Projects\LinchpinFront
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-12-19T12:48:18.116Z] Using project from CLI flag: linchpin-38e6f
+[debug] [2024-12-19T12:48:18.117Z] Checked if tokens are valid: true, expires at: 1734614601411
+[debug] [2024-12-19T12:48:18.118Z] Checked if tokens are valid: true, expires at: 1734614601411
+[debug] [2024-12-19T12:48:18.119Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/linchpin-38e6f [none]
+[debug] [2024-12-19T12:48:18.713Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/linchpin-38e6f 200
+[debug] [2024-12-19T12:48:18.713Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/linchpin-38e6f {"projectId":"linchpin-38e6f","projectNumber":"212205551703","displayName":"LINCHPIN","name":"projects/linchpin-38e6f","resources":{"hostingSite":"linchpin-38e6f"},"state":"ACTIVE","etag":"1_7b862164-87a9-4d18-bf90-27ab9f980531"}
+[info] i  Using project linchpin-38e6f (LINCHPIN) 
+[info] 
+=== Firestore Setup
+[debug] [2024-12-19T12:48:18.722Z] Checked if tokens are valid: true, expires at: 1734614601411
+[debug] [2024-12-19T12:48:18.722Z] Checked if tokens are valid: true, expires at: 1734614601411
+[debug] [2024-12-19T12:48:18.722Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/linchpin-38e6f/services/firestore.googleapis.com [none]
+[debug] [2024-12-19T12:48:18.722Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/linchpin-38e6f/services/firestore.googleapis.com x-goog-quota-user=projects/linchpin-38e6f
+[debug] [2024-12-19T12:48:19.869Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/linchpin-38e6f/services/firestore.googleapis.com 200
+[debug] [2024-12-19T12:48:19.870Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/linchpin-38e6f/services/firestore.googleapis.com [omitted]
+[debug] [2024-12-19T12:48:19.871Z] Checked if tokens are valid: true, expires at: 1734614601411
+[debug] [2024-12-19T12:48:19.871Z] Checked if tokens are valid: true, expires at: 1734614601411
+[debug] [2024-12-19T12:48:19.872Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/linchpin-38e6f/databases/(default) [none]
+[debug] [2024-12-19T12:48:20.128Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/linchpin-38e6f/databases/(default) 404
+[debug] [2024-12-19T12:48:20.128Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/linchpin-38e6f/databases/(default) {"error":{"code":404,"message":"Project 'linchpin-38e6f' or database '(default)' does not exist.","status":"NOT_FOUND"}}
+[debug] [2024-12-19T12:48:20.130Z] error getting database type:  Request to https://firestore.googleapis.com/v1/projects/linchpin-38e6f/databases/(default) had HTTP Error: 404, Project 'linchpin-38e6f' or database '(default)' does not exist. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Project 'linchpin-38e6f' or database '(default)' does not exist.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://firestore.googleapis.com/v1/projects/linchpin-38e6f/databases/(default) had HTTP Error: 404, Project 'linchpin-38e6f' or database '(default)' does not exist.","status":404}
+[info] (default) does not exist in project linchpin-38e6f.
+[debug] [2024-12-19T12:48:20.132Z] database_type: DATABASE_DOES_NOT_EXIST

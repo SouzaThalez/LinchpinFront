@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit{
 
   constructor(
     private router: Router,
-    // private firebaseService: FirebaseService,
     private matDialog: MatDialog,
     private httpClient: HttpClient,
   ){}

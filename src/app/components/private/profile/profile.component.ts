@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Chart,registerables } from 'chart.js';
 import { UserLogedService } from '../../../service/user-loged.service';
 import { User } from '../../../models/user';
-import { UserFirebaseService } from '../../../service/user-firebase.service';
 Chart.register(...registerables);
 
 @Component({
@@ -30,7 +29,6 @@ export class ProfileComponent implements OnInit{
 
   constructor(
     private userLogedService : UserLogedService,
-    private userFireBaseService : UserFirebaseService
   ){}
 
   ngOnInit(): void {
@@ -47,10 +45,6 @@ export class ProfileComponent implements OnInit{
     });
 
 
-  }
-
-  postUsersFirebase(){
-    this.userFireBaseService.populateUsers();
   }
 
 

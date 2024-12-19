@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "linchpin-38e6f"
-  }
+    "default": "linchpin-38e6f",
+    "production": "linchpin-38e6f"
+  },
+  "targets": {},
+  "etags": {}
 }

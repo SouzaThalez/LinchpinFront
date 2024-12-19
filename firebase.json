@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "public": "dist/linchpin-front",
     "source": ".",
     "ignore": [
       "firebase.json",

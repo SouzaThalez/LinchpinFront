@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "linchpinFront": {
+    "linchpinfront": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "linchpinFront:build:production"
+              "buildTarget": "linchpinfront:build:production"
             },
             "development": {
-              "buildTarget": "linchpinFront:build:development"
+              "buildTarget": "linchpinfront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "linchpinFront:build"
+            "buildTarget": "linchpinfront:build"
           }
         },
         "test": {
