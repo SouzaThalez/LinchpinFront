@@ -8,6 +8,8 @@ import { User } from '../../../../../models/user';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
+import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
+import { doc, setDoc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-new-maintenance',
@@ -25,6 +27,7 @@ export class NewMaintenanceComponent implements OnInit{
     private matDialog: MatDialog,
     private httpClient: HttpClient,
     private snackBar:MatSnackBar,
+     private initFirebaseService: InitiateFirebaseService
   ){}
 
   ngOnInit(): void {
@@ -118,6 +121,7 @@ export class NewMaintenanceComponent implements OnInit{
           duration: snackBarConfig.durationInSeconds * 1000 
         });
 
+        this.addUserDocument(sample);
         this.getMainitenceUsers();
       },
       error:(error)=>{
@@ -143,6 +147,24 @@ export class NewMaintenanceComponent implements OnInit{
         error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
     })
   }
+
+
+    async addUserDocument(docData: any): Promise<boolean> {
+  
+       const documentId = `manutencao-${docData.id}`;
+      try {
+        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
+        console.log("Document successfully written!");
+        return true; // Indicate success
+      } catch (error) {
+        console.error("Error writing document: ", error);
+        return false; // Indicate failure
+      }
+    }
+
+
+
+
 
 
 }

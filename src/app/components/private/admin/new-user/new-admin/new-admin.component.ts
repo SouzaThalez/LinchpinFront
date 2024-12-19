@@ -8,6 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
+import { doc, setDoc } from 'firebase/firestore';
+import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
 
 
 
@@ -26,6 +28,7 @@ export class NewAdminComponent implements OnInit{
     private matDialog: MatDialog,
     private httpClient: HttpClient,
     private snackBar:MatSnackBar,
+    private initFirebaseService: InitiateFirebaseService
   ){}
 
   ngOnInit(): void {
@@ -119,6 +122,8 @@ export class NewAdminComponent implements OnInit{
           verticalPosition: snackBarConfig.verticalPosition,
           duration: snackBarConfig.durationInSeconds * 1000 
         });
+        
+        this.addUserDocument(sample);
         this.getAdminUsers();
       },
       error:(error)=>{
@@ -144,5 +149,27 @@ export class NewAdminComponent implements OnInit{
         error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
     })
   }
+
+
+  async addUserDocument(docData: any): Promise<boolean> {
+
+     const documentId = `admin-${docData.id}`;
+    try {
+      await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
+      console.log("Document successfully written!");
+      return true; // Indicate success
+    } catch (error) {
+      console.error("Error writing document: ", error);
+      return false; // Indicate failure
+    }
+  }
+
+
+
+
+
+
+
+
 
 }

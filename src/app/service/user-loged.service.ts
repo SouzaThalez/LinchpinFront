@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { User } from '../models/user';
 
@@ -30,6 +30,7 @@ export class UserLogedService {
   
       const localStorageID = localStorage.getItem('userID');
       const idConverted = Number(localStorageID);
+    
   
       if (!idConverted) {
         console.warn('No user ID found in localStorage.');
@@ -37,10 +38,15 @@ export class UserLogedService {
         subscription.complete();
         return;
       }
-  
-      this.httpClient.get<User>("http://localhost:3000/Users/" + idConverted)
+      
+
+      let params = new HttpParams()
+        .set('id', idConverted);
+
+      this.httpClient.get<User>("http://localhost:3000/Users",{params})
       .subscribe({
         next: (user: User) => {
+         
           this.user = user;
           subscription.next(this.user);
           subscription.complete();

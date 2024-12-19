@@ -34,7 +34,7 @@ export class AddNewUserDialogComponent implements OnInit{
 
 
   submitForm(){
-
+    
     if(this.data.role != this.userTecRole){
       this.form.patchValue({
         task:'N/A'
