@@ -14,6 +14,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../../../../environments/environment.prod';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore } from 'firebase/firestore';
+import { provideFirestore } from '@angular/fire/firestore';
+import { MatNativeDateModule } from '@angular/material/core';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 
@@ -36,8 +45,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatSelectModule,
     HttpClientModule,
     MatDatepickerModule,
+    MatNativeDateModule, 
     MatInputModule,
-    MatIconModule                    
+    MatIconModule, 
   
   ]
 })

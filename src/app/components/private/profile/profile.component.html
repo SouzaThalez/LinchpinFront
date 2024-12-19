@@ -13,7 +13,7 @@
                     <span>{{userModel?.name}}</span>
                     <span>{{userModel?.role}}</span>
                     <div class="photo-container">
-                        <button mat-raised-button class="login-btn">Alterar foto</button>
+                        <button mat-raised-button class="login-btn" (click)="postUsersFirebase()">Alterar foto</button>
                     </div>
                 </div>
                 <div class="user-details">

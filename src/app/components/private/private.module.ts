@@ -12,7 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireModule } from "@angular/fire/compat";
+import { environment } from '../../../environments/environment.prod';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatInputModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   
   ]
 })
