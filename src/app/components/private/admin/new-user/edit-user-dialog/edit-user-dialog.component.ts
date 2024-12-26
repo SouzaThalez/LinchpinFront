@@ -10,6 +10,8 @@ import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { userTaskData } from '../../../../../data/userTaskData';
 import { userRoleType } from '../../../../../enums/userRoles';
+import { deleteDoc, doc, getDoc, setDoc } from 'firebase/firestore';
+import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
 
 @Component({
   selector: 'app-edit-user-dialog',
@@ -37,9 +39,11 @@ export class EditUserDialogComponent implements OnInit{
     private httpClient: HttpClient,
     private snackBar:MatSnackBar,
     private matDialog: MatDialog,
+    private initFirebaseService: InitiateFirebaseService,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      user: User
+      user: User,
+      documentId: string
     },
   ){}
 
@@ -66,9 +70,10 @@ export class EditUserDialogComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-   
+        debugger
         let model = result;
-        this.removeUser(model);
+        // this.removeUser(model);
+        this.removeFireBaseAdminUser();
    
        
       }
@@ -77,26 +82,39 @@ export class EditUserDialogComponent implements OnInit{
 
   getSelectedRole(role: string){
     this.selectedRole = role;
-    switch (role) {
+    let newDocRefId: string;
+
+    switch (this.selectedRole) {
       case 'tecnico':
       this.form.patchValue({
         image: this.tecnicianImage
       })
+      debugger
+      newDocRefId =`tecnico-${this.data.user.id}`;
+      this.updateDocRole(this.data.documentId,newDocRefId);
       break;
       case 'analista':
         this.form.patchValue({
           image: this.analystImage
         })
+        debugger
+        newDocRefId =`analista-${this.data.user.id}`;
+        this.updateDocRole(this.data.documentId,newDocRefId);
       break;
       case 'administrador':
         this.form.patchValue({
           image: this.adminImage
         })
+        debugger
+        newDocRefId =`admin-${this.data.user.id}`;
+        this.updateDocRole(this.data.documentId,newDocRefId);
       break;
       case 'manutencao':
         this.form.patchValue({
           image: this.manitanceImage
         })
+        newDocRefId =`manutencao-${this.data.user.id}`;
+        this.updateDocRole(this.data.documentId,newDocRefId);
       break;
     
       default:
@@ -144,25 +162,21 @@ export class EditUserDialogComponent implements OnInit{
       return
     }
 
-
-
-
-
     this.dialogRef.close(this.form.value);
 
   }
 
-  private removeUser(model:any){
+  // private removeUser(model:any){
 
-    this.httpClient.delete('http://localhost:3000/Users/' + model.id)
-    .subscribe({
-        next: (sample: any)=>{
-          this.dialogRef.close('remove');
+  //   this.httpClient.delete('http://localhost:3000/Users/' + model.id)
+  //   .subscribe({
+  //       next: (sample: any)=>{
+  //         this.dialogRef.close('remove');
           
-        },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
-    })
-  }
+  //       },
+  //       error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+  //   })
+  // }
 
   private createForm(){
 
@@ -181,5 +195,58 @@ export class EditUserDialogComponent implements OnInit{
     return form;
     
   }
+
+  async removeFireBaseAdminUser(): Promise<void> {
+    debugger
+    try {
+
+      const docRef = doc(this.initFirebaseService.getDb(), "Users", this.data.documentId);
+
+      await deleteDoc(docRef);
+      //After removal
+      this.dialogRef.close('remove');
+
+    } catch (error) {
+      
+      console.error("Error removing user:", error);
+    }
+  }
+
+  async updateDocRole(oldDocId, newDocId){
+debugger
+    const db = this.initFirebaseService.getDb();
+
+    const oldDocRef = doc(db,"Users",oldDocId);
+    const newDocRef = doc(db,"Users",newDocId);
+    try {
+      // Fetch the document data from the old ID
+      const docSnapshot = await getDoc(oldDocRef);
+      if (docSnapshot.exists()) {
+        // Copy the document data to the new document ID
+        const docData = docSnapshot.data();
+        docData['role'] = this.selectedRole;
+        debugger
+        await setDoc(newDocRef, docData);
+  
+        // Delete the old document
+        await deleteDoc(oldDocRef);
+  
+        console.log(`Document ID changed from ${oldDocId} to ${newDocId}`);
+      } else {
+        console.log(`No document found with ID: ${oldDocId}`);
+      }
+    } catch (error) {
+      console.error("Error changing document ID:", error);
+    }
+  
+
+
+  }
+
+
+
+
+
+
 
 }

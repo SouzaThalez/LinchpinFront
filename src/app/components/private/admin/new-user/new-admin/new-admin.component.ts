@@ -63,13 +63,14 @@ export class NewAdminComponent implements OnInit{
   }
 
   openEditUserDialog(user: any){
-   
+  
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.userData
+        user: user.userData,
+        documentId: user.docID
       }
     })
 
@@ -92,8 +93,10 @@ export class NewAdminComponent implements OnInit{
         }
         
         let model = result;
-  
-        this.updateFireBaseAdminUser(model,user.docID);
+        
+    
+        let docIdUpdated =`${model.role}-${model.id}`;
+        this.updateFireBaseAdminUser(model,docIdUpdated);
       }
       
     })
@@ -103,6 +106,7 @@ export class NewAdminComponent implements OnInit{
 
   
   async updateFireBaseAdminUser(docModel: any, docIdRef: string): Promise<any> {
+    
     try {
 
       const docRef = doc(this.initFirebaseService.getDb(), "Users", docIdRef);
@@ -131,7 +135,7 @@ export class NewAdminComponent implements OnInit{
 
   async postFireBaseAdminUser(docData: any): Promise<any> {
 
-     const documentId = `admin-${docData.id}`;
+     const documentId = `${this.userAdminRole}-${docData.id}`;
 
     try {
       await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
