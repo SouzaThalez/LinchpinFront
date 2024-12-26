@@ -12,18 +12,18 @@
       "task": "N/A"
     },
     {
-      "id": 9621,
       "name": "Rosana",
-      "login": "rosana.amaral",
+      "login": "rosana.amarall",
       "password": "rosana.123",
       "confirmPassword": "rosana.123",
       "email": "rosana.amaral@gmail.com",
+      "task": "N/A",
       "image": "assets/images/users/user-default-admin.png",
       "role": "administrador",
-      "task": "N/A"
+      "id": "9621"
     },
     {
-      "id": 6721,
+      "id": "6721",
       "name": "Mateus",
       "login": "mateus.manaces",
       "password": "mateus.123",
@@ -32,6 +32,17 @@
       "image": "assets/images/users/user-default-tec.png",
       "role": "tecnico",
       "task": "simulação"
+    },
+    {
+      "id": "8222",
+      "name": "Carlos",
+      "login": "carlos.almeida",
+      "password": "carlos.123",
+      "confirmPassword": "carlos.123",
+      "email": "carlos.almeida@gmail.com",
+      "image": "assets/images/users/user-default-admin.png",
+      "role": "administrador",
+      "task": "N/A"
     }
   ],
   "CleaningReports": [

@@ -52,9 +52,9 @@ export class HomeComponent implements OnInit{
 
 
   ngOnInit(): void {
-
+    
     console.log(environment.firebaseConfig.projectId);
-
+   
     this.userLogedService.getCurrentUser()
     .subscribe({
       next: (user) => {

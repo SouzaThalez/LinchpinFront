@@ -52,6 +52,7 @@ export class NewAdminComponent implements OnInit{
       if(result){
 
         let model = result;
+        debugger
         this.postUser(model);
        
       }
@@ -136,7 +137,7 @@ export class NewAdminComponent implements OnInit{
   }
 
   private updateUser(model:any){
-debugger
+
     this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{

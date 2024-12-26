@@ -27,6 +27,8 @@ export class AddNewUserDialogComponent implements OnInit{
       image: string
     },
   ){}
+
+
   ngOnInit(): void {
     this.form = this.createForm();
 
@@ -68,10 +70,10 @@ export class AddNewUserDialogComponent implements OnInit{
 
   }
 
-  generateRandomId(): number {
+  generateRandomId(): string {
     const min = 1000; // The minimum value (inclusive)
     const max = 9999; // The maximum value (inclusive)
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return (Math.floor(Math.random() * (max - min + 1)) + min ).toString(); // Convert to string - user id 
   }
 
 
@@ -93,5 +95,10 @@ export class AddNewUserDialogComponent implements OnInit{
     return form;
     
   }
+
+  
+
+
+
 
 }

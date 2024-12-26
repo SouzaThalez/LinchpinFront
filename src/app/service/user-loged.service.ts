@@ -39,8 +39,6 @@ export class UserLogedService {
         return;
       }
 
-   
-    
       let params = new HttpParams()
       .set('id', idConverted);
 
