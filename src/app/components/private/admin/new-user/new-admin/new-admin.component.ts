@@ -8,8 +8,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
-import { doc, setDoc } from 'firebase/firestore';
+import { collection, doc, DocumentReference, DocumentSnapshot, getDoc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
+import { AdminUser } from '../../../../../models/interface/adminUser';
 
 
 
@@ -20,8 +21,9 @@ import { InitiateFirebaseService } from '../../../../../service/initiate-firebas
 })
 export class NewAdminComponent implements OnInit{
 
-  adminUsers: any;
-  userRole = userRoleType.admin; 
+  adminUsers: AdminUser[] = [];
+  
+  userAdminRole = userRoleType.admin; 
   userImage = userDefaultImagesType.defaultAdminImage;
 
   constructor(
@@ -32,7 +34,7 @@ export class NewAdminComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.getAdminUsers();
+    this.getFireBaseAdmins();
   }
 
 
@@ -43,7 +45,7 @@ export class NewAdminComponent implements OnInit{
       width:'468px',
       height:'600px',
       data:{
-        role: this.userRole,
+        role: this.userAdminRole,
         image:this.userImage,
       }
     })
@@ -52,8 +54,7 @@ export class NewAdminComponent implements OnInit{
       if(result){
 
         let model = result;
-        debugger
-        this.postUser(model);
+        this.postFireBaseAdminUser(model);
        
       }
     })
@@ -61,25 +62,26 @@ export class NewAdminComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: User){
-
+  openEditUserDialog(user: any){
+   
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user:user
+        user: user.userData
       }
     })
 
     dialogRef.afterClosed().subscribe(result=>{
-
-      //if result is remove. update users
+    
+      //if result is a model , update only
+      //If result is 'remove'. Than remove.
       if(result){
-        debugger
+
         if(result == 'remove'){
 
-          this.getAdminUsers();
+          this.getFireBaseAdmins();
           this.snackBar.open('Usuário removido com sucesso!', 'Close', {
             horizontalPosition: snackBarConfig.horizontalPosition,
             verticalPosition: snackBarConfig.verticalPosition,
@@ -90,8 +92,8 @@ export class NewAdminComponent implements OnInit{
         }
         
         let model = result;
-        this.updateUser(model);
-       
+  
+        this.updateFireBaseAdminUser(model,user.docID);
       }
       
     })
@@ -100,80 +102,73 @@ export class NewAdminComponent implements OnInit{
   }
 
   
-  private getAdminUsers(){
-
-    let params = new HttpParams()
-    .set('role', 'administrador');
-
-    this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
-      next:(sample: any)=>{
-        this.adminUsers = sample;
-
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
-
-  private postUser(model: User){
-
-    this.httpClient.post('http://localhost:3000/Users/',model).subscribe({
-      next:(sample: any)=>{
-
-        this.snackBar.open('Usuário cadastrado com sucesso!', 'Close', {
-          horizontalPosition: snackBarConfig.horizontalPosition,
-          verticalPosition: snackBarConfig.verticalPosition,
-          duration: snackBarConfig.durationInSeconds * 1000 
-        });
-        
-        this.addUserDocument(sample);
-        this.getAdminUsers();
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
-
-  private updateUser(model:any){
-
-    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
-    .subscribe({
-        next: (sample: any)=>{
-
-          this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
-          
-          this.getAdminUsers();
-        },
-        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
-    })
-  }
-
-
-  async addUserDocument(docData: any): Promise<boolean> {
-
-     const documentId = `admin-${docData.id}`;
+  async updateFireBaseAdminUser(docModel: any, docIdRef: string): Promise<any> {
     try {
-      await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
-      console.log("Document successfully written!");
-      return true; // Indicate success
+
+      const docRef = doc(this.initFirebaseService.getDb(), "Users", docIdRef);
+
+      await updateDoc(docRef, docModel);
+
+      this.getFireBaseAdmins();
+      return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+      
+      
+
     } catch (error) {
-      console.error("Error writing document: ", error);
-      return false; // Indicate failure
+  
+      return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+      
     }
   }
 
+  async postFireBaseAdminUser(docData: any): Promise<any> {
+
+     const documentId = `admin-${docData.id}`;
+
+    try {
+      await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
+
+      this.snackBar.open('Usuário adicionado com sucesso!', 'Close', {
+        horizontalPosition: snackBarConfig.horizontalPosition,
+        verticalPosition: snackBarConfig.verticalPosition,
+        duration: snackBarConfig.durationInSeconds * 1000 
+      });
+
+      this.getFireBaseAdmins();
+     
+    } catch (error) {
+      console.error("Error writing document: ", error);
+      
+    }
+  }
+
+  async getFireBaseAdmins():Promise<void> {
+
+    const q = query(collection(this.initFirebaseService.getDb(), "Users"), where("role", "==", this.userAdminRole));
+
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+     
+      const userData = doc.data() as User; 
+      const docID = doc.id;
+      this.adminUsers.push({ docID: docID, userData });
+
+    });
+
+    console.log('Admins> ',this.adminUsers)
 
 
 
-
-
-
-
+  }
+  
 
 }

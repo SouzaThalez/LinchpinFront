@@ -8,31 +8,35 @@
     </div>
     
     <div class="page-body scroll-container">
-        <p></p>
-        <div class="details-list" *ngIf="adminUsers?.length > 0 ; else showDefaultMsg">
-            <div class="card-container" 
-                 *ngFor="let user of adminUsers"
-                 (click)="openEditUserDialog(user)">
-                <div class="card-body">
-                  <div class="card-head">
-                    <div class="card-image">
-                      <img src="assets/images/users/user-default-admin.png" alt="user-default-imag">
-                    </div>
-                    <div class="card-description">
-                      <span>Usuário: {{user.name}}</span>
-                      <span>Tipo: {{user.role}}</span>
-                      <span>E-mail: {{user.email}}</span>
-                    </div>
-                    <div class="card-icon">
-                      <span class="material-symbols-outlined">visibility</span>
-                    </div>
-                  </div>
+
+      <div class="div" *ngFor="let admin of adminUsers else showDefaultMsg">
+        <!-- Check if admin has userData -->
+        <div class="details-list" *ngIf="admin.userData">
+        
+          <div class="card-container" (click)="openEditUserDialog(admin)">
+            <div class="card-body">
+              <div class="card-head">
+                <div class="card-image">
+                  <img src="assets/images/users/user-default-admin.png" alt="user-default-image">
                 </div>
+                <div class="card-description">
+                  <span>Usuário: {{admin.userData.name}}</span>
+                  <span>Tipo: {{admin.userData.role}}</span>
+                  <span>E-mail: {{admin.userData.email}}</span>
+                </div>
+                <div class="card-icon">
+                  <span class="material-symbols-outlined">visibility</span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <ng-template #showDefaultMsg>
-          <span>Não existem usuários administradores cadastrados</span>
-        </ng-template>
+      </div>
+      
+      <div *ngIf="adminUsers.length == 0">
+        <span>Não existem usuários administradores cadastrados</span>
+      </div>
+
     </div>
 </div>
 

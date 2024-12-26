@@ -12,17 +12,6 @@
       "task": "N/A"
     },
     {
-      "name": "Rosana",
-      "login": "rosana.amarall",
-      "password": "rosana.123",
-      "confirmPassword": "rosana.123",
-      "email": "rosana.amaral@gmail.com",
-      "task": "N/A",
-      "image": "assets/images/users/user-default-admin.png",
-      "role": "administrador",
-      "id": "9621"
-    },
-    {
       "id": "6721",
       "name": "Mateus",
       "login": "mateus.manaces",
@@ -42,6 +31,17 @@
       "email": "carlos.almeida@gmail.com",
       "image": "assets/images/users/user-default-admin.png",
       "role": "administrador",
+      "task": "N/A"
+    },
+    {
+      "id": "2068",
+      "name": "Silas",
+      "login": "silas.moreira",
+      "password": "silas.123",
+      "confirmPassword": "silas.123",
+      "email": "silas.moreira@gmail.com",
+      "image": "assets/images/users/user-default-analist.png",
+      "role": "analista",
       "task": "N/A"
     }
   ],
