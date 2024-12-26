@@ -1,5 +1,5 @@
-import { User } from "../components/models/user";
 import { Simulator } from "./simulator";
+import { User } from "./user";
 
 export class LessonReport{
     

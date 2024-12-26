@@ -38,16 +38,17 @@ export class UserLogedService {
         subscription.complete();
         return;
       }
-      
 
+   
+    
       let params = new HttpParams()
-        .set('id', idConverted);
+      .set('id', idConverted);
 
-      this.httpClient.get<User>("http://localhost:3000/Users",{params})
+      this.httpClient.get<User>("http://localhost:3000/Users", {params})
       .subscribe({
         next: (user: User) => {
-         
-          this.user = user;
+          
+          this.user = user[0];
           subscription.next(this.user);
           subscription.complete();
         },

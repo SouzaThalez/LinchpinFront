@@ -72,17 +72,19 @@ export class NewAdminComponent implements OnInit{
     })
 
     dialogRef.afterClosed().subscribe(result=>{
-      debugger
+
       //if result is remove. update users
       if(result){
-
+        debugger
         if(result == 'remove'){
+
           this.getAdminUsers();
           this.snackBar.open('Usuário removido com sucesso!', 'Close', {
             horizontalPosition: snackBarConfig.horizontalPosition,
             verticalPosition: snackBarConfig.verticalPosition,
             duration: snackBarConfig.durationInSeconds * 1000 
           });
+
           return
         }
         
@@ -105,6 +107,7 @@ export class NewAdminComponent implements OnInit{
     this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
       next:(sample: any)=>{
         this.adminUsers = sample;
+
       },
       error:(error)=>{
         console.log('Something wrong with the request to highSimulators ',error)
@@ -112,7 +115,7 @@ export class NewAdminComponent implements OnInit{
     })
   }
 
-  private postUser(model:any){
+  private postUser(model: User){
 
     this.httpClient.post('http://localhost:3000/Users/',model).subscribe({
       next:(sample: any)=>{
@@ -133,7 +136,7 @@ export class NewAdminComponent implements OnInit{
   }
 
   private updateUser(model:any){
-
+debugger
     this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{

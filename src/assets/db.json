@@ -1,7 +1,7 @@
 {
   "Users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Thales",
       "login": "thales.carvalho",
       "password": "thales.1234",
@@ -10,6 +10,28 @@
       "image": "assets/images/users/user-default-analist.png",
       "role": "analista",
       "task": "N/A"
+    },
+    {
+      "id": 9621,
+      "name": "Rosana",
+      "login": "rosana.amaral",
+      "password": "rosana.123",
+      "confirmPassword": "rosana.123",
+      "email": "rosana.amaral@gmail.com",
+      "image": "assets/images/users/user-default-admin.png",
+      "role": "administrador",
+      "task": "N/A"
+    },
+    {
+      "id": 6721,
+      "name": "Mateus",
+      "login": "mateus.manaces",
+      "password": "mateus.123",
+      "confirmPassword": "mateus.123",
+      "email": "mateus.manaces@gmail.com",
+      "image": "assets/images/users/user-default-tec.png",
+      "role": "tecnico",
+      "task": "simulação"
     }
   ],
   "CleaningReports": [

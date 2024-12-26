@@ -30,11 +30,12 @@ export class AddNewUserDialogComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.createForm();
 
+
   }
 
 
   submitForm(){
-    
+
     if(this.data.role != this.userTecRole){
       this.form.patchValue({
         task:'N/A'
@@ -60,12 +61,18 @@ export class AddNewUserDialogComponent implements OnInit{
       });
       return
     }
-
+    
+   
     this.dialogRef.close(this.form.value);
     
 
   }
 
+  generateRandomId(): number {
+    const min = 1000; // The minimum value (inclusive)
+    const max = 9999; // The maximum value (inclusive)
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
 
   private createForm(){
@@ -79,6 +86,8 @@ export class AddNewUserDialogComponent implements OnInit{
       image:[this.data.image],
       role:[this.data.role],
       task:[null,Validators.required],
+      id:[this.generateRandomId()]
+    
     })
 
     return form;
