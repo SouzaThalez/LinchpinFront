@@ -114,6 +114,7 @@ export class NewAdminComponent implements OnInit{
       await updateDoc(docRef, docModel);
 
       this.getFireBaseAdmins();
+      
       return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
         verticalPosition: snackBarConfig.verticalPosition,
@@ -165,6 +166,7 @@ export class NewAdminComponent implements OnInit{
       const userData = doc.data() as User; 
       const docID = doc.id;
       this.adminUsers.push({ docID: docID, userData });
+      console.log(this.adminUsers);
 
     });
 

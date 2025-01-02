@@ -1,18 +1,20 @@
 <div class="page">
-    <div class="page-header">
-        <div class="grid-button-container">
-            <div class="grid-item">
-              <button mat-raised-button class="form-options form-buttons" (click)="openAddNewUserDialog()"> + Novo usuário administrador</button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="page-body scroll-container">
 
-      <div class="div" *ngFor="let admin of adminUsers else showDefaultMsg">
-        <!-- Check if admin has userData -->
+  <div class="page-header">
+    <div class="grid-button-container">
+      <div class="grid-item">
+        <button mat-raised-button class="form-options form-buttons" (click)="openAddNewUserDialog()"> + Novo usuário
+          administrador</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-body scroll-container">
+
+    <div class="load-users" *ngIf="adminUsers">
+
+      <div class="container" *ngFor="let admin of adminUsers">
         <div class="details-list" *ngIf="admin.userData">
-        
           <div class="card-container" (click)="openEditUserDialog(admin)">
             <div class="card-body">
               <div class="card-head">
@@ -32,11 +34,14 @@
           </div>
         </div>
       </div>
-      
-      <div *ngIf="adminUsers.length == 0">
-        <span>Não existem usuários administradores cadastrados</span>
-      </div>
 
     </div>
-</div>
 
+    <div *ngIf="adminUsers.length == 0">
+      <span>Não existem usuários administradores cadastrados</span>
+    </div>
+
+
+  </div>
+  
+</div>
