@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -70,9 +70,8 @@ export class EditUserDialogComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        debugger
+     
         let model = result;
-        // this.removeUser(model);
         this.removeFireBaseAdminUser();
    
        
@@ -89,7 +88,7 @@ export class EditUserDialogComponent implements OnInit{
       this.form.patchValue({
         image: this.tecnicianImage
       })
-      debugger
+ 
       newDocRefId =`tecnico-${this.data.user.id}`;
       this.updateDocRole(this.data.documentId,newDocRefId);
       break;
@@ -106,7 +105,7 @@ export class EditUserDialogComponent implements OnInit{
           image: this.adminImage
         })
         debugger
-        newDocRefId =`admin-${this.data.user.id}`;
+        newDocRefId =`administrador-${this.data.user.id}`;
         this.updateDocRole(this.data.documentId,newDocRefId);
       break;
       case 'manutencao':
@@ -123,7 +122,7 @@ export class EditUserDialogComponent implements OnInit{
   }
 
   submitForm(){
-  
+    
     let formRole = this.form.get('role').value;
     let formTask = this.form.get('task').value;
 
@@ -140,14 +139,11 @@ export class EditUserDialogComponent implements OnInit{
           task: 'N/A'
         })
       }else{
-
         this.form.patchValue({
           task: this.form.get('task').value
         })
       }
 
-
-    
     }
   
 
@@ -165,18 +161,6 @@ export class EditUserDialogComponent implements OnInit{
     this.dialogRef.close(this.form.value);
 
   }
-
-  // private removeUser(model:any){
-
-  //   this.httpClient.delete('http://localhost:3000/Users/' + model.id)
-  //   .subscribe({
-  //       next: (sample: any)=>{
-  //         this.dialogRef.close('remove');
-          
-  //       },
-  //       error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
-  //   })
-  // }
 
   private createForm(){
 
@@ -213,7 +197,7 @@ export class EditUserDialogComponent implements OnInit{
   }
 
   async updateDocRole(oldDocId, newDocId){
-debugger
+
     const db = this.initFirebaseService.getDb();
 
     const oldDocRef = doc(db,"Users",oldDocId);
@@ -225,7 +209,7 @@ debugger
         // Copy the document data to the new document ID
         const docData = docSnapshot.data();
         docData['role'] = this.selectedRole;
-        debugger
+      
         await setDoc(newDocRef, docData);
   
         // Delete the old document

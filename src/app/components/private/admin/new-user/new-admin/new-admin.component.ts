@@ -22,7 +22,7 @@ import { AdminUser } from '../../../../../models/interface/adminUser';
 export class NewAdminComponent implements OnInit{
 
   adminUsers: AdminUser[] = [];
-  
+  isLoading = false ; 
   userAdminRole = userRoleType.admin; 
   userImage = userDefaultImagesType.defaultAdminImage;
 
@@ -112,7 +112,7 @@ export class NewAdminComponent implements OnInit{
       const docRef = doc(this.initFirebaseService.getDb(), "Users", docIdRef);
 
       await updateDoc(docRef, docModel);
-
+      this.adminUsers = [];
       this.getFireBaseAdmins();
       
       return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
@@ -157,6 +157,8 @@ export class NewAdminComponent implements OnInit{
 
   async getFireBaseAdmins():Promise<void> {
 
+    this.isLoading = true;
+
     const q = query(collection(this.initFirebaseService.getDb(), "Users"), where("role", "==", this.userAdminRole));
 
     const querySnapshot = await getDocs(q);
@@ -170,6 +172,7 @@ export class NewAdminComponent implements OnInit{
 
     });
 
+    this.isLoading = false;
     console.log('Admins> ',this.adminUsers)
 
 

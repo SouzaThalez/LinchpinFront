@@ -9,6 +9,10 @@
     </div>
   </div>
 
+  <div class="loader-container" *ngIf="isLoading">
+    <span class="loader"></span>
+  </div>
+
   <div class="page-body scroll-container">
 
     <div class="load-users" *ngIf="adminUsers">
@@ -43,5 +47,5 @@
 
 
   </div>
-  
+
 </div>
