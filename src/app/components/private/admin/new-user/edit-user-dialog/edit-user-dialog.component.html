@@ -63,7 +63,7 @@
 
                         <div class="user-column" *ngIf="selectedRole == userTecRole">
                           <div class="column-body">
-                            <span>Selecione o cargo</span>
+                            <span class="task-title">Selecione o cargo</span>
                             <mat-button-toggle-group formControlName="task" aria-label="Font Style">
                               <mat-button-toggle [value]="task.name" *ngFor="let task of userTask">{{task.name}}</mat-button-toggle>
                             </mat-button-toggle-group>

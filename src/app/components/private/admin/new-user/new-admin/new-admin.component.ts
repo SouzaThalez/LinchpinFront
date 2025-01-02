@@ -8,9 +8,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
-import { collection, doc, DocumentReference, DocumentSnapshot, getDoc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
+import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { AdminUser } from '../../../../../models/interface/adminUser';
+import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
+
 
 
 
@@ -21,8 +22,8 @@ import { AdminUser } from '../../../../../models/interface/adminUser';
 })
 export class NewAdminComponent implements OnInit{
 
-  adminUsers: AdminUser[] = [];
-  isLoading = false ; 
+  adminUsers: UserDocumentModel[] = [];
+  isLoading = false; 
   userAdminRole = userRoleType.admin; 
   userImage = userDefaultImagesType.defaultAdminImage;
 
@@ -62,7 +63,7 @@ export class NewAdminComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: any){
+  openEditUserDialog(user: UserDocumentModel){
   
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
@@ -125,7 +126,7 @@ export class NewAdminComponent implements OnInit{
 
     } catch (error) {
   
-      return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
+      return this.snackBar.open('ERRO em atualização do usuário!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 
@@ -151,13 +152,13 @@ export class NewAdminComponent implements OnInit{
      
     } catch (error) {
       console.error("Error writing document: ", error);
-      
     }
   }
 
   async getFireBaseAdmins():Promise<void> {
 
     this.isLoading = true;
+    this.adminUsers = [];
 
     const q = query(collection(this.initFirebaseService.getDb(), "Users"), where("role", "==", this.userAdminRole));
 
@@ -168,7 +169,7 @@ export class NewAdminComponent implements OnInit{
       const userData = doc.data() as User; 
       const docID = doc.id;
       this.adminUsers.push({ docID: docID, userData });
-      console.log(this.adminUsers);
+  
 
     });
 

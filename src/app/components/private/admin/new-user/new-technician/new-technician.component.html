@@ -1,41 +1,51 @@
 <div class="page">
-    <div class="page-header">
-        <div class="grid-button-container">
-        
-            <div class="grid-item">
-              <button mat-raised-button class="form-options form-buttons" (click)="openAddNewUserDialog()"> + Novo usuário Técnico</button>
+
+  <div class="page-header">
+    <div class="grid-button-container">
+
+      <div class="grid-item">
+        <button mat-raised-button class="form-options form-buttons" (click)="openAddNewUserDialog()"> + Novo usuário
+          Técnico</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="loader-container" *ngIf="isLoading">
+    <span class="loader"></span>
+  </div>
+
+  <div class="page-body scroll-container">
+
+    <div class="load-users" *ngIf="tecnicalUsers.length > 0">
+
+      <div class="container" *ngFor="let tecnical of tecnicalUsers">
+        <div class="details-list" *ngIf="tecnical.userData">
+          <div class="card-container" (click)="openEditUserDialog(tecnical)">
+            <div class="card-body">
+              <div class="card-head">
+                <div class="card-image">
+                  <img src="assets/images/users/user-default-tec.png" alt="user-default-imag">
+                </div>
+                <div class="card-description">
+                  <span>Usuário: {{tecnical.userData.name}}</span>
+                  <span>Tipo: {{tecnical.userData.role}}</span>
+                  <span>E-mail: {{tecnical.userData.email}}</span>
+                </div>
+                <div class="card-icon">
+                  <span class="material-symbols-outlined">visibility</span>
+                </div>
+              </div>
             </div>
-     
+          </div>
         </div>
+      </div>
+
     </div>
     
-    <div class="page-body scroll-container">
-        <p></p>
-        <div class="details-list" *ngIf="tecnicalUsers?.length > 0 ; else showDefaultMsg">
-            <div class="card-container" 
-                 *ngFor="let user of tecnicalUsers"
-                 (click)="openEditUserDialog(user)">
-                <div class="card-body">
-                  <div class="card-head">
-                    <div class="card-image">
-                      <img src="assets/images/users/user-default-tec.png" alt="user-default-imag">
-                    </div>
-                    <div class="card-description">
-                      <span>Usuário: {{user.name}}</span>
-                      <span>Tipo: {{user.role}}</span>
-                      <span>E-mail: {{user.email}}</span>
-                    </div>
-                    <div class="card-icon">
-                      <span class="material-symbols-outlined">visibility</span>
-                    </div>
-                  </div>
-                </div>
-            </div>
-        </div>
-        <ng-template #showDefaultMsg>
-          <span>Não existem usuários técnicos cadastrados</span>
-        </ng-template>
+    <div *ngIf="!isLoading && tecnicalUsers.length == 0 ">
+      <span>Não existem usuários administradores cadastrados</span>
     </div>
+
+  </div>
 </div>
-
-

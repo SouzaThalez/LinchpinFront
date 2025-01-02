@@ -15,7 +15,7 @@
 
   <div class="page-body scroll-container">
 
-    <div class="load-users" *ngIf="adminUsers">
+    <div class="load-users" *ngIf="adminUsers.length > 0">
 
       <div class="container" *ngFor="let admin of adminUsers">
         <div class="details-list" *ngIf="admin.userData">
@@ -41,7 +41,7 @@
 
     </div>
 
-    <div *ngIf="adminUsers.length == 0">
+    <div *ngIf="!isLoading && adminUsers.length == 0 ">
       <span>Não existem usuários administradores cadastrados</span>
     </div>
 

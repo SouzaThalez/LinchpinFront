@@ -1,4 +1,3 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
@@ -8,8 +7,9 @@ import { snackBarConfig } from '../../../../../data/snackBarData';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
-import { doc, setDoc } from 'firebase/firestore';
+import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
+import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
 
 @Component({
   selector: 'app-new-technician',
@@ -18,20 +18,20 @@ import { InitiateFirebaseService } from '../../../../../service/initiate-firebas
 })
 export class NewTechnicianComponent implements OnInit{
 
-
-   tecnicalUsers: any;
-   userRole = userRoleType.technician;
+  //  tecnicalUsers: any;
+   tecnicalUsers: UserDocumentModel[] = [];
+   isLoading = false; 
+   userTechRole = userRoleType.technician;
    userImage = userDefaultImagesType.defaultTechnicianImage;
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient,
     private snackBar: MatSnackBar,
     private initFirebaseService: InitiateFirebaseService
   ){}
 
   ngOnInit(): void {
-    this.getTecnicalUsers();
+    this.getFireBaseTechnicians();
   }
 
   openAddNewUserDialog(){
@@ -41,7 +41,7 @@ export class NewTechnicianComponent implements OnInit{
       width:'468px',
       height:'598px',
       data:{
-        role: this.userRole,
+        role: this.userTechRole,
         image:this.userImage
       }
     })
@@ -51,7 +51,7 @@ export class NewTechnicianComponent implements OnInit{
       if(result){
   
         let model = result;
-        this.postUser(model);
+        this.postFireBaseTechUser(model);
        
       }
     })
@@ -59,14 +59,15 @@ export class NewTechnicianComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: User){
+  openEditUserDialog(user: UserDocumentModel){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user:user
+        user: user.userData,
+        documentId: user.docID
       }
     })
 
@@ -75,88 +76,102 @@ export class NewTechnicianComponent implements OnInit{
       if(result){
 
         if(result == 'remove'){
-          this.getTecnicalUsers();
+
+          this.getFireBaseTechnicians();
           this.snackBar.open('Usuário removido com sucesso!', 'Close', {
             horizontalPosition: snackBarConfig.horizontalPosition,
             verticalPosition: snackBarConfig.verticalPosition,
             duration: snackBarConfig.durationInSeconds * 1000 
           });
+
           return
         }
 
         let model = result;
-        this.updateUser(model);
+        let docIdUpdated =`${model.role}-${model.id}`;
+        this.updateFireBaseTechUser(model,docIdUpdated);
        
       }
     })
   }
 
-  private getTecnicalUsers(){
 
-    let params = new HttpParams()
-    .set('role', 'tecnico');
+  async postFireBaseTechUser(docData: any): Promise<any> {
+  
+      //  const documentId = `tecnico-${docData.id}`;
+       const documentId = `${this.userTechRole}-${docData.id}`;
+      try {
 
-    this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
-      next:(sample: any)=>{
-        this.tecnicalUsers = sample;
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
+        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
 
-  private postUser(model:any){
-
-    this.httpClient.post('http://localhost:3000/Users/',model).subscribe({
-      next:(sample: any)=>{
-
-        this.snackBar.open('Usuário cadastrado com sucesso!', 'Close', {
+        this.snackBar.open('Usuário adicionado com sucesso!', 'Close', {
           horizontalPosition: snackBarConfig.horizontalPosition,
           verticalPosition: snackBarConfig.verticalPosition,
           duration: snackBarConfig.durationInSeconds * 1000 
         });
-        this.addUserDocument(sample);
-        this.getTecnicalUsers();
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
 
-  private updateUser(model:any){
-
-    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
-    .subscribe({
-        next: (sample: any)=>{
-
-          this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
-          this.getTecnicalUsers();
-        },
-        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
-    })
-  }
-
-
-  async addUserDocument(docData: any): Promise<boolean> {
-  
-       const documentId = `tecnico-${docData.id}`;
-      try {
-        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
-        console.log("Document successfully written!");
-        return true; // Indicate success
+        this.getFireBaseTechnicians();
+       
       } catch (error) {
         console.error("Error writing document: ", error);
-        return false; // Indicate failure
+        
       }
-    }
+  }
 
+  async getFireBaseTechnicians():Promise<void> {
+  
+      this.isLoading = true;
+      this.tecnicalUsers = [];
+  
+      const q = query(collection(this.initFirebaseService.getDb(), "Users"), where("role", "==", this.userTechRole));
+  
+      const querySnapshot = await getDocs(q);
+  
+      querySnapshot.forEach((doc) => {
+       
+        const userData = doc.data() as User; 
+        const docID = doc.id;
+        this.tecnicalUsers.push({ docID: docID, userData });
 
+      });
+  
+      this.isLoading = false;
+      console.log('Tecnicos> ',this.tecnicalUsers)
+  
+  
+  
+  }
+  
+  async updateFireBaseTechUser(docModel: any, docIdRef: string): Promise<any> {
+      
+      try {
+  
+        const docRef = doc(this.initFirebaseService.getDb(), "Users", docIdRef);
+  
+        await updateDoc(docRef, docModel);
 
+        //Clear data in DOM before showing new
+        this.tecnicalUsers = [];
+        this.getFireBaseTechnicians();
+        
+        return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+        
+  
+      } catch (error) {
+    
+        return this.snackBar.open('ERRO em atualização do usuário!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+      }
+  }
+  
 
 }
