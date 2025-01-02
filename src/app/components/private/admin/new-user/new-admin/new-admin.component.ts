@@ -94,9 +94,8 @@ export class NewAdminComponent implements OnInit{
         }
         
         let model = result;
-        
-    
         let docIdUpdated =`${model.role}-${model.id}`;
+        
         this.updateFireBaseAdminUser(model,docIdUpdated);
       }
       

@@ -1,4 +1,3 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
@@ -8,8 +7,9 @@ import { snackBarConfig } from '../../../../../data/snackBarData';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
-import { doc, setDoc } from 'firebase/firestore';
+import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
+import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
 
 @Component({
   selector: 'app-new-analyst',
@@ -19,19 +19,20 @@ import { InitiateFirebaseService } from '../../../../../service/initiate-firebas
 export class NewAnalystComponent implements OnInit{
 
 
-  analystUsers: any;
-  userRole = userRoleType.analyst;
+  // analystUsers: any;
+  analystUsers: UserDocumentModel[] = [];
+  isLoading = false; 
+  userAnalystRole = userRoleType.analyst;
   userImage = userDefaultImagesType.defaultAnalystImage;
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient,
     private snackBar: MatSnackBar,
     private initFirebaseService: InitiateFirebaseService
   ){}
 
   ngOnInit(): void {
-    this.getAnalystUsers();
+    this.getFireBaseAnalysts();
   }
 
   openAddNewUserDialog(){
@@ -41,7 +42,7 @@ export class NewAnalystComponent implements OnInit{
       width:'468px',
       height:'598px',
       data:{
-        role: this.userRole,
+        role: this.userAnalystRole,
         image:this.userImage
       }
     })
@@ -49,7 +50,7 @@ export class NewAnalystComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
         let model = result;
-        this.postUser(model);
+        this.postFireBaseAnalystUser(model);
        
       }
     })
@@ -57,14 +58,15 @@ export class NewAnalystComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: User){
+  openEditUserDialog(user: UserDocumentModel){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user:user
+        user: user.userData,
+        documentId: user.docID
       }
     })
 
@@ -74,7 +76,7 @@ export class NewAnalystComponent implements OnInit{
       if(result){
 
         if(result == 'remove'){
-          this.getAnalystUsers();
+          this.getFireBaseAnalysts();
           this.snackBar.open('Usuário removido com sucesso!', 'Close', {
             horizontalPosition: snackBarConfig.horizontalPosition,
             verticalPosition: snackBarConfig.verticalPosition,
@@ -84,83 +86,91 @@ export class NewAnalystComponent implements OnInit{
         }
 
         let model = result;
-        this.updateUser(model);
+        let docIdUpdated =`${model.role}-${model.id}`;
+
+        this.updateFireBaseAnalystUser(model,docIdUpdated);
        
       }
      
     })
   }
 
-  private getAnalystUsers(){
-
-    let params = new HttpParams()
-    .set('role', 'analista');
-
-    this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
-      next:(sample: any)=>{
-        this.analystUsers = sample;
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
+  async updateFireBaseAnalystUser(docData: any, docIdRef: string): Promise<any> {
+      
+      try {
   
-  private postUser(model:any){
+        const docRef = doc(this.initFirebaseService.getDb(), "Users", docIdRef);
+  
+        await updateDoc(docRef, docData);
+        this.analystUsers = [];
 
-    this.httpClient.post('http://localhost:3000/Users/',model).subscribe({
-      next:(sample: any)=>{
+        this.getFireBaseAnalysts();
         
-        this.snackBar.open('Usuário cadastrado com sucesso!', 'Close', {
+        return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+        
+  
+      } catch (error) {
+    
+        return this.snackBar.open('ERRO em atualização do usuário!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+      }
+  }
+
+  async postFireBaseAnalystUser(docData: any): Promise<any> {
+
+       const documentId = `${this.userAnalystRole}-${docData.id}`;
+
+      try {
+
+        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
+        this.snackBar.open('Usuário adicionado com sucesso!', 'Close', {
           horizontalPosition: snackBarConfig.horizontalPosition,
           verticalPosition: snackBarConfig.verticalPosition,
           duration: snackBarConfig.durationInSeconds * 1000 
         });
 
-        this.addUserDocument(sample);
-        this.getAnalystUsers();
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
-
-  private updateUser(model:any){
-
-    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
-    .subscribe({
-        next: (sample: any)=>{
-
-          this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
-
-          this.getAnalystUsers();
-        },
-        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
-    })
-  }
-
-
-  async addUserDocument(docData: any): Promise<boolean> {
-  
-       const documentId = `analista-${docData.id}`;
-      try {
-        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
-        console.log("Document successfully written!");
-        return true; // Indicate success
+        this.getFireBaseAnalysts();
+      
+       
       } catch (error) {
         console.error("Error writing document: ", error);
-        return false; // Indicate failure
+        
       }
   }
-
-
-
-
+  
+  async getFireBaseAnalysts():Promise<void> {
+  
+      this.isLoading = true;
+      this.analystUsers = [];
+  
+      const q = query(collection(this.initFirebaseService.getDb(), "Users"), where("role", "==", this.userAnalystRole));
+  
+      const querySnapshot = await getDocs(q);
+  
+      querySnapshot.forEach((doc) => {
+       
+        const userData = doc.data() as User; 
+        const docID = doc.id;
+        this.analystUsers.push({ docID: docID, userData });
+    
+  
+      });
+  
+      this.isLoading = false;
+      console.log('Analistas> ',this.analystUsers)
+  
+  
+  
+  }
 
 
 }
