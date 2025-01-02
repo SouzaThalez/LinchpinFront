@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { userRoleType } from '../../../../../enums/userRoles';
 import { User } from '../../../../../models/user';
@@ -9,7 +8,8 @@ import { snackBarConfig } from '../../../../../data/snackBarData';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { doc, setDoc } from 'firebase/firestore';
+import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
+import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
 
 @Component({
   selector: 'app-new-maintenance',
@@ -19,30 +19,32 @@ import { doc, setDoc } from 'firebase/firestore';
 export class NewMaintenanceComponent implements OnInit{
 
 
-  manitenceUsers: any;
-  userRole = userRoleType.maintenance; 
+  // manitenceUsers: any;
+  manitenceUsers: UserDocumentModel[] = [];
+  isLoading = false; 
+  userManitenceRole = userRoleType.maintenance; 
   userImage = userDefaultImagesType.defaultMaintenanceImage;
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient,
     private snackBar:MatSnackBar,
      private initFirebaseService: InitiateFirebaseService
   ){}
 
-  ngOnInit(): void {
-    this.getMainitenceUsers();
+  ngOnInit(): void { 
+    this.getFireBaseManitenceUsers();
   }
 
 
-  openEditUserDialog(user: User){
+  openEditUserDialog(user: UserDocumentModel){
   
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user:user
+        user: user.userData,
+        documentId: user.docID
       }
     })
 
@@ -52,7 +54,8 @@ export class NewMaintenanceComponent implements OnInit{
       if(result){
 
         if(result == 'remove'){
-          this.getMainitenceUsers();
+
+          this.getFireBaseManitenceUsers();
           this.snackBar.open('Usuário removido com sucesso!', 'Close', {
             horizontalPosition: snackBarConfig.horizontalPosition,
             verticalPosition: snackBarConfig.verticalPosition,
@@ -62,7 +65,9 @@ export class NewMaintenanceComponent implements OnInit{
         }
         
         let model = result;
-        this.updateUser(model);
+        let docIdUpdated =`${model.role}-${model.id}`;
+        
+        this.updateFireBaseManitenceUser(model,docIdUpdated);
        
       }
       
@@ -78,7 +83,7 @@ export class NewMaintenanceComponent implements OnInit{
       width:'468px',
       height:'598px',
       data:{
-        role: this.userRole,
+        role: this.userManitenceRole,
         image:this.userImage,
       }
     })
@@ -87,7 +92,7 @@ export class NewMaintenanceComponent implements OnInit{
       if(result){
 
         let model = result;
-        this.postUser(model);
+        this.postFireBaseManitenceUser(model);
        
       }
     })
@@ -95,73 +100,80 @@ export class NewMaintenanceComponent implements OnInit{
 
   }
 
-  private getMainitenceUsers(){
-
-    let params = new HttpParams()
-    .set('role', 'manutencao');
-
-    this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
-      next:(sample: any)=>{
-        this.manitenceUsers = sample;
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
+  async updateFireBaseManitenceUser(docModel: any, docIdRef: string): Promise<any> {
+      
+      try {
   
-  private postUser(model:any){
+        const docRef = doc(this.initFirebaseService.getDb(), "Users", docIdRef);
+  
+        await updateDoc(docRef, docModel);
+        this.manitenceUsers = [];
+        this.getFireBaseManitenceUsers();
+        
+        return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+        
+  
+      } catch (error) {
+    
+        return this.snackBar.open('ERRO em atualização do usuário!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+      }
+  }
 
-    this.httpClient.post('http://localhost:3000/Users/',model).subscribe({
-      next:(sample: any)=>{
+  async postFireBaseManitenceUser(docData: any): Promise<any> {
+  
+       const documentId = `${this.userManitenceRole}-${docData.id}`;
 
-        this.snackBar.open('Usuário cadastrado com sucesso!', 'Close', {
+      try {
+        
+        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
+        this.snackBar.open('Usuário adicionado com sucesso!', 'Close', {
           horizontalPosition: snackBarConfig.horizontalPosition,
           verticalPosition: snackBarConfig.verticalPosition,
           duration: snackBarConfig.durationInSeconds * 1000 
         });
 
-        this.addUserDocument(sample);
-        this.getMainitenceUsers();
-      },
-      error:(error)=>{
-        console.log('Something wrong with the request to highSimulators ',error)
-      }
-    })
-  }
-
-  private updateUser(model:any){
-
-    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
-    .subscribe({
-        next: (sample: any)=>{
-
-          this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
-
-          this.getMainitenceUsers();
-        },
-        error: (erro)=>{console.log('request Users  is NOT good: ',erro);}
-    })
-  }
-
-
-    async addUserDocument(docData: any): Promise<boolean> {
-  
-       const documentId = `manutencao-${docData.id}`;
-      try {
-        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
-        console.log("Document successfully written!");
-        return true; // Indicate success
+        this.getFireBaseManitenceUsers();
+        
       } catch (error) {
         console.error("Error writing document: ", error);
-        return false; // Indicate failure
+       
       }
-    }
+  }
 
+  async getFireBaseManitenceUsers():Promise<void> {
+  
+      this.isLoading = true;
+      this.manitenceUsers = [];
+  
+      const q = query(collection(this.initFirebaseService.getDb(), "Users"), where("role", "==", this.userManitenceRole));
+  
+      const querySnapshot = await getDocs(q);
+  
+      querySnapshot.forEach((doc) => {
+       
+        const userData = doc.data() as User; 
+        const docID = doc.id;
+        this.manitenceUsers.push({ docID: docID, userData });
+    
+  
+      });
+  
+      this.isLoading = false;
+      console.log('Manutenção> ',this.manitenceUsers);
+  
+  
+  
+  }
 
 
 

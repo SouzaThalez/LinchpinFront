@@ -1,4 +1,3 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
@@ -29,7 +28,6 @@ export class NewAdminComponent implements OnInit{
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient,
     private snackBar:MatSnackBar,
     private initFirebaseService: InitiateFirebaseService
   ){}
