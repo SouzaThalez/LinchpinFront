@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import moment from 'moment';
+import { Curse } from '../../../../../models/curse';
 
 @Component({
   selector: 'app-edit-lesson-dialog',
@@ -15,14 +16,15 @@ import moment from 'moment';
 export class EditLessonDialogComponent implements OnInit{
 
   form: FormGroup;
-  updateDate: any;
+
+
   constructor(
     public dialogRef: MatDialogRef<EditLessonDialogComponent>,
-    private matDialog: MatDialog,
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      lessonData: any
+      curse: Curse,
+      documentId: string
     },
   ){}
 
@@ -30,12 +32,14 @@ export class EditLessonDialogComponent implements OnInit{
 
     this.form = this.createForm();
     moment.locale('pt-br');
-    const updateDate = moment(this.data.lessonData.updateDate).toDate();
+    
+    //Mudar a data !
+    const updateDate = moment(this.data.curse.updateDate).toDate();
 
     this.form.patchValue({
-      name: this.data.lessonData.name,
+      name: this.data.curse.name,
       updateDate:updateDate,
-      description: this.data.lessonData.description,
+      description: this.data.curse.description,
     });
    
     
@@ -45,7 +49,7 @@ export class EditLessonDialogComponent implements OnInit{
   }
 
   submitForm(){
-debugger
+
     if(this.form.invalid){
 
       this.snackBar.open('Favor preencher todos os Campos!', 'Close', {

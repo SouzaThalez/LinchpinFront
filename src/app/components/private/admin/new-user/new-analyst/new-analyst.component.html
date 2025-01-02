@@ -19,7 +19,7 @@
         <div class="load-users" *ngIf="analystUsers.length > 0">
 
           <div class="container" *ngFor="let analyst of analystUsers">
-            <div class="details-list" *ngIf="analyst.userData">
+            <div class="details-list" *ngIf="analyst.documentData">
               <div class="card-container" (click)="openEditUserDialog(analyst)">
                 <div class="card-body">
                   <div class="card-head">
@@ -27,9 +27,9 @@
                       <img src="assets/images/users/user-default-analist.png" alt="user-default-imag">
                     </div>
                     <div class="card-description">
-                      <span>Usuário: {{analyst.userData.name}}</span>
-                      <span>Tipo: {{analyst.userData.role}}</span>
-                      <span>E-mail: {{analyst.userData.email}}</span>
+                      <span>Usuário: {{analyst.documentData.name}}</span>
+                      <span>Tipo: {{analyst.documentData.role}}</span>
+                      <span>E-mail: {{analyst.documentData.email}}</span>
                     </div>
                     <div class="card-icon">
                       <span class="material-symbols-outlined">visibility</span>

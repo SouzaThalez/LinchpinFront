@@ -18,7 +18,7 @@
       <div class="load-users" *ngIf="manitenceUsers.length > 0">
 
         <div class="container" *ngFor="let element of manitenceUsers">
-          <div class="details-list" *ngIf="element.userData">
+          <div class="details-list" *ngIf="element.documentData">
             <div class="card-container" (click)="openEditUserDialog(element)">
               <div class="card-body">
                 <div class="card-head">
@@ -26,9 +26,9 @@
                     <img src="assets/images/users/user-default-manitence.png" alt="user-default-imag">
                   </div>
                   <div class="card-description">
-                    <span>Usuário: {{element.userData.name}}</span>
-                    <span>Tipo: {{element.userData.role}}</span>
-                    <span>E-mail: {{element.userData.email}}</span>
+                    <span>Usuário: {{element.documentData.name}}</span>
+                    <span>Tipo: {{element.documentData.role}}</span>
+                    <span>E-mail: {{element.documentData.email}}</span>
                   </div>
                   <div class="card-icon">
                     <span class="material-symbols-outlined">visibility</span>

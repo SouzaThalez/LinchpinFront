@@ -20,7 +20,7 @@
     <div class="load-users" *ngIf="tecnicalUsers.length > 0">
 
       <div class="container" *ngFor="let tecnical of tecnicalUsers">
-        <div class="details-list" *ngIf="tecnical.userData">
+        <div class="details-list" *ngIf="tecnical.documentData">
           <div class="card-container" (click)="openEditUserDialog(tecnical)">
             <div class="card-body">
               <div class="card-head">
@@ -28,9 +28,9 @@
                   <img src="assets/images/users/user-default-tec.png" alt="user-default-imag">
                 </div>
                 <div class="card-description">
-                  <span>Usuário: {{tecnical.userData.name}}</span>
-                  <span>Tipo: {{tecnical.userData.role}}</span>
-                  <span>E-mail: {{tecnical.userData.email}}</span>
+                  <span>Usuário: {{tecnical.documentData.name}}</span>
+                  <span>Tipo: {{tecnical.documentData.role}}</span>
+                  <span>E-mail: {{tecnical.documentData.email}}</span>
                 </div>
                 <div class="card-icon">
                   <span class="material-symbols-outlined">visibility</span>

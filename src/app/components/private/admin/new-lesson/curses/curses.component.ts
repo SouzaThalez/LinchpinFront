@@ -1,10 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dialog.component';
 import { NewCourseDialogComponent } from './new-course-dialog/new-course-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
+import { collection, doc, getDocs, query, setDoc } from 'firebase/firestore';
+import { Curse } from '../../../../../models/curse';
+import { DocumentModel } from '../../../../../models/interface/documentModel';
 
 @Component({
   selector: 'app-curses',
@@ -14,26 +17,30 @@ import { snackBarConfig } from '../../../../../data/snackBarData';
 export class CursesComponent implements OnInit{
   
 
-  courses: any;
+  courses: DocumentModel[] = [];
+  isLoading = false;
   trainingValue = 0;
 
   constructor(
     private matDialog: MatDialog,
-    private httpClient: HttpClient,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private initFirebaseService: InitiateFirebaseService
   ){}
 
   
   ngOnInit(): void {
-    this.getCurses();
+    this.getFireBaseCurses();
   }
 
-  openEditLessonDialog(lesson:any){
+  openEditLessonDialog(curse: DocumentModel){
 
     let dialogRef = this.matDialog.open(EditLessonDialogComponent,{
       disableClose: true,
       width:'468px',
-      data:{lessonData:lesson}
+      data:{
+        curse: curse.documentData,
+        documentId: curse.docID
+      }
   
     })
 
@@ -53,48 +60,68 @@ export class CursesComponent implements OnInit{
       disableClose: true,
       width:'468px',
       data:{}
-  
+
     })
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
         
         let model = result;
-        this.postCourse(model);
+        this.postFireBaseCurse(model);
 
       }
     })
   }
 
 
-  private getCurses(){
-
-    this.httpClient.get('http://localhost:3000/Curses').subscribe({
-      next:(sample:any)=>{
-        this.courses = sample;
-        console.log(this.courses)
-      },
-      error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
-    })
-
+  async postFireBaseCurse(docData: any): Promise<any> {
+   
+         const documentId = `ahacurse-${docData.id}`;
+  
+        try {
+          
+          await setDoc(doc(this.initFirebaseService.getDb(), "Curses",documentId), docData);
+          this.snackBar.open('Curso adicionado com sucesso!', 'Close', {
+            horizontalPosition: snackBarConfig.horizontalPosition,
+            verticalPosition: snackBarConfig.verticalPosition,
+            duration: snackBarConfig.durationInSeconds * 1000 
+          });
+  
+         this.getFireBaseCurses();
+          
+        } catch (error) {
+          console.error("Error writing document: ", error);
+         
+        }
   }
+  
+  async getFireBaseCurses():Promise<void> {
+    
+        this.isLoading = true;
+        this.courses = [];
+    
+        const q = query(collection(this.initFirebaseService.getDb(), "Curses"));
+    
+        const querySnapshot = await getDocs(q);
+    
+        querySnapshot.forEach((doc) => {
+         
+          const documentData = doc.data() as Curse; 
+          const docID = doc.id;
+          this.courses.push({ docID: docID, documentData });
+      
+    
+        });
+    
+        this.isLoading = false;
+        console.log('Cursos, ',this.courses);
+    
+    
+    
+  }
+  
+  
 
-  private postCourse(model:any){
-
-    this.httpClient.post('http://localhost:3000/Curses',model)
-      .subscribe({
-          next: (sample: any)=>{
-
-            this.snackBar.open('Curso adicionado com sucesso!', 'Close', {
-              horizontalPosition: snackBarConfig.horizontalPosition,
-              verticalPosition: snackBarConfig.verticalPosition,
-              duration: snackBarConfig.durationInSeconds * 1000 
-            });
-            this.getCurses();
-          },
-          error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
-      })
-    }
 
 
 }

@@ -18,7 +18,7 @@
     <div class="load-users" *ngIf="adminUsers.length > 0">
 
       <div class="container" *ngFor="let admin of adminUsers">
-        <div class="details-list" *ngIf="admin.userData">
+        <div class="details-list" *ngIf="admin.documentData">
           <div class="card-container" (click)="openEditUserDialog(admin)">
             <div class="card-body">
               <div class="card-head">
@@ -26,9 +26,9 @@
                   <img src="assets/images/users/user-default-admin.png" alt="user-default-image">
                 </div>
                 <div class="card-description">
-                  <span>Usuário: {{admin.userData.name}}</span>
-                  <span>Tipo: {{admin.userData.role}}</span>
-                  <span>E-mail: {{admin.userData.email}}</span>
+                  <span>Usuário: {{admin.documentData.name}}</span>
+                  <span>Tipo: {{admin.documentData.role}}</span>
+                  <span>E-mail: {{admin.documentData.email}}</span>
                 </div>
                 <div class="card-icon">
                   <span class="material-symbols-outlined">visibility</span>

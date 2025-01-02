@@ -9,7 +9,7 @@ import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
+import { DocumentModel } from '../../../../../models/interface/documentModel';
 
 @Component({
   selector: 'app-new-analyst',
@@ -20,7 +20,7 @@ export class NewAnalystComponent implements OnInit{
 
 
   // analystUsers: any;
-  analystUsers: UserDocumentModel[] = [];
+  analystUsers: DocumentModel[] = [];
   isLoading = false; 
   userAnalystRole = userRoleType.analyst;
   userImage = userDefaultImagesType.defaultAnalystImage;
@@ -58,14 +58,14 @@ export class NewAnalystComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: UserDocumentModel){
+  openEditUserDialog(user: DocumentModel){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.userData,
+        user: user.documentData,
         documentId: user.docID
       }
     })
@@ -158,9 +158,9 @@ export class NewAnalystComponent implements OnInit{
   
       querySnapshot.forEach((doc) => {
        
-        const userData = doc.data() as User; 
+        const documentData = doc.data() as User; 
         const docID = doc.id;
-        this.analystUsers.push({ docID: docID, userData });
+        this.analystUsers.push({ docID: docID, documentData });
     
   
       });

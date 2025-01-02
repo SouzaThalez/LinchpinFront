@@ -1,35 +1,46 @@
 <div class="page">
-    <div class="page-header">
-        <div class="grid-button-container">
-            <div class="grid-item">
-              <button mat-raised-button class="form-options form-buttons" (click)="openNewCourseDialog()"> + Novo Curso</button>
-            </div>
-        </div>
+
+  <div class="page-header">
+    <div class="grid-button-container">
+      <div class="grid-item">
+        <button mat-raised-button class="form-options form-buttons" (click)="openNewCourseDialog()"> + Novo
+          Curso</button>
+      </div>
     </div>
-    
-    <div class="page-body">
-        <p></p>
-        <div class="details-list" *ngIf="courses">
-            <div class="card-container" 
-                 *ngFor="let lesson of courses"
-                 (click)="openEditLessonDialog(lesson)">
-                <div class="card-body">
-                  <div class="card-head">
-                    <div class="card-image">
-                      <img src="assets/images/logo/curso-logo.png" alt="">
-                    </div>
-                    <div class="card-description">
-                      <span>{{lesson.name}}</span>
-                      <span>{{lesson.label}}</span>
-                    </div>
-                    <div class="card-icon">
-                      <span class="material-symbols-outlined">visibility</span>
-                    </div>
-                  </div>
+  </div>
+
+  <div class="loader-container" *ngIf="isLoading">
+    <span class="loader"></span>
+  </div>
+
+  <div class="page-body">
+
+    <div class="load-curses" *ngIf="courses.length > 0">
+      <div class="container" *ngFor="let course of courses">
+        <div class="details-list" *ngIf="course.documentData">
+          <div class="card-container" (click)="openEditLessonDialog(course)">
+            <div class="card-body">
+              <div class="card-head">
+                <div class="card-image">
+                  <img src="assets/images/logo/curso-logo.png" alt="">
                 </div>
+                <div class="card-description">
+                  <span>{{course.documentData.name}}</span>
+                  <span>{{course.documentData.label}}</span>
+                </div>
+                <div class="card-icon">
+                  <span class="material-symbols-outlined">visibility</span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+
+    <div *ngIf="!isLoading && courses.length == 0 ">
+      <span>Não existem cursos cadastrados</span>
+    </div>
+
+  </div>
 </div>
-
-

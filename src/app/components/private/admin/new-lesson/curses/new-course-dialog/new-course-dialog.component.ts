@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../../data/snackBarData';
+import { Curse } from '../../../../../../models/curse';
 
 @Component({
   selector: 'app-new-course-dialog',
@@ -48,16 +49,23 @@ export class NewCourseDialogComponent implements OnInit{
 
   }
 
+  generateRandomId(): string {
+    const min = 1000; // The minimum value (inclusive)
+    const max = 9999; // The maximum value (inclusive
+    return (Math.floor(Math.random() * (max - min + 1)) + min ).toString(); // Convert to string - user id 
+  }
+
   private createForm(){
 
-    const form = this.fb.group({
-      name:[null,Validators.required],
-      label:[null,Validators.required],
-    
-    })
+      const form = this.fb.group({
+        name:[null,Validators.required],
+        label:[null,Validators.required],
+        lessonType:['curso'],
+        id:[this.generateRandomId()]
+      })
 
-    return form;
-    
+      return form;
+      
   }
 
 

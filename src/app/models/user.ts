@@ -20,14 +20,4 @@ export class User{
         this.task = user.task;
     }
 
-    // constructor(){
-    //     this.id = 0 ;
-    //     this.name = '';
-    //     this.login = '';
-    //     this.role = '';
-    //     this.email = '';
-    //     this.password = '';
-    //     this.image = '';
-    //     this.task = '';
-    // }
 }

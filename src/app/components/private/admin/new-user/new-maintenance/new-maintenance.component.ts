@@ -9,7 +9,7 @@ import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-d
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
-import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
+import { DocumentModel } from '../../../../../models/interface/documentModel';
 
 @Component({
   selector: 'app-new-maintenance',
@@ -18,9 +18,7 @@ import { UserDocumentModel } from '../../../../../models/interface/userDocModel'
 })
 export class NewMaintenanceComponent implements OnInit{
 
-
-  // manitenceUsers: any;
-  manitenceUsers: UserDocumentModel[] = [];
+  manitenceUsers: DocumentModel[] = [];
   isLoading = false; 
   userManitenceRole = userRoleType.maintenance; 
   userImage = userDefaultImagesType.defaultMaintenanceImage;
@@ -28,7 +26,7 @@ export class NewMaintenanceComponent implements OnInit{
   constructor(
     private matDialog: MatDialog,
     private snackBar:MatSnackBar,
-     private initFirebaseService: InitiateFirebaseService
+    private initFirebaseService: InitiateFirebaseService
   ){}
 
   ngOnInit(): void { 
@@ -36,14 +34,14 @@ export class NewMaintenanceComponent implements OnInit{
   }
 
 
-  openEditUserDialog(user: UserDocumentModel){
+  openEditUserDialog(user: DocumentModel){
   
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.userData,
+        user: user.documentData,
         documentId: user.docID
       }
     })
@@ -161,9 +159,9 @@ export class NewMaintenanceComponent implements OnInit{
   
       querySnapshot.forEach((doc) => {
        
-        const userData = doc.data() as User; 
+        const documentData = doc.data() as User; 
         const docID = doc.id;
-        this.manitenceUsers.push({ docID: docID, userData });
+        this.manitenceUsers.push({ docID: docID, documentData });
     
   
       });
@@ -174,9 +172,6 @@ export class NewMaintenanceComponent implements OnInit{
   
   
   }
-
-
-
 
 
 }

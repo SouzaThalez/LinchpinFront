@@ -9,7 +9,7 @@ import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
+import { DocumentModel } from '../../../../../models/interface/documentModel';
 
 
 
@@ -21,7 +21,7 @@ import { UserDocumentModel } from '../../../../../models/interface/userDocModel'
 })
 export class NewAdminComponent implements OnInit{
 
-  adminUsers: UserDocumentModel[] = [];
+  adminUsers: DocumentModel[] = [];
   isLoading = false; 
   userAdminRole = userRoleType.admin; 
   userImage = userDefaultImagesType.defaultAdminImage;
@@ -61,14 +61,14 @@ export class NewAdminComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: UserDocumentModel){
+  openEditUserDialog(user: DocumentModel){
   
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.userData,
+        user: user.documentData,
         documentId: user.docID
       }
     })
@@ -163,9 +163,9 @@ export class NewAdminComponent implements OnInit{
 
     querySnapshot.forEach((doc) => {
      
-      const userData = doc.data() as User; 
+      const documentData = doc.data() as User; 
       const docID = doc.id;
-      this.adminUsers.push({ docID: docID, userData });
+      this.adminUsers.push({ docID: docID, documentData });
   
 
     });

@@ -9,7 +9,7 @@ import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { UserDocumentModel } from '../../../../../models/interface/userDocModel';
+import { DocumentModel } from '../../../../../models/interface/documentModel';
 
 @Component({
   selector: 'app-new-technician',
@@ -19,7 +19,7 @@ import { UserDocumentModel } from '../../../../../models/interface/userDocModel'
 export class NewTechnicianComponent implements OnInit{
 
   //  tecnicalUsers: any;
-   tecnicalUsers: UserDocumentModel[] = [];
+   tecnicalUsers: DocumentModel[] = [];
    isLoading = false; 
    userTechRole = userRoleType.technician;
    userImage = userDefaultImagesType.defaultTechnicianImage;
@@ -59,14 +59,14 @@ export class NewTechnicianComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: UserDocumentModel){
+  openEditUserDialog(user: DocumentModel){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.userData,
+        user: user.documentData,
         documentId: user.docID
       }
     })
@@ -129,9 +129,9 @@ export class NewTechnicianComponent implements OnInit{
   
       querySnapshot.forEach((doc) => {
        
-        const userData = doc.data() as User; 
+        const documentData = doc.data() as User; 
         const docID = doc.id;
-        this.tecnicalUsers.push({ docID: docID, userData });
+        this.tecnicalUsers.push({ docID: docID, documentData });
 
       });
   
