@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dialog.component';
 import { NewCourseDialogComponent } from './new-course-dialog/new-course-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
@@ -9,6 +8,7 @@ import { collection, doc, getDocs, query, setDoc, updateDoc } from 'firebase/fir
 import { Curse } from '../../../../../models/curse';
 import { DocumentModel } from '../../../../../models/interface/documentModel';
 import moment from 'moment';
+import { EditCourseDialogComponent } from './edit-course-dialog/edit-course-dialog.component';
 
 @Component({
   selector: 'app-curses',
@@ -32,9 +32,9 @@ export class CursesComponent implements OnInit{
     this.getFireBaseCurses();
   }
 
-  openEditLessonDialog(curse: DocumentModel){
+  openEditCourseDialog(curse: DocumentModel){
 
-    let dialogRef = this.matDialog.open(EditLessonDialogComponent,{
+    let dialogRef = this.matDialog.open(EditCourseDialogComponent,{
       disableClose: true,
       width:'468px',
       data:{

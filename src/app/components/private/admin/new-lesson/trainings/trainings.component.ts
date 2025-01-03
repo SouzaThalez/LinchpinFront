@@ -3,7 +3,7 @@ import { ocorranceData } from '../../../../../data/ocorranceData';
 import { NewTrainingDialogComponent } from './new-training-dialog/new-training-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NewLessonDialogComponent } from '../new-lesson-dialog/new-lesson-dialog.component';
-import { EditLessonDialogComponent } from '../edit-lesson-dialog/edit-lesson-dialog.component';
+import { EditLessonDialogComponent } from '../disciplines/edit-lesson-dialog/edit-lesson-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { MatSnackBar } from '@angular/material/snack-bar';

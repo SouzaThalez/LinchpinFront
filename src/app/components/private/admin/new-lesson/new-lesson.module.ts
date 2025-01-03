@@ -17,14 +17,14 @@ import { NewTrainingDialogComponent } from './trainings/new-training-dialog/new-
 import { NewLessonDialogComponent } from './new-lesson-dialog/new-lesson-dialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { EditLessonDialogComponent } from './edit-lesson-dialog/edit-lesson-dialog.component';
+import { EditLessonDialogComponent } from './disciplines/edit-lesson-dialog/edit-lesson-dialog.component';
 import { NewCourseDialogComponent } from './curses/new-course-dialog/new-course-dialog.component';
 import { NewDisciplineDialogComponent } from './disciplines/new-discipline-dialog/new-discipline-dialog.component';
 import { RemoveLessonDialogComponent } from './remove-lesson-dialog/remove-lesson-dialog.component';
 import { ConfirmRemoveComponent } from './confirm-remove/confirm-remove.component';
 import { MY_DATE_FORMATS } from '../../../../data/dateformat';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
-
+import { EditCourseDialogComponent } from './curses/edit-course-dialog/edit-course-dialog.component';
 
 
 
@@ -40,7 +40,9 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     NewCourseDialogComponent,
     NewDisciplineDialogComponent,
     RemoveLessonDialogComponent,
-    ConfirmRemoveComponent
+    ConfirmRemoveComponent,
+    EditCourseDialogComponent,
+   
   ],
   imports: [
     CommonModule,

@@ -26,12 +26,14 @@ export class NewLessonDialogComponent implements OnInit{
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      trainingData:any
+      trainingData: any;
+      dialogType: string;
     },
   ){}
 
   
   ngOnInit(): void {
+
     this.newDataForm = this.newLessonForm();
     this.selectedTraining =  this.selectedTrainingForm();
 
@@ -53,6 +55,7 @@ export class NewLessonDialogComponent implements OnInit{
     }
     
     if(this.selectedTraining.invalid){
+
       this.snackBar.open('Favor selecionar o Treinamento!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
         verticalPosition: snackBarConfig.verticalPosition,
@@ -63,18 +66,29 @@ export class NewLessonDialogComponent implements OnInit{
     }
     
     let lesson = this.newDataForm.value;
-    let momentDate = moment(lesson.updateDate).format('DD-MM-YYYY');
-    lesson.updateDate = momentDate;
-  
+    let formatedDated = moment(lesson.updateDate).format('DD-MM-YYYY');
+    lesson.updateDate = formatedDated;
 
-  
     let trainingLessons = this.selectedTraining.get('training').value;
-    trainingLessons.lessons.push(lesson);
+    trainingLessons.documentData.lessons.push(lesson);
 
-    let model = trainingLessons;
+    let model = {
+      modelData: trainingLessons.documentData,
+      documentId: trainingLessons.docID
+    }   
+    
+    debugger
     this.dialogRef.close(model);
 
   }
+  
+  generateRandomId(): string {
+    const min = 1000; // The minimum value (inclusive)
+    const max = 9999; // The maximum value (inclusive
+    return (Math.floor(Math.random() * (max - min + 1)) + min ).toString(); // Convert to string - user id 
+  }
+
+
 
   private newLessonForm(){
 
@@ -82,8 +96,7 @@ export class NewLessonDialogComponent implements OnInit{
       name:[null,Validators.required],
       updateDate:[null,Validators.required],
       description: [null,Validators.required],
-      id:[]
-    
+      id:[this.generateRandomId()]  
     })
 
     return form;

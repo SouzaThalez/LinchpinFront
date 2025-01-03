@@ -9,49 +9,39 @@
 </div>
 
 <mat-dialog-content class="mat-typography" >
-        <div class="dialog-body" [formGroup]="newDataForm">
+        <div class="dialog-body" [formGroup]="form">
 
             <div class="body-header">
 
                 <div class="simulator-image">
                   <img src="assets/images/logo/th-logo.png" alt="">
-                
                 </div>
                 
                 <div class="header-description">
 
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>Nome da Aula</mat-label>
+                        <mat-label>Nome do Curso</mat-label>
                         <input matInput placeholder="Ex.Sinais vitais"  formControlName="name">
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="medium-date-picker">
                         <mat-label>Data da revisão</mat-label>
-                        <input formControlName="date"  matInput [matDatepicker]="picker" formControlName="updateDate">
+                        <input matInput [matDatepicker]="picker" formControlName="updateDate">
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
-    
+                    
+                    <button mat-raised-button>Remover Curso</button>
               
                 </div>
 
             </div>
               
             <div class="simulator-description">
-
-                <h2>Aula de qual {{data.dialogType}}</h2>
-                <div [formGroup]="selectedTraining">
-                    <mat-form-field appearance="outline" class="training-form-field">
-                        <mat-label>Disciplina...</mat-label>
-                        <mat-select formControlName="training">
-                          <mat-option [value]="element" *ngFor="let element of data.trainingData">{{element.documentData.name}} - {{element.documentData.value}}</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                </div>
-    
-                <h2>Descrição da Aula</h2>
+              
+                <h2>Descrição do curso</h2>
                 <mat-form-field class="simulator-description-text" appearance="outline">
-                  <mat-label>Descrição da aula</mat-label>
+                  <mat-label>Descrição do curso</mat-label>
                   <textarea matInput formControlName="description"></textarea>
                 </mat-form-field>
 
@@ -61,9 +51,10 @@
 </mat-dialog-content>
 
 <mat-dialog-actions class="dialog-actions">
-    <button class="default-btn confirm-btn" (click)="submitForm()">Adicionar</button>
+    <button class="default-btn confirm-btn" (click)="submitForm()">Atualizar</button>
             
 </mat-dialog-actions>
+
 
 
 

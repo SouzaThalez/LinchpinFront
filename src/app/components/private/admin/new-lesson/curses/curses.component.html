@@ -18,7 +18,7 @@
     <div class="load-curses" *ngIf="courses.length > 0">
       <div class="container" *ngFor="let course of courses">
         <div class="details-list" *ngIf="course.documentData">
-          <div class="card-container" (click)="openEditLessonDialog(course)">
+          <div class="card-container" (click)="openEditCourseDialog(course)">
             <div class="card-body">
               <div class="card-head">
                 <div class="card-image">

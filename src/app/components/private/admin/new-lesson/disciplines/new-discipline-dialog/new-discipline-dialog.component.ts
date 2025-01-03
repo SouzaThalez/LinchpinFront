@@ -44,12 +44,19 @@ export class NewDisciplineDialogComponent implements OnInit{
 
   }
 
+  generateRandomId(): string {
+    const min = 1000; // The minimum value (inclusive)
+    const max = 9999; // The maximum value (inclusive
+    return (Math.floor(Math.random() * (max - min + 1)) + min ).toString(); // Convert to string - user id 
+  }
+
   private createForm(){
 
     const form = this.fb.group({
       name:[null,Validators.required],
       value:[null,Validators.required],
       lessons:this.fb.array([]),
+      id:[this.generateRandomId()]
       
     })
 
