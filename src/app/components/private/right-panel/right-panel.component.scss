@@ -27,6 +27,7 @@
             }
         }
     }
+
     .logo-container{
         height: 300px;
         margin-top: 42px;
@@ -42,6 +43,7 @@
             justify-content: center;
         }
     }
+
     .version-container{
         //border: 1px solid;
         padding: 10px;
@@ -54,5 +56,9 @@
             font-weight: bold;
             color: #92d2e0;
         }
+    }
+    .theme-container{
+        display: flex;
+        justify-content: center;
     }
 }
