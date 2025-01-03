@@ -79,8 +79,6 @@ export class CursesComponent implements OnInit{
     })
   }
 
-
-  
     
   async updateFireBaseCurse(docModel: any, docIdRef: string): Promise<any> {
  
