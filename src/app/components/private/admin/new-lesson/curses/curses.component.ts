@@ -5,9 +5,10 @@ import { NewCourseDialogComponent } from './new-course-dialog/new-course-dialog.
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { collection, doc, getDocs, query, setDoc } from 'firebase/firestore';
+import { collection, doc, getDocs, query, setDoc, updateDoc } from 'firebase/firestore';
 import { Curse } from '../../../../../models/curse';
 import { DocumentModel } from '../../../../../models/interface/documentModel';
+import moment from 'moment';
 
 @Component({
   selector: 'app-curses',
@@ -19,7 +20,6 @@ export class CursesComponent implements OnInit{
 
   courses: DocumentModel[] = [];
   isLoading = false;
-  trainingValue = 0;
 
   constructor(
     private matDialog: MatDialog,
@@ -46,13 +46,19 @@ export class CursesComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-      
+        
+        let model = result;
+        let convertedDate = moment(model.updateDate).format('DD-MM-YYYY');
+        model.updateDate = convertedDate;
+
+        this.updateFireBaseCurse(model,curse.docID);
+        
+
       }
     })
 
 
   }
-  
   
   openNewCourseDialog(){
 
@@ -73,6 +79,38 @@ export class CursesComponent implements OnInit{
     })
   }
 
+
+  
+    
+  async updateFireBaseCurse(docModel: any, docIdRef: string): Promise<any> {
+ 
+      try {
+  
+        const docRef = doc(this.initFirebaseService.getDb(), "Curses", docIdRef);
+  
+        await updateDoc(docRef, docModel);
+        this.courses = [];
+
+        this.getFireBaseCurses();
+        
+        return this.snackBar.open('Curso atualizado com sucesso!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+        
+  
+      } catch (error) {
+    
+        return this.snackBar.open('ERRO em atualização do curso!', 'Close', {
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition,
+          duration: snackBarConfig.durationInSeconds * 1000 
+        });
+        
+      }
+  }
 
   async postFireBaseCurse(docData: any): Promise<any> {
    
@@ -120,8 +158,5 @@ export class CursesComponent implements OnInit{
     
   }
   
-  
-
-
 
 }
