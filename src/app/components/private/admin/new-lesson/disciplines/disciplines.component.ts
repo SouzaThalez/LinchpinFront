@@ -55,7 +55,6 @@ export class DisciplinesComponent implements OnInit {
       }
     })
   }
-
   openNewLessonDialog() {
 
     let dialogRef = this.matDialog.open(NewLessonDialogComponent, {
@@ -71,13 +70,12 @@ export class DisciplinesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         let model = result;
-        debugger
+  
         this.postFireBaseLesson(model.modelData,model.documentId)
       }
     })
 
   }
-
   openEditLessonDialog(lesson: Lesson, documentId: string) {
 
   
@@ -105,32 +103,21 @@ export class DisciplinesComponent implements OnInit {
 
 
   }
-
-
-
-
-
-
-
-
   openRemoveLessonDialog() {
-
+    
     let dialogRef = this.matDialog.open(RemoveLessonDialogComponent, {
       disableClose: true,
       width: '468px',
       data: {
-        lessonData: this.disciplines,
+        disciplineData: this.disciplines,
         dataName: 'Disciplinas'
       }
 
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        let model = result;
-
-
-
+      if(result ==  false){
+        this.getFireBaseDisciplines();
       }
     })
 
