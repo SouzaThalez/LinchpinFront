@@ -11,7 +11,7 @@
       "role": "analista",
       "task": "N/A"
     },
-     {
+    {
       "id": "2",
       "name": "Maria",
       "login": "maria.vitoria",
@@ -22,7 +22,7 @@
       "role": "administrador",
       "task": "N/A"
     },
-      {
+    {
       "id": "3",
       "name": "Luiz",
       "login": "luiz.vitoria",
