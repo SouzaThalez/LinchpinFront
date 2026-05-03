@@ -10,6 +10,7 @@ import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { DocumentModel } from '../../../../../models/interface/documentModel';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-maintenance',
@@ -19,6 +20,9 @@ import { DocumentModel } from '../../../../../models/interface/documentModel';
 export class NewMaintenanceComponent implements OnInit{
 
   manitenceUsers: DocumentModel[] = [];
+  localManitenceUsers: User[] = [];
+
+
   isLoading = false; 
   userManitenceRole = userRoleType.maintenance; 
   userImage = userDefaultImagesType.defaultMaintenanceImage;
@@ -26,23 +30,24 @@ export class NewMaintenanceComponent implements OnInit{
   constructor(
     private matDialog: MatDialog,
     private snackBar:MatSnackBar,
-    private initFirebaseService: InitiateFirebaseService
+    private initFirebaseService: InitiateFirebaseService,
+    private httpClient: HttpClient,
   ){}
 
   ngOnInit(): void { 
-    this.getFireBaseManitenceUsers();
+    this.getLocalManitenceUsers();
   }
 
 
-  openEditUserDialog(user: DocumentModel){
+  openEditUserDialog(user: User){
   
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.documentData,
-        documentId: user.docID
+        user: user,
+        documentId: user
       }
     })
 
@@ -172,6 +177,21 @@ export class NewMaintenanceComponent implements OnInit{
   
   
   }
+
+  
+     //Local Request
+    private getLocalManitenceUsers(){
+          let params = new HttpParams()
+          .set('role', 'manutencao');
+      
+          this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
+            next:(sample:any)=>{
+              this.localManitenceUsers = sample;
+            },
+            error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
+          })
+      
+    }
 
 
 }

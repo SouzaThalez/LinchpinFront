@@ -33,13 +33,13 @@ export class TrainingLessonCardsComponent implements OnInit{
   }
 
   openOcorranceDialog(lesson: any){
-   
+
     let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
         selectedLesson:lesson,
-        training: this.trainingData[0]
+        training: this.trainingData,
       }
     })
 

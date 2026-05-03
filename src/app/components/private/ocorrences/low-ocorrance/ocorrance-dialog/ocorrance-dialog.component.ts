@@ -56,6 +56,7 @@ export class OcorranceDialogComponent implements OnInit{
   ){}
   
   ngOnInit(): void {
+    
     this.form = this.createForm();
 
     this.userLogedService.getCurrentUser()

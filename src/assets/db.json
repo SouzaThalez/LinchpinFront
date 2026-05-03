@@ -1,7 +1,7 @@
 {
   "Users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Thales",
       "login": "thales.carvalho",
       "password": "thales.1234",
@@ -11,8 +11,30 @@
       "role": "analista",
       "task": "N/A"
     },
+     {
+      "id": "2",
+      "name": "Maria",
+      "login": "maria.vitoria",
+      "password": "maria.1234",
+      "confirmPassword": "maria.1234",
+      "email": "maria.vitoria@feluma.org.br",
+      "image": "assets/images/users/user-default-analist.png",
+      "role": "administrador",
+      "task": "N/A"
+    },
+      {
+      "id": "3",
+      "name": "Luiz",
+      "login": "luiz.vitoria",
+      "password": "luiz.1234",
+      "confirmPassword": "luiz.1234",
+      "email": "luiz.vitor@feluma.org.br",
+      "image": "assets/images/users/user-default-analist.png",
+      "role": "manutencao",
+      "task": "N/A"
+    },
     {
-      "id": 6721,
+      "id": "6721",
       "name": "Mateus",
       "login": "mateus.manaces",
       "password": "mateus.123",
@@ -23,7 +45,7 @@
       "task": "simulação"
     },
     {
-      "id": 8222,
+      "id": "8222",
       "name": "Carlos",
       "login": "carlos.almeida",
       "password": "carlos.123",
@@ -34,7 +56,7 @@
       "task": "N/A"
     },
     {
-      "id": 2068,
+      "id": "2068",
       "name": "Silas",
       "login": "silas.moreira",
       "password": "silas.123",
@@ -71,11 +93,20 @@
       "simulatorCode": "RES121",
       "findings": "Durante a limpeza deste simulador foi encontrado o balão de respiração rasgado",
       "hasDescription": true,
-      "hasIntervention": false,
+      "hasIntervention": true,
       "simulatorImage": "assets/images/Simulators/LowFidelity/ressusciQcpr.png",
       "user": {
         "name": "Taline",
         "role": "tecnico"
+      },
+      "intervention": {
+        "interventionText": "doeodemde deodedmede omfrofr frommed deomdeo",
+        "interventionDate": "04-05-2026",
+        "interventionStatus": "Solucionado após intervenção do Fornecedor",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
       }
     }
   ],

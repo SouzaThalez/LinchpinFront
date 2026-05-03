@@ -15,20 +15,20 @@
     
     <div class="page-body scroll-container">
 
-      <div class="load-users" *ngIf="manitenceUsers.length > 0">
+      <div class="load-users" *ngIf="localManitenceUsers?.length > 0">
 
-        <div class="container" *ngFor="let element of manitenceUsers">
-          <div class="details-list" *ngIf="element.documentData">
-            <div class="card-container" (click)="openEditUserDialog(element)">
+        <div class="container" *ngFor="let manitenceUser of localManitenceUsers">
+          <div class="details-list" *ngIf="manitenceUser">
+            <div class="card-container" (click)="openEditUserDialog(manitenceUser)">
               <div class="card-body">
                 <div class="card-head">
                   <div class="card-image">
                     <img src="assets/images/users/user-default-manitence.png" alt="user-default-imag">
                   </div>
                   <div class="card-description">
-                    <span>Usuário: {{element.documentData.name}}</span>
-                    <span>Tipo: {{element.documentData.role}}</span>
-                    <span>E-mail: {{element.documentData.email}}</span>
+                    <span>Usuário: {{manitenceUser?.name}}</span>
+                    <span>Tipo: {{manitenceUser?.role}}</span>
+                    <span>E-mail: {{manitenceUser?.email}}</span>
                   </div>
                   <div class="card-icon">
                     <span class="material-symbols-outlined">visibility</span>

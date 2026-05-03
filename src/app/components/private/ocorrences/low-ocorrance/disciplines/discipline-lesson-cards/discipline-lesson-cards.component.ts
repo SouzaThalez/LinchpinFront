@@ -4,6 +4,7 @@ import { ocorranceData } from '../../../../../../data/ocorranceData';
 import { OcorranceDialogComponent } from '../../ocorrance-dialog/ocorrance-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Training } from '../../../../../../models/interface/training';
 
 @Component({
   selector: 'app-discipline-lesson-cards',
@@ -14,7 +15,7 @@ export class DisciplineLessonCardsComponent implements OnInit{
 
 
   routeIndex: string;
-  disciplines: any;
+  disciplines!: Training;
 
   constructor(
     private activeRoute:ActivatedRoute,
@@ -40,11 +41,12 @@ export class DisciplineLessonCardsComponent implements OnInit{
       width:'650px',
       data:{
         selectedLesson:lesson,
-        training: this.disciplines[0]
+        training: this.disciplines
       
       }
     })
-    //disciplines
+
+    //disciplines lesson
     dialogRef.afterClosed().subscribe(result=>{
       
       if(result){
@@ -52,7 +54,6 @@ export class DisciplineLessonCardsComponent implements OnInit{
       }
     })
   }
-
   
   private postLessonReports(model:any){
 
@@ -66,14 +67,11 @@ export class DisciplineLessonCardsComponent implements OnInit{
   }
 
   private getDisciplineLessons(id: string){
-
-    let params = new HttpParams()
-    .set('id', id);
     
-    this.httpClient.get('http://localhost:3000/Disciplines',{params}).subscribe({
+    this.httpClient.get(`http://localhost:3000/Disciplines/${id}`).subscribe({
       next:(sample:any)=>{
         this.disciplines = sample;
-        console.log(this.disciplines)
+        console.log(this.disciplines);
       },
       error: (erro)=>{console.log('request to Disciplines  failed: ',erro);}
     })

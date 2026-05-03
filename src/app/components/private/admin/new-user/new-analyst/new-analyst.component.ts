@@ -10,6 +10,7 @@ import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
 import { DocumentModel } from '../../../../../models/interface/documentModel';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-analyst',
@@ -21,6 +22,9 @@ export class NewAnalystComponent implements OnInit{
 
   // analystUsers: any;
   analystUsers: DocumentModel[] = [];
+
+  localAnalystUsers: User[] = [] ;
+
   isLoading = false; 
   userAnalystRole = userRoleType.analyst;
   userImage = userDefaultImagesType.defaultAnalystImage;
@@ -28,11 +32,12 @@ export class NewAnalystComponent implements OnInit{
   constructor(
     private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private initFirebaseService: InitiateFirebaseService
+    private initFirebaseService: InitiateFirebaseService,
+    private httpClient: HttpClient
   ){}
 
   ngOnInit(): void {
-    this.getFireBaseAnalysts();
+    this.getLocalAnalystUsers();
   }
 
   openAddNewUserDialog(){
@@ -58,15 +63,15 @@ export class NewAnalystComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: DocumentModel){
+  openEditUserDialog(user: User){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.documentData,
-        documentId: user.docID
+        user: user,
+        documentId: user
       }
     })
 
@@ -95,6 +100,8 @@ export class NewAnalystComponent implements OnInit{
     })
   }
 
+
+  //FireBase Request
   async updateFireBaseAnalystUser(docData: any, docIdRef: string): Promise<any> {
       
       try {
@@ -171,6 +178,29 @@ export class NewAnalystComponent implements OnInit{
   
   
   }
+
+
+
+  //Local Request
+  private getLocalAnalystUsers(){
+      let params = new HttpParams()
+      .set('role', 'analista');
+  
+      this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
+        next:(sample:any)=>{
+          this.localAnalystUsers = sample;
+        },
+        error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
+      })
+  
+  }
+
+
+
+
+
+
+
 
 
 }
