@@ -110,6 +110,8 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        height: 320px;
+        
         .panel-item{
             cursor: pointer;
             height: 37px;

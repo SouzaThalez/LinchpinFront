@@ -1,12 +1,9 @@
 import { Component, model, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { trainingLessonsData } from '../../../../../../data/trainingLessonsData';
-import { ocorranceData } from '../../../../../../data/ocorranceData';
 import { MatDialog } from '@angular/material/dialog';
 import { OcorranceDialogComponent } from '../../ocorrance-dialog/ocorrance-dialog.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Training } from '../../../../../../models/interface/training';
 
 @Component({
   selector: 'app-training-lesson-cards',
@@ -16,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class TrainingLessonCardsComponent implements OnInit{
 
   routeIndex:string;
-  trainingData: Array<any> = [];
+  trainingData!: Training;
 
   constructor(
     private activeRoute:ActivatedRoute,
@@ -26,12 +23,11 @@ export class TrainingLessonCardsComponent implements OnInit{
 
   ngOnInit(): void {
 
-   this.activeRoute.params.subscribe(value =>{
-      this.routeIndex = value['index'];
-      this.getTrainingLessons(this.routeIndex);
+    this.activeRoute.params.subscribe(value =>{
+        this.routeIndex = value['index'];
+        this.getTrainingLessons(this.routeIndex);
 
-      
-   })
+    })
 
 
   }
@@ -71,14 +67,10 @@ export class TrainingLessonCardsComponent implements OnInit{
 
   private getTrainingLessons(id: string){
     
-    let params = new HttpParams()
-    .set('id', id);
-
-    this.httpClient.get('http://localhost:3000/Trainings',{params}).subscribe({
+    this.httpClient.get(`http://localhost:3000/Trainings/${id}`).subscribe({
       next:(sample:any)=>{
         this.trainingData = sample;
-        // console.log('trainingDatas',this.trainingData)
-       
+        console.log(this.trainingData);
       },
       error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
     })

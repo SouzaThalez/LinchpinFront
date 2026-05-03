@@ -127,7 +127,6 @@ export class HomeComponent implements OnInit{
   
   }
 
-  
   openPreviewCleaningReportDialog(element: any){
     
     let dialogRef = this.matDialog.open(PreviewCleaningReportDialogComponent,{

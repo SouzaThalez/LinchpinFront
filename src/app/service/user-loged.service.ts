@@ -15,51 +15,42 @@ export class UserLogedService {
     this.getCurrentUser();
   }
 
-
-
-  // global method allows calling on other components  
-  getCurrentUser(): Observable<User>{
-
+  getCurrentUser(): Observable<User> {
     return new Observable((subscription) => {
-   
+
       if (this.user) {
+      
         subscription.next(this.user);
         subscription.complete();
         return;
       }
+      // O get do localStorage retorna String sempre, id=string
+      const id = localStorage.getItem('userID');
   
-      const localStorageID = localStorage.getItem('userID');
-      const idConverted = Number(localStorageID);
-    
-  
-      if (!idConverted) {
+
+      if (!id) {
         console.warn('No user ID found in localStorage.');
         subscription.next(null);
         subscription.complete();
         return;
       }
-
-      let params = new HttpParams()
-      .set('id', idConverted);
-
-      this.httpClient.get<User>("http://localhost:3000/Users", {params})
-      .subscribe({
-        next: (user: User) => {
-          
-          this.user = user[0];
-          subscription.next(this.user);
-          subscription.complete();
-        },
-        error: (error) => {
-          console.error('Request to Users failed:', error);
-          subscription.error(error);
-          subscription.complete();
-        }
-      });
       
+      //O id aqui ja é interpretado como string, porque vira parte do URL
+      //Nessa caso nao precisa converter
+      this.httpClient.get<User>(`http://localhost:3000/Users/${id}`)
+        .subscribe({
+          next: (user) => {
+            this.user = user;
+            subscription.next(this.user);
+            subscription.complete();
+          },
+          error: (error) => {
+            console.error('Request failed:', error);
+            subscription.error(error);
+          }
+        });
     });
-
-  }
+}
 
   logOut(){
     this.user = null;

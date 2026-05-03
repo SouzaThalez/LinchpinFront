@@ -1,7 +1,7 @@
 {
   "Users": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Thales",
       "login": "thales.carvalho",
       "password": "thales.1234",
@@ -12,7 +12,7 @@
       "task": "N/A"
     },
     {
-      "id": "6721",
+      "id": 6721,
       "name": "Mateus",
       "login": "mateus.manaces",
       "password": "mateus.123",
@@ -23,7 +23,7 @@
       "task": "simulação"
     },
     {
-      "id": "8222",
+      "id": 8222,
       "name": "Carlos",
       "login": "carlos.almeida",
       "password": "carlos.123",
@@ -34,7 +34,7 @@
       "task": "N/A"
     },
     {
-      "id": "2068",
+      "id": 2068,
       "name": "Silas",
       "login": "silas.moreira",
       "password": "silas.123",
@@ -103,6 +103,30 @@
       },
       "hasIntervention": false,
       "id": "1"
+    },
+    {
+      "date": "04-05-2026",
+      "lessonName": "Salva Corações",
+      "lessonOcorrance": "Não houve registro de ocorrência de aula",
+      "lessonDescription": false,
+      "lessonImage": "assets/images/logo/curso-logo.png",
+      "lessonCategory": "curso",
+      "lessonType": "RCP",
+      "user": {
+        "name": "",
+        "role": ""
+      },
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "04-05-2026"
+      },
+      "hasIntervention": false,
+      "id": "e1rikDmTZF8"
     }
   ],
   "manitanceReports": [],
@@ -2975,5 +2999,6 @@
       "label": "ATLS",
       "id": "7"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -2,11 +2,11 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a routerLink="../../treinamentos"> Treinamentos </a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a>treinamento {{trainingData[0]?.value}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a>treinamento {{trainingData?.value}}</a></li>
         </ol>
     </nav>
     <div class="details-list">
-        <div class="card-container" *ngFor="let lesson of trainingData[0]?.lessons">
+        <div class="card-container" *ngFor="let lesson of trainingData?.lessons">
             
             <div class="card-body" (click)="openOcorranceDialog(lesson)">
                 <div class="card-head">
