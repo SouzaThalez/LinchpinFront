@@ -10,6 +10,7 @@ import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
 import { DocumentModel } from '../../../../../models/interface/documentModel';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-technician',
@@ -20,6 +21,8 @@ export class NewTechnicianComponent implements OnInit{
 
   //  tecnicalUsers: any;
    tecnicalUsers: DocumentModel[] = [];
+   localTecnicalUsers: User[] = [] ;
+
    isLoading = false; 
    userTechRole = userRoleType.technician;
    userImage = userDefaultImagesType.defaultTechnicianImage;
@@ -27,11 +30,12 @@ export class NewTechnicianComponent implements OnInit{
   constructor(
     private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private initFirebaseService: InitiateFirebaseService
+    private initFirebaseService: InitiateFirebaseService,
+     private httpClient: HttpClient
   ){}
 
   ngOnInit(): void {
-    this.getFireBaseTechnicians();
+    this.getLocalTecnicalUsers();
   }
 
   openAddNewUserDialog(){
@@ -59,15 +63,15 @@ export class NewTechnicianComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: DocumentModel){
+  openEditUserDialog(user: User){
 
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.documentData,
-        documentId: user.docID
+        user: user,
+        documentId: user
       }
     })
 
@@ -95,7 +99,7 @@ export class NewTechnicianComponent implements OnInit{
     })
   }
 
-
+  //FireBase Request
   async postFireBaseTechUser(docData: any): Promise<any> {
   
       //  const documentId = `tecnico-${docData.id}`;
@@ -172,6 +176,19 @@ export class NewTechnicianComponent implements OnInit{
         
       }
   }
-  
+
+   //Local Request
+  private getLocalTecnicalUsers(){
+        let params = new HttpParams()
+        .set('role', 'tecnico');
+    
+        this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
+          next:(sample:any)=>{
+            this.localTecnicalUsers = sample;
+          },
+          error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
+        })
+    
+  }
 
 }

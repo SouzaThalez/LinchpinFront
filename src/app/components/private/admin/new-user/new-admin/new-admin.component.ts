@@ -10,6 +10,7 @@ import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
 import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
 import { DocumentModel } from '../../../../../models/interface/documentModel';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 
 
@@ -22,6 +23,9 @@ import { DocumentModel } from '../../../../../models/interface/documentModel';
 export class NewAdminComponent implements OnInit{
 
   adminUsers: DocumentModel[] = [];
+
+  localAdminUsers: User[] = [] ;
+
   isLoading = false; 
   userAdminRole = userRoleType.admin; 
   userImage = userDefaultImagesType.defaultAdminImage;
@@ -29,11 +33,12 @@ export class NewAdminComponent implements OnInit{
   constructor(
     private matDialog: MatDialog,
     private snackBar:MatSnackBar,
-    private initFirebaseService: InitiateFirebaseService
+    private initFirebaseService: InitiateFirebaseService,
+    private httpClient: HttpClient
   ){}
 
   ngOnInit(): void {
-    this.getFireBaseAdmins();
+    this.getAdminUsers();
   }
 
 
@@ -61,15 +66,15 @@ export class NewAdminComponent implements OnInit{
 
   }
 
-  openEditUserDialog(user: DocumentModel){
+  openEditUserDialog(user: User){
   
     let dialogRef = this.matDialog.open(EditUserDialogComponent,{
       disableClose: true,
       width:'468px',
       height:'598px',
       data:{
-        user: user.documentData,
-        documentId: user.docID
+        user: user,
+        documentId: user
       }
     })
 
@@ -102,6 +107,7 @@ export class NewAdminComponent implements OnInit{
 
   }
 
+  //FireBase Request
   
   async updateFireBaseAdminUser(docModel: any, docIdRef: string): Promise<any> {
     
@@ -176,6 +182,25 @@ export class NewAdminComponent implements OnInit{
 
 
   }
+
+
+  //Local Request
+  
+  private getAdminUsers(){
+    let params = new HttpParams()
+    .set('role', 'administrador');
+
+    this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
+      next:(sample:any)=>{
+        this.localAdminUsers = sample;
+        console.log(this.localAdminUsers)
+      },
+      error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
+    })
+
+  }
+
+
   
 
 }

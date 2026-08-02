@@ -3,8 +3,10 @@
   <div class="page-header">
     <div class="grid-button-container">
       <div class="grid-item">
-        <button mat-raised-button class="form-options form-buttons" (click)="openAddNewUserDialog()"> + Novo usuário
-          administrador</button>
+        <button mat-raised-button class="form-options form-buttons" 
+               (click)="openAddNewUserDialog()">
+               + Novo usuário administrador
+        </button>
       </div>
     </div>
   </div>
@@ -15,10 +17,10 @@
 
   <div class="page-body scroll-container">
 
-    <div class="load-users" *ngIf="adminUsers.length > 0">
+    <div class="load-users" *ngIf="localAdminUsers?.length > 0">
 
-      <div class="container" *ngFor="let admin of adminUsers">
-        <div class="details-list" *ngIf="admin.documentData">
+      <div class="container" *ngFor="let admin of localAdminUsers">
+        <div class="details-list" *ngIf="admin">
           <div class="card-container" (click)="openEditUserDialog(admin)">
             <div class="card-body">
               <div class="card-head">
@@ -26,9 +28,9 @@
                   <img src="assets/images/users/user-default-admin.png" alt="user-default-image">
                 </div>
                 <div class="card-description">
-                  <span>Usuário: {{admin.documentData.name}}</span>
-                  <span>Tipo: {{admin.documentData.role}}</span>
-                  <span>E-mail: {{admin.documentData.email}}</span>
+                  <span>Usuário: {{admin?.name}}</span>
+                  <span>Tipo: {{admin?.role}}</span>
+                  <span>E-mail: {{admin?.email}}</span>
                 </div>
                 <div class="card-icon">
                   <span class="material-symbols-outlined">visibility</span>
