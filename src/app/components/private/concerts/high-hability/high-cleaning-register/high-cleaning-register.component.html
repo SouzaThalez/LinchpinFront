@@ -16,13 +16,14 @@
                     </div>
                     <div class="report-info">
                             <span>Simulador: {{element.simulatorName}}</span>
-                            <span>Limpeza: {{element.cleaningCategory}}</span>
+                            <span>Tag: {{element.simulatorCode.code}}</span>
                             <span>Data: {{element.date}}</span>
                             <div class="report-button" 
                                 (click)="openInterventionReport(element)"
                                 [ngClass]="element.hasIntervention ? 'green' : 'red'">
                             <span>
-                                {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}
+                                Editar
+                                <!-- {{ element.hasIntervention ? 'Chamado Fechado' : 'Editar' }} -->
                             </span> 
                             
                         </div>
@@ -32,8 +33,8 @@
             <div class="report-content">
                 <div class="report-footer" (click)="openPreviewCleaningReportDialog(element)">
                     <div class="footer-header">
-                        <span>Achados da Limpeza:</span>
-                        <span class="report-code">Código: {{element.simulatorCode.code}}</span>
+                        <span>Achados:</span>
+                        <span class="report-code">Limpeza: {{element.cleaningCategory}}</span>
                     </div>
                     <div class="footer-content">
                         <span>{{element.findings}}</span>
@@ -44,7 +45,7 @@
                                 <span>Status: {{element.intervention.interventionStatus}}</span>
                             </div>
                             <ng-template #default>
-                                <span><b>Status: Enviado para manutenção...</b></span>
+                                <span><b>Tipo: Enviado para manutenção...</b></span>
                             </ng-template>
                             <span class="material-symbols-outlined">visibility</span>
                         </div>

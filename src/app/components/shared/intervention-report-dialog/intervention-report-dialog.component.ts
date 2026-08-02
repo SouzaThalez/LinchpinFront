@@ -4,9 +4,10 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import moment from 'moment';
-import { manitenceStatusData } from '../../../data/manitenceStatusData';
+import { manitenceTypeData } from '../../../data/manitenceTypeData';
 import { UserLogedService } from '../../../service/user-loged.service';
 import { User } from '../../../models/user';
+import { maintenanceStatusData } from '../../../data/maintenanceStatusData';
 
 @Component({
   selector: 'app-intervention-report-dialog',
@@ -21,7 +22,8 @@ export class InterventionReportDialogComponent implements OnInit{
   status: string = '';
   checked= false;
   defaultInterventionText = 'Nenhuma intervenção realizada';
-  manitanceStatus = manitenceStatusData;
+  manitanceType = manitenceTypeData;
+  manitanceStatus = maintenanceStatusData;
 
   currentUser: User;
   userModel = {
@@ -90,7 +92,8 @@ export class InterventionReportDialogComponent implements OnInit{
     const interForm = this.fb.group({
       interventionText: [null,Validators.required],
       interventionDate: [null, Validators.required],
-      interventionStatus: [null, Validators.required],
+      interventionType: [null, Validators.required],
+      interventionStatus: [this.manitanceStatus[0]?.text, Validators.required],
       interventionUser: [this.userModel],
     })
 

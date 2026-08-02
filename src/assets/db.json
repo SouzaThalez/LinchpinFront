@@ -71,12 +71,181 @@
       "simulatorCode": "RES121",
       "findings": "Durante a limpeza deste simulador foi encontrado o balão de respiração rasgado",
       "hasDescription": true,
-      "hasIntervention": false,
+      "hasIntervention": true,
       "simulatorImage": "assets/images/Simulators/LowFidelity/ressusciQcpr.png",
       "user": {
         "name": "Taline",
         "role": "tecnico"
+      },
+      "intervention": {
+        "interventionText": "Foi colocado um novo Balão de ar no lugar",
+        "interventionDate": "01-08-2026",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
       }
+    },
+    {
+      "date": "01-08-2026",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "baixa",
+      "simulatorName": "Punção Arterial",
+      "simulatorCode": "PUNA203",
+      "findings": "Durante a limpeza do simulador , houve a necessidade de trocar a pele porque estava muito danificada",
+      "hasDescription": true,
+      "hasIntervention": true,
+      "simulatorImage": "assets/images/Simulators/LowFidelity/arterialArm.jpg",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "id": "sME8yJr",
+      "intervention": {
+        "interventionText": "Foi comprado uma pele nova - e colocado no simulador",
+        "interventionDate": "02-08-2026",
+        "interventionStatus": "Solucionado após intervenção do Analista",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "date": "01-08-2026",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "media",
+      "simulatorName": "Ressusci Anne",
+      "simulatorCode": "ANNE33",
+      "findings": "Durante a limpeza o simulador foi encontrado com roupas rasgadas ",
+      "hasDescription": true,
+      "simulatorImage": "assets/images/Simulators/MediumFidelity/ressuciAnne.jpg",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "id": "2fKRXE_",
+      "intervention": {
+        "interventionText": "Aguardando a chegada de novas roupas para colocar no simulador. \nA principio chegara no dia 03/08/2026",
+        "interventionDate": "03-08-2026",
+        "interventionStatus": "Em analise pelo analista",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      },
+      "hasIntervention": true
+    },
+    {
+      "date": "01-08-2026",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMom",
+      "simulatorCode": "MOM567",
+      "findings": "Durante a limpeza , percebeu-se que o simulador nao tinha as sombracelhas",
+      "hasDescription": true,
+      "hasIntervention": true,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "id": "tCoVngc",
+      "intervention": {
+        "interventionText": "ededede",
+        "interventionDate": "01-08-2026",
+        "interventionType": "Aguardando Envio para Fornecedor",
+        "interventionStatus": "Em andamento",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "date": "01-08-2026",
+      "cleaningCategory": "primária",
+      "simulatorCategory": "alta",
+      "simulatorName": "Sim Baby Light",
+      "simulatorCode": "LIGH2123",
+      "findings": "Durante a limpeza percebeu-se que o simulador está sem calças ",
+      "hasDescription": true,
+      "hasIntervention": true,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/simBabyLight.png",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "id": "ZDeFw4f",
+      "intervention": {
+        "interventionText": "Foram colocadas novas calças! ",
+        "interventionDate": "01-08-2026",
+        "interventionType": "Solucionado após intervenção do Analista",
+        "interventionStatus": "Fechado",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "date": "01-08-2026",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "Harvey",
+      "simulatorCode": "HAR333",
+      "findings": "Durante a limpeza o Simulador com o esfigno estragado",
+      "hasDescription": true,
+      "hasIntervention": true,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "id": "bPvc7sg",
+      "intervention": {
+        "interventionText": "Esfignomanometro concertado- foi trocado por um novo. \ns simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+        "interventionDate": "02-08-2026",
+        "interventionType": "Solucionado após intervenção do Fornecedor",
+        "interventionStatus": "Em andamento",
+        "interventionUser": {
+          "name": "Thales",
+          "role": "analista"
+        }
+      }
+    },
+    {
+      "date": "02-08-2026",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan 3G",
+      "simulatorCode": "3G4231",
+      "findings": "Não houve achados durante a limpeza deste simulador",
+      "hasDescription": false,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "id": "w1aPFcc"
+    },
+    {
+      "date": "02-08-2026",
+      "cleaningCategory": "secundária",
+      "simulatorCategory": "alta",
+      "simulatorName": "SimMan 3G",
+      "simulatorCode": "3G4231",
+      "findings": "Simulador sem pulso radial. \nis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+      "hasDescription": true,
+      "hasIntervention": false,
+      "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "id": "U0NrS2C"
     }
   ],
   "LessonReports": [
@@ -103,6 +272,30 @@
       },
       "hasIntervention": false,
       "id": "1"
+    },
+    {
+      "date": "01-08-2026",
+      "lessonName": "Primeira - Apresentação inaugural",
+      "lessonOcorrance": "Datashow- parou de funcionar tivemos que trocar. Perdendo 10 minutos de aula. \n",
+      "lessonDescription": true,
+      "lessonImage": "assets/images/logo/th-logo.png",
+      "lessonCategory": "Treinamento Habilidade",
+      "lessonType": "8",
+      "user": {
+        "name": "Thales",
+        "role": "analista"
+      },
+      "simulatorDescription": false,
+      "simulatorReport": {
+        "name": "Não informado",
+        "code": "Não informado",
+        "image": "Não informado",
+        "ocorrance": "Não houve ocorrência de Simulador",
+        "simulatorCategory": "Não informado",
+        "date": "01-08-2026"
+      },
+      "hasIntervention": false,
+      "id": "zCcmPhn"
     }
   ],
   "manitanceReports": [],

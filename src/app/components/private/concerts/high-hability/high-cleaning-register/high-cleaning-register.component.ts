@@ -60,18 +60,23 @@ export class HighCleaningRegisterComponent implements OnInit{
   }
 
   openInterventionReport(report: any){
+    
+   
+    
 
-    if(report.hasIntervention){
+    // if(report.hasIntervention){
 
-      this.snackBar.open('Ups! Ja foi registrado uma intervenção!', 'Close', {
-        horizontalPosition: snackBarConfig.horizontalPosition,
-        verticalPosition: snackBarConfig.verticalPosition,
-        duration: snackBarConfig.durationInSeconds * 1000 
-      });
+    //   this.snackBar.open('Ups! Ja foi registrado uma intervenção!', 'Close', {
+    //     horizontalPosition: snackBarConfig.horizontalPosition,
+    //     verticalPosition: snackBarConfig.verticalPosition,
+    //     duration: snackBarConfig.durationInSeconds * 1000 
+    //   });
 
-      return
+    //   return
 
-    }
+    // }
+
+debugger
 
     if(this.currentUser.role == this.userAnalystRole){
 
@@ -81,20 +86,24 @@ export class HighCleaningRegisterComponent implements OnInit{
       })
   
       dialogRef.afterClosed().subscribe(result=>{
-   
+     
         if(result){
+          debugger
           //adding interventionReport to model 
           report.intervention = result;
           report.hasIntervention = true;
+        
           this.updateReport(report);
         }
       })
     }else{
+
       this.snackBar.open('Ups! não é possivél realizar uma intervenção!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
         verticalPosition: snackBarConfig.verticalPosition,
         duration: snackBarConfig.durationInSeconds * 1000 
       });
+
     }
 
 
