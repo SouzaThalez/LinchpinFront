@@ -14,8 +14,7 @@ import { MediumOcorranceRegisterComponent } from './medium-hability/medium-ocorr
 import { HighCleaningRegisterComponent } from './high-hability/high-cleaning-register/high-cleaning-register.component';
 import { HighManitenceRegisterComponent } from './high-hability/high-manitence-register/high-manitence-register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HighCleaningDetailsComponent } from './high-hability/high-cleaning-details/high-cleaning-details.component';
-
+import { HighCleaningDetailsComponent } from './high-hability/high-cleaning-register/high-cleaning-details/high-cleaning-details.component';
 
 
 @NgModule({

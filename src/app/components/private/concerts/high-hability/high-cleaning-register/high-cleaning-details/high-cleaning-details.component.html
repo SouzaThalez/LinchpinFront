@@ -1,0 +1,114 @@
+<div class="page">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="../../chamados-limpezas"> ← Chamados</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>{{routeName}}</a>
+            </li>
+        </ol>
+    </nav>
+    <div class="page-body">
+
+        <div class="page-content-header">
+            <div class="content-photo">
+                <img [src]="simulator?.simulatorImage">
+                <div class="content-photo-details">
+                    <div class="photo-title">Simulador {{simulator?.simulatorName}}</div>
+                    <div class="photo-detail">
+                        <span>Tag: {{simulator?.simulatorCode}}</span>
+                        <span>status: </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description-container">
+
+            <div class="history-card">
+                <div class="history-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="user-details">
+                    <h4>João da Silva</h4>
+                    <span>Aberto em 21/07/2026 • 14:35</span>
+                    </div>
+                </div>
+
+                <!-- <div class="status open">
+                    Aberto
+                </div> -->
+
+                </div>
+
+                <div class="history-body">
+                <p>
+                    O simulador apresentou falha durante o treinamento.
+                    Foi identificado vazamento de fluido na região do tórax,
+                    impossibilitando a utilização do equipamento.
+                </p>
+                </div>
+
+            </div>
+
+            <div class="history-card">
+                <div class="history-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="user-details">
+                    <h4>Maria Oliveira</h4>
+                    <span>19/07/2026 • 09:15</span>
+                    </div>
+                </div>
+
+                <!-- <div class="status progress">
+                    Em andamento
+                </div> -->
+                </div>
+
+                <div class="history-body">
+                <p>
+                    Equipamento encaminhado para manutenção preventiva.
+                    Aguardando chegada das peças de reposição.
+                </p>
+                </div>
+
+            </div>
+
+            <div class="history-card">
+                <div class="history-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="user-details">
+                    <h4>Carlos Pereira</h4>
+                    <span>15/07/2026 • 10:20</span>
+                    </div>
+                </div>
+
+                <!-- <div class="status closed">
+                    Fechado
+                </div> -->
+                </div>
+
+                <div class="history-body">
+                <p>
+                    Limpeza realizada, equipamento testado e liberado para utilização.
+                </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

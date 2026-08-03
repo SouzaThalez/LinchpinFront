@@ -8,7 +8,8 @@
         </div>
         
         <div class="report-container-grid"
-             *ngFor="let element of cleaningData">
+             *ngFor="let element of cleaningData"
+             routerLink="/private/concerts/Alta-Fidelidade/chamados-limpezas/{{element.id}}">
             <div class="report-content">
                 <div class="report-body">
                     <div class="report-image">
@@ -31,7 +32,8 @@
                 </div>
             </div>
             <div class="report-content">
-                <div class="report-footer" (click)="openPreviewCleaningReportDialog(element)">
+                <div class="report-footer">
+                    <!-- (click)="openPreviewCleaningReportDialog(element)" -->
                     <div class="footer-header">
                         <span>Achados:</span>
                         <span class="report-code">Limpeza: {{element.cleaningCategory}}</span>

@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Simulator } from '../../../../../models/simulator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import moment from 'moment';
@@ -25,6 +25,13 @@ export class HighCleaningDialogComponent implements OnInit{
   snackbarMessage = 'Registro salvo com sucesso!';
   simulatorCodes: Array<any> = [];
   currentUser: User;
+  cleaningReports: any[];
+  osModel = {
+    osCode:'',
+    osDate: '',
+    osTag:'',
+    simulator:[]
+  }
   userModel = {
     name:'',
     role:''
@@ -45,8 +52,7 @@ export class HighCleaningDialogComponent implements OnInit{
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
-  
-    
+      this.getCleaningReports();
 
       this.userLogedService.getCurrentUser()
       .subscribe({
@@ -60,8 +66,9 @@ export class HighCleaningDialogComponent implements OnInit{
   } 
 
   
-  onClose(value: string): void {
-    this.dialogRef.close(value);
+  onClose(value: any): void {
+
+    this.dialogRef.close(value); // passing the dataValue to dialog
     this.openSnackBar(this.snackbarMessage);
   }
  
@@ -79,10 +86,32 @@ export class HighCleaningDialogComponent implements OnInit{
     
     if (this.form.valid) {
 
+      
+
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
       this.form.patchValue({date: momentDate});
 
-      const model = this.form.value;
+      const foundSimulator = this.cleaningReports.find(
+        element => element.osTag === this.form.value.simulatorCode
+      );
+
+      
+      if (foundSimulator) {
+        const model = this.form.value;
+        foundSimulator.simulator.push(model);
+
+        this.updateCleaningReport(foundSimulator.id,foundSimulator);
+        this.onClose(model);
+        return
+      }
+
+
+      this.osModel.osCode = '7855',
+      this.osModel.osDate = '03-08-2026',
+      this.osModel.osTag = this.form.value.simulatorCode,
+      this.osModel.simulator.push(this.form.value);
+     
+      const model = this.osModel;
    
       this.postCleaningReports(model);
       this.onClose(model);
@@ -129,6 +158,43 @@ export class HighCleaningDialogComponent implements OnInit{
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
   }
+
+  private getCleaningReports(){
+      // returns data who meets theese 2 conditions
+      let params = new HttpParams()
+        .set('hasDescription', 'true')
+        .set('simulatorCategory', 'alta');
+      
+      this.httpClient.get('http://localhost:3000/CleaningReports/', { params })
+      .subscribe({
+          next: (sample: any)=>{
+            this.cleaningReports = sample;
+           
+          },
+          error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+      })
+  }
+  
+private updateCleaningReport(id: number, newSimulator: any) {
+
+  this.httpClient.get<any>(`http://localhost:3000/CleaningReports/${id}`)
+    .subscribe(report => {
+
+      report.simulator.push(newSimulator);
+
+      this.httpClient.put(`http://localhost:3000/CleaningReports/${id}`,report).subscribe(
+        () => {
+        console.log('Simulador adicionado!');
+      });
+
+    });
+
+}
+
+
+
+
+
 
   private createForm(): FormGroup{
 

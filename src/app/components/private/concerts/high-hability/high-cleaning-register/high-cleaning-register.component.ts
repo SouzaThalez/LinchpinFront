@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviewCleaningReportDialogComponent } from '../../../../shared/preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
 import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
@@ -21,6 +21,7 @@ export class HighCleaningRegisterComponent implements OnInit{
   selectedReport: any;
   currentUser: User;
   userAnalystRole = userRoleType.analyst;
+  @Input() cleaning : any;
 
   constructor(
     private httpClient: HttpClient,
@@ -76,7 +77,7 @@ export class HighCleaningRegisterComponent implements OnInit{
 
     // }
 
-debugger
+
 
     if(this.currentUser.role == this.userAnalystRole){
 
@@ -88,7 +89,7 @@ debugger
       dialogRef.afterClosed().subscribe(result=>{
      
         if(result){
-          debugger
+         
           //adding interventionReport to model 
           report.intervention = result;
           report.hasIntervention = true;
@@ -132,6 +133,7 @@ debugger
     .subscribe({
         next: (sample: any)=>{
           this.cleaningData = sample;
+         
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
     })
