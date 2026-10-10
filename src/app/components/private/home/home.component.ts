@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit{
   scenariosData: any;
 
 
-  cleaningCountData: any;
   currentUser: User;
 
   recentReportsData ={
@@ -53,7 +52,7 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     
-    console.log(environment.firebaseConfig.projectId);
+    console.log('project- id: ',environment.firebaseConfig.projectId);
    
     this.userLogedService.getCurrentUser()
     .subscribe({
@@ -69,7 +68,6 @@ export class HomeComponent implements OnInit{
     });
 
     this.callGeneralChart();
-    this.getAllCleaningReports();
     
   }
 
@@ -207,7 +205,7 @@ export class HomeComponent implements OnInit{
           cleanings: this.cleaningData
         };
 
-        // console.log(this.recentReportsData);
+        console.log('gettAll DATA ARRAY: ',this.recentReportsData);
       },
       error: (error) => {
         console.log('Error with one or more requests:', error);
@@ -249,7 +247,7 @@ export class HomeComponent implements OnInit{
           cleanings: this.cleaningData
         };
 
-        console.log(this.recentReportsData);
+        console.log('GET USER REPORT DATA ARRAY: ',this.recentReportsData);
 
       },
       error: (error) => {
@@ -261,20 +259,18 @@ export class HomeComponent implements OnInit{
 
   }
 
-  private getAllCleaningReports(){
+  // private getAllCleaningReports(){
 
-     // only for counting cleaning reperts total
-    // This is not optimal
-    
-    this.httpClient.get('http://localhost:3000/CleaningReports/')
-    .subscribe({
-        next: (sample: any)=>{
-          this.cleaningCountData = sample;
+  //   this.httpClient.get('http://localhost:3000/CleaningReports/')
+  //   .subscribe({
+  //       next: (sample: any)=>{
+  //         this.cleaningCountData = sample;
+  //         console.log('cleaningCountData: ',this.cleaningCountData)
           
-        },
-        error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
-    })
-  }
+  //       },
+  //       error: (erro)=>{console.log('request to lessonReport NOT good: ',erro);}
+  //   })
+  // }
 
 
 }

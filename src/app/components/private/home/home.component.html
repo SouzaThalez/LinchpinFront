@@ -28,7 +28,7 @@
                     </div>
                     <div class="report-badge">
                         <span>Limpezas</span>
-                        <span>{{cleaningCountData?.length}}</span>
+                        <span>{{recentReportsData?.cleanings.length}}</span>
                     </div>
                 </div>
             </div>
@@ -99,8 +99,7 @@
                         <div class="report-description">
                             <span>Registro: <b>Limpeza</b></span>
                             <span>Categoria: {{element.cleaningCategory}}</span>
-                            <span>Date: {{element.date}}</span>
-                            <span>Responsavél: {{element.user.name}}</span>
+                            <span>Date: {{element.osDate}}</span>
                         </div>
                     </div>
                     <div class="report-bars">

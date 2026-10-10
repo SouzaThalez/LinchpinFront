@@ -71,60 +71,52 @@
     {
       "osCode": "7855",
       "osDate": "03-08-2026",
-      "osTag": "HAR331",
+      "osTag": "3G4231",
       "simulator": [
         {
-          "date": "03-08-2026",
+          "date": "04-08-2026",
           "cleaningCategory": "secundária",
           "simulatorCategory": "alta",
-          "simulatorName": "Harvey",
-          "simulatorCode": "HAR331",
-          "findings": "Simulador com roupa bem suja. \n is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+          "simulatorName": "SimMan 3G",
+          "simulatorCode": "3G4231",
+          "findings": "Simulador com roupa suja ",
           "hasDescription": true,
           "hasIntervention": false,
-          "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+          "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
           "user": {
             "name": "Thales",
             "role": "analista"
           }
         },
         {
-          "osCode": "7855",
-          "osDate": "03-08-2026",
-          "osTag": "HAR331",
-          "simulator": [
-            {
-              "date": "03-08-2026",
-              "cleaningCategory": "secundária",
-              "simulatorCategory": "alta",
-              "simulatorName": "Harvey",
-              "simulatorCode": "HAR331",
-              "findings": "Simulador com roupa bem suja. \n is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
-              "hasDescription": true,
-              "hasIntervention": false,
-              "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
-              "user": {
-                "name": "Thales",
-                "role": "analista"
-              }
-            },
-            {
-              "date": "02-08-2026",
-              "cleaningCategory": "secundária",
-              "simulatorCategory": "alta",
-              "simulatorName": "Harvey",
-              "simulatorCode": "HAR331",
-              "findings": "troca de roupas realizadas",
-              "hasDescription": true,
-              "hasIntervention": false,
-              "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
-              "user": {
-                "name": "Thales",
-                "role": "analista"
-              }
-            }
-          ],
-          "id": 1
+          "date": "05-08-2026",
+          "cleaningCategory": "secundária",
+          "simulatorCategory": "alta",
+          "simulatorName": "SimMan 3G",
+          "simulatorCode": "3G4231",
+          "findings": "Calça suja",
+          "hasDescription": true,
+          "hasIntervention": false,
+          "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+          "user": {
+            "name": "Thales",
+            "role": "analista"
+          }
+        },
+        {
+          "date": "05-08-2026",
+          "cleaningCategory": "secundária",
+          "simulatorCategory": "alta",
+          "simulatorName": "SimMan 3G",
+          "simulatorCode": "3G4231",
+          "findings": "WEDWDWE",
+          "hasDescription": true,
+          "hasIntervention": false,
+          "simulatorImage": "assets/images/Simulators/HighFidelity/SIM3G.jpeg",
+          "user": {
+            "name": "Thales",
+            "role": "analista"
+          }
         }
       ],
       "id": 1
@@ -132,60 +124,81 @@
     {
       "osCode": "7855",
       "osDate": "03-08-2026",
-      "osTag": "HAR333",
+      "osTag": "MOM567",
       "simulator": [
         {
-          "date": "04-08-2026",
+          "date": "03-08-2026",
           "cleaningCategory": "secundária",
           "simulatorCategory": "alta",
-          "simulatorName": "Harvey",
-          "simulatorCode": "HAR333",
-          "findings": "dwedwedwe",
+          "simulatorName": "SimMom",
+          "simulatorCode": "MOM567",
+          "findings": "edwdwdwedw",
           "hasDescription": true,
           "hasIntervention": false,
-          "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+          "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
           "user": {
             "name": "Thales",
             "role": "analista"
           }
         },
         {
-          "osCode": "7855",
-          "osDate": "03-08-2026",
-          "osTag": "HAR333",
+          "date": "04-08-2026",
+          "cleaningCategory": "secundária",
+          "simulatorCategory": "alta",
+          "simulatorName": "SimMom",
+          "simulatorCode": "MOM567",
+          "findings": "dedqqwdqw",
+          "hasDescription": true,
+          "hasIntervention": false,
+          "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
+          "user": {
+            "name": "Thales",
+            "role": "analista"
+          }
+        },
+        {
+          "osCode": "72000",
+          "osDate": "10-08-2026",
+          "osTag": "MOM567",
           "simulator": [
             {
-              "date": "04-08-2026",
+              "date": "03-08-2026",
               "cleaningCategory": "secundária",
               "simulatorCategory": "alta",
-              "simulatorName": "Harvey",
-              "simulatorCode": "HAR333",
-              "findings": "dwedwedwe",
+              "simulatorName": "SimMom",
+              "simulatorCode": "MOM567",
+              "findings": "outra OS",
               "hasDescription": true,
               "hasIntervention": false,
-              "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
-              "user": {
-                "name": "Thales",
-                "role": "analista"
-              }
-            },
-            {
-              "date": "11-08-2026",
-              "cleaningCategory": "secundária",
-              "simulatorCategory": "alta",
-              "simulatorName": "Harvey",
-              "simulatorCode": "HAR333",
-              "findings": "nova descrição",
-              "hasDescription": true,
-              "hasIntervention": false,
-              "simulatorImage": "assets/images/Simulators/HighFidelity/harvey.png",
+              "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
               "user": {
                 "name": "Thales",
                 "role": "analista"
               }
             }
-          ],
-          "id": 2
+          ]
+        },
+        {
+          "osCode": "72000",
+          "osDate": "10-08-2026",
+          "osTag": "MOM567",
+          "simulator": [
+            {
+              "date": "16-08-2026",
+              "cleaningCategory": "secundária",
+              "simulatorCategory": "alta",
+              "simulatorName": "SimMom",
+              "simulatorCode": "MOM567",
+              "findings": "chamdo de maria",
+              "hasDescription": true,
+              "hasIntervention": false,
+              "simulatorImage": "assets/images/Simulators/HighFidelity/simMom.jpg",
+              "user": {
+                "name": "Maria",
+                "role": "administrador"
+              }
+            }
+          ]
         }
       ],
       "id": 2

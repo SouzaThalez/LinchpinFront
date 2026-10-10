@@ -91,16 +91,22 @@ export class HighCleaningDialogComponent implements OnInit{
       let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
       this.form.patchValue({date: momentDate});
 
-      const foundSimulator = this.cleaningReports.find(
+      const foundObject = this.cleaningReports.find(
         element => element.osTag === this.form.value.simulatorCode
       );
 
       
-      if (foundSimulator) {
-        const model = this.form.value;
-        foundSimulator.simulator.push(model);
+      if (foundObject) {
 
-        this.updateCleaningReport(foundSimulator.id,foundSimulator);
+        const model = this.form.value;
+        this.osModel.osCode = '72000',
+        this.osModel.osDate = '10-08-2026',
+        this.osModel.osTag = model.simulatorCode,
+        this.osModel.simulator.push(model);
+
+        foundObject.simulator.push(this.osModel);
+debugger
+        this.updateCleaningReport(foundObject.id,foundObject);
         this.onClose(model);
         return
       }
@@ -176,18 +182,28 @@ export class HighCleaningDialogComponent implements OnInit{
   }
   
 private updateCleaningReport(id: number, newSimulator: any) {
+debugger
+  this.httpClient.put(`http://localhost:3000/CleaningReports/${id}`,newSimulator)
+  .subscribe(() => {
+          console.log('Simulador adicionado!');
+          console.error();
+          
+        });
 
-  this.httpClient.get<any>(`http://localhost:3000/CleaningReports/${id}`)
-    .subscribe(report => {
 
-      report.simulator.push(newSimulator);
 
-      this.httpClient.put(`http://localhost:3000/CleaningReports/${id}`,report).subscribe(
-        () => {
-        console.log('Simulador adicionado!');
-      });
 
-    });
+  // this.httpClient.get<any>(`http://localhost:3000/CleaningReports/${id}`)
+  //   .subscribe(report => {
+
+  //     report.simulator.push(newSimulator);
+
+  //     this.httpClient.put(`http://localhost:3000/CleaningReports/${id}`,report).subscribe(
+  //       () => {
+  //       console.log('Simulador adicionado!');
+  //     });
+
+  //   });
 
 }
 
