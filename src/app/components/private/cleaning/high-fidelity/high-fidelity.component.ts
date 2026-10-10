@@ -64,7 +64,6 @@ export class HighFidelityComponent implements OnInit{
     this.httpClient.get(environment.apiUrl + '/simulators?category=alta').subscribe({
       next:(sample: any)=>{
         this.highSimulators = sample;
-        
       },
       error:(error)=>{
         console.log('Something wrong with the request to highSimulators ',error)

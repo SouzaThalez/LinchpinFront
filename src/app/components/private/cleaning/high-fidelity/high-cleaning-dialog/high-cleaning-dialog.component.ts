@@ -4,12 +4,11 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Simulator } from '../../../../../models/simulator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import moment from 'moment';
-import { UserLogedService } from '../../../../../service/user-loged.service';
-import { User } from '../../../../../models/user';
+import { CleaningReport, CleaningReportForm } from '../../../../../models/cleaningReport';
 
 import { environment } from '../../../../../../environments/environment';
 @Component({
@@ -25,18 +24,6 @@ export class HighCleaningDialogComponent implements OnInit{
   textMsg = 'Não houve achados durante a limpeza deste simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
   simulatorCodes: Array<any> = [];
-  currentUser: User;
-  cleaningReports: any[];
-  osModel = {
-    osCode:'',
-    osDate: '',
-    osTag:'',
-    simulator:[]
-  }
-  userModel = {
-    name:'',
-    role:''
-  }
 
   constructor(
     public dialogRef: MatDialogRef<HighCleaningDialogComponent>,
@@ -46,83 +33,37 @@ export class HighCleaningDialogComponent implements OnInit{
     private fb : FormBuilder,
     private matDialog: MatDialog,
     private httpClient: HttpClient,
-    private snackBar: MatSnackBar,
-    private userLogedService : UserLogedService
+    private snackBar: MatSnackBar
   ){}
-  
+
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
-      this.getCleaningReports();
+  }
 
-      this.userLogedService.getCurrentUser()
-      .subscribe({
-        next: (user) => {
-          this.currentUser = user;
-          this.userModel.name = this.currentUser.name;
-          this.userModel.role = this.currentUser.role;
-        }
-      });
-      
-  } 
-
-  
   onClose(value: any): void {
-
     this.dialogRef.close(value); // passing the dataValue to dialog
     this.openSnackBar(this.snackbarMessage);
   }
- 
+
   checkBox(value: any){
     this.checked = value;
-    if(this.checked){
-      this.form.patchValue({
-        findings:this.textMsg,
-        hasDescription:false,
-      })
-    }
-  } 
+    this.form.patchValue({
+      findings: this.checked ? this.textMsg : null,
+      hasDescription: !this.checked,
+    })
+  }
 
   onSubmit(): void {
-    
+
     if (this.form.valid) {
 
-      
+      const model: CleaningReportForm = {
+        ...this.form.value,
+        date: moment(this.form.value.date).format('DD-MM-YYYY')
+      };
 
-      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
-      this.form.patchValue({date: momentDate});
-
-      const foundObject = this.cleaningReports.find(
-        element => element.osTag === this.form.value.simulatorCode
-      );
-
-      
-      if (foundObject) {
-
-        const model = this.form.value;
-        this.osModel.osCode = '72000',
-        this.osModel.osDate = '10-08-2026',
-        this.osModel.osTag = model.simulatorCode,
-        this.osModel.simulator.push(model);
-
-        foundObject.simulator.push(this.osModel);
-debugger
-        this.updateCleaningReport(foundObject.id,foundObject);
-        this.onClose(model);
-        return
-      }
-
-
-      this.osModel.osCode = '7855',
-      this.osModel.osDate = '03-08-2026',
-      this.osModel.osTag = this.form.value.simulatorCode,
-      this.osModel.simulator.push(this.form.value);
-     
-      const model = this.osModel;
-   
-      this.postCleaningReports(model);
-      this.onClose(model);
-
+      this.postCleaningReport(model);
       return
     }
 
@@ -135,98 +76,43 @@ debugger
     this.snackBar.open(message, 'Close', {
       horizontalPosition: snackBarConfig.horizontalPosition,
       verticalPosition: snackBarConfig.verticalPosition,
-      duration: snackBarConfig.durationInSeconds * 1000 
+      duration: snackBarConfig.durationInSeconds * 1000
     });
 
   }
 
   private openAlertDialog(){
 
-    let dialogRef = this.matDialog.open(AlertDialogComponent,{
+    this.matDialog.open(AlertDialogComponent,{
       disableClose: true,
       width:'468px',
-  
-    })
-
-    dialogRef.afterClosed().subscribe(result=>{
-      if(result){
-        
-      }
     })
   }
 
-  private postCleaningReports(model:any){
+  private postCleaningReport(model: CleaningReportForm){
 
-    this.httpClient.post(environment.apiUrl + '/cleaning-reports',model)
+    this.httpClient.post<CleaningReport>(environment.apiUrl + '/cleaning-reports', model)
     .subscribe({
-        next: (sample: any)=>{
-          console.log('request to prepared class  ok!: ',sample);
+        next: (report)=>{
+          this.onClose(report);
         },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+        error: (erro)=>{
+          console.log('request to cleaning-reports is NOT good: ',erro);
+          this.openSnackBar(erro.error?.title ?? 'Não foi possível salvar o registro.');
+        }
     })
   }
-
-  private getCleaningReports(){
-      // returns data who meets theese 2 conditions
-      let params = new HttpParams()
-        .set('hasDescription', 'true')
-        .set('simulatorCategory', 'alta');
-      
-      this.httpClient.get(environment.apiUrl + '/cleaning-reports/', { params })
-      .subscribe({
-          next: (sample: any)=>{
-            this.cleaningReports = sample;
-           
-          },
-          error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
-      })
-  }
-  
-private updateCleaningReport(id: number, newSimulator: any) {
-debugger
-  this.httpClient.put(`${environment.apiUrl}/cleaning-reports/${id}`,newSimulator)
-  .subscribe(() => {
-          console.log('Simulador adicionado!');
-          console.error();
-          
-        });
-
-
-
-
-  // this.httpClient.get<any>(`${environment.apiUrl}/cleaning-reports/${id}`)
-  //   .subscribe(report => {
-
-  //     report.simulator.push(newSimulator);
-
-  //     this.httpClient.put(`${environment.apiUrl}/cleaning-reports/${id}`,report).subscribe(
-  //       () => {
-  //       console.log('Simulador adicionado!');
-  //     });
-
-  //   });
-
-}
-
-
-
-
-
 
   private createForm(): FormGroup{
 
     const prevForm = this.fb.group({
-
-      date: [null,Validators.required],
-      cleaningCategory:[null,Validators.required],
-      simulatorCategory:['alta'],
-      simulatorName:[this.data.simulator.name],
-      simulatorCode:[null,Validators.required],
-      findings:[null,Validators.required],
-      hasDescription:[true],
-      hasIntervention:[false],
-      simulatorImage:[this.data.simulator.image],
-      user: [this.userModel],
+      simulatorId: [this.data.simulator.id],
+      simulatorCode: [null, Validators.required],
+      cleaningCategory: [null, Validators.required],
+      date: [null, Validators.required],
+      findings: [null, Validators.required],
+      hasDescription: [true],
+      hasIntervention: [false],
     })
 
     return prevForm;

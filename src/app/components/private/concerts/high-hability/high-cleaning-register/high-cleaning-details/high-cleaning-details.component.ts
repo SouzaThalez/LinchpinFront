@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { CleaningReport } from '../../../../../../models/cleaningReport';
 import { environment } from '../../../../../../../environments/environment';
 @Component({
   selector: 'app-high-cleaning-details',
@@ -13,8 +14,7 @@ export class HighCleaningDetailsComponent implements OnInit{
 
    routeName:string;
    routeIndex: string;
-   simulatorData: any[];
-   simulator: any;
+   simulator: CleaningReport;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -32,22 +32,15 @@ export class HighCleaningDetailsComponent implements OnInit{
 
 
   private getSimulatorData(index: string){
-    
-    this.httpClient.get(environment.apiUrl + '/cleaning-reports').subscribe({
-      
-      next:(sample: any)=>{
-        this.simulatorData = sample;
-        this.simulator = this.simulatorData.find(element => element.id === index);
-        console.log('SIMULATORDATA: ',this.simulatorData);
-        console.log('SIMULATOR: ',this.simulator);
+
+    this.httpClient.get<CleaningReport>(environment.apiUrl + '/cleaning-reports/' + index).subscribe({
+      next:(report)=>{
+        this.simulator = report;
       },
       error:(error)=>{
         console.log('Something wrong with the request to CleaningReports ',error)
       },
-
     })
-
-   
   }
 
 }

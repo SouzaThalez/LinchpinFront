@@ -1,5 +1,6 @@
 export class Simulator{
 
+    id?: number;
     name: string;
     codes: Array<string>;
     image: string;
