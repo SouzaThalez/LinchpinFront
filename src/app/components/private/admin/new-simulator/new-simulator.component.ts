@@ -8,6 +8,7 @@ import { DetailSimulatorDialogComponent } from './detail-simulator-dialog/detail
 import { DetailClassSimulatorDialogComponent } from './detail-class-simulator-dialog/detail-class-simulator-dialog.component';
 import { NewClassSimulatorDialogComponent } from './new-class-simulator-dialog/new-class-simulator-dialog.component';
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-new-simulator',
   templateUrl: './new-simulator.component.html',
@@ -166,7 +167,7 @@ export class NewSimulatorComponent implements OnInit{
 
   private postMediumSimulators(model:any){
 
-    this.httpClient.post('http://localhost:3000/mediumSimulators/',model).subscribe({
+    this.httpClient.post(environment.apiUrl + '/simulators/',model).subscribe({
       next:(sample: any)=>{
         this.getMediumSimulators();
       },
@@ -177,7 +178,7 @@ export class NewSimulatorComponent implements OnInit{
   }
   private postHighSimulators(model:any){
 
-    this.httpClient.post('http://localhost:3000/highSimulators/',model).subscribe({
+    this.httpClient.post(environment.apiUrl + '/simulators/',model).subscribe({
       next:(sample: any)=>{
         this.getHightSimulators();
       },
@@ -188,7 +189,7 @@ export class NewSimulatorComponent implements OnInit{
   }
   private postLowClassSimulator(model:any){
 
-    this.httpClient.post('http://localhost:3000/lowSimulators/',model).subscribe({
+    this.httpClient.post(environment.apiUrl + '/simulator-classes/',model).subscribe({
       next:(sample: any)=>{
         // this.getMediumSimulators();
         this.getLowSimulators();
@@ -201,7 +202,7 @@ export class NewSimulatorComponent implements OnInit{
 
   private getMediumSimulators(){
 
-    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=media').subscribe({
       next:(sample: any)=>{
         this.mediumSimulators = sample;
       },
@@ -212,7 +213,7 @@ export class NewSimulatorComponent implements OnInit{
   }
   private getHightSimulators(){
 
-    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=alta').subscribe({
       next:(sample: any)=>{
         this.highSimulators = sample;
       },
@@ -223,7 +224,7 @@ export class NewSimulatorComponent implements OnInit{
   }
   private getLowSimulators(){
 
-    this.httpClient.get('http://localhost:3000/lowSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulator-classes').subscribe({
       next:(sample: any)=>{
         this.lowSimulators = sample;
       },

@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import moment from 'moment';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-scenario-simulation-report',
   templateUrl: './scenario-simulation-report.component.html',
@@ -121,7 +122,7 @@ export class ScenarioSimulationReportComponent implements OnInit{
     // let params = new HttpParams()
     //     .set('simulatorCategory', 'baixa');
     
-    this.httpClient.get('http://localhost:3000/ScenarioReports/')
+    this.httpClient.get(environment.apiUrl + '/scenario-reports/')
     .subscribe({
         next: (sample: any)=>{
           this.scenarioReportsData = sample;
@@ -132,7 +133,7 @@ export class ScenarioSimulationReportComponent implements OnInit{
 
   private getAllUsers(){
 
-    this.httpClient.get('http://localhost:3000/Users/')
+    this.httpClient.get(environment.apiUrl + '/users/')
     .subscribe({
         next: (sample: any)=>{
         

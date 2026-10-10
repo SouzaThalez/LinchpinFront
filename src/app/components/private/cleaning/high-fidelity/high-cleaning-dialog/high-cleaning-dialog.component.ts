@@ -11,6 +11,7 @@ import moment from 'moment';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 import { User } from '../../../../../models/user';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-high-cleaning-dialog',
   templateUrl: './high-cleaning-dialog.component.html',
@@ -156,7 +157,7 @@ debugger
 
   private postCleaningReports(model:any){
 
-    this.httpClient.post('http://localhost:3000/CleaningReports',model)
+    this.httpClient.post(environment.apiUrl + '/cleaning-reports',model)
     .subscribe({
         next: (sample: any)=>{
           console.log('request to prepared class  ok!: ',sample);
@@ -171,7 +172,7 @@ debugger
         .set('hasDescription', 'true')
         .set('simulatorCategory', 'alta');
       
-      this.httpClient.get('http://localhost:3000/CleaningReports/', { params })
+      this.httpClient.get(environment.apiUrl + '/cleaning-reports/', { params })
       .subscribe({
           next: (sample: any)=>{
             this.cleaningReports = sample;
@@ -183,7 +184,7 @@ debugger
   
 private updateCleaningReport(id: number, newSimulator: any) {
 debugger
-  this.httpClient.put(`http://localhost:3000/CleaningReports/${id}`,newSimulator)
+  this.httpClient.put(`${environment.apiUrl}/cleaning-reports/${id}`,newSimulator)
   .subscribe(() => {
           console.log('Simulador adicionado!');
           console.error();
@@ -193,12 +194,12 @@ debugger
 
 
 
-  // this.httpClient.get<any>(`http://localhost:3000/CleaningReports/${id}`)
+  // this.httpClient.get<any>(`${environment.apiUrl}/cleaning-reports/${id}`)
   //   .subscribe(report => {
 
   //     report.simulator.push(newSimulator);
 
-  //     this.httpClient.put(`http://localhost:3000/CleaningReports/${id}`,report).subscribe(
+  //     this.httpClient.put(`${environment.apiUrl}/cleaning-reports/${id}`,report).subscribe(
   //       () => {
   //       console.log('Simulador adicionado!');
   //     });

@@ -8,6 +8,7 @@ import { UserLogedService } from '../../../../service/user-loged.service';
 import moment from 'moment';
 import { PreviewLessonReportDialogComponent } from '../../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-profile-lessons',
   templateUrl: './profile-lessons.component.html',
@@ -141,7 +142,7 @@ export class ProfileLessonsComponent implements OnInit{
 
   private getLessonReports(user: User){
 
-    this.httpClient.get('http://localhost:3000/LessonReports/')
+    this.httpClient.get(environment.apiUrl + '/lesson-reports/')
     .subscribe({
         next: (sample: any)=>{
           this.lessonData = sample;
@@ -159,7 +160,7 @@ export class ProfileLessonsComponent implements OnInit{
 
   private getScenarioReports(user: User){
 
-    this.httpClient.get('http://localhost:3000/ScenarioReports/')
+    this.httpClient.get(environment.apiUrl + '/scenario-reports/')
     .subscribe({
         next: (sample: any)=>{
 

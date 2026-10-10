@@ -5,6 +5,7 @@ import { MediumCleaningDialogComponent } from './medium-cleaning-dialog/medium-c
 import { DetailsDialogComponent } from '../../../shared/details-dialog/details-dialog.component';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-medium-fidelity',
   templateUrl: './medium-fidelity.component.html',
@@ -59,7 +60,7 @@ export class MediumFidelityComponent implements OnInit{
 
   private getMediumSimulators(){
 
-    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=media').subscribe({
       next:(sample: any)=>{
         this.mediumSimulators = sample;
       },

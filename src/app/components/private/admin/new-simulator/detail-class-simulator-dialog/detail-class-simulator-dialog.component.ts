@@ -8,6 +8,7 @@ import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { RemoveClassDialogComponent } from './remove-class-dialog/remove-class-dialog.component';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-detail-class-simulator-dialog',
   templateUrl: './detail-class-simulator-dialog.component.html',
@@ -110,9 +111,10 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
 
   private updateLowSimulators(model:any){
    
-    this.httpClient.put('http://localhost:3000/lowSimulators/' + model.id, model).subscribe({
+    this.httpClient.put(environment.apiUrl + '/simulator-classes/' + model.id, model).subscribe({
       next:(sample: any)=>{
-        // this.getHightSimulators();
+        //Atualiza a classe com os ids gerados pelo backend para os simuladores novos
+        Object.assign(this.data.simulatorData, sample);
         this.snackBar.open('Simulador adicionado com sucesso!', 'Close', {
           horizontalPosition: snackBarConfig.horizontalPosition,
           verticalPosition: snackBarConfig.verticalPosition,
@@ -128,7 +130,7 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
   private removeLowSimulators(model:any){
 
    //UPDATING DATA
-    this.httpClient.put('http://localhost:3000/lowSimulators/' + model.id, model).subscribe({
+    this.httpClient.put(environment.apiUrl + '/simulator-classes/' + model.id, model).subscribe({
       next:(sample: any)=>{
      
         this.snackBar.open('Simulador removido com sucesso!', 'Close', {
@@ -146,7 +148,7 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
   
   private removeClassSimulator(model:any){
 
-    this.httpClient.delete('http://localhost:3000/lowSimulators/' + model.id)
+    this.httpClient.delete(environment.apiUrl + '/simulator-classes/' + model.id)
     .subscribe({
         next: (sample: any)=>{
 
@@ -165,7 +167,7 @@ export class DetailClassSimulatorDialogComponent implements OnInit{
 
   private getLowSimulators(){
 
-    this.httpClient.get('http://localhost:3000/lowSimulators/').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulator-classes/').subscribe({
       next:(sample: any)=>{
         this.lowSimulators = sample;
         // this.getHightSimulators();

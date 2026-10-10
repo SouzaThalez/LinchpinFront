@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteSimulatorDialogComponent } from '../delete-simulator-dialog/delete-simulator-dialog.component';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-detail-simulator-dialog',
   templateUrl: './detail-simulator-dialog.component.html',
@@ -193,7 +194,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   private updateMediumCode(model:any){
   
-    this.httpClient.put('http://localhost:3000/mediumSimulators/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/simulators/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -209,7 +210,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
   
   private updateHighCode(model:any){
   
-    this.httpClient.put('http://localhost:3000/highSimulators/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/simulators/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -225,7 +226,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   private removeMediumCode(model:any){
 
-    this.httpClient.put('http://localhost:3000/mediumSimulators/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/simulators/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -242,7 +243,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   private removeHighCode(model:any){
 
-    this.httpClient.put('http://localhost:3000/highSimulators/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/simulators/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -259,7 +260,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   private addNewMediumCode(model:any){
     
-    this.httpClient.put('http://localhost:3000/mediumSimulators/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/simulators/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -270,7 +271,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   private addNewHighCode(model:any){
 
-    this.httpClient.put('http://localhost:3000/highSimulators/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/simulators/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
 
@@ -281,7 +282,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   private removeMediumSimulatorData(model:any){
 
-    this.httpClient.delete('http://localhost:3000/mediumSimulators/' + model.id)
+    this.httpClient.delete(environment.apiUrl + '/simulators/' + model.id)
     .subscribe({
         next: (sample: any)=>{
           console.log('REMOVED> ',sample);
@@ -292,7 +293,7 @@ export class DetailSimulatorDialogComponent implements OnInit{
 
   private removeHighSimulatorData(model:any){
 
-    this.httpClient.delete('http://localhost:3000/highSimulators/' + model.id)
+    this.httpClient.delete(environment.apiUrl + '/simulators/' + model.id)
     .subscribe({
         next: (sample: any)=>{
           console.log('REMOVED> ',sample);

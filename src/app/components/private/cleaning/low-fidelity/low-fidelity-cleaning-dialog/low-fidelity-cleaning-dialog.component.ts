@@ -11,6 +11,7 @@ import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dial
 import { UserLogedService } from '../../../../../service/user-loged.service';
 import { User } from '../../../../../models/user';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-low-fidelity-cleaning-dialog',
   templateUrl: './low-fidelity-cleaning-dialog.component.html',
@@ -105,7 +106,7 @@ export class LowFidelityCleaningDialogComponent implements OnInit{
 
   private postCleaningReports(model:any){
 
-   this.httpClient.post('http://localhost:3000/CleaningReports',model)
+   this.httpClient.post(environment.apiUrl + '/cleaning-reports',model)
    .subscribe({
        next: (sample: any)=>{
        },

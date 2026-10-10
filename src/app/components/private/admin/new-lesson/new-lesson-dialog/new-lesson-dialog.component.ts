@@ -69,15 +69,16 @@ export class NewLessonDialogComponent implements OnInit{
     let formatedDated = moment(lesson.updateDate).format('DD-MM-YYYY');
     lesson.updateDate = formatedDated;
 
-    let trainingLessons = this.selectedTraining.get('training').value;
-    trainingLessons.documentData.lessons.push(lesson);
+    let selectedGroup = this.selectedTraining.get('training').value;
+
+    //O id da aula é gerado pelo backend
+    delete lesson.id;
 
     let model = {
-      modelData: trainingLessons.documentData,
-      documentId: trainingLessons.docID
-    }   
-    
-    debugger
+      lesson: lesson,
+      groupId: selectedGroup.id
+    }
+
     this.dialogRef.close(model);
 
   }

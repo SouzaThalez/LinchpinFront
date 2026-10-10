@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 import { User } from '../../../../../models/user';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-ocorrance-dialog',
   templateUrl: './ocorrance-dialog.component.html',
@@ -223,7 +224,7 @@ export class OcorranceDialogComponent implements OnInit{
 
   private getMediumSimulators(){
 
-    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=media').subscribe({
       next:(sample: any)=>{
         this.mediumSimulators = sample;
       },

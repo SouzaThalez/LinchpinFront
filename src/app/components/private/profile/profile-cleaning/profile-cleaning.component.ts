@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PreviewCleaningReportDialogComponent } from '../../../shared/preview-cleaning-report-dialog/preview-cleaning-report-dialog.component';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-profile-cleaning',
   templateUrl: './profile-cleaning.component.html',
@@ -132,7 +133,7 @@ export class ProfileCleaningComponent implements OnInit{
 
   private getCleaningReports(user: User){
 
-    this.httpClient.get('http://localhost:3000/CleaningReports/')
+    this.httpClient.get(environment.apiUrl + '/cleaning-reports/')
     .subscribe({
         next: (sample: any)=>{
           this.cleaningData = sample;

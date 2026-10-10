@@ -24,8 +24,7 @@ export class EditLessonDialogComponent implements OnInit{
     private snackBar:MatSnackBar,
     private fb:FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      lesson: Lesson,
-      documentId: string
+      lesson: Lesson
     },
   ){}
 

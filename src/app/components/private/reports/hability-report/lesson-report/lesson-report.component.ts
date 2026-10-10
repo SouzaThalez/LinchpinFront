@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import moment from 'moment';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-lesson-report',
   templateUrl: './lesson-report.component.html',
@@ -132,7 +133,7 @@ export class LessonReportComponent implements OnInit{
     // let params = new HttpParams()
     //     .set('simulatorCategory', 'baixa');
     
-    this.httpClient.get('http://localhost:3000/LessonReports/')
+    this.httpClient.get(environment.apiUrl + '/lesson-reports/')
     .subscribe({
         next: (sample: any)=>{
         
@@ -144,7 +145,7 @@ export class LessonReportComponent implements OnInit{
 
   private getAllUsers(){
 
-    this.httpClient.get('http://localhost:3000/Users/')
+    this.httpClient.get(environment.apiUrl + '/users/')
     .subscribe({
         next: (sample: any)=>{
         

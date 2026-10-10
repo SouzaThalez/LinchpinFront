@@ -9,6 +9,7 @@ import { User } from '../../../../../models/user';
 import { userRoleType } from '../../../../../enums/userRoles';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-medium-cleaning-register',
   templateUrl: './medium-cleaning-register.component.html',
@@ -106,7 +107,7 @@ export class MediumCleaningRegisterComponent implements OnInit{
 
   private updateReport(model:any){
 
-    this.httpClient.put('http://localhost:3000/CleaningReports/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/cleaning-reports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
          
@@ -123,7 +124,7 @@ export class MediumCleaningRegisterComponent implements OnInit{
       .set('hasDescription', 'true')
       .set('simulatorCategory', 'media');
     
-    this.httpClient.get('http://localhost:3000/CleaningReports/', { params })
+    this.httpClient.get(environment.apiUrl + '/cleaning-reports/', { params })
     .subscribe({
         next: (sample: any)=>{
           this.cleaningData = sample;

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { environment } from '../../../../../../../environments/environment';
 @Component({
   selector: 'app-high-cleaning-details',
   templateUrl: './high-cleaning-details.component.html',
@@ -32,7 +33,7 @@ export class HighCleaningDetailsComponent implements OnInit{
 
   private getSimulatorData(index: string){
     
-    this.httpClient.get('http://localhost:3000/CleaningReports').subscribe({
+    this.httpClient.get(environment.apiUrl + '/cleaning-reports').subscribe({
       
       next:(sample: any)=>{
         this.simulatorData = sample;

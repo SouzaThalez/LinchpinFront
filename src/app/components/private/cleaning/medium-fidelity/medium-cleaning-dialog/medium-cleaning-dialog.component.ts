@@ -12,6 +12,7 @@ import { UserLogedService } from '../../../../../service/user-loged.service';
 import { User } from '../../../../../models/user';
 
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-medium-cleaning-dialog',
   templateUrl: './medium-cleaning-dialog.component.html',
@@ -105,7 +106,7 @@ export class MediumCleaningDialogComponent implements OnInit{
 
   private postCleaningReports(model:any){
 
-   this.httpClient.post('http://localhost:3000/CleaningReports',model)
+   this.httpClient.post(environment.apiUrl + '/cleaning-reports',model)
    .subscribe({
        next: (sample: any)=>{
        },

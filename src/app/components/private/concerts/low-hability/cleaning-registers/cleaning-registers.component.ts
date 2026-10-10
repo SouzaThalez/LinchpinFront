@@ -9,6 +9,7 @@ import { UserLogedService } from '../../../../../service/user-loged.service';
 import { User } from '../../../../../models/user';
 import { userRoleType } from '../../../../../enums/userRoles';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-cleaning-registers',
   templateUrl: './cleaning-registers.component.html',
@@ -110,7 +111,7 @@ export class CleaningRegistersComponent implements OnInit{
         .set('hasDescription', 'true')
         .set('simulatorCategory', 'baixa');
     
-    this.httpClient.get('http://localhost:3000/CleaningReports/', { params })
+    this.httpClient.get(environment.apiUrl + '/cleaning-reports/', { params })
     .subscribe({
         next: (sample: any)=>{
           
@@ -122,7 +123,7 @@ export class CleaningRegistersComponent implements OnInit{
 
   private updateReport(model:any){
 
-    this.httpClient.put('http://localhost:3000/CleaningReports/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/cleaning-reports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           this.selectedReport = sample;

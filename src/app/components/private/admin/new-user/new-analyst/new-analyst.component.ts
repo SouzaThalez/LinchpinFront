@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { HttpErrorResponse } from '@angular/common/http';
 import { AddNewUserDialogComponent } from '../add-new-user-dialog/add-new-user-dialog.component';
 import { userRoleType } from '../../../../../enums/userRoles';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
-import { snackBarConfig } from '../../../../../data/snackBarData';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { snackBarConfig } from '../../../../../data/snackBarData';
 import { User } from '../../../../../models/user';
 import { userDefaultImagesType } from '../../../../../enums/userDefaultImages';
-import { collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
-import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { DocumentModel } from '../../../../../models/interface/documentModel';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { UserApiService } from '../../../../../service/user-api.service';
 
 @Component({
   selector: 'app-new-analyst',
@@ -19,26 +17,22 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class NewAnalystComponent implements OnInit{
 
+  localAnalystUsers: User[] = [];
 
-  // analystUsers: any;
-  analystUsers: DocumentModel[] = [];
-
-  localAnalystUsers: User[] = [] ;
-
-  isLoading = false; 
-  userAnalystRole = userRoleType.analyst;
+  isLoading = false;
+  userRole = userRoleType.analyst;
   userImage = userDefaultImagesType.defaultAnalystImage;
 
   constructor(
     private matDialog: MatDialog,
-    private snackBar: MatSnackBar,
-    private initFirebaseService: InitiateFirebaseService,
-    private httpClient: HttpClient
+    private snackBar:MatSnackBar,
+    private userApiService: UserApiService
   ){}
 
   ngOnInit(): void {
-    this.getLocalAnalystUsers();
+    this.getUsers();
   }
+
 
   openAddNewUserDialog(){
 
@@ -47,16 +41,14 @@ export class NewAnalystComponent implements OnInit{
       width:'468px',
       height:'598px',
       data:{
-        role: this.userAnalystRole,
-        image:this.userImage
+        role: this.userRole,
+        image:this.userImage,
       }
     })
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        let model = result;
-        this.postFireBaseAnalystUser(model);
-       
+        this.createUser(result);
       }
     })
 
@@ -70,137 +62,80 @@ export class NewAnalystComponent implements OnInit{
       width:'468px',
       height:'598px',
       data:{
-        user: user,
-        documentId: user
+        user: user
       }
     })
 
     dialogRef.afterClosed().subscribe(result=>{
-      
-      //if result false, dialog coming from remove. Update users!
+
+      //if result is a model , update only
+      //If result is 'remove', the dialog already removed the user.
       if(result){
 
         if(result == 'remove'){
-          this.getFireBaseAnalysts();
-          this.snackBar.open('Usuário removido com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
+
+          this.getUsers();
+          this.openSnackBar('Usuário removido com sucesso!');
           return
         }
 
-        let model = result;
-        let docIdUpdated =`${model.role}-${model.id}`;
-
-        this.updateFireBaseAnalystUser(model,docIdUpdated);
-       
+        this.updateUser(result);
       }
-     
+
+    })
+
+
+  }
+
+  private getUsers(){
+
+    this.isLoading = true;
+
+    this.userApiService.list(this.userRole).subscribe({
+      next:(users)=>{
+        this.localAnalystUsers = users;
+        this.isLoading = false;
+      },
+      error: (erro)=>{
+        this.isLoading = false;
+        console.log('request to Users failed: ',erro);
+      }
+    })
+
+  }
+
+  private createUser(model: any){
+
+    this.userApiService.create(model).subscribe({
+      next: ()=>{
+        this.openSnackBar('Usuário adicionado com sucesso!');
+        this.getUsers();
+      },
+      error: (erro: HttpErrorResponse)=>{
+        this.openSnackBar(erro.error?.title ?? 'ERRO ao adicionar o usuário!');
+      }
     })
   }
 
+  private updateUser(model: any){
 
-  //FireBase Request
-  async updateFireBaseAnalystUser(docData: any, docIdRef: string): Promise<any> {
-      
-      try {
-  
-        const docRef = doc(this.initFirebaseService.getDb(), "Users", docIdRef);
-  
-        await updateDoc(docRef, docData);
-        this.analystUsers = [];
-
-        this.getFireBaseAnalysts();
-        
-        return this.snackBar.open('Usuário atualizado com sucesso!', 'Close', {
-          horizontalPosition: snackBarConfig.horizontalPosition,
-          verticalPosition: snackBarConfig.verticalPosition,
-          duration: snackBarConfig.durationInSeconds * 1000 
-        });
-        
-        
-  
-      } catch (error) {
-    
-        return this.snackBar.open('ERRO em atualização do usuário!', 'Close', {
-          horizontalPosition: snackBarConfig.horizontalPosition,
-          verticalPosition: snackBarConfig.verticalPosition,
-          duration: snackBarConfig.durationInSeconds * 1000 
-        });
-        
+    this.userApiService.update(model.id, model).subscribe({
+      next: ()=>{
+        this.openSnackBar('Usuário atualizado com sucesso!');
+        this.getUsers();
+      },
+      error: (erro: HttpErrorResponse)=>{
+        this.openSnackBar(erro.error?.title ?? 'ERRO em atualização do usuário!');
       }
+    })
   }
 
-  async postFireBaseAnalystUser(docData: any): Promise<any> {
-
-       const documentId = `${this.userAnalystRole}-${docData.id}`;
-
-      try {
-
-        await setDoc(doc(this.initFirebaseService.getDb(), "Users",documentId), docData);
-        this.snackBar.open('Usuário adicionado com sucesso!', 'Close', {
-          horizontalPosition: snackBarConfig.horizontalPosition,
-          verticalPosition: snackBarConfig.verticalPosition,
-          duration: snackBarConfig.durationInSeconds * 1000 
-        });
-
-        this.getFireBaseAnalysts();
-      
-       
-      } catch (error) {
-        console.error("Error writing document: ", error);
-        
-      }
+  private openSnackBar(message: string){
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000
+    });
   }
-  
-  async getFireBaseAnalysts():Promise<void> {
-  
-      this.isLoading = true;
-      this.analystUsers = [];
-  
-      const q = query(collection(this.initFirebaseService.getDb(), "Users"), where("role", "==", this.userAnalystRole));
-  
-      const querySnapshot = await getDocs(q);
-  
-      querySnapshot.forEach((doc) => {
-       
-        const documentData = doc.data() as User; 
-        const docID = doc.id;
-        this.analystUsers.push({ docID: docID, documentData });
-    
-  
-      });
-  
-      this.isLoading = false;
-      console.log('Analistas> ',this.analystUsers)
-  
-  
-  
-  }
-
-
-
-  //Local Request
-  private getLocalAnalystUsers(){
-      let params = new HttpParams()
-      .set('role', 'analista');
-  
-      this.httpClient.get('http://localhost:3000/Users',{params}).subscribe({
-        next:(sample:any)=>{
-          this.localAnalystUsers = sample;
-        },
-        error: (erro)=>{console.log('request to Trainings  failed: ',erro);}
-      })
-  
-  }
-
-
-
-
-
-
-
-
 
 }

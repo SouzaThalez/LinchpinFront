@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     
-    console.log('project- id: ',environment.firebaseConfig.projectId);
    
     this.userLogedService.getCurrentUser()
     .subscribe({
@@ -189,9 +188,9 @@ export class HomeComponent implements OnInit{
     const cleaningParams = new HttpParams().set('hasDescription', 'true'); 
     
     forkJoin({
-      lessons: this.httpClient.get('http://localhost:3000/LessonReports/', { params: lessonParams }),
-      scenarios: this.httpClient.get('http://localhost:3000/ScenarioReports/', { params: scenarioParams }),
-      cleanings: this.httpClient.get('http://localhost:3000/CleaningReports/', { params: cleaningParams })
+      lessons: this.httpClient.get(environment.apiUrl + '/lesson-reports/', { params: lessonParams }),
+      scenarios: this.httpClient.get(environment.apiUrl + '/scenario-reports/', { params: scenarioParams }),
+      cleanings: this.httpClient.get(environment.apiUrl + '/cleaning-reports/', { params: cleaningParams })
     }).subscribe({
       next: (results: any) => {
         // Process the combined results
@@ -231,9 +230,9 @@ export class HomeComponent implements OnInit{
           .set('user.name',userLoged.name);
     
     forkJoin({
-      lessons: this.httpClient.get('http://localhost:3000/LessonReports/', { params: lessonParams }),
-      scenarios: this.httpClient.get('http://localhost:3000/ScenarioReports/', { params: scenarioParams }),
-      cleanings: this.httpClient.get('http://localhost:3000/CleaningReports/', { params: cleaningParams })
+      lessons: this.httpClient.get(environment.apiUrl + '/lesson-reports/', { params: lessonParams }),
+      scenarios: this.httpClient.get(environment.apiUrl + '/scenario-reports/', { params: scenarioParams }),
+      cleanings: this.httpClient.get(environment.apiUrl + '/cleaning-reports/', { params: cleaningParams })
     }).subscribe({
       next: (results: any) => {
         // Process the combined results
@@ -261,7 +260,7 @@ export class HomeComponent implements OnInit{
 
   // private getAllCleaningReports(){
 
-  //   this.httpClient.get('http://localhost:3000/CleaningReports/')
+  //   this.httpClient.get(environment.apiUrl + '/cleaning-reports/')
   //   .subscribe({
   //       next: (sample: any)=>{
   //         this.cleaningCountData = sample;

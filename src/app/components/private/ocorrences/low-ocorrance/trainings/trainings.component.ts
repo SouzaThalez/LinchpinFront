@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-trainings',
   templateUrl: './trainings.component.html',
@@ -23,7 +24,7 @@ export class TrainingsComponent implements OnInit{
 
   private getTrainingLessons(){
 
-    this.httpClient.get('http://localhost:3000/Trainings').subscribe({
+    this.httpClient.get(environment.apiUrl + '/trainings').subscribe({
       next:(sample:any)=>{
         this.trainingLessons = sample;
       },

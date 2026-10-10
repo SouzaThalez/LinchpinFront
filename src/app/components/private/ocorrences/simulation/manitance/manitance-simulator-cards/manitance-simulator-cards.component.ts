@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../../data/snackBarData';
 
+import { environment } from '../../../../../../../environments/environment';
 @Component({
   selector: 'app-manitance-simulator-cards',
   templateUrl: './manitance-simulator-cards.component.html',
@@ -87,7 +88,7 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
 
   private postManitanceReports(model:any){
 
-    this.httpClient.post('http://localhost:3000/manitanceReports',model)
+    this.httpClient.post(environment.apiUrl + '/maintenance-reports',model)
     .subscribe({
         next: (sample: any)=>{
           this.openSnackBar(this.snackbarMessage);
@@ -98,7 +99,7 @@ export class ManitanceSimulatorCardsComponent implements OnInit{
 
   private getHightSimulators(){
     
-    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=alta').subscribe({
       next:(sample: any)=>{
         this.simulators = sample;
         

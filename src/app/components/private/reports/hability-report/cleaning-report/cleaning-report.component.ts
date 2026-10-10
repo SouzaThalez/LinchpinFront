@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import moment from 'moment';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-cleaning-report',
   templateUrl: './cleaning-report.component.html',
@@ -126,7 +127,7 @@ export class CleaningReportComponent implements OnInit{
     let params = new HttpParams()
         .set('simulatorCategory', 'baixa');
     
-    this.httpClient.get('http://localhost:3000/CleaningReports/', { params })
+    this.httpClient.get(environment.apiUrl + '/cleaning-reports/', { params })
     .subscribe({
         next: (sample: any)=>{
           this.cleaningData = sample;
@@ -137,7 +138,7 @@ export class CleaningReportComponent implements OnInit{
 
   private getAllUsers(){
 
-    this.httpClient.get('http://localhost:3000/Users/')
+    this.httpClient.get(environment.apiUrl + '/users/')
     .subscribe({
         next: (sample: any)=>{
         

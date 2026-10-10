@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../../../../../models/user';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-courses-dialog',
   templateUrl: './courses-dialog.component.html',
@@ -216,7 +217,7 @@ export class CoursesDialogComponent implements OnInit{
 
   private getMediumSimulators(){
 
-    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=media').subscribe({
       next:(sample: any)=>{
         this.mediumSimulators = sample;
       },

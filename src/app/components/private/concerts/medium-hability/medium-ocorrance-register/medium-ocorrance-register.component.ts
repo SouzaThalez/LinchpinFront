@@ -9,6 +9,7 @@ import { User } from '../../../../../models/user';
 import { userRoleType } from '../../../../../enums/userRoles';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-medium-ocorrance-register',
   templateUrl: './medium-ocorrance-register.component.html',
@@ -102,7 +103,7 @@ export class MediumOcorranceRegisterComponent implements OnInit{
 
   private updateReport(model:any){
   
-    this.httpClient.put('http://localhost:3000/LessonReports/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/lesson-reports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           this.selectedReport = sample;
@@ -116,7 +117,7 @@ export class MediumOcorranceRegisterComponent implements OnInit{
     let params = new HttpParams()
       .set('simulatorDescription', 'true');
     
-    this.httpClient.get('http://localhost:3000/LessonReports/', { params })
+    this.httpClient.get(environment.apiUrl + '/lesson-reports/', { params })
     .subscribe({
         next: (sample: any)=>{
           this.lessonData = sample;

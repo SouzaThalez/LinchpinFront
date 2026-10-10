@@ -3,6 +3,7 @@ import { simulatorTypes } from '../../../../data/simulatorTypes';
 import { simulators } from '../../../../data/simulators';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-low-fidelity',
   templateUrl: './low-fidelity.component.html',
@@ -27,7 +28,7 @@ export class LowFidelityComponent implements OnInit{
 
   private getLowSimulators(){
 
-    this.httpClient.get('http://localhost:3000/lowSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulator-classes').subscribe({
       next:(sample: any)=>{
         
         this.lowSimulators = sample;

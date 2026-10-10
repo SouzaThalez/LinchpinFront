@@ -9,6 +9,7 @@ import { User } from '../../../../../models/user';
 import { userRoleType } from '../../../../../enums/userRoles';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-high-manitence-register',
   templateUrl: './high-manitence-register.component.html',
@@ -103,7 +104,7 @@ export class HighManitenceRegisterComponent implements OnInit{
 
   private updateReport(model:any){
 
-    this.httpClient.put('http://localhost:3000/manitanceReports/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/maintenance-reports/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
           this.selectedReport = sample;
@@ -118,7 +119,7 @@ export class HighManitenceRegisterComponent implements OnInit{
         .set('hasDescription', 'true');
         // .set('manitanceCategory', 'baixa');
     
-    this.httpClient.get('http://localhost:3000/manitanceReports/', { params })
+    this.httpClient.get(environment.apiUrl + '/maintenance-reports/', { params })
     .subscribe({
         next: (sample: any)=>{
           this.manitanceData = sample;

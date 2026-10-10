@@ -7,11 +7,9 @@ import { RemoveLessonDialogComponent } from '../remove-lesson-dialog/remove-less
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import moment from 'moment';
-import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { collection, doc, getDoc, getDocs, query, setDoc, updateDoc } from 'firebase/firestore';
-import { DocumentModel } from '../../../../../models/interface/documentModel';
 import { Training } from '../../../../../models/training';
 import { Lesson } from '../../../../../models/lesson';
+import { LessonApiService } from '../../../../../service/lesson-api.service';
 
 @Component({
   selector: 'app-disciplines',
@@ -20,19 +18,19 @@ import { Lesson } from '../../../../../models/lesson';
 })
 export class DisciplinesComponent implements OnInit {
 
-  disciplines: DocumentModel[] = [];
+  disciplines: Training[] = [];
   isLoading = false;
   trainingValue = 0;
 
   constructor(
     private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private initFirebaseService: InitiateFirebaseService
+    private lessonApiService: LessonApiService
   ) { }
 
 
   ngOnInit(): void {
-   this.getFireBaseDisciplines();
+   this.getDisciplines();
   }
 
 
@@ -47,11 +45,7 @@ export class DisciplinesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
-        let model = result;
-        this.postFireBaseDiscipline(model);
-
-
+        this.createDiscipline(result);
       }
     })
   }
@@ -69,47 +63,43 @@ export class DisciplinesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        let model = result;
-  
-        this.postFireBaseLesson(model.modelData,model.documentId)
+        this.addLesson(result.lesson, result.groupId);
       }
     })
 
   }
-  openEditLessonDialog(lesson: Lesson, documentId: string) {
+  openEditLessonDialog(lesson: Lesson, disciplineId: number) {
 
-  
+
     let dialogRef = this.matDialog.open(EditLessonDialogComponent, {
       disableClose: true,
       width: '468px',
       data:{
-        lesson: lesson,
-        documentId: documentId
+        lesson: lesson
       }
-  
+
 
     })
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-       
+
         let model = result;
         const convertedDate = moment(model.updateDate).format('DD-MM-YYYY');
         model.updateDate = convertedDate;
 
-        this.updateFireBaseLesson(model,documentId);
+        this.updateLesson(model, disciplineId);
       }
     })
 
 
   }
   openRemoveLessonDialog() {
-    
+
     let dialogRef = this.matDialog.open(RemoveLessonDialogComponent, {
       disableClose: true,
       width: '468px',
       data: {
-        disciplineData: this.disciplines,
         dataName: 'Disciplinas'
       }
 
@@ -117,140 +107,69 @@ export class DisciplinesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result ==  false){
-        this.getFireBaseDisciplines();
+        this.trainingValue = 0;
+        this.getDisciplines();
       }
     })
 
   }
 
 
+  private createDiscipline(model: any) {
 
-  async postFireBaseDiscipline(docData: any): Promise<any> {
-  
-      const documentId = `discipline-${docData.id}`;
+    this.lessonApiService.createGroup('disciplines', model).subscribe({
+      next: () => {
+        this.openSnackBar('Disciplina adicionada com sucesso!');
+        this.getDisciplines();
+      },
+      error: (erro) => this.openSnackBar(erro.error?.title ?? 'ERRO ao adicionar a disciplina!')
+    })
+  }
 
-      try {
+  private getDisciplines() {
 
-        await setDoc(doc(this.initFirebaseService.getDb(), "Disciplines", documentId), docData);
+    this.isLoading = true;
 
-        this.snackBar.open('Disciplina adicionada com sucesso!', 'Close', {
-          horizontalPosition: snackBarConfig.horizontalPosition,
-          verticalPosition: snackBarConfig.verticalPosition,
-          duration: snackBarConfig.durationInSeconds * 1000
-        });
-
-        this.getFireBaseDisciplines();
-
-      } catch (error) {
-        console.error("Error writing document: ", error);
-
+    this.lessonApiService.listGroups('disciplines').subscribe({
+      next: (disciplines) => {
+        this.disciplines = disciplines;
+        this.isLoading = false;
+      },
+      error: (erro) => {
+        this.isLoading = false;
+        console.log('request to Disciplines failed: ', erro);
       }
+    })
   }
 
-  async getFireBaseDisciplines():Promise<void> {
-      
-          this.isLoading = true;
-          this.disciplines = [];
-      
-          const q = query(collection(this.initFirebaseService.getDb(), "Disciplines"));
-      
-          const querySnapshot = await getDocs(q);
-      
-          querySnapshot.forEach((doc) => {
-          
-            const documentData = doc.data() as Training; 
-            const docID = doc.id;
-            this.disciplines.push({ docID: docID, documentData });
-        
-      
-          });
-      
-          this.isLoading = false;
-          console.log('Disciplinas, ',this.disciplines);
-      
-      
-      
+  private addLesson(lesson: any, disciplineId: number) {
+
+    this.lessonApiService.addLesson('disciplines', disciplineId, lesson).subscribe({
+      next: () => {
+        this.openSnackBar('Aula adicionada com sucesso!');
+        this.getDisciplines();
+      },
+      error: () => this.openSnackBar('ERRO em adicionar a aula!')
+    })
   }
 
-  async postFireBaseLesson(docModel: any, docIdRef: string): Promise<any> {
-   
-        try {
-    
-          const docRef = doc(this.initFirebaseService.getDb(), "Disciplines", docIdRef);
-    
-          await updateDoc(docRef, docModel);
-          this.disciplines = [];
-  
-          this.getFireBaseDisciplines();
-          
-          return this.snackBar.open('Aula adicionada com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
-          
-          
-    
-        } catch (error) {
-      
-          return this.snackBar.open('ERRO em adicionar a aula!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
-          
-        }
-  }
-  
-  async updateFireBaseLesson(docModel: any, docIdRef: string): Promise<any> {
-   
-    try {
+  private updateLesson(lesson: Lesson, disciplineId: number) {
 
-      const docRef = doc(this.initFirebaseService.getDb(), "Disciplines", docIdRef);
-
-      const docSnap = await getDoc(docRef);
-      if(docSnap.exists()){
-
-        const disciplineData = docSnap.data();
-        const lessons = disciplineData['lessons'] || [];
-
-        const foundLessonIndex = lessons.findIndex((element)=> element.id == docModel.id);
-
-        if (foundLessonIndex !== -1) {
-
-          lessons[foundLessonIndex] = { ...lessons[foundLessonIndex], ...docModel };
-         
-          await updateDoc(docRef, {
-            lessons: lessons,
-          });
-
-          this.getFireBaseDisciplines();
-
-          return this.snackBar.open('Aula atualizada com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000,
-          });
-
-        } else {
-          throw new Error('Lesson not found');
-        } 
-      } else {
-        throw new Error('Discipline not found');
-      }
-
-
-    } catch (error) {
-  
-      return this.snackBar.open('ERRO em atualizar a aula!', 'Close', {
-        horizontalPosition: snackBarConfig.horizontalPosition,
-        verticalPosition: snackBarConfig.verticalPosition,
-        duration: snackBarConfig.durationInSeconds * 1000 
-      });
-      
-    }
+    this.lessonApiService.updateLesson('disciplines', disciplineId, lesson).subscribe({
+      next: () => {
+        this.openSnackBar('Aula atualizada com sucesso!');
+        this.getDisciplines();
+      },
+      error: () => this.openSnackBar('ERRO em atualizar a aula!')
+    })
   }
 
-
+  private openSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000
+    });
+  }
 
 }

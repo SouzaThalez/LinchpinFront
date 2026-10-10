@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PreviewLessonReportDialogComponent } from '../../../../shared/preview-lesson-report-dialog/preview-lesson-report-dialog.component';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-ocorrance-registers',
   templateUrl: './ocorrance-registers.component.html',
@@ -46,7 +47,7 @@ export class OcorranceRegistersComponent implements OnInit{
 
     let params = new HttpParams().set('lessonDescription', 'true');
     
-    this.httpClient.get('http://localhost:3000/LessonReports/', { params })
+    this.httpClient.get(environment.apiUrl + '/lesson-reports/', { params })
     .subscribe({
         next: (sample: any)=>{
           this.lessonReportData = sample;

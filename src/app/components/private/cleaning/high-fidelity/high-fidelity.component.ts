@@ -5,6 +5,7 @@ import { HighCleaningDialogComponent } from './high-cleaning-dialog/high-cleanin
 import { DetailsDialogComponent } from '../../../shared/details-dialog/details-dialog.component';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-high-fidelity',
   templateUrl: './high-fidelity.component.html',
@@ -60,7 +61,7 @@ export class HighFidelityComponent implements OnInit{
 
   private getHightSimulators(){
 
-    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=alta').subscribe({
       next:(sample: any)=>{
         this.highSimulators = sample;
         

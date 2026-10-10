@@ -17,7 +17,7 @@
 
     <div class="load-curses" *ngIf="courses.length > 0">
       <div class="container" *ngFor="let course of courses">
-        <div class="details-list" *ngIf="course.documentData">
+        <div class="details-list" *ngIf="course">
           <div class="card-container" (click)="openEditCourseDialog(course)">
             <div class="card-body">
               <div class="card-head">
@@ -25,8 +25,8 @@
                   <img src="assets/images/logo/curso-logo.png" alt="">
                 </div>
                 <div class="card-description">
-                  <span>{{course.documentData.name}}</span>
-                  <span>{{course.documentData.label}}</span>
+                  <span>{{course.name}}</span>
+                  <span>{{course.label}}</span>
                 </div>
                 <div class="card-icon">
                   <span class="material-symbols-outlined">visibility</span>

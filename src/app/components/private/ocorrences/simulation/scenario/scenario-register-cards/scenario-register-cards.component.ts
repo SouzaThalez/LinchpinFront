@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../../data/snackBarData';
 
+import { environment } from '../../../../../../../environments/environment';
 @Component({
   selector: 'app-scenario-register-cards',
   templateUrl: './scenario-register-cards.component.html',
@@ -109,7 +110,7 @@ export class ScenarioRegisterCardsComponent implements OnInit{
 
   private postScenarioReports(model:any){
 
-    this.httpClient.post('http://localhost:3000/ScenarioReports',model)
+    this.httpClient.post(environment.apiUrl + '/scenario-reports',model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -121,7 +122,7 @@ export class ScenarioRegisterCardsComponent implements OnInit{
 
   private getHightSimulators(){
     
-    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=alta').subscribe({
       next:(sample: any)=>{
         this.simulators = sample;
         

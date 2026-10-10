@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Training } from '../../../../../../models/interface/training';
 
+import { environment } from '../../../../../../../environments/environment';
 @Component({
   selector: 'app-discipline-lesson-cards',
   templateUrl: './discipline-lesson-cards.component.html',
@@ -57,7 +58,7 @@ export class DisciplineLessonCardsComponent implements OnInit{
   
   private postLessonReports(model:any){
 
-    this.httpClient.post('http://localhost:3000/LessonReports',model)
+    this.httpClient.post(environment.apiUrl + '/lesson-reports',model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -68,7 +69,7 @@ export class DisciplineLessonCardsComponent implements OnInit{
 
   private getDisciplineLessons(id: string){
     
-    this.httpClient.get(`http://localhost:3000/Disciplines/${id}`).subscribe({
+    this.httpClient.get(`${environment.apiUrl}/disciplines/${id}`).subscribe({
       next:(sample:any)=>{
         this.disciplines = sample;
         console.log(this.disciplines);

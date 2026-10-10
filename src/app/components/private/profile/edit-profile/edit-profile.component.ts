@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../data/snackBarData';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -163,7 +164,7 @@ export class EditProfileComponent implements OnInit{
   private updateUser(model:any){
   
     //Model id property is coming from patchValue form
-    this.httpClient.put('http://localhost:3000/Users/' + model.id, model)
+    this.httpClient.put(environment.apiUrl + '/users/' + model.id, model)
     .subscribe({
         next: (sample: any)=>{
 

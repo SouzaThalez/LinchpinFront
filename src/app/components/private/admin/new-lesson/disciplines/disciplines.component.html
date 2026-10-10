@@ -6,8 +6,8 @@
         <mat-form-field appearance="outline" class="form-options">
           <mat-label>Disciplina...</mat-label>
           <mat-select [(ngModel)]="trainingValue">
-            <mat-option [value]="i" *ngFor="let element of disciplines index as i">{{element.documentData.name}} -
-              {{element.documentData.value}}</mat-option>
+            <mat-option [value]="i" *ngFor="let element of disciplines index as i">{{element.name}} -
+              {{element.value}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -32,11 +32,11 @@
 
   <div class="page-body">
 
-    <div class="load-disciplines" *ngIf="disciplines[trainingValue]?.documentData?.lessons?.length > 0 ">
+    <div class="load-disciplines" *ngIf="disciplines[trainingValue]?.lessons?.length > 0 ">
 
-      <div class="container" *ngFor="let lesson of disciplines[trainingValue].documentData.lessons">
+      <div class="container" *ngFor="let lesson of disciplines[trainingValue].lessons">
         <div class="details-list">
-          <div class="card-container" (click)="openEditLessonDialog(lesson, disciplines[trainingValue].docID)">
+          <div class="card-container" (click)="openEditLessonDialog(lesson, disciplines[trainingValue].id)">
             <div class="card-body">
               <div class="card-head">
                 <div class="card-image">
@@ -58,7 +58,7 @@
 
     </div>
 
-    <div *ngIf="!isLoading && disciplines[trainingValue]?.documentData?.lessons?.length == 0 ">
+    <div *ngIf="!isLoading && disciplines[trainingValue]?.lessons?.length == 0 ">
       <span>Não existem <b>aulas</b> cadastradas nesta disciplina</span>
     </div>
 

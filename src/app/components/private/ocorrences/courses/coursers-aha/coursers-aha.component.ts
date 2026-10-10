@@ -5,6 +5,7 @@ import { CoursesDialogComponent } from '../courses-dialog/courses-dialog.compone
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-coursers-aha',
   templateUrl: './coursers-aha.component.html',
@@ -47,7 +48,7 @@ export class CoursersAhaComponent implements OnInit{
 
   private postLessonReports(model:any){
 
-    this.httpClient.post('http://localhost:3000/LessonReports',model)
+    this.httpClient.post(environment.apiUrl + '/lesson-reports',model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -58,7 +59,7 @@ export class CoursersAhaComponent implements OnInit{
 
   private getCurses(){
 
-    this.httpClient.get('http://localhost:3000/Curses').subscribe({
+    this.httpClient.get(environment.apiUrl + '/courses').subscribe({
       next:(sample:any)=>{
         this.courses = sample;
        

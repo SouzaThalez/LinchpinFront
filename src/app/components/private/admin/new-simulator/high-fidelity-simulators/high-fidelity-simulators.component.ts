@@ -5,6 +5,7 @@ import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulat
 import { DetailSimulatorDialogComponent } from '../detail-simulator-dialog/detail-simulator-dialog.component';
 import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-high-fidelity-simulators',
   templateUrl: './high-fidelity-simulators.component.html',
@@ -71,7 +72,7 @@ export class HighFidelitySimulatorsComponent implements OnInit{
 
   private postHighSimulators(model:any){
 
-    this.httpClient.post('http://localhost:3000/highSimulators/',model).subscribe({
+    this.httpClient.post(environment.apiUrl + '/simulators/',model).subscribe({
       next:(sample: any)=>{
         this.getHightSimulators();
       },
@@ -82,7 +83,7 @@ export class HighFidelitySimulatorsComponent implements OnInit{
   }
   private getHightSimulators(){
 
-    this.httpClient.get('http://localhost:3000/highSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=alta').subscribe({
       next:(sample: any)=>{
         this.highSimulators = sample;
         

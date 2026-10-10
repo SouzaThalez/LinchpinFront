@@ -22,8 +22,7 @@ export class EditCourseDialogComponent implements OnInit{
     private snackBar: MatSnackBar,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: {
-      curse: Curse,
-      documentId: string
+      curse: Curse
     },
     ){}
 

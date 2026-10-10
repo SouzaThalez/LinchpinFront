@@ -5,6 +5,7 @@ import { DetailSimulatorDialogComponent } from '../detail-simulator-dialog/detai
 import { simulatorCategoryType } from '../../../../../enums/simulatorCategory';
 import { NewSimulatorDialogComponent } from '../new-simulator-dialog/new-simulator-dialog.component';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-medium-fidelity-simulators',
   templateUrl: './medium-fidelity-simulators.component.html',
@@ -68,7 +69,7 @@ export class MediumFidelitySimulatorsComponent implements OnInit{
 
   private postMediumSimulators(model:any){
 
-    this.httpClient.post('http://localhost:3000/mediumSimulators/',model).subscribe({
+    this.httpClient.post(environment.apiUrl + '/simulators/',model).subscribe({
       next:(sample: any)=>{
         this.getMediumSimulators();
       },
@@ -80,7 +81,7 @@ export class MediumFidelitySimulatorsComponent implements OnInit{
 
   private getMediumSimulators(){
 
-    this.httpClient.get('http://localhost:3000/mediumSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulators?category=media').subscribe({
       next:(sample: any)=>{
         this.mediumSimulators = sample;
         

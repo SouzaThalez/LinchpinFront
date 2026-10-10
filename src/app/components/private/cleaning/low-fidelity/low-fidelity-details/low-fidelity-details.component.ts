@@ -6,6 +6,7 @@ import { simulators } from '../../../../../data/simulators';
 import { DetailsDialogComponent } from '../../../../shared/details-dialog/details-dialog.component';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-low-fidelity-details',
   templateUrl: './low-fidelity-details.component.html',
@@ -70,7 +71,7 @@ export class LowFidelityDetailsComponent implements OnInit{
 
   private getLowSimulators(){
 
-    this.httpClient.get('http://localhost:3000/lowSimulators').subscribe({
+    this.httpClient.get(environment.apiUrl + '/simulator-classes').subscribe({
       next:(sample: any)=>{
         this.lowSimulatorsData = sample;
         this.lowSimulators = this.lowSimulatorsData[this.routeIndex].simulators;

@@ -3,12 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewCourseDialogComponent } from './new-course-dialog/new-course-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
-import { InitiateFirebaseService } from '../../../../../service/initiate-firebase.service';
-import { collection, doc, getDocs, query, setDoc, updateDoc } from 'firebase/firestore';
 import { Curse } from '../../../../../models/curse';
-import { DocumentModel } from '../../../../../models/interface/documentModel';
 import moment from 'moment';
 import { EditCourseDialogComponent } from './edit-course-dialog/edit-course-dialog.component';
+import { LessonApiService } from '../../../../../service/lesson-api.service';
 
 @Component({
   selector: 'app-curses',
@@ -16,50 +14,49 @@ import { EditCourseDialogComponent } from './edit-course-dialog/edit-course-dial
   styleUrl: './curses.component.scss'
 })
 export class CursesComponent implements OnInit{
-  
 
-  courses: DocumentModel[] = [];
+
+  courses: Curse[] = [];
   isLoading = false;
 
   constructor(
     private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private initFirebaseService: InitiateFirebaseService
+    private lessonApiService: LessonApiService
   ){}
 
-  
+
   ngOnInit(): void {
-    this.getFireBaseCurses();
+    this.getCourses();
   }
 
-  openEditCourseDialog(curse: DocumentModel){
+  openEditCourseDialog(curse: Curse){
 
     let dialogRef = this.matDialog.open(EditCourseDialogComponent,{
       disableClose: true,
       width:'468px',
       data:{
-        curse: curse.documentData,
-        documentId: curse.docID
+        curse: curse
       }
-  
+
     })
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        
+
         let model = result;
         let convertedDate = moment(model.updateDate).format('DD-MM-YYYY');
         model.updateDate = convertedDate;
 
-        this.updateFireBaseCurse(model,curse.docID);
-        
+        this.updateCourse(model, curse.id);
+
 
       }
     })
 
 
   }
-  
+
   openNewCourseDialog(){
 
     let dialogRef = this.matDialog.open(NewCourseDialogComponent,{
@@ -71,90 +68,56 @@ export class CursesComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        
-        let model = result;
-        this.postFireBaseCurse(model);
-
+        this.createCourse(result);
       }
     })
   }
 
-    
-  async updateFireBaseCurse(docModel: any, docIdRef: string): Promise<any> {
- 
-      try {
-  
-        const docRef = doc(this.initFirebaseService.getDb(), "Curses", docIdRef);
-  
-        await updateDoc(docRef, docModel);
-        this.courses = [];
+  private updateCourse(model: any, id: number) {
 
-        this.getFireBaseCurses();
-        
-        return this.snackBar.open('Curso atualizado com sucesso!', 'Close', {
-          horizontalPosition: snackBarConfig.horizontalPosition,
-          verticalPosition: snackBarConfig.verticalPosition,
-          duration: snackBarConfig.durationInSeconds * 1000 
-        });
-        
-        
-  
-      } catch (error) {
-    
-        return this.snackBar.open('ERRO em atualização do curso!', 'Close', {
-          horizontalPosition: snackBarConfig.horizontalPosition,
-          verticalPosition: snackBarConfig.verticalPosition,
-          duration: snackBarConfig.durationInSeconds * 1000 
-        });
-        
-      }
+    this.lessonApiService.updateCourse(id, model).subscribe({
+      next: () => {
+        this.openSnackBar('Curso atualizado com sucesso!');
+        this.getCourses();
+      },
+      error: () => this.openSnackBar('ERRO em atualização do curso!')
+    })
   }
 
-  async postFireBaseCurse(docData: any): Promise<any> {
-   
-         const documentId = `ahacurse-${docData.id}`;
-  
-        try {
-          
-          await setDoc(doc(this.initFirebaseService.getDb(), "Curses",documentId), docData);
-          this.snackBar.open('Curso adicionado com sucesso!', 'Close', {
-            horizontalPosition: snackBarConfig.horizontalPosition,
-            verticalPosition: snackBarConfig.verticalPosition,
-            duration: snackBarConfig.durationInSeconds * 1000 
-          });
-  
-         this.getFireBaseCurses();
-          
-        } catch (error) {
-          console.error("Error writing document: ", error);
-         
-        }
+  private createCourse(model: any) {
+
+    this.lessonApiService.createCourse(model).subscribe({
+      next: () => {
+        this.openSnackBar('Curso adicionado com sucesso!');
+        this.getCourses();
+      },
+      error: (erro) => console.error("Error writing course: ", erro)
+    })
   }
-  
-  async getFireBaseCurses():Promise<void> {
-    
-        this.isLoading = true;
-        this.courses = [];
-    
-        const q = query(collection(this.initFirebaseService.getDb(), "Curses"));
-    
-        const querySnapshot = await getDocs(q);
-    
-        querySnapshot.forEach((doc) => {
-         
-          const documentData = doc.data() as Curse; 
-          const docID = doc.id;
-          this.courses.push({ docID: docID, documentData });
-      
-    
-        });
-    
+
+  private getCourses() {
+
+    this.isLoading = true;
+
+    this.lessonApiService.listCourses().subscribe({
+      next: (courses) => {
+        this.courses = courses;
         this.isLoading = false;
-        console.log('Cursos, ',this.courses);
-    
-    
-    
+      },
+      error: (erro) => {
+        this.isLoading = false;
+        console.log('request to Courses failed: ', erro);
+      }
+    })
   }
-  
+
+  private openSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000
+    });
+  }
+
 
 }

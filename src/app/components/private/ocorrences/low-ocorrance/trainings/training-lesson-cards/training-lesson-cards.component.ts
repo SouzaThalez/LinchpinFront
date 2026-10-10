@@ -5,6 +5,7 @@ import { OcorranceDialogComponent } from '../../ocorrance-dialog/ocorrance-dialo
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Training } from '../../../../../../models/interface/training';
 
+import { environment } from '../../../../../../../environments/environment';
 @Component({
   selector: 'app-training-lesson-cards',
   templateUrl: './training-lesson-cards.component.html',
@@ -56,7 +57,7 @@ export class TrainingLessonCardsComponent implements OnInit{
 
   private postLessonReports(model:any){
 
-    this.httpClient.post('http://localhost:3000/LessonReports',model)
+    this.httpClient.post(environment.apiUrl + '/lesson-reports',model)
     .subscribe({
         next: (sample: any)=>{
           
@@ -67,7 +68,7 @@ export class TrainingLessonCardsComponent implements OnInit{
 
   private getTrainingLessons(id: string){
     
-    this.httpClient.get(`http://localhost:3000/Trainings/${id}`).subscribe({
+    this.httpClient.get(`${environment.apiUrl}/trainings/${id}`).subscribe({
       next:(sample:any)=>{
         this.trainingData = sample;
         console.log(this.trainingData);
