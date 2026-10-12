@@ -112,7 +112,6 @@ export class HighCleaningDialogComponent implements OnInit{
       date: [null, Validators.required],
       findings: [null, Validators.required],
       hasDescription: [true],
-      hasIntervention: [false],
     })
 
     return prevForm;

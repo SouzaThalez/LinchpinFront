@@ -41,10 +41,10 @@
                 <div class="manitence-details">
                     
                     <div class="manitence-body" *ngIf="data?.simulatorData?.hasIntervention else showDefault">
-                        <span><b>Status:</b> {{data?.simulatorData?.intervention.interventionStatus}}</span>
+                        <span><b>Status:</b> {{data?.simulatorData?.intervention.status}}</span>
                         <span><b>Categoria da manutenção:</b> {{data?.simulatorData?.manitanceCategory}}</span>
-                        <span><b>Data da intervenção:</b> {{data?.simulatorData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da intervenção:</b> {{data?.simulatorData?.intervention.interventionText}}</span>
+                        <span><b>Data da intervenção:</b> {{data?.simulatorData?.intervention.date}}</span>
+                        <span><b>Registro da intervenção:</b> {{data?.simulatorData?.intervention.description}}</span>
                     </div>
     
                     <ng-template #showDefault>

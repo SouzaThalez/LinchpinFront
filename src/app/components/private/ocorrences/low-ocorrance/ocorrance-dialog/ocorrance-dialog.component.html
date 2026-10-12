@@ -39,10 +39,10 @@
 
       <div class="dialog-field">
           <h2>Houve ocorrência de aula?</h2>
-          <mat-checkbox class="manitance-checkbox" (change)="checkBox($event.checked)">Nenhuma</mat-checkbox>
+          <mat-checkbox class="manitance-checkbox" (change)="checkLessonBox($event.checked)">Nenhuma</mat-checkbox>
       </div>
        
-      <div class="text-area-container" *ngIf="checked else showLessonTextArea">
+      <div class="text-area-container" *ngIf="noLessonOccurrence else showLessonTextArea">
         <p class="text-msg"[innerHtml]="defaultLessonMessage"></p>
       </div>
 
@@ -50,44 +50,42 @@
       <ng-template #showLessonTextArea>
               <mat-form-field class="text-area-form" appearance="outline">
                   <mat-label>Durante a aula ...</mat-label>
-                  <textarea formControlName="lessonOcorrance" matInput ></textarea>
+                  <textarea formControlName="lessonOccurrence" matInput ></textarea>
               </mat-form-field>
       </ng-template>
    
 
       <div class="dialog-field">
         <h2>Houve ocorrência de simulador?</h2>
-        <mat-checkbox class="manitance-checkbox" (change)="checkSimBox($event.checked)">Nenhum</mat-checkbox>
+        <mat-checkbox class="manitance-checkbox" (change)="checkSimulatorBox($event.checked)">Nenhum</mat-checkbox>
       </div>
        
-      <div class="text-area-container" *ngIf="isValid else showSimulatorInfo">
+      <div class="text-area-container" *ngIf="noSimulatorOccurrence else showSimulatorInfo">
         <p class="text-msg"[innerHtml]="defaultSimulatorMessage"></p>
       </div>
 
       <ng-template #showSimulatorInfo>
 
-        <div class="simulator-report" formGroupName="simulatorReport">
+        <div class="simulator-report">
 
           <div class="dialog-field-code">
 
             <mat-form-field appearance="outline">
               <mat-label>Simulador</mat-label>
-              <mat-select formControlName="name">
+              <mat-select formControlName="simulatorId">
                   <mat-option (click)="getSimulator(simulator)"
                               *ngFor="let simulator of mediumSimulators"
-                              [value]="simulator.name">
+                              [value]="simulator.id">
                               {{simulator.name}}
                   </mat-option>
-                  <mat-option value="1">Outro</mat-option>
               </mat-select>
             </mat-form-field>
     
-            <div class="simulator-code" *ngIf="form.get('simulatorReport.name')?.value">
+            <div class="simulator-code" *ngIf="form.get('simulatorId')?.value">
                 <mat-form-field class="code-field" appearance="outline">
                   <mat-label>Código</mat-label>
-                  <mat-select formControlName="code">
-                      <mat-option #matoption *ngFor="let element of simulatorCodes; let i= index"
-                                  (click)="getCode(element.code)"
+                  <mat-select formControlName="simulatorCode">
+                      <mat-option #matoption *ngFor="let element of simulatorCodes"
                                   [value]="element.code">
                                   {{element.code}}
                       </mat-option>
@@ -97,11 +95,11 @@
     
           </div>
     
-          <div class="simulator-description" *ngIf="form.get('simulatorReport.code')?.value">
+          <div class="simulator-description" *ngIf="form.get('simulatorCode')?.value">
             <h2>Descreva</h2>
             <mat-form-field class="text-area-form" appearance="outline">
               <mat-label>Durante a aula o Simulador...</mat-label>
-              <textarea matInput formControlName="ocorrance" ></textarea>
+              <textarea matInput formControlName="simulatorOccurrence" ></textarea>
             </mat-form-field>
           </div>
 

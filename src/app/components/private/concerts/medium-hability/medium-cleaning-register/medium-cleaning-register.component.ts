@@ -8,6 +8,10 @@ import { InterventionReportDialogComponent } from '../../../../shared/interventi
 import { User } from '../../../../../models/user';
 import { userRoleType } from '../../../../../enums/userRoles';
 import { UserLogedService } from '../../../../../service/user-loged.service';
+import { InterventionApiService } from '../../../../../service/intervention-api.service';
+
+import { CleaningReport } from '../../../../../models/cleaningReport';
+import { InterventionForm } from '../../../../../models/intervention';
 
 import { environment } from '../../../../../../environments/environment';
 @Component({
@@ -26,7 +30,8 @@ export class MediumCleaningRegisterComponent implements OnInit{
     private httpClient: HttpClient,
     private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private userLogedService : UserLogedService
+    private userLogedService : UserLogedService,
+    private interventionApi: InterventionApiService
   ){}
 
 
@@ -59,7 +64,7 @@ export class MediumCleaningRegisterComponent implements OnInit{
     })
   }
 
-  openInterventionReport(report: any){
+  openInterventionReport(report: CleaningReport){
 
     if(report.hasIntervention){
 
@@ -83,11 +88,7 @@ export class MediumCleaningRegisterComponent implements OnInit{
       dialogRef.afterClosed().subscribe(result=>{
    
         if(result){
-  
-          //adding interventionReport to model 
-          report.intervention = result;
-          report.hasIntervention = true;
-          this.updateReport(report);
+          this.registerIntervention(report, result);
         }
       })
     }else{
@@ -105,16 +106,32 @@ export class MediumCleaningRegisterComponent implements OnInit{
 
   }
 
-  private updateReport(model:any){
+  private registerIntervention(report: CleaningReport, form: InterventionForm){
 
-    this.httpClient.put(environment.apiUrl + '/cleaning-reports/' + model.id, model)
-    .subscribe({
-        next: (sample: any)=>{
-         
-          this.selectedReport = sample;
+    const request = report.intervention
+      ? this.interventionApi.update(report.intervention.id, form)
+      : this.interventionApi.create('limpeza', report.id, form);
+
+    request.subscribe({
+        next: (intervention)=>{
+          report.intervention = intervention;
+          report.interventionId = intervention.id;
+          report.hasIntervention = true;
         },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+        error: (erro)=>{
+          console.log('request to interventions is NOT good: ',erro);
+          this.openSnackBar(erro.error?.title ?? 'Não foi possível registrar a intervenção.');
+        }
     })
+  }
+
+  private openSnackBar(message: string): void {
+
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000
+    });
   }
 
 

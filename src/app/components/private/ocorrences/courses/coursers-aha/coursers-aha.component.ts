@@ -29,7 +29,7 @@ export class CoursersAhaComponent implements OnInit{
 
   openCursesDialog(curse:any){
     
-    let dialogRef = this.matDialog.open(CoursesDialogComponent,{
+    this.matDialog.open(CoursesDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
@@ -37,24 +37,7 @@ export class CoursersAhaComponent implements OnInit{
       }
     })
 
-    dialogRef.afterClosed().subscribe(result=>{
-      if(result){
-        this.postLessonReports(result);
-      }
-    })
 
-
-  }
-
-  private postLessonReports(model:any){
-
-    this.httpClient.post(environment.apiUrl + '/lesson-reports',model)
-    .subscribe({
-        next: (sample: any)=>{
-          
-        },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
-    })
   }
 
   private getCurses(){

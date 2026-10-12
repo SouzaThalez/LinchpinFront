@@ -15,17 +15,17 @@
             <div class="report-content">
                 <div class="report-body">
                     <div class="report-image">
-                        <img [src]="element.lessonImage" alt="leeson-image">
+                        <img [src]="lessonImages[element.category]" alt="leeson-image">
                     </div>
                     <div class="report-info">
                         <span>Aula: {{element.lessonName}}</span>
-                        <span>Tipo: {{element.lessonCategory}}</span>
+                        <span>Simulador: {{element.simulatorName}} ({{element.simulatorCode}})</span>
                         <span>Data abertura: {{element.date}}</span>
 
                         <div class="report-button" 
                             (click)="openInterventionReport(element)"
-                            [ngClass]="element.hasIntervention ? 'green' : 'red'">
-                            <span> {{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
+                            [ngClass]="element.hasSimulatorIntervention ? 'green' : 'red'">
+                            <span> {{ element.hasSimulatorIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
                         </div>
 
                     </div>
@@ -38,12 +38,12 @@
                         
                     </div>
                     <div class="footer-content">
-                        <span>{{element.simulatorReport.ocorrance}}</span>
+                        <span>{{element.simulatorOccurrence}}</span>
                     </div>
                     <div class="footer-action">
                         <div class="footer-button">
-                            <div class="intervention" *ngIf="element.intervention else default">
-                                 <span>Status: {{element.intervention.interventionStatus}}</span>
+                            <div class="intervention" *ngIf="element.simulatorIntervention else default">
+                                 <span>Status: {{element.simulatorIntervention.status}}</span>
                             </div>
                             <ng-template #default>
                                 <span>Status: Enviado para manutenção...</span>

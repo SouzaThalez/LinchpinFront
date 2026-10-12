@@ -1,37 +1,48 @@
 
 <div class="page">
     <div class="report-detail-list">
-        
+
         <div class="page-header-description">
             <span>Registros das ocorrencias de aulas</span>
         </div>
-       
+
         <div class="empty-report-data"  *ngIf="!lessonReportData || lessonReportData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
-        
+
         <div class="report-container-grid"
              *ngFor="let element of lessonReportData">
             <div class="report-content">
                 <div class="report-body">
                     <div class="report-image">
-                        <img [src]="element.lessonImage" alt="leeson-image">
+                        <img [src]="lessonImages[element.category]" alt="leeson-image">
                     </div>
                     <div class="report-info">
-                            <span>Nome: {{element.lessonCategory}} - {{element.lessonType}}</span>
+                            <span>Nome: {{element.groupName}} - {{element.groupLabel}}</span>
                             <span>Aula: {{element.lessonName}} </span>
-                            <span>Data: {{element.date}} </span>
+                            <span>Data abertura: {{element.date}} </span>
+                            <div class="intervention" *ngIf="element.lessonIntervention else default">
+                                <span>Status: {{element.lessonIntervention.status}}</span>
+                            </div>
+                            <ng-template #default>
+                                <span>Status: Enviado para manutenção</span>
+                            </ng-template>
+                            <div class="report-button"
+                                (click)="openInterventionReport(element)"
+                                [ngClass]="element.hasLessonIntervention ? 'green' : 'red'">
+                                <span>{{ element.hasLessonIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
+                            </div>
                     </div>
                 </div>
             </div>
             <div class="report-content">
                 <div class="report-footer" (click)="openPreviewLessonReportDialog(element)">
                     <div class="footer-header">
-                        <span>Registros de aula</span>
+                        <span>Ocorrência de aula</span>
                         <span class="report-code">Data: {{element.date}}</span>
                     </div>
                     <div class="footer-content">
-                        <span>{{element.lessonOcorrance}}</span>
+                        <span>{{element.lessonOccurrence}}</span>
                     </div>
                     <div class="footer-action">
                         <div class="footer-button">
@@ -42,6 +53,6 @@
                 </div>
             </div>
         </div>
- 
+
     </div>
 </div>

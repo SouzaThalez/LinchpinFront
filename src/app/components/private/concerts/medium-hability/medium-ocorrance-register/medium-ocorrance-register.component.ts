@@ -8,6 +8,10 @@ import { InterventionReportDialogComponent } from '../../../../shared/interventi
 import { User } from '../../../../../models/user';
 import { userRoleType } from '../../../../../enums/userRoles';
 import { UserLogedService } from '../../../../../service/user-loged.service';
+import { InterventionApiService } from '../../../../../service/intervention-api.service';
+import { LessonReport, lessonReportImages } from '../../../../../models/lessonReport';
+
+import { InterventionForm } from '../../../../../models/intervention';
 
 import { environment } from '../../../../../../environments/environment';
 @Component({
@@ -17,8 +21,8 @@ import { environment } from '../../../../../../environments/environment';
 })
 export class MediumOcorranceRegisterComponent implements OnInit{
 
-  lessonData: any[];
-  selectedReport:any;
+  lessonData: LessonReport[];
+  lessonImages = lessonReportImages;
   currentUser: User;
   userAnalystRole = userRoleType.analyst;
 
@@ -26,7 +30,8 @@ export class MediumOcorranceRegisterComponent implements OnInit{
     private httpClient: HttpClient,
     private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private userLogedService : UserLogedService
+    private userLogedService : UserLogedService,
+    private interventionApi: InterventionApiService
   ){}
 
 
@@ -42,7 +47,7 @@ export class MediumOcorranceRegisterComponent implements OnInit{
     });
   }
 
-  openPreviewSimulatorReportDialog(element: any){
+  openPreviewSimulatorReportDialog(element: LessonReport){
     
     let dialogRef = this.matDialog.open(PreviewSimulatorReportDialogComponent,{
       disableClose: true,
@@ -60,9 +65,9 @@ export class MediumOcorranceRegisterComponent implements OnInit{
   }
 
   
-  openInterventionReport(report: any){
+  openInterventionReport(report: LessonReport){
 
-    if(report.hasIntervention){
+    if(report.hasSimulatorIntervention){
 
       this.snackBar.open('Ups! Ja foi registrado uma intervenção!', 'Close', {
         horizontalPosition: snackBarConfig.horizontalPosition,
@@ -83,10 +88,7 @@ export class MediumOcorranceRegisterComponent implements OnInit{
   
       dialogRef.afterClosed().subscribe(result=>{
         if(result){
-          //adding interventionReport to model 
-          report.intervention = result;
-          report.hasIntervention = true;
-          this.updateReport(report);
+          this.registerIntervention(report, result);
         }
       })
 
@@ -101,25 +103,40 @@ export class MediumOcorranceRegisterComponent implements OnInit{
 
   }
 
-  private updateReport(model:any){
-  
-    this.httpClient.put(environment.apiUrl + '/lesson-reports/' + model.id, model)
+  private registerIntervention(report: LessonReport, form: InterventionForm){
+
+    this.interventionApi.create('simulador', report.id, form)
     .subscribe({
-        next: (sample: any)=>{
-          this.selectedReport = sample;
+        next: (intervention)=>{
+          report.simulatorIntervention = intervention;
+          report.simulatorInterventionId = intervention.id;
+          report.hasSimulatorIntervention = true;
         },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
+        error: (erro)=>{
+          console.log('request to interventions is NOT good: ',erro);
+          this.openSnackBar(erro.error?.title ?? 'Não foi possível registrar a intervenção.');
+        }
     })
   }
 
+  private openSnackBar(message: string): void {
+
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: snackBarConfig.horizontalPosition,
+      verticalPosition: snackBarConfig.verticalPosition,
+      duration: snackBarConfig.durationInSeconds * 1000
+    });
+  }
+
   private getLessonReports(){
-    // returns data who meets theese 2 conditions
+    // chamados de simulador (média fidelidade) abertos durante as aulas
     let params = new HttpParams()
-      .set('simulatorDescription', 'true');
-    
-    this.httpClient.get(environment.apiUrl + '/lesson-reports/', { params })
+      .set('hasSimulatorOccurrence', 'true')
+      .set('simulatorCategory', 'media');
+
+    this.httpClient.get<LessonReport[]>(environment.apiUrl + '/lesson-reports/', { params })
     .subscribe({
-        next: (sample: any)=>{
+        next: (sample)=>{
           this.lessonData = sample;
         },
         error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}

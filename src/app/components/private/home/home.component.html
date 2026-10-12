@@ -24,7 +24,8 @@
                 <div class="column-footer">
                     <div class="report-badge">
                         <span>Relatórios</span>
-                        <span>{{lessonData?.length}}</span>
+                        <span>{{recentReportsData?.cleanings.length + 
+                        recentReportsData?.lessons.length + recentReportsData?.scenarios.length}}</span>
                     </div>
                     <div class="report-badge">
                         <span>Limpezas</span>
@@ -49,7 +50,7 @@
                             <img src="assets/icons/report-icon.png" alt="">
                         </div>
                         <div class="report-description">
-                            <span>Registro: <b>{{element.lessonCategory}}</b></span>
+                            <span>Registro: <b>{{element.groupName}} - {{element.groupLabel}}</b></span>
                             <span>Aula: {{element.lessonName}}</span>
                             <span>Date: {{element.date}}</span>
                             <span>Responsavél: {{element.user.name}}</span>

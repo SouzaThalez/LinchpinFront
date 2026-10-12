@@ -37,36 +37,18 @@ export class DisciplineLessonCardsComponent implements OnInit{
 
   openOcorranceDialog(lesson: any){
     
-    let dialogRef = this.matDialog.open(OcorranceDialogComponent,{
+    this.matDialog.open(OcorranceDialogComponent,{
       disableClose: true,
       width:'650px',
       data:{
         selectedLesson:lesson,
-        training: this.disciplines
+        training: this.disciplines,
+        category: 'disciplina'
       
-      }
-    })
-
-    //disciplines lesson
-    dialogRef.afterClosed().subscribe(result=>{
-      
-      if(result){
-        this.postLessonReports(result);
       }
     })
   }
   
-  private postLessonReports(model:any){
-
-    this.httpClient.post(environment.apiUrl + '/lesson-reports',model)
-    .subscribe({
-        next: (sample: any)=>{
-          
-        },
-        error: (erro)=>{console.log('request to prepared class  is NOT good: ',erro);}
-    })
-  }
-
   private getDisciplineLessons(id: string){
     
     this.httpClient.get(`${environment.apiUrl}/disciplines/${id}`).subscribe({

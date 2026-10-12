@@ -1,18 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Lesson } from '../../../../../models/lesson';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { simulators } from '../../../../../data/simulators';
-import { Simulator } from '../../../../../models/simulator';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Simulator } from '../../../../../models/simulator';
 import moment from 'moment';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
-import { SimulatorReport } from '../../../../../models/simulatorReport';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../../../../../models/user';
-import { UserLogedService } from '../../../../../service/user-loged.service';
+import { LessonReport, LessonReportForm } from '../../../../../models/lessonReport';
 
 import { environment } from '../../../../../../environments/environment';
 @Component({
@@ -23,143 +19,85 @@ import { environment } from '../../../../../../environments/environment';
 })
 export class CoursesDialogComponent implements OnInit{
 
-  //Checkboxes
-  checked = false;
-  isValid = false;
-
-
-  defaultMessage = 'Não houve registro de ocorrência de aula';
+  //Checkboxes "Nenhuma"/"Nenhum"
+  noLessonOccurrence = false;
+  noSimulatorOccurrence = false;
+  defaultLessonMessage = 'Não houve registro de ocorrência de aula';
   defaultSimulatorMessage = 'Não houve ocorrência de Simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
-  lessonImgPath = "assets/images/logo/curso-logo.png";
 
   selectedSimulator: Simulator;
-
-  mediumSimulators: any;
+  mediumSimulators: Simulator[];
   simulatorCodes: Array<any> = [];
-  
-  currentUser: User;
-  userModel = {
-    name:'',
-    role:''
-  }
 
-  form: FormGroup = this.createForm();
+  form: FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<CoursesDialogComponent>,
+    private matDialog: MatDialog,
+    private httpClient: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: {
       curse: any
     },
     private fb : FormBuilder,
-    private matDialog: MatDialog,
     private snackBar: MatSnackBar,
-    private httpClient: HttpClient,
-    private userLogedService : UserLogedService
   ){}
-  
+
   ngOnInit(): void {
-  
     this.form = this.createForm();
-  
-    this.userLogedService.getCurrentUser()
-    .subscribe({
-      next: (user) => {
-        this.currentUser = user;
-        this.userModel.name = this.currentUser.name;
-        this.userModel.role = this.currentUser.role;
-      }
-    });
-
     this.getMediumSimulators();
+  }
 
-  } 
-
-  
-  onClose(value: any): void {
+  onClose(value: LessonReport): void {
     this.dialogRef.close(value);
     this.openSnackBar(this.snackbarMessage);
-
   }
 
-
-  checkBox(value: any){
-    this.checked = value;
-    this.form.patchValue({
-      lessonOcorrance: this.defaultMessage,
-      lessonDescription:false
-    })
+  checkLessonBox(value: boolean){
+    this.noLessonOccurrence = value;
+    this.form.patchValue({ hasLessonOccurrence: !value });
+    this.setRequired(['lessonOccurrence'], !value);
   }
 
-  checkSimBox(value: any){
-
-    this.isValid = value;
-  
-    if(this.isValid){
-
-      const noReportInfo = new SimulatorReport();
-      noReportInfo.code = 'Não informado' ; 
-      noReportInfo.date = 'Não informado' ;
-      noReportInfo.image = 'Não informado' ;
-      noReportInfo.name = 'Não informado' ;
-      noReportInfo.ocorrance = this.defaultSimulatorMessage ;
-      noReportInfo.simulatorCategory = 'Não informado' ;
-
-      this.form.patchValue({
-        simulatorDescription: false,
-        simulatorReport: noReportInfo
-      })
-
-    }
-   
+  checkSimulatorBox(value: boolean){
+    this.noSimulatorOccurrence = value;
+    this.form.patchValue({ hasSimulatorOccurrence: !value });
+    this.setRequired(['simulatorId', 'simulatorCode', 'simulatorOccurrence'], !value);
   }
 
-
-
-  getSimulator(simulator: any) {
+  getSimulator(simulator: Simulator) {
     this.selectedSimulator = simulator;
     this.simulatorCodes = simulator.codes;
-
-    this.form.patchValue({
-      simulatorReport:{
-        image: this.selectedSimulator.image
-      }
-  
-    })
+    this.form.patchValue({ simulatorCode: null });
   }
 
   submitForm(){
- 
+
     if (this.form.valid) {
 
-      let momentDate = moment(this.form.value.date).format('DD-MM-YYYY');
-      let simulatorReport = this.getSimulatorReport();
-      simulatorReport.date = momentDate;
+      const value = this.form.value;
+      const model: LessonReportForm = {
+        ...value,
+        date: moment(value.date).format('DD-MM-YYYY'),
+        lessonOccurrence: value.hasLessonOccurrence ? value.lessonOccurrence : null,
+        simulatorId: value.hasSimulatorOccurrence ? value.simulatorId : null,
+        simulatorCode: value.hasSimulatorOccurrence ? value.simulatorCode : null,
+        simulatorOccurrence: value.hasSimulatorOccurrence ? value.simulatorOccurrence : null,
+      };
 
-      this.form.patchValue({
-        date: momentDate,
-        simulatorReport: simulatorReport
-    
-      })
-
-      //send data to ocorrance Dialog
-      this.onClose(this.form.value);
-      
+      this.postLessonReport(model);
       return
     }
-   
-    this.openAlertDialog();
 
+    this.openAlertDialog();
   }
 
-  private getSimulatorReport(): SimulatorReport {
-    
-    const simulatorReportValue = this.form.get('simulatorReport')?.value;
-    const simReport = new SimulatorReport();
-    // Map form values to the instance  
-    Object.assign(simReport, simulatorReportValue);
-
-    return simReport;
+  private setRequired(controls: string[], required: boolean){
+    for (const name of controls) {
+      const control = this.form.get(name)!;
+      control.setValidators(required ? Validators.required : null);
+      control.updateValueAndValidity();
+    }
   }
 
   private openSnackBar(message: string): void {
@@ -167,49 +105,45 @@ export class CoursesDialogComponent implements OnInit{
     this.snackBar.open(message, 'Close', {
       horizontalPosition: snackBarConfig.horizontalPosition,
       verticalPosition: snackBarConfig.verticalPosition,
-      duration: snackBarConfig.durationInSeconds * 1000 
+      duration: snackBarConfig.durationInSeconds * 1000
     });
 
   }
 
   private openAlertDialog(){
 
-    let dialogRef = this.matDialog.open(AlertDialogComponent,{
+    this.matDialog.open(AlertDialogComponent,{
       disableClose: true,
       width:'468px',
-  
     })
+  }
 
-    dialogRef.afterClosed().subscribe(result=>{
-      if(result){
-        
-      }
+  private postLessonReport(model: LessonReportForm){
+
+    this.httpClient.post<LessonReport>(environment.apiUrl + '/lesson-reports', model)
+    .subscribe({
+        next: (report)=>{
+          this.onClose(report);
+        },
+        error: (erro)=>{
+          console.log('request to lesson-reports is NOT good: ',erro);
+          this.openSnackBar(erro.error?.title ?? 'Não foi possível salvar o registro.');
+        }
     })
   }
 
   private createForm(): FormGroup{
 
     const prevForm = this.fb.group({
-
-      date: [null,Validators.required],
-      lessonName:[this.data.curse.name],
-      lessonOcorrance:[],
-      lessonDescription:[true],
-      lessonImage:[this.lessonImgPath],
-      lessonCategory:[this.data.curse.lessonType],
-      lessonType:[this.data.curse.label],
-      user: [this.userModel],
-      simulatorDescription:[true],
-      simulatorReport: this.fb.group({
-        name: [null,Validators.required],
-        code: [null,Validators.required],
-        image: [],
-        ocorrance: [null,Validators.required],
-        simulatorCategory: ['media'],
-        date: []
-      }),
-      hasIntervention:[false],
-
+      category: ['curso'],
+      courseId: [this.data.curse.id],
+      date: [null, Validators.required],
+      hasLessonOccurrence: [true],
+      lessonOccurrence: [null, Validators.required],
+      hasSimulatorOccurrence: [true],
+      simulatorId: [null, Validators.required],
+      simulatorCode: [null, Validators.required],
+      simulatorOccurrence: [null, Validators.required],
     })
 
     return prevForm;
@@ -217,8 +151,8 @@ export class CoursesDialogComponent implements OnInit{
 
   private getMediumSimulators(){
 
-    this.httpClient.get(environment.apiUrl + '/simulators?category=media').subscribe({
-      next:(sample: any)=>{
+    this.httpClient.get<Simulator[]>(environment.apiUrl + '/simulators?category=media').subscribe({
+      next:(sample)=>{
         this.mediumSimulators = sample;
       },
       error:(error)=>{

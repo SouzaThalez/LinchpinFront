@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import jsPDF from 'jspdf';
+import { lessonReportImages } from '../../../models/lessonReport';
 
 @Component({
   selector: 'app-preview-lesson-report-dialog',
@@ -10,6 +11,8 @@ import jsPDF from 'jspdf';
 export class PreviewLessonReportDialogComponent implements OnInit{
   
   linchpinLogoImage = 'assets/images/login/login-image.png';
+  defaultLessonMessage = 'Não houve registro de ocorrência de aula';
+  lessonImage = '';
 
   isCurseReport: boolean = false;
   isLessonReport: boolean = false;
@@ -27,16 +30,20 @@ export class PreviewLessonReportDialogComponent implements OnInit{
   ngOnInit(): void {
     
 
-    if(this.data.reportData.lessonCategory == 'Treinamento Habilidade'){
-      this.isLessonReport = true ;
+    const report = this.data.reportData;
+
+    if(report.manitanceCategory != null){
+      this.isManitanceReport = true;
       return
     }
-    if(this.data.reportData.lessonCategory == 'curso'){
+
+    this.lessonImage = lessonReportImages[report.category as keyof typeof lessonReportImages];
+    if(report.category == 'curso'){
       this.isCurseReport = true;
       return
     }
-    if(this.data.reportData.manitanceCategory != null){
-      this.isManitanceReport = true;
+    if(report.category == 'treinamento' || report.category == 'disciplina'){
+      this.isLessonReport = true;
       return
     }
   }
@@ -142,15 +149,15 @@ export class PreviewLessonReportDialogComponent implements OnInit{
       
           currentY += 10;
           doc.text("Data:", 10, currentY);
-          doc.text(data.intervention.interventionDate || "N/A", 22, currentY);
+          doc.text(data.intervention.date || "N/A", 22, currentY);
       
           currentY += 10;
           doc.text("Status:", 10, currentY);
-          doc.text(data.intervention.interventionStatus || "N/A", 25, currentY);
+          doc.text(data.intervention.status || "N/A", 25, currentY);
       
           currentY += 10;
           doc.text("Registro:", 10, currentY);
-          const wrappedText = doc.splitTextToSize(data.intervention.interventionText || "N/A", 140);
+          const wrappedText = doc.splitTextToSize(data.intervention.description || "N/A", 140);
           const wrappedYStart = currentY + 10;
           doc.text(wrappedText, 10, wrappedYStart);
       
@@ -172,7 +179,7 @@ export class PreviewLessonReportDialogComponent implements OnInit{
         doc.setFont("helvetica", "normal");
 
         doc.text(`Relatório gerado por: ${data.user?.name || "N/A"} (${data.user?.role || "N/A"})`, 10, footerY);
-        const interventionUser = data.intervention?.interventionUser;
+        const interventionUser = data.intervention?.user;
         if (interventionUser) {
           doc.text(
             `Intervenção realizada por: ${interventionUser.name || "N/A"} (${interventionUser.role || "N/A"})`,
@@ -206,13 +213,13 @@ export class PreviewLessonReportDialogComponent implements OnInit{
      doc.line(10, 15, 200, 15);
    
      // Add Simulator Image at the Top Right
-     if (data.lessonImage) {
+     if (this.lessonImage) {
        const imgWidth = 40; // Width of the image in mm
        const imgHeight = 40; // Height of the image in mm
        const imgX = doc.internal.pageSize.width - imgWidth - 10; // 10mm margin from the right
        const imgY = 17; // Start just below the separator line
    
-       doc.addImage(data.lessonImage, "JPEG", imgX, imgY, imgWidth, imgHeight);
+       doc.addImage(this.lessonImage, "PNG", imgX, imgY, imgWidth, imgHeight);
      }
    
      let currentY = 25;
@@ -234,14 +241,14 @@ export class PreviewLessonReportDialogComponent implements OnInit{
    
      currentY += 10;
      doc.text("Categoria:", 10, currentY);
-     doc.text(data.lessonCategory + " - " + data.lessonType || "N/A", 30, currentY);
+     doc.text(`${data.groupName || "N/A"} - ${data.groupLabel || "N/A"}`, 30, currentY);
    
      // Add Findings (with wrapping)
      currentY += 10;
      doc.text("Registro da aula:", 10, currentY);
  
        // Calculate the dimensions for the findings text
-     const wrappedFindings = doc.splitTextToSize(data.lessonOcorrance || "N/A", 140);
+     const wrappedFindings = doc.splitTextToSize(data.hasLessonOccurrence ? data.lessonOccurrence : this.defaultLessonMessage, 140);
      const findingsYStart = currentY + 10; // Slight offset for spacing
      const findingsLineHeight = 6; // Line height in points for wrapped text
      const findingsTextHeight = wrappedFindings.length * findingsLineHeight;
@@ -256,8 +263,34 @@ export class PreviewLessonReportDialogComponent implements OnInit{
  
      // Update currentY to the end of the findings section
      currentY = findingsYStart + findingsTextHeight;
-     // Add Intervention Details
-     if (data.simulatorDescription) {
+     // Add Lesson Intervention Details
+     if (data.hasLessonIntervention && data.lessonIntervention) {
+       currentY += 10;
+       doc.setFontSize(14);
+       doc.setFont("helvetica", "bold");
+       doc.text("Informações da intervenção", 10, currentY);
+
+       doc.setFontSize(12);
+       doc.setFont("helvetica", "normal");
+
+       currentY += 10;
+       doc.text("Data:", 10, currentY);
+       doc.text(data.lessonIntervention.date || "N/A", 22, currentY);
+
+       currentY += 10;
+       doc.text("Status:", 10, currentY);
+       doc.text(data.lessonIntervention.status || "N/A", 25, currentY);
+
+       currentY += 10;
+       doc.text("Registro:", 10, currentY);
+       const wrappedIntervention = doc.splitTextToSize(data.lessonIntervention.description || "N/A", 140);
+       const interventionYStart = currentY + 10;
+       doc.text(wrappedIntervention, 10, interventionYStart);
+       currentY = interventionYStart + wrappedIntervention.length * 6;
+     }
+
+     // Add Simulator Details
+     if (data.hasSimulatorOccurrence) {
        currentY += 10; // Small gap before the next section
        doc.setFontSize(14);
        doc.setFont("helvetica", "bold");
@@ -268,15 +301,15 @@ export class PreviewLessonReportDialogComponent implements OnInit{
    
        currentY += 10;
        doc.text("Data:", 10, currentY);
-       doc.text(data.simulatorReport.date || "N/A", 22, currentY);
+       doc.text(data.date || "N/A", 22, currentY);
    
        currentY += 10;
        doc.text("Nome:", 10, currentY);
-       doc.text(data.simulatorReport.name || "N/A", 25, currentY);
+       doc.text(`${data.simulatorName || "N/A"} (${data.simulatorCode || "N/A"})`, 25, currentY);
    
        currentY += 10;
        doc.text("Registro do simulador:", 10, currentY);
-       const wrappedText = doc.splitTextToSize(data.simulatorReport.ocorrance || "N/A", 140);
+       const wrappedText = doc.splitTextToSize(data.simulatorOccurrence || "N/A", 140);
        const wrappedYStart = currentY + 10;
        doc.text(wrappedText, 10, wrappedYStart);
    
@@ -298,7 +331,7 @@ export class PreviewLessonReportDialogComponent implements OnInit{
      doc.setFont("helvetica", "normal");
  
      doc.text(`Relatório gerado por: ${data.user?.name || "N/A"} (${data.user?.role || "N/A"})`, 10, footerY);
-     const interventionUser = data.intervention?.interventionUser;
+     const interventionUser = data.lessonIntervention?.user;
      if (interventionUser) {
        doc.text(
          `Intervenção realizada por: ${interventionUser.name || "N/A"} (${interventionUser.role || "N/A"})`,

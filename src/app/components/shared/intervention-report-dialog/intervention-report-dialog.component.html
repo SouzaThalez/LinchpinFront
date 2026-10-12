@@ -13,6 +13,7 @@
             <h2>Descreva a Intervenção realizada</h2>
             <mat-checkbox
                     class="concert-checkbox"
+                    [checked]="checked"
                     (change)="checkBox()"> 
                     Nenhuma
             </mat-checkbox>
@@ -25,7 +26,7 @@
         <ng-template #showTextArea>
             <mat-form-field class="manitance-text-area" appearance="outline">
                 <mat-label>Ex..peças eletronicas do simualdor retiradas...</mat-label>
-                <textarea formControlName="interventionText" matInput ></textarea>
+                <textarea formControlName="description" matInput ></textarea>
             </mat-form-field>
         </ng-template>
       
@@ -33,7 +34,7 @@
             <h2 class="concert-h2">Tipo de intervenção</h2>
             <mat-form-field class="code-field" appearance="outline">
                 <mat-label>Definir Tipo</mat-label>
-                <mat-select formControlName="interventionType">
+                <mat-select formControlName="type">
                     <mat-option *ngFor="let element of  manitanceType" [value]="element.text">{{element.text}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -44,7 +45,7 @@
                 <h2 class="concert-h2" >Data da intervenção</h2>
                 <mat-form-field appearance="outline" class="date-picker">
                     <mat-label>Escolha uma Data</mat-label>
-                    <input formControlName="interventionDate" matInput [matDatepicker]="picker">
+                    <input formControlName="date" matInput [matDatepicker]="picker">
                     <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -53,7 +54,7 @@
                 <h2 class="concert-h2">Status da intervenção</h2>
                 <mat-form-field class="code-field" appearance="outline">
                     <mat-label>Definir Status</mat-label>
-                    <mat-select formControlName="interventionStatus">
+                    <mat-select formControlName="status">
                         <mat-option *ngFor="let element of  manitanceStatus" [value]="element.text">{{element.text}}</mat-option>
                     </mat-select>
                 </mat-form-field>

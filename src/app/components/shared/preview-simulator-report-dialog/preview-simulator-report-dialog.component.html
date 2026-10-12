@@ -16,10 +16,10 @@
         <div class="dialog-body">
             <!-- lesson data info -->
             <div class="body-header">
-                <span><img [src]="data?.reportData?.lessonImage" alt=""></span>
+                <span><img [src]="lessonImage" alt=""></span>
                 <div class="header-description" *ngIf="isLessonReport">
                     <h1>Dados da Aula</h1>
-                    <span>Disciplina: {{data?.reportData?.lessonCategory}} - {{data?.reportData?.lessonType}}</span>
+                    <span>{{data?.reportData?.category == 'disciplina' ? 'Disciplina' : 'Treinamento'}}: {{data?.reportData?.groupName}} - {{data?.reportData?.groupLabel}}</span>
                     <span>Data abertura: {{data?.reportData?.date}}</span>
                     <span>Aula: {{data?.reportData?.lessonName}}</span>
                 </div>
@@ -27,24 +27,24 @@
                     <h1>Dados do Curso</h1>
                     <span>Nome: {{data?.reportData?.lessonName}}</span>
                     <span>Data abertura: {{data?.reportData?.date}}</span>
-                    <span>Aula: {{data?.reportData?.lessonCategory}} - {{data?.reportData?.lessonType}}</span>
+                    <span>Curso: {{data?.reportData?.groupLabel}}</span>
                 </div>
             </div>
             <!-- Simulator data info -->
             <div class="body-header">
-                <span class="simulator-image"><img [src]="data?.reportData?.simulatorReport?.image" alt=""></span>
+                <span class="simulator-image"><img [src]="data?.reportData?.simulatorImage" alt=""></span>
                 <div class="header-description">
                     <h1>Dados do Simulador</h1>
-                    <span>Nome: {{data?.reportData?.simulatorReport.name}}</span>
-                    <span>Código: {{data?.reportData?.simulatorReport.code}}</span>
-                    <span>Categoria: {{data?.reportData?.simulatorReport.simulatorCategory}}</span>
+                    <span>Nome: {{data?.reportData?.simulatorName}}</span>
+                    <span>Código: {{data?.reportData?.simulatorCode}}</span>
+                    <span>Categoria: {{data?.reportData?.simulatorCategory}}</span>
                 </div>
             </div>
              <!-- Simulator data description -->
             <div class="dialog-description">
                 <h2>Registro do Simulador</h2>
                 <div class="description">
-                    <span>{{data?.reportData?.simulatorReport.ocorrance}}</span>
+                    <span>{{data?.reportData?.simulatorOccurrence}}</span>
                 </div>
             </div>
 
@@ -53,10 +53,10 @@
                 <h2>Manutenção:</h2>
                 <div class="manitence-details">
                     
-                    <div class="manitence-body" *ngIf="data?.reportData?.hasIntervention else showDefault">
-                        <span><b>Status:</b> {{data?.reportData?.intervention.interventionStatus}}</span>
-                        <span><b>Data da intervenção:</b>{{data?.reportData?.intervention.interventionDate}}</span>
-                        <span><b>Registro da intervenção:</b> {{data?.reportData?.intervention.interventionText}}</span>
+                    <div class="manitence-body" *ngIf="data?.reportData?.hasSimulatorIntervention else showDefault">
+                        <span><b>Status:</b> {{data?.reportData?.simulatorIntervention.status}}</span>
+                        <span><b>Data da intervenção:</b>{{data?.reportData?.simulatorIntervention.date}}</span>
+                        <span><b>Registro da intervenção:</b> {{data?.reportData?.simulatorIntervention.description}}</span>
                     </div>
     
                     <ng-template #showDefault>

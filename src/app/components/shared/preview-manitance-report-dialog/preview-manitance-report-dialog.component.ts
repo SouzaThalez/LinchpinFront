@@ -124,15 +124,15 @@ export class PreviewManitanceReportDialogComponent implements OnInit{
   
       currentY += 10;
       doc.text("Data:", 10, currentY);
-      doc.text(data.intervention.interventionDate || "N/A", 22, currentY);
+      doc.text(data.intervention.date || "N/A", 22, currentY);
   
       currentY += 10;
       doc.text("Status:", 10, currentY);
-      doc.text(data.intervention.interventionStatus || "N/A", 25, currentY);
+      doc.text(data.intervention.status || "N/A", 25, currentY);
   
       currentY += 10;
       doc.text("Registro:", 10, currentY);
-      const wrappedText = doc.splitTextToSize(data.intervention.interventionText || "N/A", 140);
+      const wrappedText = doc.splitTextToSize(data.intervention.description || "N/A", 140);
       const wrappedYStart = currentY + 10;
       doc.text(wrappedText, 10, wrappedYStart);
   
@@ -154,7 +154,7 @@ export class PreviewManitanceReportDialogComponent implements OnInit{
     doc.setFont("helvetica", "normal");
 
     doc.text(`Relatório gerado por: ${data.user?.name || "N/A"} (${data.user?.role || "N/A"})`, 10, footerY);
-    const interventionUser = data.intervention?.interventionUser;
+    const interventionUser = data.intervention?.user;
     if (interventionUser) {
       doc.text(
         `Intervenção realizada por: ${interventionUser.name || "N/A"} (${interventionUser.role || "N/A"})`,

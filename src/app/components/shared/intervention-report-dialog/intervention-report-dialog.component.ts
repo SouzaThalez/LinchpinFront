@@ -2,13 +2,13 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import moment from 'moment';
 import { manitenceTypeData } from '../../../data/manitenceTypeData';
-import { UserLogedService } from '../../../service/user-loged.service';
-import { User } from '../../../models/user';
 import { maintenanceStatusData } from '../../../data/maintenanceStatusData';
+import { Intervention, InterventionForm } from '../../../models/intervention';
 
+// Formulário de intervenção. Devolve um InterventionForm ao fechar; quem abriu registra em /interventions.
+// Recebe data.intervention para editar uma intervenção já registrada.
 @Component({
   selector: 'app-intervention-report-dialog',
   templateUrl: './intervention-report-dialog.component.html',
@@ -17,43 +17,25 @@ import { maintenanceStatusData } from '../../../data/maintenanceStatusData';
 
 })
 export class InterventionReportDialogComponent implements OnInit{
-  
+
   interventionForm: FormGroup;
-  status: string = '';
   checked= false;
   defaultInterventionText = 'Nenhuma intervenção realizada';
   manitanceType = manitenceTypeData;
   manitanceStatus = maintenanceStatusData;
 
-  currentUser: User;
-  userModel = {
-    name:'',
-    role:''
-  }
-
 
   constructor(
     public dialogRef: MatDialogRef<InterventionReportDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: { intervention?: Intervention } | null,
     private fb : FormBuilder,
-    private snackBar: MatSnackBar,
-    private userLogedService : UserLogedService
   ) {}
 
 
-  
-  ngOnInit(): void {
-    
-    this.interventionForm = this.createForm();
-    this.userLogedService.getCurrentUser()
-    .subscribe({
-      next: (user) => {
-        this.currentUser = user;
-        this.userModel.name = this.currentUser.name;
-        this.userModel.role = this.currentUser.role;
-      }
-    });
 
+  ngOnInit(): void {
+    this.interventionForm = this.createForm();
+    this.checked = this.data?.intervention?.description === this.defaultInterventionText;
   }
 
   onClose(): void {
@@ -63,38 +45,31 @@ export class InterventionReportDialogComponent implements OnInit{
   checkBox(){
     this.checked = !this.checked;
     if(this.checked == true){
-      this.interventionForm.patchValue({interventionText: this.defaultInterventionText});
+      this.interventionForm.patchValue({description: this.defaultInterventionText});
     }else{
-      this.interventionForm.patchValue({interventionText: ''});
+      this.interventionForm.patchValue({description: ''});
     }
   }
 
   onSubmit(){
-    
+
     if(this.interventionForm.valid){
-      let momentDate = moment(this.interventionForm.value.interventionDate).format('DD-MM-YYYY');
-      this.interventionForm.patchValue({interventionDate: momentDate});
-      this.dialogRef.close(this.interventionForm.value);
-
-    }else{
-      // this.snackBar.open('Ainda existem campos Vermelhos!', 'Fechar',{
-      //   horizontalPosition: this.horizontalPosition,
-      //   verticalPosition: this.verticalPosition,
-      //   duration: this.durationInSeconds * 1000
-      // });
+      const form: InterventionForm = {
+        ...this.interventionForm.value,
+        date: moment(this.interventionForm.value.date).format('DD-MM-YYYY')
+      };
+      this.dialogRef.close(form);
     }
-
-
   }
-  
+
   private createForm(): FormGroup{
 
+    const intervention = this.data?.intervention;
     const interForm = this.fb.group({
-      interventionText: [null,Validators.required],
-      interventionDate: [null, Validators.required],
-      interventionType: [null, Validators.required],
-      interventionStatus: [this.manitanceStatus[0]?.text, Validators.required],
-      interventionUser: [this.userModel],
+      description: [intervention?.description ?? null, Validators.required],
+      date: [intervention ? moment(intervention.date, 'DD-MM-YYYY').toDate() : null, Validators.required],
+      type: [intervention?.type ?? null, Validators.required],
+      status: [intervention?.status ?? this.manitanceStatus[0]?.text, Validators.required],
     })
 
     return interForm;

@@ -183,7 +183,7 @@ export class HomeComponent implements OnInit{
 
   private getAllData(){
 
-    const lessonParams = new HttpParams().set('lessonDescription', 'true');
+    const lessonParams = new HttpParams().set('hasLessonOccurrence', 'true');
     const scenarioParams = new HttpParams().set('scenarioCategory', 'Corrida');
     const cleaningParams = new HttpParams().set('hasDescription', 'true'); 
     
@@ -218,7 +218,7 @@ export class HomeComponent implements OnInit{
     // This is the same data request but filtering by user
 
     const lessonParams = new HttpParams()
-        .set('lessonDescription', 'true')
+        .set('hasLessonOccurrence', 'true')
         .set('user.name',userLoged.name);
 
     const scenarioParams = new HttpParams()
