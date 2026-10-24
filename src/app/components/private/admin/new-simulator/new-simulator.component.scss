@@ -34,8 +34,8 @@
                         }
                         
                         &:hover,&.active{
-                            border: 1px solid var(--green-color);
-                            background-color: #bbdbe9;
+                            border: 1px solid var(--ds-primary-soft);
+                            background-color: var(--ds-primary-softer);
                             cursor: pointer;
                         }
                     }

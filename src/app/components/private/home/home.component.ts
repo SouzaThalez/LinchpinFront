@@ -156,17 +156,27 @@ export class HomeComponent implements OnInit{
             label: 'N° relatórios',
             data: [65, 59, 80, 81, 56, 55, 40],
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
+            borderColor: '#0a84cf',
+            backgroundColor: '#0a84cf',
+            pointBackgroundColor: '#ffffff',
+            pointBorderColor: '#0a84cf',
+            pointRadius: 4,
+            borderWidth: 2,
+            tension: 0.35
           }]
         },
         options: {
           scales: {
             x: {
               type: 'category', // Default scale for x-axis
+              grid: { display: false },
+              ticks: { color: '#4f6681', font: { family: 'Figtree', size: 12 } },
             },
             y: {
               type: 'linear', // Linear scale for y-axis
+              grid: { color: '#e5edf4' },
+              border: { display: false },
+              ticks: { color: '#4f6681', font: { family: 'Figtree', size: 12 } },
             },
           },
           plugins: {

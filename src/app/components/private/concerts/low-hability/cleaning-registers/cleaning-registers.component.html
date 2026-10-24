@@ -1,55 +1,83 @@
 <div class="page">
     <div class="report-detail-list">
 
-        <div class="page-header-description">
-            <span>Registros durante o processo de limpeza do simulador </span>
+        <div class="list-toolbar">
+            <span class="list-title">Registros durante o processo de limpeza do simulador</span>
+            <div class="list-actions">
+                <div class="search-field">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Buscar por simulador, código ou data...">
+                </div>
+                <button type="button" class="icon-btn">
+                    <span class="material-symbols-outlined">filter_alt</span>
+                </button>
+            </div>
         </div>
-        
+
         <div class="empty-report-data"  *ngIf="!cleaningData || cleaningData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
-        <div class="report-container-grid"
+        <div class="ticket-card"
              *ngFor="let element of cleaningData">
-             <div class="report-content">
-                    <div class="report-body">
-                        <div class="report-image">
-                            <img [src]="element.simulatorImage" alt="lesson-img">
-                        </div>
-                        <div class="report-info">
-                            <span>Simulador: {{element.simulatorName}}</span>
-                            <span>Data Abertura: {{element.date}}</span>
-                            <div class="intervention" *ngIf="element.intervention else default">
-                                <span>Status: {{element.intervention.status}}</span>
-                            </div>
-                            <ng-template #default>
-                                <span>Status: Enviado para manutenção</span>
-                            </ng-template>
-                            <div class="report-button" 
-                                    (click)="openInterventionReport(element)"
-                                    [ngClass]="element.hasIntervention ? 'green' : 'red'">
-                                    <span>{{ element.hasIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
-                            </div>
-                        </div>
+
+            <div class="ticket-main">
+                <img class="ticket-thumb" [src]="element.simulatorImage" alt="simulator-img">
+                <div class="ticket-info">
+                    <span class="ticket-title">{{element.simulatorName}}</span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">qr_code_2</span>
+                        <span>Código: {{element.simulatorCode}}</span>
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Data abertura: {{element.date}}</span>
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">schedule</span>
+                        <span *ngIf="element.intervention else default">Status: {{element.intervention.status}}</span>
+                        <ng-template #default>
+                            <span>Status: Enviado para manutenção</span>
+                        </ng-template>
+                    </span>
+                    <div class="status-badge"
+                         (click)="openInterventionReport(element)"
+                         [ngClass]="ticketBadgeClass(element.intervention)">
+                        <span>Chamado {{ ticketStatus(element.intervention) }}</span>
                     </div>
-             </div>
-             <div class="report-content">
-                    <div class="report-footer" (click)="openPreviewCleaningReportDialog(element)">
-                        <div class="footer-header">
-                            <span>Achados da limpeza</span>
-                            <span class="report-code">Código: {{element.simulatorCode}}</span>
-                        </div>
-                        <div class="footer-content">
-                            <span>{{element.findings}}</span>
-                        </div>
-                        <div class="footer-action">
-                            <div class="footer-button">
-                                <span><b>Imprimir</b></span>
-                                <span class="material-symbols-outlined">visibility</span>
-                            </div>
-                        </div>
-                    </div>
-             </div>
+                </div>
+            </div>
+
+            <div class="ticket-divider"></div>
+
+            <div class="ticket-detail" (click)="openPreviewCleaningReportDialog(element)">
+                <div class="ticket-detail-head">
+                    <span class="ticket-label">Achados da limpeza</span>
+                    <span class="ticket-date">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Data: {{element.date}}</span>
+                    </span>
+                </div>
+                <p class="ticket-text">{{element.findings}}</p>
+                <div class="ticket-detail-footer">
+                    <span class="print-link">
+                        <span class="material-symbols-outlined">print</span>
+                        <span>Imprimir</span>
+                    </span>
+                    <button type="button" class="icon-btn eye-btn">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-footer" *ngIf="cleaningData?.length">
+            <span class="list-count">Mostrando {{cleaningData.length}} de {{cleaningData.length}} registros</span>
+            <div class="pagination-ds">
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_left</span></span>
+                <span class="page-btn active">1</span>
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_right</span></span>
+            </div>
         </div>
 
     </div>

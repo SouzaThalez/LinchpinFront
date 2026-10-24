@@ -55,7 +55,7 @@
         img{
             height: 100px;
             width: 100px;
-            box-shadow: 0px 2px 7px #bdb5b5;
+            box-shadow: var(--ds-shadow);
             border-radius: 5px;
             object-fit: cover;
         }
@@ -86,7 +86,7 @@
                 .sim-image, img{
                     height: 57px;
                     width: 63px;
-                    box-shadow: 0px 2px 7px #bdb5b5;
+                    box-shadow: var(--ds-shadow);
                     border-radius: 5px;
                     object-fit: cover;
                 }
@@ -107,7 +107,7 @@
                         border-radius: 5px;
                         &:hover{
                             cursor: pointer;
-                            background-color: #f1f1f1;
+                            background-color: var(--ds-surface-alt);
                         }
                     }
                     .remove-icon{
@@ -115,27 +115,27 @@
                         border-radius: 5px;
                         &:hover{
                             cursor: pointer;
-                            background-color: #ecb3b3;
+                            background-color: var(--ds-danger-bg);
                         }
                     }
                 }
                 &:hover{
                     cursor: pointer;
-                    background-color: rgb(216 249 249);
+                    background-color: var(--ds-primary-softer);
                 }
             }
         }
         
         .new-sim{
             border: 1px solid var(--green-color);
-            background-color: rgb(216 249 249);
+            background-color: var(--ds-primary-softer);
             display: flex;
             justify-content: center;
             padding: 5px;
             border-radius: 4px;
             margin-bottom: 5px;
             &:hover{
-                background-color: rgb(157 217 217);
+                background-color: var(--ds-primary-soft);
                 cursor: pointer;
             }
         }
@@ -159,7 +159,7 @@
                         border-radius: 5px;
                         &:hover{
                             cursor: pointer;
-                            background-color: #f1f1f1;
+                            background-color: var(--ds-surface-alt);
                         }
                     }
                     .remove-icon{
@@ -167,7 +167,7 @@
                         border-radius: 5px;
                         &:hover{
                             cursor: pointer;
-                            background-color: #ecb3b3;
+                            background-color: var(--ds-danger-bg);
                         }
                     }
                 }
@@ -178,9 +178,9 @@
                 justify-content: center;
                 cursor: pointer;
                 margin-right: 10px;
-                background-color: rgb(216 249 249);
+                background-color: var(--ds-primary-softer);
                 &:hover{
-                    background-color: rgb(157 217 217)
+                    background-color: var(--ds-primary-soft)
                 }
             }
         }

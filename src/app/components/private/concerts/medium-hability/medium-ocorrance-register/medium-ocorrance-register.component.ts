@@ -4,9 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { PreviewSimulatorReportDialogComponent } from '../../../../shared/preview-simulator-report-dialog/preview-simulator-report-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { interventionRoles, ticketBadgeClass, ticketStatus } from '../../../../../data/ticketStatusData';
 import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
 import { User } from '../../../../../models/user';
-import { userRoleType } from '../../../../../enums/userRoles';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 import { InterventionApiService } from '../../../../../service/intervention-api.service';
 import { LessonReport, lessonReportImages } from '../../../../../models/lessonReport';
@@ -24,7 +24,8 @@ export class MediumOcorranceRegisterComponent implements OnInit{
   lessonData: LessonReport[];
   lessonImages = lessonReportImages;
   currentUser: User;
-  userAnalystRole = userRoleType.analyst;
+  ticketStatus = ticketStatus;
+  ticketBadgeClass = ticketBadgeClass;
 
   constructor(
     private httpClient: HttpClient,
@@ -67,46 +68,32 @@ export class MediumOcorranceRegisterComponent implements OnInit{
   
   openInterventionReport(report: LessonReport){
 
-    if(report.hasSimulatorIntervention){
-
-      this.snackBar.open('Ups! Ja foi registrado uma intervenção!', 'Close', {
-        horizontalPosition: snackBarConfig.horizontalPosition,
-        verticalPosition: snackBarConfig.verticalPosition,
-        duration: snackBarConfig.durationInSeconds * 1000 
-      });
-
+    if(!interventionRoles.includes(this.currentUser?.role)){
+      this.openSnackBar('Ups! Apenas administradores e analistas podem realizar uma intervenção!');
       return
-
     }
 
-    if(this.currentUser.role == this.userAnalystRole){
+    let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      // reabre a intervenção já registrada para atualizar o status do chamado
+      data: { intervention: report.simulatorIntervention },
+    })
 
-      let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
-        disableClose: true,
-        width:'650px',
-      })
-  
-      dialogRef.afterClosed().subscribe(result=>{
-        if(result){
-          this.registerIntervention(report, result);
-        }
-      })
-
-    }else{
-       
-      this.snackBar.open('Ups! não é possivél realizar uma intervenção!', 'Close', {
-        horizontalPosition: snackBarConfig.horizontalPosition,
-        verticalPosition: snackBarConfig.verticalPosition,
-        duration: snackBarConfig.durationInSeconds * 1000 
-      });
-    }
-
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.registerIntervention(report, result);
+      }
+    })
   }
 
   private registerIntervention(report: LessonReport, form: InterventionForm){
 
-    this.interventionApi.create('simulador', report.id, form)
-    .subscribe({
+    const request = report.simulatorIntervention
+      ? this.interventionApi.update(report.simulatorIntervention.id, form)
+      : this.interventionApi.create('simulador', report.id, form);
+
+    request.subscribe({
         next: (intervention)=>{
           report.simulatorIntervention = intervention;
           report.simulatorInterventionId = intervention.id;

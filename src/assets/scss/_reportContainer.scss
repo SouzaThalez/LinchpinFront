@@ -1,28 +1,75 @@
+// Item de lista de relatórios (Home, Relatórios, Perfil)
 .report-container{
-    margin-top: 20px;
-    border-bottom: 1px solid #D9D9D9;
-    background-color: #f3f3f3;
-  
+    margin-top: 8px;
+    padding: 12px 18px;
+    background-color: var(--ds-surface);
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius);
+    box-shadow: var(--ds-shadow-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    transition: 0.5s;
+    transition: border-color .2s, box-shadow .2s;
     cursor: pointer;
-    
+    color: var(--ds-text);
+
     .report-head{
         display: flex;
         align-items: center;
-        gap: 30px;
+        gap: 22px;
+
+        .report-icon{
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--ds-primary-softer);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img{
+                width: 30px;
+                height: 30px;
+                object-fit: contain;
+            }
+        }
 
         .report-description{
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 1px;
+            font-size: 12.5px;
+            line-height: 16px;
+            color: var(--ds-text-muted);
+
+            span:first-child{
+                font-size: 13.5px;
+                line-height: 18px;
+                color: var(--ds-text);
+                margin-bottom: 1px;
+            }
+
+            b{
+                font-weight: 700;
+                color: var(--ds-text);
+            }
         }
     }
 
+    .report-bars img{
+        height: 26px;
+        opacity: .55;
+    }
+
+    .report-grid img{
+        height: 20px;
+        opacity: .45;
+    }
+
     &:hover{
-        background-color: var(--hover-panel-left-color);
+        border-color: var(--ds-border-strong);
+        box-shadow: var(--ds-shadow);
     }
 }

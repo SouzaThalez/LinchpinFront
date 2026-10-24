@@ -1,24 +1,24 @@
 <div class="panel-container">
 
     <div class="header-list">
-        <div class="header-item-message">
-            <span>Bem vindo!</span>
-        </div>
-        <div class="header-item">
+        <div class="user-header">
             <div class="user-img">
-                <img [src]="currentUser?.image" alt="">
+                <img *ngIf="currentUser?.image; else userIcon" [src]="currentUser?.image" alt="">
+                <ng-template #userIcon>
+                    <span class="material-symbols-outlined user-icon">person</span>
+                </ng-template>
             </div>
             <div class="user-content">
-                <div class="user-name"><b>{{currentUser?.name}}</b></div>
-                <div class="role">{{currentUser?.role}}</div>
+                <span class="welcome">Bem vindo!</span>
+                <span class="user-name">{{currentUser?.name}}</span>
+                <span class="role">{{currentUser?.role}}</span>
             </div>
         </div>
-        <div class="header-item">
-            <div class="item-container" routerLink="profile" routerLinkActive="active">
-                <span class="material-symbols-outlined p-icon">person</span>                
+        <div class="panel-item" routerLink="profile">
+            <div class="item-container" routerLinkActive="active">
+                <span class="material-symbols-outlined p-icon">person</span>
                 <span class="item-text">Meu Perfil</span>
             </div>
-            <div class="horizontal-line"></div>
         </div>
     </div>
 
@@ -26,14 +26,14 @@
 
         <span class="panel-item" routerLink="home" matTooltip="Home">
             <div class="item-container" routerLinkActive="active">
-                <span class="material-symbols-outlined p-icon">monitoring</span>
+                <span class="material-symbols-outlined p-icon">home</span>
                 <span class="item-text">Inicial</span>
             </div>
         </span>
 
         <span class="panel-item" routerLink="cleaning">
             <div class="item-container" routerLinkActive="active">
-                <span class="material-symbols-outlined p-icon">mop</span>
+                <span class="material-symbols-outlined p-icon">cleaning_services</span>
                 <span class="item-text">Limpeza</span>
             </div>
         </span>
@@ -42,39 +42,39 @@
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">edit_note</span>
                 <span class="item-text">Registrar Aula</span>
-                
             </div>
         </span>
 
         <span class="panel-item" routerLink="concerts">
             <div class="item-container" routerLinkActive="active">
-                <span class="material-symbols-outlined p-icon">engineering</span>
+                <span class="material-symbols-outlined p-icon">manage_accounts</span>
                 <span class="item-text">Chamados</span>
             </div>
         </span>
 
         <span class="panel-item" routerLink="reports">
             <div class="item-container" routerLinkActive="active">
-                <span class="material-symbols-outlined p-icon">quick_reference_all</span>
+                <span class="material-symbols-outlined p-icon">monitoring</span>
                 <span class="item-text">Relatórios</span>
             </div>
         </span>
 
-        <div class="horizontal-line"></div>
-    </div>
-
-    <div class="footer-panel">
         <div class="panel-item" routerLink="administracao">
             <div class="item-container" routerLinkActive="active">
                 <span class="material-symbols-outlined p-icon">settings</span>
                 <span class="item-text">Gestão</span>
             </div>
         </div>
+
         <span class="panel-item" (click)="openlogOutDialog()">
-            <div class="item-container" routerLinkActive="active">
-                <span class="material-symbols-outlined">logout</span>
+            <div class="item-container">
+                <span class="material-symbols-outlined p-icon">logout</span>
                 <span class="item-text">Sair</span>
             </div>
         </span>
+    </div>
+
+    <div class="panel-watermark">
+        <img src="assets/images/logo/logo_icon.png" alt="">
     </div>
 </div>

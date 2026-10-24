@@ -1,18 +1,27 @@
 .breadcrumb-nav{
-    margin-top: 25px;
+    margin-top: 14px;
+    padding: 0 16px;
+
+    .breadcrumb{
+        margin-bottom: 8px;
+    }
+
     li{
+        font-size: 13px;
+        color: var(--ds-text-muted);
+
         a{
             text-decoration: none;
-            font-size: 15px;
-            
-        }        
-    }   
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
 }
 
 .breadcrumb {
     li:first-child {
         a {
-            color: var(--hover-panel-left-color);
+            color: var(--ds-primary);
             &:hover{
                 text-decoration: underline;
             }

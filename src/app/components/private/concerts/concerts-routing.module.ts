@@ -10,7 +10,6 @@ import { MediumCleaningRegisterComponent } from './medium-hability/medium-cleani
 import { MediumOcorranceRegisterComponent } from './medium-hability/medium-ocorrance-register/medium-ocorrance-register.component';
 import { HighCleaningRegisterComponent } from './high-hability/high-cleaning-register/high-cleaning-register.component';
 import { HighManitenceRegisterComponent } from './high-hability/high-manitence-register/high-manitence-register.component';
-import { HighCleaningDetailsComponent } from './high-hability/high-cleaning-register/high-cleaning-details/high-cleaning-details.component';
 
 const routes: Routes = [
   { 
@@ -61,10 +60,6 @@ const routes: Routes = [
           {
             path:'chamados-limpezas',
             component: HighCleaningRegisterComponent
-          },
-          {
-            path:'chamados-limpezas/:index',
-            component: HighCleaningDetailsComponent
           },
           {
             path:'chamados-manutencao',

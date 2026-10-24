@@ -58,6 +58,7 @@
                       </mat-option>
                   </mat-select>
                 </mat-form-field>
+                <span class="open-ticket-msg" *ngIf="hasOpenTicket">{{openTicketMsg}}</span>
             </div>
             <div class="dialog-text">
                 <span>Baixa Fidelidade</span>

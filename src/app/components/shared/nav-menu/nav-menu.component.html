@@ -4,20 +4,20 @@
         <div class="menu-item"  
              routerLink="/private/{{pageType}}/{{alink}}"
              routerLinkActive="active">
-            <img src="assets/icons/grid_icon_black.png" alt="">
+            <span class="material-symbols-outlined menu-icon">fit_screen</span>
             <span [innerHTML]="alink"></span>
         </div>
         <div class="menu-item"
              routerLink="/private/{{pageType}}/{{blink}}"
              routerLinkActive="active">
-             <img src="assets/icons/grid_icon_black.png" alt="">
+             <span class="material-symbols-outlined menu-icon">fit_screen</span>
              <span [innerHTML]="blink"></span>
         </div>
         <div class="menu-item"
              routerLink="/private/{{pageType}}/{{clink}}"
              routerLinkActive="active"
              *ngIf="clink != ''">
-             <img src="assets/icons/grid_icon_black.png" alt="">
+             <span class="material-symbols-outlined menu-icon">fit_screen</span>
              <span [innerHTML]="clink"></span>
         </div>
     </div>

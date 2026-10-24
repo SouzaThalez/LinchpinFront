@@ -1,61 +1,86 @@
 <div class="page">
     <div class="report-detail-list">
 
-        <div class="page-header-description">
-            <span>Todos os achados do simuladores encontrado durante a aula</span>
+        <div class="list-toolbar">
+            <span class="list-title">Todos os achados do simuladores encontrado durante a aula</span>
+            <div class="list-actions">
+                <div class="search-field">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Buscar por aula, simulador ou data...">
+                </div>
+                <button type="button" class="icon-btn">
+                    <span class="material-symbols-outlined">filter_alt</span>
+                </button>
+            </div>
         </div>
-        
+
         <div class="empty-report-data"  *ngIf="!lessonData || lessonData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
-             
-        <div class="report-container-grid medium-report"
+        <div class="ticket-card"
              *ngFor="let element of lessonData">
-            <div class="report-content">
-                <div class="report-body">
-                    <div class="report-image">
-                        <img [src]="lessonImages[element.category]" alt="leeson-image">
-                    </div>
-                    <div class="report-info">
-                        <span>Aula: {{element.lessonName}}</span>
+
+            <div class="ticket-main">
+                <div class="ticket-avatar" [ngClass]="element.category">
+                    {{ element.category === 'curso' ? 'AH' : 'TH' }}
+                </div>
+                <div class="ticket-info">
+                    <span class="ticket-title">{{element.lessonName}}</span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">monitor_heart</span>
                         <span>Simulador: {{element.simulatorName}} ({{element.simulatorCode}})</span>
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">calendar_month</span>
                         <span>Data abertura: {{element.date}}</span>
-
-                        <div class="report-button" 
-                            (click)="openInterventionReport(element)"
-                            [ngClass]="element.hasSimulatorIntervention ? 'green' : 'red'">
-                            <span> {{ element.hasSimulatorIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
-                        </div>
-
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">schedule</span>
+                        <span *ngIf="element.simulatorIntervention else default">Status: {{element.simulatorIntervention.status}}</span>
+                        <ng-template #default>
+                            <span>Status: Enviado para manutenção</span>
+                        </ng-template>
+                    </span>
+                    <div class="status-badge"
+                         (click)="openInterventionReport(element)"
+                         [ngClass]="ticketBadgeClass(element.simulatorIntervention)">
+                        <span>Chamado {{ ticketStatus(element.simulatorIntervention) }}</span>
                     </div>
                 </div>
             </div>
-            <div class="report-content">
-                <div class="report-footer" (click)="openPreviewSimulatorReportDialog(element)">
-                    <div class="footer-header">
-                        <span>Ocorrência de simulador</span>
-                        
-                    </div>
-                    <div class="footer-content">
-                        <span>{{element.simulatorOccurrence}}</span>
-                    </div>
-                    <div class="footer-action">
-                        <div class="footer-button">
-                            <div class="intervention" *ngIf="element.simulatorIntervention else default">
-                                 <span>Status: {{element.simulatorIntervention.status}}</span>
-                            </div>
-                            <ng-template #default>
-                                <span>Status: Enviado para manutenção...</span>
-                            </ng-template>
-                            <span class="material-symbols-outlined">visibility</span>
-                        </div>
-                    </div>
+
+            <div class="ticket-divider"></div>
+
+            <div class="ticket-detail" (click)="openPreviewSimulatorReportDialog(element)">
+                <div class="ticket-detail-head">
+                    <span class="ticket-label">Ocorrência de simulador</span>
+                    <span class="ticket-date">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Data: {{element.date}}</span>
+                    </span>
+                </div>
+                <p class="ticket-text">{{element.simulatorOccurrence}}</p>
+                <div class="ticket-detail-footer">
+                    <span class="print-link">
+                        <span class="material-symbols-outlined">print</span>
+                        <span>Imprimir</span>
+                    </span>
+                    <button type="button" class="icon-btn eye-btn">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </button>
                 </div>
             </div>
         </div>
 
+        <div class="list-footer" *ngIf="lessonData?.length">
+            <span class="list-count">Mostrando {{lessonData.length}} de {{lessonData.length}} registros</span>
+            <div class="pagination-ds">
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_left</span></span>
+                <span class="page-btn active">1</span>
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_right</span></span>
+            </div>
+        </div>
 
-        
     </div>
 </div>

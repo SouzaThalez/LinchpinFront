@@ -1,58 +1,82 @@
 <div class="page">
     <div class="report-detail-list">
-        <div class="page-header-description">
-            <span>Todos os achados do simulador durante o processo de limpeza</span>
+
+        <div class="list-toolbar">
+            <span class="list-title">Todos os achados do simulador durante o processo de limpeza</span>
+            <div class="list-actions">
+                <div class="search-field">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Buscar por simulador, tag ou data...">
+                </div>
+                <button type="button" class="icon-btn">
+                    <span class="material-symbols-outlined">filter_alt</span>
+                </button>
+            </div>
         </div>
+
         <div class="empty-report-data"  *ngIf="!cleaningData || cleaningData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
-        
-        <div class="report-container-grid"
-             *ngFor="let element of cleaningData"
-             routerLink="/private/concerts/Alta-Fidelidade/chamados-limpezas/{{element.id}}">
-            <div class="report-content">
-                <div class="report-body">
-                    <div class="report-image">
-                        <img [src]="element.simulatorImage" alt="simulatorImag">
-                    </div>
-                    <div class="report-info">
-                            <span>Simulador: {{element.simulatorName}}</span>
-                            <span>Tag: {{element.simulatorCode}}</span>
-                            <span>Data: {{element.date}}</span>
-                            <div class="report-button" 
-                                (click)="openInterventionReport(element)"
-                                [ngClass]="element.hasIntervention ? 'green' : 'red'">
-                            <span>
-                                Editar
-                                <!-- {{ element.hasIntervention ? 'Chamado Fechado' : 'Editar' }} -->
-                            </span> 
-                            
-                        </div>
+
+        <div class="ticket-card"
+             *ngFor="let element of cleaningData">
+
+            <div class="ticket-main">
+                <img class="ticket-thumb" [src]="element.simulatorImage" alt="simulator-img">
+                <div class="ticket-info">
+                    <span class="ticket-title">{{element.simulatorName}}</span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">sell</span>
+                        <span>Tag: {{element.simulatorCode}}</span>
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Data: {{element.date}}</span>
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">schedule</span>
+                        <span *ngIf="element.intervention else default">Status: {{element.intervention.status}}</span>
+                        <ng-template #default>
+                            <span>Tipo: Enviado para manutenção</span>
+                        </ng-template>
+                    </span>
+                    <div class="status-badge"
+                         (click)="openInterventionReport(element)"
+                         [ngClass]="ticketBadgeClass(element.intervention)">
+                        <span>Chamado {{ ticketStatus(element.intervention) }}</span>
                     </div>
                 </div>
             </div>
-            <div class="report-content">
-                <div class="report-footer">
-                    <!-- (click)="openPreviewCleaningReportDialog(element)" -->
-                    <div class="footer-header">
-                        <span>Achados:</span>
-                        <span class="report-code">Limpeza: {{element.cleaningCategory}}</span>
-                    </div>
-                    <div class="footer-content">
-                        <span>{{element.findings}}</span>
-                    </div>
-                    <div class="footer-action">
-                        <div class="footer-button" >
-                            <div class="intervention" *ngIf="element.intervention else default">
-                                <span>Status: {{element.intervention.status}}</span>
-                            </div>
-                            <ng-template #default>
-                                <span><b>Tipo: Enviado para manutenção...</b></span>
-                            </ng-template>
-                            <span class="material-symbols-outlined">visibility</span>
-                        </div>
-                    </div>
+
+            <div class="ticket-divider"></div>
+
+            <div class="ticket-detail" (click)="openPreviewCleaningReportDialog(element)">
+                <div class="ticket-detail-head">
+                    <span class="ticket-label">Achados</span>
+                    <span class="ticket-date">
+                        <span class="material-symbols-outlined">cleaning_services</span>
+                        <span>Limpeza: {{element.cleaningCategory}}</span>
+                    </span>
                 </div>
+                <p class="ticket-text">{{element.findings}}</p>
+                <div class="ticket-detail-footer">
+                    <span class="print-link">
+                        <span class="material-symbols-outlined">open_in_new</span>
+                        <span>Ver detalhes</span>
+                    </span>
+                    <button type="button" class="icon-btn eye-btn">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-footer" *ngIf="cleaningData?.length">
+            <span class="list-count">Mostrando {{cleaningData.length}} de {{cleaningData.length}} registros</span>
+            <div class="pagination-ds">
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_left</span></span>
+                <span class="page-btn active">1</span>
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_right</span></span>
             </div>
         </div>
 

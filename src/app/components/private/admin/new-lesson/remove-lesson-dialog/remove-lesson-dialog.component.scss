@@ -63,7 +63,7 @@
             img{
                 height: 50px;
                 width: 50px;
-                box-shadow: 0px 2px 7px #bdb5b5;
+                box-shadow: var(--ds-shadow);
                 border-radius: 5px;
                 object-fit: cover;
             }
@@ -84,7 +84,7 @@
         }
 
         &:hover{
-            background-color: #bbdbe9;
+            background-color: var(--ds-primary-soft);
             cursor: pointer;
         
         }

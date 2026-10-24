@@ -2,55 +2,84 @@
 <div class="page">
     <div class="report-detail-list">
 
-        <div class="page-header-description">
-            <span>Registros das ocorrencias de aulas</span>
+        <div class="list-toolbar">
+            <span class="list-title">Registros das ocorrencias de aulas</span>
+            <div class="list-actions">
+                <div class="search-field">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Buscar por nome, aula ou data...">
+                </div>
+                <button type="button" class="icon-btn">
+                    <span class="material-symbols-outlined">filter_alt</span>
+                </button>
+            </div>
         </div>
 
         <div class="empty-report-data"  *ngIf="!lessonReportData || lessonReportData.length === 0">
             <span class="empty-default-message">Não existem registros no momento...</span>
         </div>
 
-        <div class="report-container-grid"
+        <div class="ticket-card"
              *ngFor="let element of lessonReportData">
-            <div class="report-content">
-                <div class="report-body">
-                    <div class="report-image">
-                        <img [src]="lessonImages[element.category]" alt="leeson-image">
-                    </div>
-                    <div class="report-info">
-                            <span>Nome: {{element.groupName}} - {{element.groupLabel}}</span>
-                            <span>Aula: {{element.lessonName}} </span>
-                            <span>Data abertura: {{element.date}} </span>
-                            <div class="intervention" *ngIf="element.lessonIntervention else default">
-                                <span>Status: {{element.lessonIntervention.status}}</span>
-                            </div>
-                            <ng-template #default>
-                                <span>Status: Enviado para manutenção</span>
-                            </ng-template>
-                            <div class="report-button"
-                                (click)="openInterventionReport(element)"
-                                [ngClass]="element.hasLessonIntervention ? 'green' : 'red'">
-                                <span>{{ element.hasLessonIntervention ? 'Chamado Fechado' : 'Chamado Aberto' }}</span>
-                            </div>
+
+            <div class="ticket-main">
+                <div class="ticket-avatar" [ngClass]="element.category">
+                    {{ element.category === 'curso' ? 'AH' : 'TH' }}
+                </div>
+                <div class="ticket-info">
+                    <span class="ticket-title">{{element.groupName}} - {{element.groupLabel}}</span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">school</span>
+                        <span>Aula: {{element.lessonName}}</span>
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Data abertura: {{element.date}}</span>
+                    </span>
+                    <span class="ticket-meta">
+                        <span class="material-symbols-outlined">schedule</span>
+                        <span *ngIf="element.lessonIntervention else default">Status: {{element.lessonIntervention.status}}</span>
+                        <ng-template #default>
+                            <span>Status: Enviado para manutenção</span>
+                        </ng-template>
+                    </span>
+                    <div class="status-badge"
+                         (click)="openInterventionReport(element)"
+                         [ngClass]="ticketBadgeClass(element.lessonIntervention)">
+                        <span>Chamado {{ ticketStatus(element.lessonIntervention) }}</span>
                     </div>
                 </div>
             </div>
-            <div class="report-content">
-                <div class="report-footer" (click)="openPreviewLessonReportDialog(element)">
-                    <div class="footer-header">
-                        <span>Ocorrência de aula</span>
-                        <span class="report-code">Data: {{element.date}}</span>
-                    </div>
-                    <div class="footer-content">
-                        <span>{{element.lessonOccurrence}}</span>
-                    </div>
-                    <div class="footer-action">
-                        <div class="footer-button">
-                            <span><b>Imprimir</b></span>
-                            <span class="material-symbols-outlined">visibility</span>
-                        </div>
-                    </div>
+
+            <div class="ticket-divider"></div>
+
+            <div class="ticket-detail" (click)="openPreviewLessonReportDialog(element)">
+                <div class="ticket-detail-head">
+                    <span class="ticket-label">Ocorrência de aula</span>
+                    <span class="ticket-date">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <span>Data: {{element.date}}</span>
+                    </span>
                 </div>
+                <p class="ticket-text">{{element.lessonOccurrence}}</p>
+                <div class="ticket-detail-footer">
+                    <span class="print-link">
+                        <span class="material-symbols-outlined">print</span>
+                        <span>Imprimir</span>
+                    </span>
+                    <button type="button" class="icon-btn eye-btn">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-footer" *ngIf="lessonReportData?.length">
+            <span class="list-count">Mostrando {{lessonReportData.length}} de {{lessonReportData.length}} registros</span>
+            <div class="pagination-ds">
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_left</span></span>
+                <span class="page-btn active">1</span>
+                <span class="page-btn"><span class="material-symbols-outlined">chevron_right</span></span>
             </div>
         </div>
 

@@ -1,64 +1,89 @@
+// Lista de itens com imagem (Gestão, detalhes de simuladores, guias)
 .details-list{
-    // margin-top: 25px;
-    padding: 10px;
+    padding: 12px 14px;
+    color: var(--ds-text);
+
     .card-container{
-        border: 1px solid var(--green-color);
-        height: 132px;
+        background-color: var(--ds-surface);
+        border: 1px solid var(--ds-border);
+        border-radius: var(--ds-radius);
+        box-shadow: var(--ds-shadow-sm);
+        min-height: 96px;
+        padding: 12px 0;
+        box-sizing: border-box;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom:20px;
+        margin-bottom: 8px;
         cursor: pointer;
+        transition: border-color .2s, box-shadow .2s;
 
         .card-head{
             display: flex;
             align-items: center;
             justify-content: space-between;
-           
-           
-            .card-image,img{
-                width: 105px;
-                height: 93px;
-                margin-left: 10px;
+            gap: 18px;
+
+            .card-image, img{
+                width: 72px;
+                height: 72px;
+                margin-left: 16px;
+                border-radius: 12px;
+                object-fit: cover;
+                border: 1px solid var(--ds-border);
             }
 
             .card-description{
                 display: flex;
                 flex-direction: column;
                 width: 305px;
+                gap: 2px;
+                font-size: 12.5px;
+                color: var(--ds-text-muted);
+
+                span:first-child{
+                    font-size: 13.5px;
+                    font-weight: 700;
+                    color: var(--ds-text);
+                }
             }
 
             .card-icon{
-                margin-right: 10px;
+                margin-right: 16px;
+                color: var(--ds-text);
             }
+
             &.new-simulator{
                 justify-content: space-between;
                 .card-icon{
-                    margin-right: 10px;
+                    margin-right: 16px;
                 }
             }
-           
         }
 
         .register-container{
-            padding: 20px;
-            border-radius: 26px;
-            width: 160px;
+            padding: 8px 16px;
+            border-radius: var(--ds-radius-pill);
+            min-width: 140px;
             display: flex;
             justify-content: center;
-            background-color: #f3f3f3;
-            margin-right: 20px;
+            background-color: var(--ds-primary-softer);
+            color: var(--ds-primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 16px;
+            transition: background-color .2s, color .2s;
 
             &:hover{
-                background-color: #D9D9D9;
-                box-shadow: 1px 2px 4px -1px;
-                color: black;
-                
+                background-color: var(--ds-primary);
+                box-shadow: none;
+                color: #ffffff;
             }
         }
 
         &:hover{
-            background-color: #bbdbe9;
-         }
+            border-color: var(--ds-border-strong);
+            box-shadow: var(--ds-shadow);
+        }
     }
 }

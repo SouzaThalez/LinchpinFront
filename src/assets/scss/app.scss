@@ -36,3 +36,91 @@ body{
 
 
 
+
+// ---------- Design system: base ----------
+body{
+    background-color: var(--ds-bg-app);
+    color: var(--ds-text);
+    font-family: var(--ds-font);
+}
+
+.mat-typography,
+.mat-typography p,
+.mat-typography h1, .mat-typography h2, .mat-typography h3, .mat-typography h4,
+.mat-mdc-dialog-container .mdc-dialog__title,
+.mat-mdc-dialog-container .mdc-dialog__content{
+    font-family: var(--ds-font);
+}
+
+// Botões Material no padrão do design system
+.mat-mdc-raised-button:not(:disabled),
+.mat-mdc-unelevated-button:not(:disabled){
+    --mdc-protected-button-container-color: var(--ds-primary);
+    --mdc-protected-button-label-text-color: #ffffff;
+    --mdc-filled-button-container-color: var(--ds-primary);
+    --mdc-filled-button-label-text-color: #ffffff;
+}
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-outlined-button,
+.mat-mdc-button{
+    --mdc-protected-button-container-shape: 10px;
+    --mdc-filled-button-container-shape: 10px;
+    --mdc-outlined-button-container-shape: 10px;
+    --mdc-text-button-container-shape: 10px;
+    --mdc-protected-button-label-text-font: var(--ds-font);
+    --mdc-filled-button-label-text-font: var(--ds-font);
+    --mdc-outlined-button-label-text-font: var(--ds-font);
+    --mdc-text-button-label-text-font: var(--ds-font);
+    --mdc-protected-button-label-text-weight: 600;
+    --mdc-protected-button-label-text-tracking: 0;
+    --mdc-text-button-label-text-color: var(--ds-primary);
+    --mdc-outlined-button-label-text-color: var(--ds-primary);
+}
+.mat-mdc-raised-button:not(:disabled){
+    box-shadow: 0 4px 12px rgba(10, 132, 207, 0.22) !important;
+}
+.mat-mdc-raised-button:not(:disabled):hover{
+    --mdc-protected-button-container-color: var(--ds-primary-hover);
+}
+
+// Slide toggle (Tema)
+.mat-mdc-slide-toggle{
+    --mdc-switch-selected-handle-color: var(--ds-primary);
+    --mdc-switch-selected-hover-handle-color: var(--ds-primary-hover);
+    --mdc-switch-selected-focus-handle-color: var(--ds-primary);
+    --mdc-switch-selected-pressed-handle-color: var(--ds-primary);
+    --mdc-switch-selected-track-color: var(--ds-primary-soft);
+    --mdc-switch-selected-hover-track-color: var(--ds-primary-soft);
+    --mdc-switch-selected-focus-track-color: var(--ds-primary-soft);
+    --mdc-switch-selected-pressed-track-color: var(--ds-primary-soft);
+    --mdc-switch-unselected-handle-color: var(--ds-text);
+    --mdc-switch-unselected-hover-handle-color: var(--ds-text);
+    --mdc-switch-unselected-focus-handle-color: var(--ds-text);
+    --mdc-switch-unselected-track-color: var(--ds-border-strong);
+    --mdc-switch-unselected-hover-track-color: var(--ds-border-strong);
+    --mdc-switch-unselected-focus-track-color: var(--ds-border-strong);
+}
+
+// Campos Material com cantos arredondados
+.mat-mdc-form-field{
+    --mdc-outlined-text-field-container-shape: 10px;
+}
+
+// Cards Material (Gestão)
+.mat-mdc-card{
+    --mdc-outlined-card-container-shape: 14px;
+    --mdc-outlined-card-outline-color: var(--ds-border);
+    --mdc-elevated-card-container-shape: 14px;
+    --mat-card-title-text-font: var(--ds-font);
+    --mat-card-title-text-size: 15px;
+    --mat-card-title-text-weight: 700;
+    --mat-card-subtitle-text-font: var(--ds-font);
+    --mat-card-subtitle-text-size: 12.5px;
+    --mat-card-title-text-color: var(--ds-text);
+    --mat-card-subtitle-text-color: var(--ds-text-muted);
+    box-shadow: var(--ds-shadow-sm);
+    color: var(--ds-text);
+    font-size: 12.5px;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+}

@@ -84,7 +84,7 @@
                         border-radius: 5px;
                         &:hover{
                             cursor: pointer;
-                            background-color: #f1f1f1;
+                            background-color: var(--ds-surface-alt);
                         }
                     }
                     .remove-icon{
@@ -92,7 +92,7 @@
                         border-radius: 5px;
                         &:hover{
                             cursor: pointer;
-                            background-color: #ecb3b3;
+                            background-color: var(--ds-danger-bg);
                         }
                     }
                 }
@@ -104,7 +104,7 @@
                 cursor: pointer;
                 margin-right: 10px;
                 &:hover{
-                    background-color: rgb(216 249 249);
+                    background-color: var(--ds-primary-softer);
                 }
             }
         }
@@ -137,7 +137,7 @@
                 }
                 .task-title{
                     font-weight: bold;
-                    color: #4c86b9;
+                    color: var(--ds-primary);
                 }
              }
 

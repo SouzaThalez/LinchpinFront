@@ -1,13 +1,94 @@
 :root{
-    --green-color: rgb(75, 192, 192);
-    --right-panel-width: 320px;
-    --right-panel-backgroundColor: #FAFAFA;
-    --hover-panel-right-color: #18718D;
-    --hover-panel-left-color:#8cd1ef;
-    // --hover-panel-left-color: #008080;
-    --page-header-width: 190px;
-    --left-panel-width:200px;
-    --secundary-color:#c95c5c;
-    --primary-color:#18718d;
+    // ---------- Design system Linchpin ----------
+    --ds-font: 'Figtree', 'Segoe UI', Roboto, "Helvetica Neue", sans-serif;
 
+    // Cores base
+    --ds-primary: #0a84cf;
+    --ds-primary-hover: #0873b5;
+    --ds-primary-soft: #d3eaf8;
+    --ds-primary-softer: #eaf4fb;
+    --ds-link: #287fc5;
+
+    --ds-text: #1b3a5e;
+    --ds-text-muted: #4f6681;
+    --ds-text-soft: #8597ab;
+
+    --ds-bg-app: #f7fafc;
+    --ds-bg-panel: #f6fafc;
+    --ds-bg-right: #f9fbfd;
+    --ds-bg-right-card: #eef5fa;
+    --ds-surface: #ffffff;
+    --ds-surface-alt: #f3f7fa;
+
+    --ds-border: #e5edf4;
+    --ds-border-strong: #d0ddeb;
+
+    // Status
+    --ds-danger: #d42a4f;
+    --ds-danger-bg: #fddbe2;
+    --ds-success: #12874f;
+    --ds-success-bg: #cef3e0;
+    --ds-warning: #a15c07;
+    --ds-warning-bg: #fdecc8;
+
+    // Avatares
+    --ds-avatar-blue: #0b88c9;
+    --ds-avatar-wine: #8e3f5a;
+
+    // Formas e sombras
+    --ds-radius-sm: 8px;
+    --ds-radius: 10px;
+    --ds-radius-lg: 14px;
+    --ds-radius-xl: 18px;
+    --ds-radius-pill: 999px;
+    --ds-shadow-sm: 0 1px 2px rgba(27, 58, 94, 0.04);
+    --ds-shadow: 0 2px 8px rgba(27, 58, 94, 0.05);
+    --ds-shadow-hover: 0 6px 18px rgba(27, 58, 94, 0.09);
+
+    // ---------- Variáveis legadas (mapeadas para o design system) ----------
+    --green-color: var(--ds-border-strong);
+    --right-panel-width: 340px;
+    --right-panel-backgroundColor: var(--ds-bg-right);
+    --hover-panel-right-color: var(--ds-primary);
+    --hover-panel-left-color: var(--ds-primary-soft);
+    --page-header-width: 190px;
+    --left-panel-width: 200px;
+    --secundary-color: var(--ds-danger);
+    --primary-color: var(--ds-primary);
+
+    // Material (fonte e cor primária dos componentes)
+    --mdc-typography-body1-font-family: var(--ds-font);
+    --mdc-typography-body2-font-family: var(--ds-font);
+    --mdc-typography-button-font-family: var(--ds-font);
+    --mdc-typography-subtitle1-font-family: var(--ds-font);
+    --mdc-typography-headline6-font-family: var(--ds-font);
+    --mat-option-label-text-font: var(--ds-font);
+    --mat-select-trigger-text-font: var(--ds-font);
+    --mdc-filled-text-field-label-text-font: var(--ds-font);
+    --mdc-outlined-text-field-label-text-font: var(--ds-font);
+    --mat-form-field-container-text-font: var(--ds-font);
+    --mdc-dialog-subhead-font: var(--ds-font);
+    --mdc-dialog-supporting-text-font: var(--ds-font);
+    --mdc-snackbar-supporting-text-font: var(--ds-font);
+    --mdc-plain-tooltip-supporting-text-font: var(--ds-font);
+    --mat-datepicker-calendar-text-font: var(--ds-font);
+    --mdc-outlined-text-field-focus-outline-color: var(--ds-primary);
+    --mdc-outlined-text-field-focus-label-text-color: var(--ds-primary);
+    --mdc-outlined-text-field-caret-color: var(--ds-primary);
+    --mdc-outlined-text-field-outline-color: var(--ds-border-strong);
+    --mdc-outlined-text-field-hover-outline-color: var(--ds-primary);
+    --mdc-filled-text-field-focus-active-indicator-color: var(--ds-primary);
+    --mdc-filled-text-field-focus-label-text-color: var(--ds-primary);
+    --mdc-filled-text-field-caret-color: var(--ds-primary);
+    --mat-select-focused-arrow-color: var(--ds-primary);
+    --mdc-checkbox-selected-icon-color: var(--ds-primary);
+    --mdc-checkbox-selected-focus-icon-color: var(--ds-primary);
+    --mdc-checkbox-selected-hover-icon-color: var(--ds-primary);
+    --mdc-checkbox-selected-pressed-icon-color: var(--ds-primary);
+    --mdc-radio-selected-icon-color: var(--ds-primary);
+    --mdc-radio-selected-focus-icon-color: var(--ds-primary);
+    --mdc-radio-selected-hover-icon-color: var(--ds-primary);
+    --mdc-radio-selected-pressed-icon-color: var(--ds-primary);
+    --mat-radio-checked-ripple-color: var(--ds-primary);
+    --mdc-dialog-container-shape: var(--ds-radius-xl);
 }

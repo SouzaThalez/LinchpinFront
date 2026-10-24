@@ -54,7 +54,7 @@
         img{
             height: 100px;
             width: 100px;
-            box-shadow: 0px 2px 7px #bdb5b5;
+            box-shadow: var(--ds-shadow);
             border-radius: 5px;
             object-fit: cover;
         }
@@ -91,15 +91,15 @@
                 justify-content: center;
                 cursor: pointer;
                 margin-right: 10px;
-                background-color: rgb(216 249 249);
+                background-color: var(--ds-primary-softer);
                 &:hover{
-                    background-color: rgb(157 217 217)
+                    background-color: var(--ds-primary-soft)
                 }
             }
 
             &:hover{
                 cursor: pointer;
-                background-color: rgb(216 249 249);
+                background-color: var(--ds-primary-softer);
             }
         }
 

@@ -13,16 +13,16 @@
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background-color: #0dcaf0;
+    background-color: var(--ds-primary);
     &:hover{
         cursor: pointer;
     }
 }
 .yes-btn{
-    background-color: #18718d;
+    background-color: var(--ds-primary);
     color: white;
 }
 .no-btn{
-    background-color: #c95c5c;
+    background-color: var(--ds-danger);
     color: white;
 }

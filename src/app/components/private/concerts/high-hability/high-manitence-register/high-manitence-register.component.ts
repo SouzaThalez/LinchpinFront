@@ -5,8 +5,8 @@ import { PreviewLessonReportDialogComponent } from '../../../../shared/preview-l
 import { InterventionReportDialogComponent } from '../../../../shared/intervention-report-dialog/intervention-report-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
+import { interventionRoles, ticketBadgeClass, ticketStatus } from '../../../../../data/ticketStatusData';
 import { User } from '../../../../../models/user';
-import { userRoleType } from '../../../../../enums/userRoles';
 import { UserLogedService } from '../../../../../service/user-loged.service';
 import { InterventionApiService } from '../../../../../service/intervention-api.service';
 
@@ -25,7 +25,8 @@ export class HighManitenceRegisterComponent implements OnInit{
   selectedReport: any;
   
   currentUser: User;
-  userAnalystRole = userRoleType.analyst;
+  ticketStatus = ticketStatus;
+  ticketBadgeClass = ticketBadgeClass;
 
   constructor(
     private httpClient: HttpClient,
@@ -67,45 +68,32 @@ export class HighManitenceRegisterComponent implements OnInit{
 
   openInterventionReport(report: any){
 
-    if(report.hasIntervention){
-
-      this.snackBar.open('Ups! Ja foi registrado uma intervenção!', 'Close', {
-        horizontalPosition: snackBarConfig.horizontalPosition,
-        verticalPosition: snackBarConfig.verticalPosition,
-        duration: snackBarConfig.durationInSeconds * 1000 
-      });
-
+    if(!interventionRoles.includes(this.currentUser?.role)){
+      this.openSnackBar('Ups! Apenas administradores e analistas podem realizar uma intervenção!');
       return
-
     }
 
-    if(this.currentUser.role == this.userAnalystRole){
-      
-      let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
-        disableClose: true,
-        width:'650px',
-      })
+    let dialogRef = this.matDialog.open(InterventionReportDialogComponent,{
+      disableClose: true,
+      width:'650px',
+      // reabre a intervenção já registrada para atualizar o status do chamado
+      data: { intervention: report.intervention },
+    })
 
-      dialogRef.afterClosed().subscribe(result=>{
-  
-        if(result){
-          this.registerIntervention(report, result);
-        }
-      })
-
-    }else{
-      this.snackBar.open('Ups! não é possivél realizar uma intervenção!', 'Close', {
-        horizontalPosition: snackBarConfig.horizontalPosition,
-        verticalPosition: snackBarConfig.verticalPosition,
-        duration: snackBarConfig.durationInSeconds * 1000 
-      });
-    }
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.registerIntervention(report, result);
+      }
+    })
   }
 
   private registerIntervention(report: any, form: InterventionForm){
 
-    this.interventionApi.create('manutenção', report.id, form)
-    .subscribe({
+    const request = report.intervention
+      ? this.interventionApi.update(report.intervention.id, form)
+      : this.interventionApi.create('manutenção', report.id, form);
+
+    request.subscribe({
         next: (intervention)=>{
           report.intervention = intervention;
           report.interventionId = intervention.id;

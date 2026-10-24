@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Simulator } from '../../../../../models/simulator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertDialogComponent } from '../../../../shared/alert-dialog/alert-dialog.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { snackBarConfig } from '../../../../../data/snackBarData';
 import moment from 'moment';
@@ -24,6 +24,9 @@ export class MediumCleaningDialogComponent implements OnInit{
   textMsg = 'Não houve achados durante a limpeza deste simulador';
   snackbarMessage = 'Registro salvo com sucesso!';
   simulatorCodes: Array<any> = [];
+  openTicketMsg = 'Já existe um chamado aberto para este simulador. Feche o chamado antes de registrar um novo achado.';
+  openTicketCodes = new Set<string>();
+  hasOpenTicket = false;
 
   constructor(
     public dialogRef: MatDialogRef<MediumCleaningDialogComponent>,
@@ -39,6 +42,9 @@ export class MediumCleaningDialogComponent implements OnInit{
   ngOnInit(): void {
       this.form = this.createForm();
       this.simulatorCodes = this.data.simulator.codes;
+      this.getOpenTickets();
+
+      this.form.get('simulatorCode')?.valueChanges.subscribe(() => this.checkOpenTicket());
   }
 
   onClose(value: any): void {
@@ -55,6 +61,12 @@ export class MediumCleaningDialogComponent implements OnInit{
   }
 
   onSubmit(): void {
+
+    // com chamado aberto só é possível registrar limpeza sem achados ("Nenhum")
+    if (this.hasOpenTicket && !this.checked) {
+      this.openSnackBar(this.openTicketMsg);
+      return
+    }
 
     if (this.form.valid) {
 
@@ -100,6 +112,27 @@ export class MediumCleaningDialogComponent implements OnInit{
           console.log('request to cleaning-reports is NOT good: ',erro);
           this.openSnackBar(erro.error?.title ?? 'Não foi possível salvar o registro.');
         }
+    })
+  }
+
+  private checkOpenTicket(){
+    const code: string | null = this.form.get('simulatorCode')?.value;
+    this.hasOpenTicket = !!code && this.openTicketCodes.has(code.trim().toUpperCase());
+  }
+
+  private getOpenTickets(){
+    // chamados de limpeza abertos (com achados e ainda não fechados) deste simulador
+    let params = new HttpParams()
+      .set('simulatorId', this.data.simulator.id)
+      .set('open', 'true');
+
+    this.httpClient.get<CleaningReport[]>(environment.apiUrl + '/cleaning-reports', { params })
+    .subscribe({
+        next: (reports)=>{
+          this.openTicketCodes = new Set(reports.map(r => r.simulatorCode.toUpperCase()));
+          this.checkOpenTicket();
+        },
+        error: (erro)=>{console.log('request to open cleaning-reports is NOT good: ',erro);}
     })
   }
 
